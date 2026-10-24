@@ -1,0 +1,336 @@
+[
+ {
+  "q": "Como seu personagem resolve um problema?",
+  "o": [
+   [
+    "Na força",
+    {
+     "c": [
+      "barbaro",
+      "guerreiro",
+      "pugilista",
+      "paladino"
+     ]
+    }
+   ],
+   [
+    "Com astúcia e agilidade",
+    {
+     "c": [
+      "ladino",
+      "patrulheiro",
+      "monge"
+     ]
+    }
+   ],
+   [
+    "Com magia estudada",
+    {
+     "c": [
+      "mago",
+      "artifice"
+     ]
+    }
+   ],
+   [
+    "Com um poder que nasceu com ele",
+    {
+     "c": [
+      "feiticeiro",
+      "bruxo"
+     ]
+    }
+   ],
+   [
+    "Com fé",
+    {
+     "c": [
+      "clerigo",
+      "paladino",
+      "druida"
+     ]
+    }
+   ],
+   [
+    "Na conversa",
+    {
+     "c": [
+      "bardo",
+      "bruxo"
+     ]
+    }
+   ]
+  ]
+ },
+ {
+  "q": "Onde ele cresceu?",
+  "o": [
+   [
+    "Cidade grande",
+    {
+     "p": [
+      "Lords' Alliance"
+     ]
+    }
+   ],
+   [
+    "Aldeia ou fazenda",
+    {
+     "p": [
+      "Independent Realms",
+      "Lords' Alliance"
+     ]
+    }
+   ],
+   [
+    "Ermos e florestas",
+    {
+     "p": [
+      "Independent Realms"
+     ],
+     "r": [
+      "elfo",
+      "meioelfo"
+     ]
+    }
+   ],
+   [
+    "Montanhas ou fortalezas",
+    {
+     "p": [
+      "Dwarfholds of the North"
+     ],
+     "r": [
+      "anao",
+      "gnomo",
+      "golias"
+     ]
+    }
+   ],
+   [
+    "Terras distantes",
+    {
+     "p": [
+      "Island Kingdoms"
+     ]
+    }
+   ],
+   [
+    "Subterrâneo",
+    {
+     "p": [
+      "Underdark"
+     ],
+     "r": [
+      "anao",
+      "gnomo",
+      "elfo"
+     ]
+    }
+   ]
+  ]
+ },
+ {
+  "q": "O que ele fazia antes da aventura?",
+  "o": [
+   [
+    "Servia a um templo",
+    {
+     "a": [
+      "Acólito",
+      "Erudito Enclausurado"
+     ]
+    }
+   ],
+   [
+    "Vivia nas ruas",
+    {
+     "a": [
+      "Órfão",
+      "Criminoso",
+      "Charlatão"
+     ]
+    }
+   ],
+   [
+    "Trabalhava com as mãos",
+    {
+     "a": [
+      "Artesão de Guilda",
+      "Artesão de Clã",
+      "Herói do Povo"
+     ]
+    }
+   ],
+   [
+    "Estudava",
+    {
+     "a": [
+      "Sábio",
+      "Erudito Enclausurado"
+     ]
+    }
+   ],
+   [
+    "Lutava por soldo ou dever",
+    {
+     "a": [
+      "Soldado",
+      "Veterano Mercenário",
+      "Guarda da Cidade",
+      "Cavaleiro da Ordem"
+     ]
+    }
+   ],
+   [
+    "Vivia entre nobres",
+    {
+     "a": [
+      "Nobre",
+      "Cortesão",
+      "Nobre de Waterdeep"
+     ]
+    }
+   ]
+  ]
+ },
+ {
+  "q": "O que o move?",
+  "o": [
+   [
+    "Dever",
+    {}
+   ],
+   [
+    "Curiosidade",
+    {}
+   ],
+   [
+    "Vingança",
+    {}
+   ],
+   [
+    "Riqueza",
+    {}
+   ],
+   [
+    "Fé",
+    {}
+   ],
+   [
+    "Liberdade",
+    {}
+   ]
+  ]
+ },
+ {
+  "q": "Como os outros o veem?",
+  "o": [
+   [
+    "Líder",
+    {}
+   ],
+   [
+    "Solitário",
+    {}
+   ],
+   [
+    "Engraçado",
+    {}
+   ],
+   [
+    "Assustador",
+    {}
+   ],
+   [
+    "Confiável",
+    {}
+   ],
+   [
+    "Misterioso",
+    {}
+   ]
+  ]
+ },
+ {
+  "q": "O que ele esconde ou teme?",
+  "o": [
+   [
+    "Um erro do passado",
+    {}
+   ],
+   [
+    "Uma dívida",
+    {}
+   ],
+   [
+    "Um parente perigoso",
+    {}
+   ],
+   [
+    "Um poder que não controla",
+    {}
+   ],
+   [
+    "Nada, é transparente",
+    {}
+   ]
+  ]
+ },
+ {
+  "q": "Com que povo ele mais se parece?",
+  "o": [
+   [
+    "Humanos",
+    {
+     "r": [
+      "humano"
+     ]
+    }
+   ],
+   [
+    "Anões",
+    {
+     "r": [
+      "anao"
+     ]
+    }
+   ],
+   [
+    "Elfos",
+    {
+     "r": [
+      "elfo",
+      "meioelfo"
+     ]
+    }
+   ],
+   [
+    "Povos pequenos",
+    {
+     "r": [
+      "halfling",
+      "gnomo"
+     ]
+    }
+   ],
+   [
+    "Sangue diferente",
+    {
+     "r": [
+      "draconato",
+      "tiefling",
+      "aasimar",
+      "genasi",
+      "meioorc",
+      "golias"
+     ]
+    }
+   ],
+   [
+    "Tanto faz",
+    {}
+   ]
+  ]
+ }
+]

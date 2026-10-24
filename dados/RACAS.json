@@ -1,0 +1,224 @@
+[
+ {
+  "id": "humano",
+  "n": "Humano",
+  "en": "Human",
+  "idade": "humano",
+  "subs": [
+   [
+    "padrao",
+    "Padrão",
+    "6x1"
+   ],
+   [
+    "variante",
+    "Variante",
+    "1-1-t"
+   ]
+  ]
+ },
+ {
+  "id": "anao",
+  "n": "Anão",
+  "en": "Dwarf",
+  "idade": "anao",
+  "subs": [
+   [
+    "colina",
+    "da Colina (Hill)",
+    "2-1"
+   ],
+   [
+    "montanha",
+    "da Montanha (Mountain)",
+    "2-2"
+   ],
+   [
+    "duergar",
+    "Duergar",
+    "2-1"
+   ]
+  ]
+ },
+ {
+  "id": "elfo",
+  "n": "Elfo",
+  "en": "Elf",
+  "idade": "elfo",
+  "subs": [
+   [
+    "alto",
+    "Alto Elfo (High)",
+    "2-1"
+   ],
+   [
+    "floresta",
+    "da Floresta (Wood)",
+    "2-1"
+   ],
+   [
+    "drow",
+    "Drow",
+    "2-1"
+   ]
+  ]
+ },
+ {
+  "id": "halfling",
+  "n": "Halfling",
+  "en": "Halfling",
+  "idade": "halfling",
+  "subs": [
+   [
+    "pesleves",
+    "Pés-Leves (Lightfoot)",
+    "2-1"
+   ],
+   [
+    "robusto",
+    "Robusto (Stout)",
+    "2-1"
+   ]
+  ]
+ },
+ {
+  "id": "gnomo",
+  "n": "Gnomo",
+  "en": "Gnome",
+  "idade": "gnomo_rochas",
+  "subs": [
+   [
+    "rochas",
+    "das Rochas (Rock)",
+    "2-1"
+   ],
+   [
+    "florestag",
+    "da Floresta (Forest)",
+    "2-1"
+   ],
+   [
+    "svirf",
+    "Svirfneblin (Deep Gnome)",
+    "2-1",
+    "gnomo_prof"
+   ]
+  ]
+ },
+ {
+  "id": "meioelfo",
+  "n": "Meio-elfo",
+  "en": "Half-Elf",
+  "idade": "meioelfo",
+  "subs": [
+   [
+    "u",
+    "—",
+    "2-1-1"
+   ]
+  ]
+ },
+ {
+  "id": "meioorc",
+  "n": "Meio-orc",
+  "en": "Half-Orc",
+  "idade": "meioorc",
+  "subs": [
+   [
+    "u",
+    "—",
+    "2-1"
+   ]
+  ]
+ },
+ {
+  "id": "draconato",
+  "n": "Draconato",
+  "en": "Dragonborn",
+  "idade": "humano",
+  "subs": [
+   [
+    "u",
+    "—",
+    "2-1"
+   ]
+  ]
+ },
+ {
+  "id": "tiefling",
+  "n": "Tiefling",
+  "en": "Tiefling",
+  "idade": "planos",
+  "subs": [
+   [
+    "u",
+    "—",
+    "2-1"
+   ]
+  ]
+ },
+ {
+  "id": "aasimar",
+  "n": "Aasimar",
+  "en": "Aasimar",
+  "idade": "planos",
+  "subs": [
+   [
+    "protetor",
+    "Protetor (Protector)",
+    "2-1"
+   ],
+   [
+    "flagelo",
+    "Flagelo (Scourge)",
+    "2-1"
+   ],
+   [
+    "caido",
+    "Caído (Fallen)",
+    "2-1"
+   ]
+  ]
+ },
+ {
+  "id": "genasi",
+  "n": "Genasi",
+  "en": "Genasi",
+  "idade": "planos",
+  "subs": [
+   [
+    "ar",
+    "do Ar (Air)",
+    "2-1"
+   ],
+   [
+    "terra",
+    "da Terra (Earth)",
+    "2-1"
+   ],
+   [
+    "fogo",
+    "do Fogo (Fire)",
+    "2-1"
+   ],
+   [
+    "agua",
+    "da Água (Water)",
+    "2-1"
+   ]
+  ]
+ },
+ {
+  "id": "golias",
+  "n": "Golias",
+  "en": "Goliath",
+  "idade": "humano",
+  "subs": [
+   [
+    "u",
+    "—",
+    "2-1"
+   ]
+  ]
+ }
+]

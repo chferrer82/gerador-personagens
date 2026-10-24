@@ -1,0 +1,29 @@
+{% extends "_mestre_base.html" %}
+{% block corpo %}
+<h1>Fichas dos jogadores</h1>
+<p class="sub">{{ total }} ficha{{ '' if total == 1 else 's' }} enviada{{ '' if total == 1 else 's' }}{% if q %} · {{ linhas|length }} com “{{ q }}”{% endif %}</p>
+<form class="busca" method="get" action="/mestre" role="search">
+  <input type="search" id="q" name="q" value="{{ q }}" placeholder="Buscar por jogador, e-mail, personagem, raça ou classe" aria-label="Buscar fichas">
+  <button class="btn" type="submit">Buscar</button>
+  {% if q %}<a class="btn sec" href="/mestre">Limpar</a>{% endif %}
+</form>
+<div class="scroll">
+{% if linhas %}
+<table>
+  <thead><tr><th>Personagem</th><th>Jogador</th><th>E-mail</th><th>Enviada</th></tr></thead>
+  <tbody>
+  {% for f in linhas %}
+    <tr>
+      <td class="pers"><a href="/mestre/ficha/{{ f['id'] }}">{{ f['personagem'] }}</a><div class="sub" style="margin:0">{{ f['resumo'] }}</div></td>
+      <td>{{ f['jogador'] }}</td>
+      <td>{{ f['email'] }}</td>
+      <td class="quando">{{ f['criada_em']|data }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p class="vazio">{% if q %}Nenhuma ficha com “{{ q }}”.{% else %}Nenhuma ficha enviada ainda. Quando um jogador terminar o personagem e tocar em “Enviar ao mestre”, ela aparece aqui.{% endif %}</p>
+{% endif %}
+</div>
+{% endblock %}

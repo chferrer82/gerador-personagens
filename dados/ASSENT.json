@@ -1,0 +1,202 @@
+{
+ "Lords' Alliance": [
+  [
+   1,
+   10,
+   "Amphail"
+  ],
+  [
+   11,
+   25,
+   "Baldur's Gate"
+  ],
+  [
+   26,
+   39,
+   "Daggerford"
+  ],
+  [
+   40,
+   40,
+   "Longsaddle"
+  ],
+  [
+   41,
+   50,
+   "Mirabar"
+  ],
+  [
+   51,
+   60,
+   "Neverwinter"
+  ],
+  [
+   61,
+   70,
+   "Silverymoon"
+  ],
+  [
+   71,
+   90,
+   "Waterdeep"
+  ],
+  [
+   91,
+   100,
+   "Yartar"
+  ]
+ ],
+ "Dwarfholds of the North": [
+  [
+   1,
+   20,
+   "Citadel Adbar"
+  ],
+  [
+   21,
+   40,
+   "Citadel Felbarr"
+  ],
+  [
+   41,
+   60,
+   "Gauntlgrym"
+  ],
+  [
+   61,
+   70,
+   "Ironmaster"
+  ],
+  [
+   71,
+   80,
+   "Mithral Hall"
+  ],
+  [
+   81,
+   99,
+   "Sundabar"
+  ],
+  [
+   100,
+   100,
+   "Thornhold"
+  ]
+ ],
+ "Island Kingdoms": [
+  [
+   1,
+   25,
+   "Mintarn"
+  ],
+  [
+   26,
+   35,
+   "Northlander Isles"
+  ],
+  [
+   36,
+   85,
+   "Moonshae Isles"
+  ],
+  [
+   86,
+   89,
+   "Orlumbor"
+  ],
+  [
+   90,
+   99,
+   "Southern Isles"
+  ],
+  [
+   100,
+   100,
+   "Evermeet"
+  ]
+ ],
+ "Independent Realms": [
+  [
+   1,
+   1,
+   "Boareskyr Bridge"
+  ],
+  [
+   2,
+   4,
+   "Candlekeep"
+  ],
+  [
+   5,
+   5,
+   "Darkhold"
+  ],
+  [
+   6,
+   31,
+   "Elturgard"
+  ],
+  [
+   32,
+   41,
+   "Evereska"
+  ],
+  [
+   42,
+   48,
+   "Hartsvale"
+  ],
+  [
+   49,
+   49,
+   "Helm's Hold"
+  ],
+  [
+   50,
+   52,
+   "High Moor"
+  ],
+  [
+   53,
+   55,
+   "Trielta Hills"
+  ],
+  [
+   56,
+   60,
+   "Uthgardt Lands"
+  ],
+  [
+   61,
+   90,
+   "Luskan"
+  ],
+  [
+   91,
+   100,
+   "Icewind Dale"
+  ]
+ ],
+ "Underdark": [
+  [
+   1,
+   20,
+   "Gracklstugh"
+  ],
+  [
+   21,
+   30,
+   "Mantol-Derith"
+  ],
+  [
+   31,
+   80,
+   "Menzoberranzan"
+  ],
+  [
+   81,
+   100,
+   "Blingdenstone"
+  ]
+ ]
+}

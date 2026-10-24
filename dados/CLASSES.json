@@ -1,0 +1,86 @@
+[
+ {
+  "id": "artifice",
+  "n": "Artífice",
+  "en": "Artificer",
+  "g": "c"
+ },
+ {
+  "id": "barbaro",
+  "n": "Bárbaro",
+  "en": "Barbarian",
+  "g": "s"
+ },
+ {
+  "id": "bardo",
+  "n": "Bardo",
+  "en": "Bard",
+  "g": "i"
+ },
+ {
+  "id": "bruxo",
+  "n": "Bruxo",
+  "en": "Warlock",
+  "g": "s"
+ },
+ {
+  "id": "clerigo",
+  "n": "Clérigo",
+  "en": "Cleric",
+  "g": "c"
+ },
+ {
+  "id": "druida",
+  "n": "Druida",
+  "en": "Druid",
+  "g": "c"
+ },
+ {
+  "id": "feiticeiro",
+  "n": "Feiticeiro",
+  "en": "Sorcerer",
+  "g": "s"
+ },
+ {
+  "id": "guerreiro",
+  "n": "Guerreiro",
+  "en": "Fighter",
+  "g": "i"
+ },
+ {
+  "id": "ladino",
+  "n": "Ladino",
+  "en": "Rogue",
+  "g": "s"
+ },
+ {
+  "id": "mago",
+  "n": "Mago",
+  "en": "Wizard",
+  "g": "c"
+ },
+ {
+  "id": "monge",
+  "n": "Monge",
+  "en": "Monk",
+  "g": "c"
+ },
+ {
+  "id": "paladino",
+  "n": "Paladino",
+  "en": "Paladin",
+  "g": "i"
+ },
+ {
+  "id": "patrulheiro",
+  "n": "Patrulheiro",
+  "en": "Ranger",
+  "g": "i"
+ },
+ {
+  "id": "pugilista",
+  "n": "Pugilista",
+  "en": "Pugilist",
+  "g": "s"
+ }
+]

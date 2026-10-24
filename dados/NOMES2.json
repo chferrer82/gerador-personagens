@@ -1,0 +1,527 @@
+{
+ "H": {
+  "tethyriano": {
+   "l": "Tethyriano — Costa da Espada, Amn, Tethyr",
+   "m": [
+    "Aldren",
+    "Baltar",
+    "Corvin",
+    "Dastan",
+    "Edmar",
+    "Faustin",
+    "Gerran",
+    "Hadrian",
+    "Lucius",
+    "Marcel",
+    "Reinald",
+    "Tavian"
+   ],
+   "f": [
+    "Adela",
+    "Beatrix",
+    "Carmina",
+    "Delphine",
+    "Elara",
+    "Fiora",
+    "Gwendel",
+    "Isabeau",
+    "Lucinda",
+    "Mirela",
+    "Rosalind",
+    "Sabina"
+   ],
+   "s": [
+    "Alvarane",
+    "Castellan",
+    "Dornavel",
+    "Esteval",
+    "Faircastle",
+    "Galvane",
+    "Hollowmere",
+    "Marenholt",
+    "Ravenmoor",
+    "Serrano",
+    "Thornwall",
+    "Valmont"
+   ]
+  },
+  "chondathano": {
+   "l": "Chondathano — Cormyr, Dalelands, Sembia, Moonsea",
+   "m": [
+    "Ansel",
+    "Bertram",
+    "Cedric",
+    "Dunstan",
+    "Everard",
+    "Godric",
+    "Harlan",
+    "Leofric",
+    "Osmund",
+    "Percival",
+    "Roderick",
+    "Wystan"
+   ],
+   "f": [
+    "Aveline",
+    "Blanche",
+    "Cecily",
+    "Edith",
+    "Emmeline",
+    "Gwyneth",
+    "Hilde",
+    "Juliana",
+    "Margery",
+    "Matilda",
+    "Odette",
+    "Winifred"
+   ],
+   "s": [
+    "Ashcombe",
+    "Blackwood",
+    "Cresthill",
+    "Dunmore",
+    "Fallowby",
+    "Greymantle",
+    "Hartwell",
+    "Lanternby",
+    "Millbrook",
+    "Oakhurst",
+    "Stonebridge",
+    "Wyndham"
+   ]
+  },
+  "illuskano": {
+   "l": "Illuskano — Norte (Luskan, Icewind Dale, Neverwinter, Silverymoon…)",
+   "m": [
+    "Arvid",
+    "Bjorn",
+    "Egil",
+    "Folke",
+    "Gunnar",
+    "Halvard",
+    "Ingvar",
+    "Leif",
+    "Njal",
+    "Sigvald",
+    "Torsten",
+    "Ulfar"
+   ],
+   "f": [
+    "Astrid",
+    "Brynja",
+    "Dagny",
+    "Eira",
+    "Freydis",
+    "Gudrun",
+    "Hallveig",
+    "Ingrid",
+    "Ragna",
+    "Sigrid",
+    "Thyra",
+    "Valka"
+   ],
+   "s": [
+    "Arnsson",
+    "Bjornsdal",
+    "Eiriksson",
+    "Frostmark",
+    "Grimsby",
+    "Haldursson",
+    "Ironfjord",
+    "Seaholm",
+    "Stormhald",
+    "Thorvik",
+    "Ulvaeng",
+    "Wolfhelm"
+   ]
+  },
+  "ffolk": {
+   "l": "Ffolk — Moonshae Isles",
+   "m": [
+    "Aeddan",
+    "Cadoc",
+    "Cai",
+    "Dyfan",
+    "Emrys",
+    "Gethin",
+    "Idris",
+    "Madoc",
+    "Owain",
+    "Rhodri",
+    "Taliesin",
+    "Tudur"
+   ],
+   "f": [
+    "Angharad",
+    "Bronwen",
+    "Carys",
+    "Dilys",
+    "Eluned",
+    "Ffion",
+    "Gwenllian",
+    "Heledd",
+    "Lowri",
+    "Morfudd",
+    "Nest",
+    "Tegwen"
+   ],
+   "s": [
+    "ap Rhys",
+    "ab Owain",
+    "Caerwyn",
+    "Glynmor",
+    "Llewellin",
+    "Morgant",
+    "Penhallow",
+    "Pennant",
+    "Trefor",
+    "Tregarth",
+    "Vaughn",
+    "Merrow"
+   ]
+  },
+  "calishita": {
+   "l": "Calishita — Calimshan",
+   "m": [
+    "Adil",
+    "Basim",
+    "Faruq",
+    "Hakim",
+    "Jamal",
+    "Karim",
+    "Mansur",
+    "Nasir",
+    "Qadir",
+    "Rashid",
+    "Tariq",
+    "Zafir"
+   ],
+   "f": [
+    "Amira",
+    "Basma",
+    "Dalia",
+    "Farah",
+    "Habiba",
+    "Jamila",
+    "Layla",
+    "Nadira",
+    "Rania",
+    "Samira",
+    "Yasmin",
+    "Zahra"
+   ],
+   "s": [
+    "el-Bahir",
+    "el-Farouk",
+    "el-Jazir",
+    "el-Mansur",
+    "el-Nadim",
+    "el-Saffar",
+    "el-Sayed",
+    "el-Zahir",
+    "ibn Hakim",
+    "ibn Karim",
+    "ibn Tariq",
+    "ibn Zafir"
+   ]
+  },
+  "mulano": {
+   "l": "Mulano — Thay",
+   "m": [
+    "Amenhet",
+    "Bakhu",
+    "Djehut",
+    "Hor-Mesu",
+    "Khaemset",
+    "Menkaru",
+    "Nebamun",
+    "Pasheru",
+    "Ramesu",
+    "Sethenu",
+    "Tahmet",
+    "Userhet"
+   ],
+   "f": [
+    "Ahmesa",
+    "Beketra",
+    "Hatneferu",
+    "Isetka",
+    "Khemi",
+    "Meritra",
+    "Nebet",
+    "Neferu",
+    "Sitamen",
+    "Takhat",
+    "Tiye",
+    "Weret"
+   ],
+   "s": [
+    "Ankhaten",
+    "Djeserkar",
+    "Hekanakht",
+    "Khepera",
+    "Menhotep",
+    "Nebmaat",
+    "Paherkhet",
+    "Ramessa",
+    "Senuset",
+    "Setnakhet",
+    "Tjeneri",
+    "Wosret"
+   ]
+  },
+  "rashemi": {
+   "l": "Rashemi — Rashemen",
+   "m": [
+    "Bohdan",
+    "Dobrin",
+    "Gorislav",
+    "Ivashko",
+    "Miroslav",
+    "Radomir",
+    "Stanimir",
+    "Svyatoslav",
+    "Vadim",
+    "Velimir",
+    "Yaroslav",
+    "Zoran"
+   ],
+   "f": [
+    "Bogdana",
+    "Darina",
+    "Dobrava",
+    "Lada",
+    "Lyudmila",
+    "Milena",
+    "Radmila",
+    "Snezhana",
+    "Vesna",
+    "Yarina",
+    "Zlata",
+    "Zorya"
+   ],
+   "s": [
+    "Belogor",
+    "Dragomirov",
+    "Gorodin",
+    "Ivashev",
+    "Kovalenko",
+    "Morozov",
+    "Radek",
+    "Sokolov",
+    "Strelnik",
+    "Volkov",
+    "Yarovit",
+    "Zaryn"
+   ]
+  },
+  "chultano": {
+   "l": "Chultano — Chult",
+   "m": [
+    "Adebayo",
+    "Chidi",
+    "Dayo",
+    "Ekon",
+    "Jabari",
+    "Kofi",
+    "Kwame",
+    "Obi",
+    "Sefu",
+    "Tau",
+    "Yaw",
+    "Zuberi"
+   ],
+   "f": [
+    "Abeni",
+    "Adaeze",
+    "Ayo",
+    "Chinwe",
+    "Ebere",
+    "Folami",
+    "Imani",
+    "Kamaria",
+    "Nia",
+    "Nkechi",
+    "Oluchi",
+    "Zola"
+   ],
+   "s": [
+    "Adeyemi",
+    "Bankole",
+    "Chukwu",
+    "Danjuma",
+    "Ekwueme",
+    "Folarin",
+    "Idowu",
+    "Kalu",
+    "Mensah",
+    "Nwosu",
+    "Okafor",
+    "Olatunji"
+   ]
+  },
+  "bedine": {
+   "l": "Bedine — Anauroch",
+   "m": [
+    "Abbas",
+    "Dhakir",
+    "Ghalib",
+    "Hadi",
+    "Jasim",
+    "Kasim",
+    "Munir",
+    "Rafiq",
+    "Salim",
+    "Wahid",
+    "Yazid",
+    "Zaid"
+   ],
+   "f": [
+    "Afra",
+    "Bushra",
+    "Dunya",
+    "Ghada",
+    "Hind",
+    "Kawthar",
+    "Lubna",
+    "Maysa",
+    "Nawal",
+    "Ruqaya",
+    "Salma",
+    "Wafa"
+   ],
+   "s": [
+    "Banu Kharim",
+    "Banu Mazal",
+    "Banu Qasir",
+    "Banu Rasan",
+    "Banu Safir",
+    "Banu Tahir",
+    "Banu Wadim",
+    "Banu Zayyan",
+    "Banu Fahd",
+    "Banu Jalal",
+    "Banu Nizar",
+    "Banu Sahm"
+   ]
+  }
+ },
+ "S": {
+  "anao": {
+   "l": "Clã (anão)",
+   "s": [
+    "Barba-de-Brasa",
+    "Bigorna-Funda",
+    "Cinzel-Rubro",
+    "Elmo-Partido",
+    "Forja-Antiga",
+    "Machado-Rachado",
+    "Malho-Negro",
+    "Martelo-de-Granito",
+    "Pedra-Viva",
+    "Punho-de-Cobre",
+    "Runa-Firme",
+    "Veio-de-Prata"
+   ]
+  },
+  "elfo": {
+   "l": "Família (elfo), com o significado",
+   "s": [
+    "Aelthorien (Folha de Prata)",
+    "Caelmyr (Céu Sereno)",
+    "Elunaris (Luz da Lua)",
+    "Faeloren (Canto do Bosque)",
+    "Ilvasyr (Estrela Oculta)",
+    "Lirathil (Orvalho Claro)",
+    "Morwathel (Sombra de Salgueiro)",
+    "Naerys (Brisa do Rio)",
+    "Sylvanor (Coração da Floresta)",
+    "Thaelion (Chama Serena)",
+    "Vaelith (Pétala ao Vento)",
+    "Ythrandil (Asa de Garça)"
+   ]
+  },
+  "halfling": {
+   "l": "Sobrenome (halfling)",
+   "s": [
+    "Bolo-Quente",
+    "Colina-Verde",
+    "Copo-Cheio",
+    "Fumo-Doce",
+    "Maçã-Dourada",
+    "Pão-de-Mel",
+    "Pé-Ligeiro",
+    "Pedra-Redonda",
+    "Rio-Sereno",
+    "Sebe-Baixa",
+    "Toca-Funda",
+    "Trevo-Alto"
+   ]
+  },
+  "gnomo": {
+   "l": "Clã (gnomo)",
+   "s": [
+    "Brassfiddle",
+    "Dimblenook",
+    "Fizzlebrook",
+    "Gearnottle",
+    "Glimmerpot",
+    "Knobbletop",
+    "Nockerby",
+    "Pindlewick",
+    "Quillfuss",
+    "Sprocketeer",
+    "Tinderbell",
+    "Wobblegear"
+   ]
+  },
+  "draconato": {
+   "l": "Clã (draconato) — vem antes do nome",
+   "s": [
+    "Arzhanthalos",
+    "Belkavorrin",
+    "Charrazeth",
+    "Dhaskarnith",
+    "Ixtharrasil",
+    "Kelthazarun",
+    "Mordrakhesh",
+    "Nazhtyrrion",
+    "Qethrasandor",
+    "Sarvakhiroth",
+    "Tazhvennix",
+    "Vyrrakthalor"
+   ]
+  },
+  "golias": {
+   "l": "Clã (golias)",
+   "s": [
+    "Akaluvaki",
+    "Dhaunakai",
+    "Gathuveki",
+    "Ilunakala",
+    "Kathovanu",
+    "Lokanahai",
+    "Mauvekeni",
+    "Nakathuri",
+    "Oloveki",
+    "Tharunaka",
+    "Uvakali",
+    "Vaulakona"
+   ]
+  }
+ },
+ "A": [
+  "Pula-Pedra",
+  "Mão-Firme",
+  "Olho-de-Águia",
+  "Passo-Longo",
+  "Queda-Rara",
+  "Grita-Alto",
+  "Carrega-Tudo",
+  "Sobe-Primeiro",
+  "Dorme-Pouco",
+  "Bate-Certo",
+  "Ri-do-Frio",
+  "Conta-Estrelas"
+ ]
+}

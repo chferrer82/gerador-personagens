@@ -1,0 +1,74 @@
+{
+ "FOR": [
+  "Mal consegue carregar uma mochila cheia.",
+  "Cansa ao subir escadas com peso; portas emperradas o vencem.",
+  "Mais fraco que a maioria; evita trabalho braçal.",
+  "Um pouco abaixo da média; dá conta do básico.",
+  "Força de uma pessoa comum.",
+  "Carrega peso sem reclamar; às vezes ganha uma queda de braço.",
+  "Forte como um estivador; desatola carroças.",
+  "Chama atenção pela força; ergue um adulto sem esforço.",
+  "Entre os mais fortes da cidade; entorta ferraduras.",
+  "Força de lenda; histórias sobre ela correm pelas tavernas."
+ ],
+ "DES": [
+  "Tropeça nos próprios pés e derruba quase tudo que segura.",
+  "Desajeitado; cai com frequência e erra o que tenta pegar.",
+  "Movimentos lentos e pouco precisos.",
+  "Um pouco atrapalhado, mas sem vexames.",
+  "Agilidade de uma pessoa comum.",
+  "Boa coordenação; pega no ar o que cai da mesa.",
+  "Ágil e preciso; anda sobre muros estreitos.",
+  "Rápido como um gato; poucos o acompanham.",
+  "Reflexos de acrobata de circo.",
+  "Parece mover-se antes que os outros pisquem."
+ ],
+ "CON": [
+  "Adoece com qualquer vento frio.",
+  "Frágil; perde o fôlego rápido e demora a se recuperar.",
+  "Cansa cedo e sente o corpo nas longas jornadas.",
+  "Aguenta um dia normal, mas não muito além.",
+  "Saúde e fôlego de uma pessoa comum.",
+  "Raramente adoece; aguenta longas caminhadas.",
+  "Resistente; trabalha o dia inteiro e ainda sobra energia.",
+  "Aguenta fome, frio e ferimentos que derrubariam outros.",
+  "Parece feito de pedra; quase nada o abala.",
+  "Resistência de lenda; sobrevive ao que ninguém sobreviveria."
+ ],
+ "INT": [
+  "Tem dificuldade com ideias simples e esquece o que ouviu.",
+  "Aprende devagar; contas e instruções o confundem.",
+  "Raciocina com esforço; prefere que outros planejem.",
+  "Um pouco abaixo da média; entende o essencial.",
+  "Inteligência de uma pessoa comum.",
+  "Aprende rápido e lembra bem do que leu.",
+  "Mente afiada; resolve enigmas que travam os outros.",
+  "Brilhante; sábios gostam de discutir com ele.",
+  "Gênio reconhecido; domina um assunto em pouco tempo.",
+  "Intelecto raro, comparado ao dos grandes arquimagos."
+ ],
+ "SAB": [
+  "Não percebe o perigo nem quando está diante dele.",
+  "Ingênuo; acredita em quase tudo e percebe pouco.",
+  "Age por impulso e deixa passar detalhes.",
+  "Um pouco desatento, mas não é fácil de enganar.",
+  "Bom senso de uma pessoa comum.",
+  "Atento; costuma notar quando algo está errado.",
+  "Perceptivo e sensato; os amigos pedem seus conselhos.",
+  "Enxerga intenções ocultas e raramente se engana.",
+  "Lê pessoas e lugares como um livro aberto.",
+  "Sabedoria de profeta; poucos segredos lhe escapam."
+ ],
+ "CAR": [
+  "Quase ninguém quer sua companhia; fala e não é ouvido.",
+  "Causa desconforto; suas palavras soam erradas.",
+  "Passa despercebido ou causa má impressão.",
+  "Um pouco sem graça, mas não afasta ninguém.",
+  "Presença de uma pessoa comum.",
+  "Simpático; faz amigos com facilidade.",
+  "Chama atenção ao entrar num lugar; convence com facilidade.",
+  "Magnético; multidões param para ouvi-lo.",
+  "Inspira lealdade e devoção por onde passa.",
+  "Presença de lenda; reis e plebeus se calam para ouvi-lo."
+ ]
+}

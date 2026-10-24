@@ -1,0 +1,147 @@
+{
+ "ATR": {
+  "descricao": "Atributos: sigla e nome",
+  "fonte": "",
+  "observacao": ""
+ },
+ "PATRIA": {
+  "descricao": "Pátria (d100)",
+  "fonte": "Heroic Chronicle: Sword Coast and the North — PROJETO 3.1 (verificado)",
+  "observacao": ""
+ },
+ "ASSENT": {
+  "descricao": "Assentamentos por região (d100)",
+  "fonte": "Heroic Chronicle — PROJETO 3.1 (verificado)",
+  "observacao": ""
+ },
+ "REG_EXTRA": {
+  "descricao": "Regiões adicionais, só por escolha",
+  "fonte": "PROJETO 3.2",
+  "observacao": "Proposta; aprovação pendente (P8g)."
+ },
+ "ANTEC": {
+  "descricao": "Antecedentes (d100)",
+  "fonte": "Heroic Chronicle — PROJETO 6.1 (verificado)",
+  "observacao": "Nomes em português a conferir com a tradução oficial."
+ },
+ "RACAS": {
+  "descricao": "Raças jogáveis, sub-raças e formato das fichas",
+  "fonte": "PROJETO 5 e 7.2",
+  "observacao": "Formato das fichas por sub-raça: PROJETO 7.2 pede confirmação na fonte [NÃO VERIFICADO]. As raças exóticas são acrescentadas pela página a partir de EXO."
+ },
+ "FMT": {
+  "descricao": "Formatos das fichas raciais (regra do Tasha)",
+  "fonte": "PROJETO 7.2",
+  "observacao": ""
+ },
+ "EXO": {
+  "descricao": "Raças exóticas (d100)",
+  "fonte": "PROJETO 7.8 (tabela própria, aprovada)",
+  "observacao": "Nomes em português [NÃO VERIFICADO] (P13d)."
+ },
+ "IDADE_EXO": {
+  "descricao": "Idade adulta das raças exóticas e linha da Tabela I-11 usada nos dados",
+  "fonte": "Artifact de 30/09/2026",
+  "observacao": "Não registrado no PROJETO.md v0.8 [NÃO VERIFICADO]."
+ },
+ "RACA_SUP": {
+  "descricao": "Raça suplementar de NPCs (d100); 96–100 = raça exótica",
+  "fonte": "This Is Your Life — PROJETO 7.8",
+  "observacao": ""
+ },
+ "CLASSES": {
+  "descricao": "Classes e grupo de idade (s/i/c)",
+  "fonte": "PROJETO 5 e 7.7",
+  "observacao": ""
+ },
+ "CLASSE_SUP": {
+  "descricao": "Classe suplementar de NPCs (d100)",
+  "fonte": "This Is Your Life — PROJETO 7.5",
+  "observacao": ""
+ },
+ "SUBCL": {
+  "descricao": "Subclasses de nível 1 (Clérigo, Feiticeiro, Bruxo)",
+  "fonte": "PROJETO 5 (P1c)",
+  "observacao": ""
+ },
+ "DEUSES": {
+  "descricao": "Divindades por grupo (lista do mestre)",
+  "fonte": "PROJETO 3.3",
+  "observacao": "Exibição e domínios: P8h, P8i; situação em 1490 DR: P8j."
+ },
+ "IDADE": {
+  "descricao": "Idade inicial por linha da Tabela I-11 (a = adulta; s/i/c = [nº de dados, faces])",
+  "fonte": "PROJETO 7.7 — Idades_Raça_dnd35.png",
+  "observacao": "Anão, coluna Intermediária = 5d6 segue a sugestão da P12f, que continua aberta."
+ },
+ "PB_CUSTO": {
+  "descricao": "Compra de pontos: custo por valor (27 pontos, de 8 a 15)",
+  "fonte": "Regras Básicas 2014 (D&D Beyond), Variant: Customizing Ability Scores — verificado em 24/10/2026",
+  "observacao": ""
+ },
+ "PERFIS": {
+  "descricao": "Perfis prontos de atributos (todos gastam exatamente 27 pontos)",
+  "fonte": "Tabela própria do projeto (P23)",
+  "observacao": "Aguarda aprovação do mestre."
+ },
+ "ORDEM_CLASSE": {
+  "descricao": "Ordem de prioridade dos atributos por classe (e estilo de luta)",
+  "fonte": "Tabela própria do projeto (P23)",
+  "observacao": "Aguarda aprovação do mestre. Pugilista sem ordem até o arquivo da classe (P18)."
+ },
+ "ARRAY": {
+  "descricao": "Array padrão",
+  "fonte": "PROJETO 7.1",
+  "observacao": ""
+ },
+ "FAIXAS": {
+  "descricao": "Faixas de valor da escala humana",
+  "fonte": "PROJETO 7.3 (texto próprio)",
+  "observacao": ""
+ },
+ "ESCALA": {
+  "descricao": "Escala humana: uma frase por faixa e atributo",
+  "fonte": "PROJETO 7.3 (texto próprio)",
+  "observacao": ""
+ },
+ "VAGA": {
+  "descricao": "Perguntas guiadas do caminho 'Ideia vaga'",
+  "fonte": "PROJETO 6 (texto próprio)",
+  "observacao": ""
+ },
+ "DESC": {
+  "descricao": "Descrições das raças (voz do anão ranzinza)",
+  "fonte": "Texto próprio",
+  "observacao": ""
+ },
+ "DESC_CL": {
+  "descricao": "Descrições das classes (mesma voz)",
+  "fonte": "Texto próprio",
+  "observacao": ""
+ },
+ "NOMES": {
+  "descricao": "Nomes por raça (12 por coluna, d12)",
+  "fonte": "NOMES_RACAS.md (texto próprio)",
+  "observacao": "Divergência: NOMES_RACAS.md v2 tem 30 nomes por coluna e o dado está em aberto (P16a)."
+ },
+ "NOMES2": {
+  "descricao": "Nomes humanos por estilo regional, sobrenomes e clãs",
+  "fonte": "Artifact de 30/09/2026",
+  "observacao": "Não consta do NOMES_RACAS.md v2 (lá, P16b e P16c estão abertas)."
+ },
+ "ESTILO_LUGAR": {
+  "descricao": "Assentamento → estilo regional de nome humano",
+  "fonte": "Artifact de 30/09/2026",
+  "observacao": ""
+ },
+ "SOB_HUMANO": {
+  "descricao": "Raças que usam sobrenomes humanos",
+  "fonte": "Artifact de 30/09/2026",
+  "observacao": ""
+ },
+ "CR": {
+  "descricao": "Tabelas da crônica (estrutura do This Is Your Life + tabelas próprias), com marca L/P",
+  "fonte": "This_is_your_life, CRONICA_MARCACAO.md, ANTECEDENTES_SCAG.md",
+  "observacao": "Modo leve no artifact troca o resultado pesado pela entrada leve vizinha; o PROJETO 7.6 diz re-rolar. Divergência a decidir."
+ }
+}

@@ -1,0 +1,20 @@
+# Blueprint do Render (campos conferidos em render.com/docs/yaml-spec, 24/10/2026).
+# Plano gratuito: o serviço dorme após 15 min sem acesso e leva cerca de 1 min para acordar.
+# O disco do plano gratuito é apagado a cada reinício, por isso as fichas ficam no Neon (Postgres).
+services:
+  - type: web
+    name: gerador-personagens
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --workers 2 --bind 0.0.0.0:$PORT
+    healthCheckPath: /saude
+    envVars:
+      - key: DATABASE_URL
+        sync: false   # o Render pede: cole a connection string do Neon
+      - key: MESTRE_SENHA
+        sync: false   # o Render pede: a senha da área do mestre
+      - key: MESTRE_USUARIO
+        value: mestre
+      - key: MESTRE_FUSO
+        value: America/New_York

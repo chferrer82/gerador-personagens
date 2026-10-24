@@ -1,0 +1,1082 @@
+{
+ "anao": {
+  "m": [
+   "Balgrim",
+   "Dorvin",
+   "Grundar",
+   "Haldrek",
+   "Korgun",
+   "Morvek",
+   "Orsk",
+   "Rurik",
+   "Stonvar",
+   "Tovrin",
+   "Ulgar",
+   "Vondal"
+  ],
+  "f": [
+   "Ammra",
+   "Brunhild",
+   "Dagna",
+   "Edda",
+   "Gunnra",
+   "Helga",
+   "Ingra",
+   "Kelda",
+   "Magda",
+   "Rikka",
+   "Sigrun",
+   "Yrsa"
+  ]
+ },
+ "elfo": {
+  "m": [
+   "Aerevan",
+   "Caelith",
+   "Elarion",
+   "Faelan",
+   "Ilvaran",
+   "Melandir",
+   "Naeris",
+   "Orinthal",
+   "Sylvar",
+   "Thalion",
+   "Vaelor",
+   "Yrlan"
+  ],
+  "f": [
+   "Aelira",
+   "Amarel",
+   "Ciriel",
+   "Elowen",
+   "Faeryn",
+   "Ilyana",
+   "Lyssara",
+   "Miriel",
+   "Sariel",
+   "Thalanis",
+   "Vaela",
+   "Ysolde"
+  ]
+ },
+ "halfling": {
+  "m": [
+   "Barnabus",
+   "Corbin",
+   "Dillard",
+   "Fennick",
+   "Hobson",
+   "Jasper",
+   "Nib",
+   "Ollo",
+   "Pipkin",
+   "Rufus",
+   "Tobble",
+   "Wendel"
+  ],
+  "f": [
+   "Amaryllis",
+   "Clover",
+   "Daisy",
+   "Fern",
+   "Hazel",
+   "Lavinia",
+   "Marigold",
+   "Nettie",
+   "Poppy",
+   "Rosie",
+   "Tansy",
+   "Wren"
+  ]
+ },
+ "gnomo": {
+  "m": [
+   "Bimbleton",
+   "Dabbin",
+   "Fizwick",
+   "Gribbet",
+   "Jorbo",
+   "Kibbet",
+   "Mizzle",
+   "Nockett",
+   "Pibbin",
+   "Tinkwell",
+   "Wobbet",
+   "Zizzle"
+  ],
+  "f": [
+   "Bixie",
+   "Dilly",
+   "Fennimel",
+   "Gizzabel",
+   "Jinxie",
+   "Minnow",
+   "Pepperwick",
+   "Quilla",
+   "Rimmet",
+   "Sprocket",
+   "Tibbly",
+   "Wizzabel"
+  ]
+ },
+ "meioelfo": {
+  "m": [
+   "Adrian",
+   "Aurel",
+   "Caelan",
+   "Darien",
+   "Evander",
+   "Kaelen",
+   "Lucan",
+   "Rowan",
+   "Sorin",
+   "Tarin",
+   "Veric",
+   "Elric"
+  ],
+  "f": [
+   "Arianne",
+   "Brisa",
+   "Celene",
+   "Delara",
+   "Elise",
+   "Ilaria",
+   "Liana",
+   "Maelis",
+   "Nerissa",
+   "Selene",
+   "Talia",
+   "Vivienne"
+  ]
+ },
+ "meioorc": {
+  "m": [
+   "Brug",
+   "Dorn",
+   "Grask",
+   "Harn",
+   "Korg",
+   "Morrak",
+   "Ragh",
+   "Rokk",
+   "Skarn",
+   "Throg",
+   "Urzul",
+   "Vrak"
+  ],
+  "f": [
+   "Agra",
+   "Brakka",
+   "Durza",
+   "Gorra",
+   "Hulga",
+   "Kesh",
+   "Murga",
+   "Ragga",
+   "Shurka",
+   "Tarka",
+   "Urza",
+   "Zogga"
+  ]
+ },
+ "draconato": {
+  "m": [
+   "Arkhesh",
+   "Balthorr",
+   "Draxan",
+   "Ghorvan",
+   "Kethrax",
+   "Morvash",
+   "Nazhar",
+   "Qorrin",
+   "Rhazan",
+   "Surath",
+   "Tazmir",
+   "Vorrash"
+  ],
+  "f": [
+   "Ashira",
+   "Belzara",
+   "Dhessa",
+   "Irrith",
+   "Kalira",
+   "Mazhra",
+   "Nessra",
+   "Rathka",
+   "Sevra",
+   "Tharra",
+   "Vashti",
+   "Zyrra"
+  ]
+ },
+ "tiefling": {
+  "m": [
+   "Azrakel",
+   "Belvos",
+   "Carnix",
+   "Dravos",
+   "Ezrakh",
+   "Mazren",
+   "Nazreth",
+   "Orzakar",
+   "Raskos",
+   "Sethril",
+   "Vexor",
+   "Zarekh"
+  ],
+  "f": [
+   "Belith",
+   "Cinderis",
+   "Draxia",
+   "Emberly",
+   "Invidia",
+   "Lilth",
+   "Mazarra",
+   "Nyxara",
+   "Seraxa",
+   "Vesperine",
+   "Zephyrra",
+   "Azhura"
+  ]
+ },
+ "aasimar": {
+  "m": [
+   "Aurelian",
+   "Cassiel",
+   "Dariel",
+   "Elion",
+   "Gabrien",
+   "Ithuriel",
+   "Lumien",
+   "Raziel",
+   "Seraphin",
+   "Solan",
+   "Theron",
+   "Uriah"
+  ],
+  "f": [
+   "Adira",
+   "Amara",
+   "Aurora",
+   "Caelestine",
+   "Elysia",
+   "Gloriel",
+   "Halia",
+   "Luminara",
+   "Seraphine",
+   "Soliel",
+   "Theodora",
+   "Zariel"
+  ]
+ },
+ "genasi": {
+  "m": [
+   "Aeron",
+   "Basalt",
+   "Cyndor",
+   "Flint",
+   "Gale",
+   "Ignar",
+   "Kael",
+   "Marrow",
+   "Pyrus",
+   "Rill",
+   "Stratos",
+   "Tidus"
+  ],
+  "f": [
+   "Aeria",
+   "Cinder",
+   "Coral",
+   "Ember",
+   "Ferra",
+   "Ignia",
+   "Marina",
+   "Nimbra",
+   "Pyra",
+   "Sirocca",
+   "Terra",
+   "Zephyra"
+  ]
+ },
+ "golias": {
+  "m": [
+   "Akaru",
+   "Borrok",
+   "Dhakan",
+   "Gaurek",
+   "Ilvok",
+   "Kavath",
+   "Lothak",
+   "Mokuu",
+   "Nakri",
+   "Orvak",
+   "Tavuk",
+   "Vaurek"
+  ],
+  "f": [
+   "Aneki",
+   "Baaru",
+   "Deshai",
+   "Eluka",
+   "Haani",
+   "Ikara",
+   "Kethai",
+   "Loori",
+   "Mauri",
+   "Naavi",
+   "Suuki",
+   "Vesuu"
+  ]
+ },
+ "x_aarakocra": {
+  "m": [
+   "Aerik",
+   "Cawrin",
+   "Kree",
+   "Kliik",
+   "Pirrak",
+   "Quiir",
+   "Rakka",
+   "Skreel",
+   "Tchirr",
+   "Vyrrak",
+   "Wikkak",
+   "Zeerak"
+  ],
+  "f": [
+   "Cheela",
+   "Cirra",
+   "Feeri",
+   "Heeka",
+   "Kiira",
+   "Leeri",
+   "Miiraa",
+   "Peeka",
+   "Siiri",
+   "Tuuli",
+   "Weera",
+   "Yiira"
+  ]
+ },
+ "x_bugbear": {
+  "m": [
+   "Brog",
+   "Drukk",
+   "Gorbash",
+   "Grubb",
+   "Hulgrin",
+   "Klagg",
+   "Lurg",
+   "Mugrash",
+   "Nurk",
+   "Rugg",
+   "Skulg",
+   "Zugg"
+  ],
+  "f": [
+   "Aggra",
+   "Bogga",
+   "Drisha",
+   "Grelka",
+   "Hagra",
+   "Krasha",
+   "Lurra",
+   "Magga",
+   "Nurra",
+   "Rugga",
+   "Skulla",
+   "Vurga"
+  ]
+ },
+ "x_centaur": {
+  "m": [
+   "Aethon",
+   "Brontes",
+   "Dromos",
+   "Eurytos",
+   "Hylon",
+   "Kallion",
+   "Lykon",
+   "Nessaro",
+   "Petraios",
+   "Rhoikos",
+   "Thessalon",
+   "Xanthor"
+  ],
+  "f": [
+   "Aello",
+   "Chione",
+   "Delphina",
+   "Eudora",
+   "Galene",
+   "Hylonome",
+   "Ianthe",
+   "Kyrene",
+   "Melanippe",
+   "Nephele",
+   "Rhodanthe",
+   "Xanthe"
+  ]
+ },
+ "x_changeling": {
+  "m": [
+   "Aux",
+   "Cas",
+   "Dax",
+   "Fen",
+   "Hax",
+   "Jem",
+   "Kel",
+   "Lox",
+   "Nyx",
+   "Pax",
+   "Sev",
+   "Vox"
+  ],
+  "f": [
+   "Ari",
+   "Bea",
+   "Cae",
+   "Esi",
+   "Fae",
+   "Ila",
+   "Jae",
+   "Lia",
+   "Ona",
+   "Qia",
+   "Sya",
+   "Zia"
+  ]
+ },
+ "x_eladrin": {
+  "m": [
+   "Aelvaris",
+   "Caelphin",
+   "Dalanthar",
+   "Faendril",
+   "Hyrlaen",
+   "Ilmaeron",
+   "Kaelvaris",
+   "Maerothil",
+   "Olvanthar",
+   "Saeravin",
+   "Thalaeris",
+   "Vethrael"
+  ],
+  "f": [
+   "Aelthira",
+   "Belaeris",
+   "Caelwyn",
+   "Daelyra",
+   "Elvessa",
+   "Faelwen",
+   "Ilmaera",
+   "Laerith",
+   "Nythara",
+   "Raelwyn",
+   "Saevaria",
+   "Yllaera"
+  ]
+ },
+ "x_fairy": {
+  "m": [
+   "Acorn",
+   "Bracken",
+   "Bramble",
+   "Cricket",
+   "Dewdrop",
+   "Fennel",
+   "Hawthorn",
+   "Nettle",
+   "Pip",
+   "Rowan",
+   "Thistle",
+   "Yarrow"
+  ],
+  "f": [
+   "Bluebell",
+   "Buttercup",
+   "Cowslip",
+   "Dandelion",
+   "Firefly",
+   "Heather",
+   "Honeysuckle",
+   "Lilac",
+   "Moonpetal",
+   "Periwinkle",
+   "Snowdrop",
+   "Wisteria"
+  ]
+ },
+ "x_firbolg": {
+  "m": [
+   "Aldhorn",
+   "Brannagh",
+   "Colm",
+   "Daithan",
+   "Eamon",
+   "Fergal",
+   "Gleann",
+   "Kellagh",
+   "Mabon",
+   "Padraic",
+   "Ruaran",
+   "Tiernach"
+  ],
+  "f": [
+   "Aibhne",
+   "Blathnait",
+   "Clodagh",
+   "Deirbhre",
+   "Eithne",
+   "Fionnuala",
+   "Grainne",
+   "Liadan",
+   "Muirne",
+   "Niamh",
+   "Saoirse",
+   "Treasa"
+  ]
+ },
+ "x_githyanki": {
+  "m": [
+   "Azzhar",
+   "Brakhet",
+   "Durzhak",
+   "Ghetrak",
+   "Hrazzak",
+   "Jhakar",
+   "Kzarath",
+   "Mezrak",
+   "Qarzhet",
+   "Szarkan",
+   "Tzakor",
+   "Vrakhet"
+  ],
+  "f": [
+   "Arzith",
+   "Bezzeth",
+   "Dazhra",
+   "Ezkara",
+   "Hazzith",
+   "Izzhara",
+   "Kzhana",
+   "Lazkara",
+   "Mazzhra",
+   "Szathra",
+   "Vezzara",
+   "Zhirra"
+  ]
+ },
+ "x_githzerai": {
+  "m": [
+   "Akzin",
+   "Belrin",
+   "Dazan",
+   "Halzin",
+   "Kaizan",
+   "Loszan",
+   "Mazrin",
+   "Nirzan",
+   "Orzin",
+   "Ruzan",
+   "Tazin",
+   "Zelrin"
+  ],
+  "f": [
+   "Ailzi",
+   "Belzi",
+   "Daezi",
+   "Ezria",
+   "Kaezi",
+   "Lirzi",
+   "Marzi",
+   "Naezi",
+   "Orzia",
+   "Rezzi",
+   "Tazzi",
+   "Zarzia"
+  ]
+ },
+ "x_goblin": {
+  "m": [
+   "Blix",
+   "Dribb",
+   "Fizzik",
+   "Gikk",
+   "Gnash",
+   "Kizz",
+   "Lurk",
+   "Nibnib",
+   "Rizz",
+   "Skab",
+   "Snik",
+   "Zikk"
+  ],
+  "f": [
+   "Bixi",
+   "Dizza",
+   "Fikka",
+   "Gibba",
+   "Jikka",
+   "Kizzi",
+   "Mikka",
+   "Nixi",
+   "Pikka",
+   "Skritta",
+   "Tiggi",
+   "Wizza"
+  ]
+ },
+ "x_harengon": {
+  "m": [
+   "Barley",
+   "Bounder",
+   "Burrow",
+   "Dash",
+   "Dill",
+   "Hopkin",
+   "Jax",
+   "Parsnip",
+   "Quickfoot",
+   "Scamper",
+   "Tuft",
+   "Whisk"
+  ],
+  "f": [
+   "Anise",
+   "Basil",
+   "Carrot",
+   "Chamomile",
+   "Ginger",
+   "Hopscotch",
+   "Lettuce",
+   "Nutmeg",
+   "Parsley",
+   "Saffron",
+   "Thyme",
+   "Tumble"
+  ]
+ },
+ "x_hobgoblin": {
+  "m": [
+   "Azgar",
+   "Bhurzak",
+   "Dhurak",
+   "Ghorzul",
+   "Hazrak",
+   "Karzul",
+   "Khurgan",
+   "Morkhan",
+   "Rhazgar",
+   "Shagar",
+   "Urzhak",
+   "Zhulgar"
+  ],
+  "f": [
+   "Azhra",
+   "Bhurza",
+   "Dhura",
+   "Ghorzha",
+   "Hazra",
+   "Karza",
+   "Khurga",
+   "Morkha",
+   "Rhaza",
+   "Shaga",
+   "Urzha",
+   "Zhulga"
+  ]
+ },
+ "x_kenku": {
+  "m": [
+   "Bonk",
+   "Clack",
+   "Crik",
+   "Drip",
+   "Klonk",
+   "Krunch",
+   "Rattle",
+   "Snap",
+   "Tak-Tak",
+   "Thunk",
+   "Tok",
+   "Whak"
+  ],
+  "f": [
+   "Chime",
+   "Chirri",
+   "Clink",
+   "Coo",
+   "Flutter",
+   "Hum",
+   "Pitter",
+   "Plink",
+   "Rustle",
+   "Swish",
+   "Trill",
+   "Whirr"
+  ]
+ },
+ "x_kobold": {
+  "m": [
+   "Brekk",
+   "Dagg",
+   "Gix",
+   "Grax",
+   "Kib",
+   "Krik",
+   "Mek",
+   "Nax",
+   "Rizk",
+   "Snek",
+   "Tixx",
+   "Yip"
+  ],
+  "f": [
+   "Axi",
+   "Bixa",
+   "Dikka",
+   "Drissa",
+   "Gixa",
+   "Hissa",
+   "Kressa",
+   "Lixa",
+   "Mekka",
+   "Nixa",
+   "Trissa",
+   "Yissa"
+  ]
+ },
+ "x_lizardfolk": {
+  "m": [
+   "Arrsuk",
+   "Bhasith",
+   "Dhaarak",
+   "Esskar",
+   "Ghorrath",
+   "Hessak",
+   "Kaarath",
+   "Nharrok",
+   "Osskar",
+   "Sshurok",
+   "Thaksh",
+   "Zhaarak"
+  ],
+  "f": [
+   "Asshera",
+   "Bhessa",
+   "Dhassia",
+   "Essara",
+   "Ghassira",
+   "Hissara",
+   "Kossira",
+   "Nhessa",
+   "Osshira",
+   "Sshura",
+   "Tassira",
+   "Zhassa"
+  ]
+ },
+ "x_minotaur": {
+  "m": [
+   "Asterion",
+   "Baltor",
+   "Brontar",
+   "Dhorn",
+   "Garrok",
+   "Hornak",
+   "Kargoth",
+   "Malgor",
+   "Rhogun",
+   "Tauron",
+   "Thurak",
+   "Vargor"
+  ],
+  "f": [
+   "Astera",
+   "Balta",
+   "Bronta",
+   "Dhorna",
+   "Garra",
+   "Horna",
+   "Kargha",
+   "Malgra",
+   "Rhoga",
+   "Taura",
+   "Thura",
+   "Varga"
+  ]
+ },
+ "x_orc": {
+  "m": [
+   "Azgul",
+   "Borgak",
+   "Dargak",
+   "Ghorzag",
+   "Gulmar",
+   "Kragg",
+   "Lurzak",
+   "Mogrul",
+   "Ragnak",
+   "Shurgul",
+   "Thurgak",
+   "Zurgak"
+  ],
+  "f": [
+   "Azgra",
+   "Borga",
+   "Darga",
+   "Ghorza",
+   "Gulma",
+   "Kragga",
+   "Lurza",
+   "Mogra",
+   "Ragna",
+   "Shurgha",
+   "Thurga",
+   "Zurga"
+  ]
+ },
+ "x_satyr": {
+  "m": [
+   "Bromios",
+   "Corydon",
+   "Damon",
+   "Daphnis",
+   "Faunor",
+   "Hylas",
+   "Kallias",
+   "Lykidas",
+   "Melampos",
+   "Phileas",
+   "Silenos",
+   "Tityros"
+  ],
+  "f": [
+   "Aglaia",
+   "Chloris",
+   "Daphne",
+   "Dryope",
+   "Echo",
+   "Faunia",
+   "Kallisto",
+   "Lyra",
+   "Maia",
+   "Melia",
+   "Syrinx",
+   "Thaleia"
+  ]
+ },
+ "x_seaelf": {
+  "m": [
+   "Aquaron",
+   "Brinael",
+   "Coralith",
+   "Delphiran",
+   "Hydrael",
+   "Maelthor",
+   "Nerethil",
+   "Ondaris",
+   "Pearlith",
+   "Saelmar",
+   "Thalvaris",
+   "Tidaris"
+  ],
+  "f": [
+   "Aquaria",
+   "Brinaela",
+   "Coralyn",
+   "Delphira",
+   "Hydraia",
+   "Maelthia",
+   "Nerethia",
+   "Ondaria",
+   "Pearlia",
+   "Saelma",
+   "Thalvia",
+   "Tidaria"
+  ]
+ },
+ "x_shadarkai": {
+  "m": [
+   "Ashrael",
+   "Brevanth",
+   "Draevin",
+   "Duskaer",
+   "Graevel",
+   "Kaelrith",
+   "Morvaen",
+   "Noctran",
+   "Ravaeth",
+   "Sevrith",
+   "Umbrael",
+   "Vesperan"
+  ],
+  "f": [
+   "Ashraela",
+   "Brevanna",
+   "Draevia",
+   "Duskaera",
+   "Graevia",
+   "Kaelra",
+   "Morvaena",
+   "Noctra",
+   "Ravaela",
+   "Sevria",
+   "Umbraela",
+   "Vespera"
+  ]
+ },
+ "x_shifter": {
+  "m": [
+   "Ash",
+   "Brand",
+   "Claw",
+   "Dusk",
+   "Fang",
+   "Grizz",
+   "Hawk",
+   "Howl",
+   "Rook",
+   "Talon",
+   "Thorn",
+   "Tusk"
+  ],
+  "f": [
+   "Amber",
+   "Briar",
+   "Bristle",
+   "Dawn",
+   "Fawn",
+   "Frost",
+   "Lark",
+   "Mist",
+   "Raven",
+   "Sable",
+   "Storm",
+   "Vixen"
+  ]
+ },
+ "x_tabaxi": {
+  "m": [
+   "Fumaça de Cedro",
+   "Nuvem Parada",
+   "Dez Colares",
+   "Cinco Tambores",
+   "Vinte Pulos",
+   "Lua na Água",
+   "Pena Vermelha",
+   "Pedra que Canta",
+   "Sombra de Meio-Dia",
+   "Chuva de Verão",
+   "Rabo Torto",
+   "Olho de Âmbar"
+  ],
+  "f": [
+   "Garra Mansa",
+   "Folha que Cai",
+   "Três Sinos",
+   "Estrela Tardia",
+   "Sol na Janela",
+   "Passo de Seda",
+   "Riso de Trovão",
+   "Espelho de Lago",
+   "Mil Fios",
+   "Brasa Quieta",
+   "Canto da Manhã",
+   "Vento sem Pressa"
+  ]
+ },
+ "x_tortle": {
+  "m": [
+   "Baku",
+   "Bolo",
+   "Damu",
+   "Gomu",
+   "Hamo",
+   "Jalu",
+   "Kalo",
+   "Moku",
+   "Nuku",
+   "Pako",
+   "Tobo",
+   "Wolo"
+  ],
+  "f": [
+   "Ama",
+   "Baka",
+   "Dula",
+   "Gala",
+   "Hama",
+   "Jala",
+   "Kala",
+   "Moka",
+   "Nuka",
+   "Paka",
+   "Toba",
+   "Wola"
+  ]
+ },
+ "x_triton": {
+  "m": [
+   "Abyssor",
+   "Aldros",
+   "Cetos",
+   "Delmos",
+   "Glaukar",
+   "Istros",
+   "Keltor",
+   "Marthos",
+   "Nerrion",
+   "Okeas",
+   "Thaloros",
+   "Xylaros"
+  ],
+  "f": [
+   "Abyssa",
+   "Aldra",
+   "Ceta",
+   "Delma",
+   "Glauka",
+   "Istra",
+   "Kelta",
+   "Marthessa",
+   "Nerria",
+   "Okea",
+   "Thalora",
+   "Xylara"
+  ]
+ },
+ "x_yuanti": {
+  "m": [
+   "Acatzi",
+   "Asshaq",
+   "Coatlaz",
+   "Hisstaq",
+   "Itzass",
+   "Kassaq",
+   "Mixcass",
+   "Naxotl",
+   "Quetzass",
+   "Sessatl",
+   "Tlassik",
+   "Xessik"
+  ],
+  "f": [
+   "Acatzia",
+   "Asshia",
+   "Coatlia",
+   "Hisstia",
+   "Itzia",
+   "Kassia",
+   "Mixcia",
+   "Naxia",
+   "Quetzia",
+   "Sessia",
+   "Tlassia",
+   "Xessia"
+  ]
+ }
+}

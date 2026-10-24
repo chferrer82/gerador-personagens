@@ -1,0 +1,2927 @@
+{
+ "PAIS": [
+  [
+   1,
+   95,
+   "Você sabe quem são (ou foram) seus pais."
+  ],
+  [
+   96,
+   100,
+   "Você não sabe quem foram seus pais."
+  ]
+ ],
+ "PAIS_meioelfo": [
+  [
+   1,
+   5,
+   "um elfo e um humano"
+  ],
+  [
+   6,
+   6,
+   "um elfo e um meio-elfo"
+  ],
+  [
+   7,
+   7,
+   "um humano e um meio-elfo"
+  ],
+  [
+   8,
+   8,
+   "dois meio-elfos"
+  ]
+ ],
+ "PAIS_meioorc": [
+  [
+   1,
+   3,
+   "um orc e um humano"
+  ],
+  [
+   4,
+   5,
+   "um orc e um meio-orc"
+  ],
+  [
+   6,
+   7,
+   "um humano e um meio-orc"
+  ],
+  [
+   8,
+   8,
+   "dois meio-orcs"
+  ]
+ ],
+ "PAIS_tiefling": [
+  [
+   1,
+   4,
+   "dois humanos; a herança infernal dormia na família até você chegar"
+  ],
+  [
+   5,
+   6,
+   "um tiefling e um humano"
+  ],
+  [
+   7,
+   7,
+   "um tiefling e um diabo",
+   "P"
+  ],
+  [
+   8,
+   8,
+   "um humano e um diabo",
+   "P"
+  ]
+ ],
+ "NASC": [
+  [
+   1,
+   50,
+   "em casa"
+  ],
+  [
+   51,
+   55,
+   "na casa de um amigo da família"
+  ],
+  [
+   56,
+   63,
+   "na casa de uma parteira ou curandeira"
+  ],
+  [
+   64,
+   65,
+   "numa carroça, carruagem ou carroção"
+  ],
+  [
+   66,
+   68,
+   "num celeiro, galpão ou outra construção simples"
+  ],
+  [
+   69,
+   70,
+   "numa caverna"
+  ],
+  [
+   71,
+   72,
+   "no meio de um campo"
+  ],
+  [
+   73,
+   74,
+   "numa floresta"
+  ],
+  [
+   75,
+   77,
+   "num templo"
+  ],
+  [
+   78,
+   78,
+   "num campo de batalha",
+   "P"
+  ],
+  [
+   79,
+   80,
+   "num beco ou no meio da rua"
+  ],
+  [
+   81,
+   82,
+   "num prostíbulo, taverna ou estalagem",
+   "L*:numa taverna ou estalagem"
+  ],
+  [
+   83,
+   84,
+   "num castelo, fortaleza, torre ou palácio"
+  ],
+  [
+   85,
+   85,
+   "num esgoto ou monte de lixo"
+  ],
+  [
+   86,
+   88,
+   "no meio de um povo de outra raça"
+  ],
+  [
+   89,
+   91,
+   "a bordo de um barco ou navio"
+  ],
+  [
+   92,
+   93,
+   "numa prisão ou no esconderijo de uma organização secreta",
+   "P"
+  ],
+  [
+   94,
+   95,
+   "no laboratório de um sábio"
+  ],
+  [
+   96,
+   96,
+   "no Feywild"
+  ],
+  [
+   97,
+   97,
+   "no Shadowfell"
+  ],
+  [
+   98,
+   98,
+   "no Plano Astral ou no Plano Etéreo"
+  ],
+  [
+   99,
+   99,
+   "num dos Planos Interiores"
+  ],
+  [
+   100,
+   100,
+   "num dos Planos Exteriores"
+  ]
+ ],
+ "PRESSAGIO": [
+  "a lua ficou vermelha por um instante",
+  "todo o leite num raio de um quilômetro azedou",
+  "a água da região congelou em pleno verão",
+  "todo o ferro da casa enferrujou de uma vez",
+  "todo o ferro da casa virou prata",
+  "todos os cães da vizinhança uivaram juntos até o amanhecer"
+ ],
+ "IRMAOS": [
+  [
+   -9,
+   2,
+   "0"
+  ],
+  [
+   3,
+   4,
+   "1d3"
+  ],
+  [
+   5,
+   6,
+   "1d4+1"
+  ],
+  [
+   7,
+   8,
+   "1d6+2"
+  ],
+  [
+   9,
+   10,
+   "1d8+3"
+  ]
+ ],
+ "ORDEM": [
+  [
+   2,
+   2,
+   "gêmeo (ou trigêmeo, quadrigêmeo…)"
+  ],
+  [
+   3,
+   7,
+   "mais velho"
+  ],
+  [
+   8,
+   12,
+   "mais novo"
+  ]
+ ],
+ "OCUP": [
+  [
+   1,
+   5,
+   "acadêmico"
+  ],
+  [
+   6,
+   10,
+   "aventureiro"
+  ],
+  [
+   11,
+   11,
+   "aristocrata"
+  ],
+  [
+   12,
+   26,
+   "artesão ou membro de guilda"
+  ],
+  [
+   27,
+   31,
+   "criminoso",
+   "P"
+  ],
+  [
+   32,
+   36,
+   "artista"
+  ],
+  [
+   37,
+   38,
+   "exilado, eremita ou refugiado"
+  ],
+  [
+   39,
+   43,
+   "explorador ou andarilho"
+  ],
+  [
+   44,
+   55,
+   "fazendeiro ou pastor"
+  ],
+  [
+   56,
+   60,
+   "caçador ou armadilheiro"
+  ],
+  [
+   61,
+   75,
+   "trabalhador braçal"
+  ],
+  [
+   76,
+   80,
+   "mercador"
+  ],
+  [
+   81,
+   85,
+   "político"
+  ],
+  [
+   86,
+   90,
+   "sacerdote"
+  ],
+  [
+   91,
+   95,
+   "marinheiro"
+  ],
+  [
+   96,
+   100,
+   "soldado"
+  ]
+ ],
+ "SITUACAO": [
+  [
+   3,
+   3,
+   "morto",
+   "P"
+  ],
+  [
+   4,
+   5,
+   "desaparecido, com paradeiro desconhecido"
+  ],
+  [
+   6,
+   8,
+   "vivo, mas em apuros: ferido, endividado ou com problemas no amor"
+  ],
+  [
+   9,
+   12,
+   "vivo e bem"
+  ],
+  [
+   13,
+   15,
+   "vivo e muito bem-sucedido"
+  ],
+  [
+   16,
+   17,
+   "vivo e mal-afamado"
+  ],
+  [
+   18,
+   18,
+   "vivo e famoso"
+  ]
+ ],
+ "RELACAO": [
+  [
+   3,
+   4,
+   "hostil a você"
+  ],
+  [
+   5,
+   10,
+   "amigável"
+  ],
+  [
+   11,
+   12,
+   "indiferente"
+  ]
+ ],
+ "ALINH": [
+  [
+   3,
+   3,
+   "caótico e mau (ou caótico e neutro)"
+  ],
+  [
+   4,
+   5,
+   "leal e mau"
+  ],
+  [
+   6,
+   8,
+   "neutro e mau"
+  ],
+  [
+   9,
+   12,
+   "neutro"
+  ],
+  [
+   13,
+   15,
+   "neutro e bom"
+  ],
+  [
+   16,
+   17,
+   "leal e bom (ou leal e neutro)"
+  ],
+  [
+   18,
+   18,
+   "caótico e bom (ou caótico e neutro)"
+  ]
+ ],
+ "MORTE": [
+  [
+   1,
+   1,
+   "de causa desconhecida"
+  ],
+  [
+   2,
+   2,
+   "por assassinato"
+  ],
+  [
+   3,
+   3,
+   "em batalha"
+  ],
+  [
+   4,
+   4,
+   "num acidente de trabalho"
+  ],
+  [
+   5,
+   5,
+   "num acidente fora do trabalho"
+  ],
+  [
+   6,
+   7,
+   "de causas naturais, como doença ou velhice"
+  ],
+  [
+   8,
+   8,
+   "no que pareceu ser suicídio"
+  ],
+  [
+   9,
+   9,
+   "no ataque de um animal ou num desastre natural"
+  ],
+  [
+   10,
+   10,
+   "nas garras de um monstro"
+  ],
+  [
+   11,
+   11,
+   "por execução ou sob tortura"
+  ],
+  [
+   12,
+   12,
+   "num evento bizarro: um meteorito, a fúria de um deus, um ovo de slaad chocando…"
+  ]
+ ],
+ "FAMILIA": [
+  [
+   1,
+   1,
+   "ninguém: você se criou sozinho",
+   "P"
+  ],
+  [
+   2,
+   2,
+   "uma instituição, como um asilo",
+   "P"
+  ],
+  [
+   3,
+   3,
+   "um templo"
+  ],
+  [
+   4,
+   5,
+   "um orfanato"
+  ],
+  [
+   6,
+   7,
+   "um tutor"
+  ],
+  [
+   8,
+   15,
+   "tios (paternos ou maternos)"
+  ],
+  [
+   16,
+   25,
+   "avós"
+  ],
+  [
+   26,
+   35,
+   "uma família adotiva"
+  ],
+  [
+   36,
+   55,
+   "o pai (ou um padrasto), sozinho"
+  ],
+  [
+   56,
+   75,
+   "a mãe (ou uma madrasta), sozinha"
+  ],
+  [
+   76,
+   100,
+   "o pai e a mãe"
+  ]
+ ],
+ "AUSENTE": [
+  [
+   1,
+   1,
+   "morreu",
+   "P"
+  ],
+  [
+   2,
+   2,
+   "foi levado de vocês: prisão, escravidão ou coisa pior",
+   "L*:foi levado para longe e nunca mais voltou"
+  ],
+  [
+   3,
+   3,
+   "abandonou você",
+   "P"
+  ],
+  [
+   4,
+   4,
+   "desapareceu, e ninguém sabe o que aconteceu"
+  ]
+ ],
+ "ESTILO": [
+  [
+   3,
+   3,
+   "Miserável"
+  ],
+  [
+   4,
+   5,
+   "Esquálido"
+  ],
+  [
+   6,
+   8,
+   "Pobre"
+  ],
+  [
+   9,
+   12,
+   "Modesto"
+  ],
+  [
+   13,
+   15,
+   "Confortável"
+  ],
+  [
+   16,
+   17,
+   "Rico"
+  ],
+  [
+   18,
+   18,
+   "Aristocrático"
+  ]
+ ],
+ "ESTILO_MOD": {
+  "Miserável": -40,
+  "Esquálido": -20,
+  "Pobre": -10,
+  "Modesto": 0,
+  "Confortável": 10,
+  "Rico": 20,
+  "Aristocrático": 40
+ },
+ "LAR": [
+  [
+   -99,
+   0,
+   "nas ruas"
+  ],
+  [
+   1,
+   20,
+   "num barraco caindo aos pedaços"
+  ],
+  [
+   21,
+   30,
+   "sem morada fixa"
+  ],
+  [
+   31,
+   40,
+   "num acampamento ou vilarejo nos ermos"
+  ],
+  [
+   41,
+   50,
+   "num cortiço de bairro pobre"
+  ],
+  [
+   51,
+   70,
+   "numa casa pequena"
+  ],
+  [
+   71,
+   90,
+   "numa casa grande"
+  ],
+  [
+   91,
+   110,
+   "numa mansão"
+  ],
+  [
+   111,
+   999,
+   "num palácio ou castelo"
+  ]
+ ],
+ "MEMO": [
+  [
+   -99,
+   3,
+   "A infância ainda o assombra: as outras crianças o maltratavam."
+  ],
+  [
+   4,
+   5,
+   "Passou quase toda a infância sozinho, sem amigos próximos."
+  ],
+  [
+   6,
+   8,
+   "Os outros o achavam estranho, e você teve poucos companheiros."
+  ],
+  [
+   9,
+   12,
+   "Teve alguns bons amigos e uma infância comum."
+  ],
+  [
+   13,
+   15,
+   "Tinha vários amigos, e a infância foi feliz."
+  ],
+  [
+   16,
+   17,
+   "Fazer amigos sempre foi fácil; você adorava estar entre as pessoas."
+  ],
+  [
+   18,
+   99,
+   "Todo mundo o conhecia, e você tinha amigos em todo canto."
+  ]
+ ],
+ "BG": {
+  "acolito": [
+   "Fugiu de casa ainda pequeno e encontrou abrigo num templo.",
+   [
+    "A família o entregou a um templo, sem poder ou sem querer cuidar de você.",
+    "P"
+   ],
+   "Cresceu numa casa muito religiosa; servir aos deuses pareceu o caminho natural.",
+   "Um sermão inflamado tocou o fundo da sua alma e o levou a servir à fé.",
+   "Seguiu para o serviço religioso um amigo de infância, alguém que admirava ou alguém que amava.",
+   "Conheceu um verdadeiro servo dos deuses e ficou tão inspirado que entrou para a fé na mesma hora."
+  ],
+  "charlatao": [
+   "Deixado por conta própria, sobreviveu graças ao talento para manipular os outros.",
+   "Aprendeu cedo que as pessoas são crédulas e fáceis de explorar.",
+   "Vivia se metendo em encrenca, mas sempre saía dela na conversa.",
+   "Andou com um trapaceiro que lhe ensinou o ofício.",
+   "Depois que um charlatão depenou sua família, decidiu aprender os truques para nunca mais ser enganado.",
+   "Era pobre, ou tinha pavor de ser, e aprendeu os truques para escapar da miséria."
+  ],
+  "criminoso": [
+   "Odiava qualquer autoridade e via o crime como um jeito de lutar contra a tirania.",
+   "A necessidade empurrou você: era o único jeito de sobreviver.",
+   "Caiu numa turma de malandros e aprendeu o ofício com eles.",
+   "Um parente o ensinou, para você entrar no negócio da família.",
+   "Saiu de casa e achou lugar numa guilda de ladrões ou organização parecida.",
+   "Vivia entediado, experimentou o crime e descobriu que era muito bom nisso."
+  ],
+  "artista": [
+   "A família se sustentava com apresentações, e você seguiu o exemplo.",
+   "Sempre entendeu as pessoas bem o bastante para fazê-las rir ou chorar com histórias e canções.",
+   "Fugiu de casa atrás de uma trupe de menestréis.",
+   "Viu um bardo se apresentar uma vez e soube na hora o que nasceu para fazer.",
+   "Ganhava moedas se apresentando nas esquinas e acabou ficando conhecido.",
+   "Um artista itinerante o acolheu e ensinou o ofício."
+  ],
+  "heroi": [
+   "Aprendeu o certo e o errado com a própria família.",
+   "Sempre adorou histórias de heróis e queria ser mais do que alguém comum.",
+   "Odiava a vida sem graça; quando alguém precisou agir, você agarrou a chance.",
+   "Um parente foi aventureiro, e a coragem dele o inspirou.",
+   "Um velho eremita maluco profetizou, no dia do seu nascimento, que você faria grandes coisas.",
+   "Sempre defendeu quem é mais fraco."
+  ],
+  "artesao": [
+   "Foi aprendiz de um mestre que lhe ensinou o negócio da guilda.",
+   "Ajudou um artesão da guilda a guardar um segredo ou terminar uma tarefa e ganhou, em troca, uma vaga de aprendiz.",
+   "Um parente da guilda abriu espaço para você.",
+   "Sempre foi bom com as mãos e aproveitou a chance de aprender um ofício.",
+   "Queria fugir da situação em casa e começar uma vida nova.",
+   "Aprendeu o básico com um mentor, mas precisou entrar na guilda para completar o treino."
+  ],
+  "eremita": [
+   "Inimigos arruinaram sua reputação, e você fugiu para os ermos para escapar do falatório.",
+   "Sente-se bem no isolamento; busca paz interior.",
+   "Nunca gostou dos seus supostos amigos, e partir sozinho foi fácil.",
+   "Sentiu que precisava deixar o passado para trás; foi com relutância, e às vezes se arrepende.",
+   [
+    "Perdeu tudo: casa, família, amigos. Seguir sozinho era o que restava.",
+    "P"
+   ],
+   "A decadência da sociedade o enojava, e você a deixou para trás."
+  ],
+  "nobre": [
+   "Vem de uma família antiga e ilustre, e coube a você preservar o nome.",
+   "Sua família caiu em desgraça, e você pretende limpar o nome dela.",
+   "Sua família ganhou o título há pouco tempo, e isso os jogou num mundo novo e estranho.",
+   "Sua família tem título, mas nenhum antepassado se destacou desde que o ganhou.",
+   "Sua família é cheia de gente notável, e você espera estar à altura.",
+   "Você quer aumentar o poder e a influência da família."
+  ],
+  "forasteiro": [
+   "Passou muito tempo nos ermos quando jovem e se apaixonou por essa vida.",
+   "Desde pequeno não suportava o fedor das cidades e preferia a natureza.",
+   "Entendeu a escuridão que ronda os ermos e jurou combatê-la.",
+   "Seu povo vivia nas bordas da civilização, e você aprendeu a sobreviver com a família.",
+   [
+    "Depois de uma tragédia, foi para os ermos e deixou a vida antiga para trás.",
+    "P"
+   ],
+   "Sua família se afastou da civilização, e você aprendeu a se adaptar ao novo lugar."
+  ],
+  "sabio": [
+   "Curioso por natureza, fez as malas e foi estudar numa universidade.",
+   "Os ensinamentos de um mentor abriram sua mente para novas possibilidades.",
+   "Sempre foi leitor voraz e aprendeu sozinho sobre o seu assunto favorito.",
+   "Descobriu uma biblioteca antiga e devorou os textos; isso despertou uma fome de saber.",
+   "Impressionou um mago, que disse que você desperdiçava talento e devia estudar.",
+   "Um parente lhe deu uma educação básica que abriu o apetite, e você saiu de casa para aprender mais."
+  ],
+  "marinheiro": [
+   [
+    "Piratas o recrutaram à força, e você serviu no navio deles até conseguir escapar.",
+    "P"
+   ],
+   "Queria ver o mundo e embarcou como marujo num navio mercante.",
+   "Um parente marinheiro o levou para o mar.",
+   "Precisava sumir da sua comunidade depressa e se escondeu num navio; quando o acharam, trabalhou para pagar a passagem.",
+   [
+    "Saqueadores atacaram sua comunidade; você se refugiou num navio até poder se vingar.",
+    "P"
+   ],
+   "Tinha poucas chances onde vivia e partiu para buscar fortuna."
+  ],
+  "soldado": [
+   "Entrou na milícia para proteger a comunidade de monstros.",
+   "Um parente foi soldado, e você quis manter a tradição da família.",
+   "O senhor local o obrigou a se alistar.",
+   [
+    "A guerra devastou sua terra quando você era criança; lutar foi a única vida que conheceu.",
+    "P"
+   ],
+   "Queria fama e fortuna e entrou numa companhia mercenária.",
+   "Invasores atacaram sua terra, e defender seu povo era o seu dever."
+  ],
+  "orfao": [
+   "A vontade de conhecer o mundo o fez deixar a família; você se cuida sozinho.",
+   [
+    "Fugiu de uma situação ruim em casa e seguiu sozinho.",
+    "P"
+   ],
+   [
+    "Monstros destruíram sua aldeia, e você foi o único sobrevivente.",
+    "P"
+   ],
+   [
+    "Um ladrão famoso cuidava de você e de outros órfãos; vocês espionavam e roubavam em troca de abrigo.",
+    "P"
+   ],
+   [
+    "Um dia acordou nas ruas, sozinho e com fome, sem nenhuma lembrança da primeira infância.",
+    "P"
+   ],
+   [
+    "Seus pais morreram, ninguém cuidou de você, e você se criou sozinho.",
+    "P"
+   ]
+  ],
+  "guarda": [
+   "Meu pai vestiu o mesmo uniforme por trinta anos, e ninguém na família cogitou outro caminho para mim.",
+   "Fui pego roubando pão; o capitão me deu a escolha entre a cela e a lança.",
+   "Queria ordem nas ruas onde cresci, e ninguém mais parecia disposto a impô-la.",
+   "Era o único emprego com salário fixo na cidade quando minha família mais precisou.",
+   "Um guarda salvou minha vida numa noite de tumulto; jurei retribuir a quem precisasse.",
+   [
+    "Uma quadrilha matou meu irmão; entrei na guarda para ter o direito de caçá-la.",
+    "P"
+   ]
+  ],
+  "artesaocla": [
+   "Nasci entre forjas e bigornas; aprendi a martelar antes de aprender a ler.",
+   "Um mestre anão viu minhas mãos trabalhando uma pedra e pediu ao clã que me aceitasse.",
+   "Minha família guarda uma técnica antiga, e eu sou o último que ainda a domina.",
+   "Fiz uma peça tão bem-feita que o clã inteiro veio vê-la; desde então não larguei o ofício.",
+   "Desonrei o nome da família e só o trabalho perfeito pode apagar essa mancha.",
+   "Quero reconstruir as obras de um salão ancestral perdido e devolver sua glória ao clã."
+  ],
+  "erudito": [
+   "Passei a infância escondido entre as estantes de Candlekeep, de onde nunca quis sair.",
+   "Um monge bibliotecário me ensinou a ler em troca de copiar pergaminhos.",
+   "Uma pergunta sem resposta me persegue desde criança, e só os livros podem respondê-la.",
+   "Minha família pagou caro para que eu estudasse; não posso decepcioná-los.",
+   "Encontrei um livro proibido e fui acolhido pelos sábios para entender o que li.",
+   "Doente demais para o trabalho pesado, descobri no estudo a força que meu corpo não tinha."
+  ],
+  "cortesao": [
+   "Cresci servindo nos salões de um lorde e aprendi cada regra silenciosa da corte.",
+   "Minha lábia me tirou de uma encrenca diante de um nobre, que me quis por perto.",
+   "Minha família precisava de um aliado poderoso, e eu fui a ponte até ele.",
+   "Descobri que um favor bem pedido vale mais do que uma espada bem afiada.",
+   "Herdei de minha mãe um lugar na corte e uma lista de inimigos.",
+   "Quero mudar as leis da minha cidade, e isso só se faz por dentro."
+  ],
+  "agente": [
+   "Um agente dos Harpers salvou minha aldeia e depois me recrutou.",
+   "Cresci numa família fiel à Lords' Alliance e fui preparado desde cedo.",
+   "Descobri um segredo perigoso, e a facção preferiu me ter como aliado a me ter como problema.",
+   "Admirava as ideias da facção e procurei seus membros por conta própria.",
+   "Devo minha liberdade à facção e ainda estou pagando essa dívida.",
+   [
+    "Uma facção rival destruiu minha família; entrei na outra para derrubá-la.",
+    "P"
+   ]
+  ],
+  "viajante": [
+   "Fui enviado como emissário a terras que meu povo mal conhecia.",
+   "Sempre quis ver com meus olhos os lugares das histórias que ouvia.",
+   "Um portal mágico me trouxe até aqui, e ainda não achei o caminho de volta.",
+   "Viajei com uma caravana de mercadores e decidi ficar quando ela partiu.",
+   "Fui banido da minha terra por uma decisão que ainda considero justa.",
+   [
+    "Fugi de uma guerra que destruiu minha cidade natal.",
+    "P"
+   ]
+  ],
+  "herdeiro": [
+   "Um tio distante me deixou um objeto misterioso e uma carta pela metade.",
+   "Uma velha amiga da família me escolheu como guardião de seu legado.",
+   "Achei o item no fundo de um baú no sótão, esquecido por gerações.",
+   "Um estranho me entregou a herança dizendo que era minha por direito de sangue.",
+   "Venci uma disputa com meus irmãos pela herança, e eles não me perdoaram.",
+   [
+    "Meus pais morreram e o que deixaram foi apenas este item e muitas perguntas.",
+    "P"
+   ]
+  ],
+  "cavaleiro": [
+   "Servi como escudeiro de um cavaleiro que viu em mim alguém digno do juramento.",
+   "Minha família tem uma tradição de cavaleiros nesta ordem há gerações.",
+   "Um sonho me mostrou o símbolo da ordem, e segui esse sinal até seus portões.",
+   "A ordem protegeu minha aldeia quando ninguém mais veio ajudar.",
+   "Busquei disciplina e propósito depois de uma juventude sem rumo.",
+   "Fiz um juramento diante de um altar e decidi viver por ele."
+  ],
+  "mercenario": [
+   "O Flaming Fist pagava bem e não fazia muitas perguntas.",
+   "Não tinha terra nem ofício, só um braço forte e vontade de lutar.",
+   "Segui um amigo de infância para uma companhia mercenária.",
+   "Precisava pagar a dívida de minha família, e só a guerra pagava o suficiente.",
+   "Queria ver o mundo, e as companhias viajavam para todo canto.",
+   [
+    "Minha companhia foi massacrada numa emboscada; sou um dos poucos que voltou.",
+    "P"
+   ]
+  ],
+  "cacador": [
+   "Descobri que conheço as ruas melhor do que qualquer guarda da cidade.",
+   "Um caçador veterano me ensinou o ofício em troca de ajuda nas caçadas.",
+   "Capturei por acaso um procurado e gostei do peso das moedas da recompensa.",
+   "A justiça da cidade é lenta; eu não sou.",
+   "Procuro uma pessoa específica e caçar outras me mantém no rastro dela.",
+   [
+    "Um criminoso fugiu depois de ferir alguém que eu amava; não descansarei até pegá-lo.",
+    "P"
+   ]
+  ],
+  "uthgardt": [
+   "Os anciãos me enviaram para conhecer o mundo dos povos das cidades.",
+   "Um sinal do meu animal totêmico me chamou para longe das terras da tribo.",
+   "Perdi um desafio de honra e preciso provar meu valor antes de voltar.",
+   "Busco um objeto sagrado roubado de nosso monte ancestral.",
+   "Sou curioso demais para viver sempre no mesmo lugar.",
+   [
+    "Minha tribo foi dispersada por inimigos, e procuro os sobreviventes.",
+    "P"
+   ]
+  ],
+  "nobrewd": [
+   "Minha família é uma das casas antigas de Waterdeep, e eu carrego esse nome.",
+   "Sou o filho mais novo, sem herança, e preciso fazer meu próprio nome.",
+   "Minha casa perdeu fortuna e prestígio; pretendo recuperá-los.",
+   "Cansei dos bailes e intrigas e quis viver algo real.",
+   "Um escândalo me afastou da cidade até que tudo seja esquecido.",
+   "Quero provar que um nobre também pode fazer o bem com as próprias mãos."
+  ]
+ },
+ "BGKEY": {
+  "Acólito": [
+   "acolito",
+   "acolito"
+  ],
+  "Charlatão": [
+   "charlatao",
+   "charlatao"
+  ],
+  "Guarda da Cidade": [
+   "guarda",
+   "soldado"
+  ],
+  "Artesão de Clã": [
+   "artesaocla",
+   "artesao"
+  ],
+  "Erudito Enclausurado": [
+   "erudito",
+   "sabio"
+  ],
+  "Cortesão": [
+   "cortesao",
+   "artesao"
+  ],
+  "Criminoso": [
+   "criminoso",
+   "criminoso"
+  ],
+  "Artista": [
+   "artista",
+   "artista"
+  ],
+  "Agente de Facção": [
+   "agente",
+   "acolito"
+  ],
+  "Viajante Distante": [
+   "viajante",
+   "forasteiro"
+  ],
+  "Herói do Povo": [
+   "heroi",
+   "heroi"
+  ],
+  "Artesão de Guilda": [
+   "artesao",
+   "artesao"
+  ],
+  "Eremita": [
+   "eremita",
+   "eremita"
+  ],
+  "Herdeiro": [
+   "herdeiro",
+   "heroi"
+  ],
+  "Cavaleiro da Ordem": [
+   "cavaleiro",
+   "soldado"
+  ],
+  "Veterano Mercenário": [
+   "mercenario",
+   "soldado"
+  ],
+  "Nobre": [
+   "nobre",
+   "nobre"
+  ],
+  "Forasteiro": [
+   "forasteiro",
+   "forasteiro"
+  ],
+  "Sábio": [
+   "sabio",
+   "sabio"
+  ],
+  "Marinheiro": [
+   "marinheiro",
+   "marinheiro"
+  ],
+  "Soldado": [
+   "soldado",
+   "soldado"
+  ],
+  "Espião": [
+   "criminoso",
+   "criminoso"
+  ],
+  "Caçador de Recompensas Urbano": [
+   "cacador",
+   "criminoso"
+  ],
+  "Órfão": [
+   "orfao",
+   "orfao"
+  ],
+  "Membro de Tribo Uthgardt": [
+   "uthgardt",
+   "forasteiro"
+  ],
+  "Nobre de Waterdeep": [
+   "nobrewd",
+   "nobre"
+  ]
+ },
+ "CL": {
+  "barbaro": [
+   "A devoção ao seu povo o elevava na batalha, tornando-o poderoso e perigoso.",
+   "Os espíritos dos ancestrais o chamaram para cumprir uma grande tarefa.",
+   [
+    "Perdeu o controle numa batalha, como se outra coisa movesse seu corpo, e derrubou todo inimigo ao alcance.",
+    "P"
+   ],
+   "Numa jornada espiritual para se encontrar, achou um animal espiritual que o guia, protege e inspira.",
+   "Foi atingido por um raio e sobreviveu; depois disso, sentiu uma força nova que o leva além dos limites.",
+   [
+    "Sua raiva precisava ir para a batalha, ou você acabaria virando um assassino sem controle.",
+    "P"
+   ]
+  ],
+  "bardo": [
+   "Despertou suas habilidades de bardo na base da tentativa e erro.",
+   "Era um artista talentoso e chamou a atenção de um mestre bardo, que o treinou nas técnicas antigas.",
+   "Entrou para uma sociedade de estudiosos e oradores para aprender novas técnicas de apresentação e de magia.",
+   "Sentiu o chamado de contar os feitos de campeões e heróis e dar vida a eles em canções.",
+   "Entrou num dos grandes colégios de bardos para aprender saberes antigos, magia e arte.",
+   "Pegou um instrumento um dia e descobriu, na hora, que sabia tocá-lo."
+  ],
+  "bruxo": [
+   "Vagando por um lugar proibido, encontrou um ser de outro mundo que ofereceu um pacto.",
+   "Examinava um tomo estranho numa biblioteca abandonada quando o futuro patrono apareceu diante de você.",
+   "Caiu nas garras do patrono depois de atravessar, sem querer, uma porta mágica.",
+   "Numa crise terrível, rezou para quem quisesse ouvir, e a criatura que respondeu virou seu patrono.",
+   "O futuro patrono o visitou em sonhos e ofereceu grande poder em troca de serviço.",
+   "Um antepassado tinha um pacto com o patrono, e a entidade decidiu prender você ao mesmo acordo."
+  ],
+  "clerigo": [
+   "Um ser sobrenatural a serviço dos deuses o chamou para ser um agente divino no mundo.",
+   "Viu a injustiça e o horror do mundo e sentiu que precisava se levantar contra eles.",
+   "Seu deus lhe deu um sinal inconfundível, e você largou tudo para servir.",
+   "Sempre foi devoto, mas só descobriu o chamado verdadeiro depois de uma peregrinação.",
+   "Trabalhava na burocracia da sua religião, mas sentiu que precisava levar a fé aos cantos mais escuros do mundo.",
+   "Sabe que seu deus age por meio de você e obedece, mesmo sem entender por que foi o escolhido."
+  ],
+  "druida": [
+   "Viu devastação demais nos lugares selvagens e entrou para um círculo de druidas para revidar contra quem destrói a natureza.",
+   "Encontrou lugar entre druidas depois de fugir de uma catástrofe.",
+   "Sempre teve jeito com animais e explorou esse talento até o fim.",
+   "Fez amizade com um druida, comoveu-se com os ensinamentos e decidiu seguir o amigo e retribuir ao mundo.",
+   "Na infância via espíritos à sua volta que ninguém mais via; procurou os druidas para entender as visões e falar com esses seres.",
+   "Sempre sentiu aversão a criaturas de origem antinatural e se tornou defensor da ordem natural."
+  ],
+  "guerreiro": [
+   "Queria aperfeiçoar a luta e entrou numa escola de guerra.",
+   "Foi escudeiro de um cavaleiro que o ensinou a lutar, cuidar de um cavalo e agir com honra; decidiu seguir o mesmo caminho.",
+   [
+    "Monstros horríveis atacaram sua comunidade e mataram alguém que você amava; você pegou em armas para destruí-los.",
+    "P"
+   ],
+   "Entrou para o exército e aprendeu a lutar em grupo.",
+   "Cresceu brigando e aprimorou o talento se defendendo de quem o provocava.",
+   "Sempre soube usar bem qualquer arma que pegasse."
+  ],
+  "monge": [
+   "Foi escolhido para estudar num mosteiro isolado, onde aprendeu as técnicas básicas de uma tradição.",
+   "Buscou instrução para entender melhor a existência e o seu lugar no mundo.",
+   "Tropeçou num portal para o Shadowfell e se abrigou num mosteiro estranho, onde aprendeu a se defender das trevas.",
+   "Tomado pelo luto depois de perder alguém próximo, procurou filósofos para lidar com a perda.",
+   "Sentia um poder especial dentro de si e procurou quem o ajudasse a despertá-lo e dominá-lo.",
+   "Era selvagem e indisciplinado quando jovem, reconheceu o erro e entrou num mosteiro em busca de disciplina."
+  ],
+  "paladino": [
+   "Um ser fantástico apareceu diante de você e o chamou para uma missão sagrada.",
+   "Um antepassado deixou uma missão sagrada incompleta, e você pretende terminá-la.",
+   "O mundo é escuro e terrível, e você decidiu ser um farol contra as sombras.",
+   "Foi escudeiro de um paladino e aprendeu tudo o que precisava para fazer o próprio juramento.",
+   "O mal deve ser enfrentado em toda parte; você se sente obrigado a caçá-lo e purgá-lo do mundo.",
+   "Tornar-se paladino foi consequência natural da sua fé inabalável: ao jurar, virou a espada sagrada da sua religião."
+  ],
+  "patrulheiro": [
+   "Encontrou propósito caçando animais perigosos nas bordas da civilização.",
+   "Sempre teve jeito com animais: acalma qualquer um com uma palavra e um toque.",
+   "Sofre de uma vontade terrível de andar; ser patrulheiro deu um motivo para nunca ficar parado.",
+   "Viu o que acontece quando os monstros saem do escuro e decidiu ser a primeira linha de defesa.",
+   "Conheceu um velho patrulheiro que lhe ensinou os segredos das matas e das terras selvagens.",
+   "Serviu num exército, abrindo trilhas e espionando acampamentos inimigos."
+  ],
+  "ladino": [
+   "Sempre foi ágil e esperto e decidiu usar isso para abrir caminho no mundo.",
+   [
+    "Um assassino ou ladrão o prejudicou, e você treinou as habilidades do inimigo para enfrentar gente assim.",
+    "P"
+   ],
+   "Um ladino experiente viu algo em você e lhe ensinou vários truques úteis.",
+   "Decidiu transformar sua sorte natural numa carreira, sabendo que ainda precisa melhorar.",
+   "Andou com um bando de malandros que o ensinou a conseguir o que quer pela astúcia, não pelo confronto.",
+   "Não resiste a uma joia brilhante ou a um saco de moedas, desde que possa pegá-los sem arriscar a pele."
+  ],
+  "feiticeiro": [
+   "Quando você nasceu, a água da casa congelou, o leite azedou ou o ferro virou cobre; a família acha que foi um presságio.",
+   "Um grande esforço físico ou emocional despertou seu poder mágico adormecido; você luta para controlá-lo desde então.",
+   "A família nunca falava dos antepassados; só quando você mostrou talentos estranhos a verdade veio à tona.",
+   "Quando um monstro ameaçou um amigo, você reagiu por instinto e o atingiu com uma força que veio de dentro.",
+   "Um estranho sentiu algo especial em você e lhe ensinou a controlar o dom.",
+   "Escapou ileso de um incêndio mágico, mas não inalterado; passou a mostrar habilidades que só agora começa a entender."
+  ],
+  "mago": [
+   "Um velho mago o escolheu entre vários candidatos para ser seu aprendiz.",
+   "Perdido numa floresta, foi achado por um mago recluso que o acolheu e ensinou o básico da magia.",
+   "Cresceu ouvindo histórias de grandes magos e se esforçou até ser aceito numa academia de magia.",
+   "Um parente, mago experiente, achou você esperto o bastante para aprender a arte.",
+   "Explorando uma tumba, biblioteca ou templo antigo, achou um grimório e sentiu a necessidade de aprender tudo sobre magia.",
+   "Era um prodígio e dominou a arte arcana cedo; quando pôde, partiu para aprender mais."
+  ],
+  "artifice": [
+   "Serviu como acólito num templo de Gond, mas o deus nunca respondeu às suas orações. Respondeu aos seus projetos.",
+   "Chegou a Lantan ainda criança, trazido pelo mar; os gnomos que o acharam o criaram entre engrenagens e o ensinaram a ler magia como uma planta de engenharia.",
+   "Uma das suas primeiras invenções explodiu e queimou a oficina da família em Baldur's Gate; desde então você tenta construir algo que valha esse preço.",
+   "Vasculhando uma ruína netherese, achou um aparelho antigo que ainda funcionava; desmontá-lo ensinou mais que qualquer grimório.",
+   "Foi recusado por todas as academias de magia e decidiu provar que a magia pode ser medida, repetida e posta nas mãos de qualquer um.",
+   "A guerra chegou à sua aldeia e você não era bom com a espada. Então construiu algo que era."
+  ],
+  "pugilista": [
+   "Cresceu no Dock Ward de Waterdeep, onde ninguém lhe deu nada; a única coisa que foi realmente sua eram os punhos.",
+   [
+    "Lutou nos fossos clandestinos da Lower City de Baldur's Gate para pagar uma dívida que, de algum jeito, nunca diminui.",
+    "P"
+   ],
+   "Começou uma briga de taverna que saiu do controle; quando a poeira baixou, só você estava de pé, e agora gente importante quer uma conversa.",
+   "Um velho campeão de nariz quebrado o viu apanhar e continuar levantando; ensinou que perder tudo bem, ficar no chão não.",
+   [
+    "Foi expulso do Flaming Fist por quebrar a mandíbula do capitão. Ele mereceu, e você faria de novo.",
+    "P"
+   ],
+   "Deve dinheiro, favores e desculpas em meia Costa da Espada; aventurar é o jeito mais rápido de sair da cidade e acertar as contas."
+  ]
+ },
+ "EVENTOS": [
+  [
+   1,
+   10,
+   "tragedia"
+  ],
+  [
+   11,
+   20,
+   "bencao"
+  ],
+  [
+   21,
+   30,
+   "amor"
+  ],
+  [
+   31,
+   40,
+   "inimigo"
+  ],
+  [
+   41,
+   50,
+   "amigo"
+  ],
+  [
+   51,
+   70,
+   "trabalho"
+  ],
+  [
+   71,
+   75,
+   "importante"
+  ],
+  [
+   76,
+   80,
+   "aventura"
+  ],
+  [
+   81,
+   85,
+   "sobrenatural"
+  ],
+  [
+   86,
+   90,
+   "batalha"
+  ],
+  [
+   91,
+   95,
+   "crime",
+   "P"
+  ],
+  [
+   96,
+   99,
+   "arcano"
+  ],
+  [
+   100,
+   100,
+   "estranho"
+  ]
+ ],
+ "TRAG": [
+  [
+   1,
+   2,
+   "Um familiar ou amigo próximo morreu",
+   "P"
+  ],
+  [
+   3,
+   3,
+   "Uma amizade terminou mal, e a pessoa hoje é hostil a você, por um mal-entendido ou por culpa de um dos dois."
+  ],
+  [
+   4,
+   4,
+   "Você perdeu tudo o que tinha num desastre e precisou reconstruir a vida."
+  ],
+  [
+   5,
+   5,
+   "Você foi preso por um crime que não cometeu e passou anos em trabalhos forçados, na cadeia ou acorrentado ao remo de uma galé.",
+   "P"
+  ],
+  [
+   6,
+   6,
+   "A guerra arrasou sua comunidade; depois, você ajudou a reconstruí-la ou foi viver em outro lugar.",
+   "P"
+  ],
+  [
+   7,
+   7,
+   "Um amor desapareceu sem deixar rastro, e você procura essa pessoa até hoje."
+  ],
+  [
+   8,
+   8,
+   "Uma praga destruiu as colheitas da sua terra; muita gente passou fome, e você perdeu um parente.",
+   "P"
+  ],
+  [
+   9,
+   9,
+   "Você fez algo que envergonhou sua família: um escândalo, magia sombria ou uma ofensa a alguém importante. Hoje eles são indiferentes a você, mas talvez perdoem um dia."
+  ],
+  [
+   10,
+   10,
+   "Por um motivo que nunca lhe contaram, você foi exilado da comunidade; vagou pelos ermos por um tempo ou achou logo outro lugar para viver."
+  ],
+  [
+   11,
+   11,
+   "Um romance chegou ao fim"
+  ],
+  [
+   12,
+   12,
+   "Uma pessoa que você amava (ou quase) morreu",
+   "P"
+  ]
+ ],
+ "BENC": [
+  "Um mago amigo lhe deu um pergaminho com um truque de magia.",
+  "Você salvou a vida de alguém do povo, que agora lhe deve a vida e o acompanha fazendo tarefas simples; essa pessoa vai embora se for maltratada, esquecida ou posta em perigo.",
+  "Você achou um cavalo de montaria.",
+  "Você achou algumas moedas de ouro.",
+  "Um parente lhe deixou de herança uma arma simples, à sua escolha.",
+  "Você achou algo curioso, uma bugiganga que guarda até hoje.",
+  "Você prestou um serviço a um templo local; na próxima visita, os sacerdotes vão curá-lo.",
+  "Um alquimista amigo lhe deu uma poção de cura ou um frasco de ácido, à sua escolha.",
+  "Você achou um mapa do tesouro.",
+  "Um parente distante lhe deixou uma pensão que permite viver com conforto por alguns anos."
+ ],
+ "AVENT": [
+  [
+   1,
+   10,
+   "Você quase morreu: tem cicatrizes feias e perdeu uma orelha, alguns dedos das mãos ou dos pés.",
+   "P"
+  ],
+  [
+   11,
+   20,
+   "Você sofreu um ferimento grave que sarou, mas ainda dói de vez em quando."
+  ],
+  [
+   21,
+   30,
+   "Você foi ferido, mas se recuperou por completo."
+  ],
+  [
+   31,
+   40,
+   "Você pegou uma doença numa toca imunda; sarou, mas ficou com uma tosse persistente, marcas na pele ou cabelos grisalhos antes do tempo."
+  ],
+  [
+   41,
+   50,
+   "Você foi envenenado por uma armadilha ou por um monstro e se recuperou."
+  ],
+  [
+   51,
+   60,
+   "Você perdeu um objeto de grande valor sentimental."
+  ],
+  [
+   61,
+   70,
+   "Algo o assustou tanto que você fugiu, deixando os companheiros à própria sorte."
+  ],
+  [
+   71,
+   80,
+   "Você aprendeu muito nessa aventura."
+  ],
+  [
+   81,
+   90,
+   "Você achou um tesouro e ainda guarda um pouco dele."
+  ],
+  [
+   91,
+   99,
+   "Você achou um grande tesouro e ainda guarda uma boa parte."
+  ],
+  [
+   100,
+   100,
+   "Você encontrou um item mágico comum."
+  ]
+ ],
+ "SOBR": [
+  [
+   1,
+   5,
+   "Você foi enfeitiçado por uma fada e escravizado por anos até conseguir fugir.",
+   "P"
+  ],
+  [
+   6,
+   10,
+   "Você viu um demônio e fugiu antes que ele fizesse qualquer coisa.",
+   "P"
+  ],
+  [
+   11,
+   15,
+   "Um diabo tentou você com ouro e promessas. Se você cedeu, só você sabe.",
+   "P"
+  ],
+  [
+   16,
+   20,
+   "Você acordou certa manhã a quilômetros de casa, sem nenhuma ideia de como chegou lá."
+  ],
+  [
+   21,
+   30,
+   "Você visitou um lugar sagrado e sentiu a presença divina."
+  ],
+  [
+   31,
+   40,
+   "Você viu uma estrela vermelha cair, um rosto surgir na geada ou outro sinal estranho, e tem certeza de que foi um presságio."
+  ],
+  [
+   41,
+   50,
+   "Você escapou da morte certa e acredita que um deus interveio."
+  ],
+  [
+   51,
+   60,
+   "Você testemunhou um pequeno milagre."
+  ],
+  [
+   61,
+   70,
+   "Você explorou uma casa vazia e descobriu que era assombrada."
+  ],
+  [
+   71,
+   75,
+   "Você foi possuído por pouco tempo",
+   "P"
+  ],
+  [
+   76,
+   80,
+   "Você viu um fantasma."
+  ],
+  [
+   81,
+   85,
+   "Você viu um carniçal devorando um cadáver.",
+   "P"
+  ],
+  [
+   86,
+   90,
+   "Um celestial ou um ínfero visitou seus sonhos para avisar de perigos que virão."
+  ],
+  [
+   91,
+   95,
+   "Você visitou por pouco tempo o Feywild ou o Shadowfell."
+  ],
+  [
+   96,
+   100,
+   "Você viu um portal que acredita levar a outro plano de existência."
+  ]
+ ],
+ "POSSE": [
+  "um celestial",
+  "um diabo",
+  "um demônio",
+  "uma fada",
+  "um elemental",
+  "um morto-vivo"
+ ],
+ "GUERRA": [
+  [
+   1,
+   1,
+   "Você foi nocauteado e deixado como morto; acordou horas depois, sem lembrar da batalha.",
+   "P"
+  ],
+  [
+   2,
+   3,
+   "Você foi gravemente ferido e ainda carrega cicatrizes terríveis.",
+   "P"
+  ],
+  [
+   4,
+   4,
+   "Você fugiu da batalha para salvar a vida e ainda sente vergonha da covardia."
+  ],
+  [
+   5,
+   7,
+   "Você sofreu ferimentos leves, que saram sem deixar marca."
+  ],
+  [
+   8,
+   9,
+   "Você sobreviveu, mas revive a batalha em pesadelos terríveis.",
+   "P"
+  ],
+  [
+   10,
+   11,
+   "Você saiu ileso, mas muitos amigos foram feridos ou mortos.",
+   "P"
+  ],
+  [
+   12,
+   12,
+   "Você lutou bem e é lembrado como herói; talvez tenha até recebido uma medalha."
+  ]
+ ],
+ "CRIME": [
+  [
+   1,
+   1,
+   "assassinato",
+   "P"
+  ],
+  [
+   2,
+   2,
+   "roubo"
+  ],
+  [
+   3,
+   3,
+   "invasão de propriedade"
+  ],
+  [
+   4,
+   4,
+   "agressão",
+   "P"
+  ],
+  [
+   5,
+   5,
+   "contrabando"
+  ],
+  [
+   6,
+   6,
+   "sequestro",
+   "P"
+  ],
+  [
+   7,
+   7,
+   "extorsão"
+  ],
+  [
+   8,
+   8,
+   "falsificação"
+  ]
+ ],
+ "PUNI": [
+  [
+   1,
+   3,
+   "Você não cometeu o crime e foi inocentado."
+  ],
+  [
+   4,
+   6,
+   "Você cometeu o crime (ou ajudou), mas as autoridades o declararam inocente."
+  ],
+  [
+   7,
+   8,
+   "Você quase foi pego em flagrante; fugiu e é procurado onde o crime aconteceu."
+  ],
+  [
+   9,
+   12,
+   "Você foi pego e condenado: cumpriu anos de pena na prisão, num remo ou em trabalhos forçados (ou fugiu depois desse tempo).",
+   "P"
+  ]
+ ],
+ "ARC": [
+  "Você foi enfeitiçado ou amedrontado por uma magia.",
+  "Você foi ferido por uma magia.",
+  "Você viu um conjurador poderoso lançar uma grande magia.",
+  "Você bebeu uma poção mágica.",
+  "Você achou um pergaminho mágico e conseguiu lançar a magia dele.",
+  "Você foi levado por uma magia de teletransporte.",
+  "Você ficou invisível por um tempo.",
+  "Você reconheceu uma ilusão pelo que ela era.",
+  "Você viu uma criatura ser conjurada por magia.",
+  "Um adivinho leu a sua sorte"
+ ],
+ "ESTR": [
+  [
+   1,
+   1,
+   "Você foi transformado em sapo e ficou assim por algumas semanas."
+  ],
+  [
+   2,
+   2,
+   "Você foi petrificado e passou um tempo como estátua, até alguém libertá-lo."
+  ],
+  [
+   3,
+   3,
+   "Você foi escravizado por uma bruxa, um sátiro ou outro ser e viveu anos sob seu domínio.",
+   "P"
+  ],
+  [
+   4,
+   4,
+   "Um dragão o manteve prisioneiro por meses, até aventureiros o matarem.",
+   "P"
+  ],
+  [
+   5,
+   5,
+   "Você foi capturado por humanoides malignos do Subterrâneo e viveu como escravo até fugir.",
+   "P"
+  ],
+  [
+   6,
+   6,
+   "Você serviu como contratado a um aventureiro poderoso e deixou o serviço há pouco tempo"
+  ],
+  [
+   7,
+   7,
+   "Você enlouqueceu por anos e recuperou a razão há pouco; ainda restam um tique ou um hábito estranho.",
+   "P"
+  ],
+  [
+   8,
+   8,
+   "Um amor seu era, em segredo, um dragão de prata."
+  ],
+  [
+   9,
+   9,
+   "Você foi capturado por um culto e quase sacrificado num altar; escapou, mas teme que o encontrem.",
+   "P"
+  ],
+  [
+   10,
+   10,
+   "Você conheceu um semideus, um arquidiabo, um arquifada, um lorde demônio ou um titã, e viveu para contar a história.",
+   "P"
+  ],
+  [
+   11,
+   11,
+   "Você foi engolido por um peixe gigante e passou um mês na barriga dele até escapar."
+  ],
+  [
+   12,
+   12,
+   "Um ser poderoso lhe concedeu um desejo, e você o desperdiçou com uma bobagem."
+  ]
+ ],
+ "DOM": {
+  "FOR": [
+   "Carregava sacos de grãos no moinho desde os oito anos.",
+   "Venceu um torneio de queda de braço contra o ferreiro da vila.",
+   "Ergueu uma carroça para salvar uma criança presa embaixo dela.",
+   "Treinou todos os dias com um velho soldado que não aceitava desculpas.",
+   "Um antepassado de força lendária deixou esse sangue na família.",
+   "Remava contra a correnteza para atravessar o rio todos os dias."
+  ],
+  "DES": [
+   "Aprendeu equilíbrio correndo pelos telhados da cidade.",
+   "Um malabarista de trupe o ensinou a pegar qualquer coisa no ar.",
+   "Caçava pássaros com funda e nunca errava.",
+   "Fugiu tantas vezes de cães bravos que ficou rápido demais.",
+   "Treinou dança com um mestre exigente desde pequeno.",
+   "Nasceu com reflexos que assustavam as parteiras."
+  ],
+  "CON": [
+   "Sobreviveu a um inverno inteiro nos ermos sem abrigo.",
+   "Pegou todas as doenças da infância e venceu todas.",
+   "Trabalhou nas minas desde cedo, respirando pó e carregando pedra.",
+   "Nadava num lago gelado todo amanhecer, por causa de uma promessa.",
+   "Uma curandeira o tratou com ervas amargas que fortaleceram o corpo.",
+   "Aguentou dias de marcha sem descanso com uma caravana."
+  ],
+  "INT": [
+   "Leu cada livro da biblioteca do templo antes dos doze anos.",
+   "Um sábio excêntrico o ensinou a pensar como quem resolve enigmas.",
+   "Resolvia de cabeça as contas dos mercadores, em troca de moedas.",
+   "Desmontava e remontava mecanismos só para entender como funcionavam.",
+   "Aprendeu três línguas ouvindo viajantes na estalagem.",
+   "Venceu o melhor jogador de xadrez da cidade aos dez anos."
+  ],
+  "SAB": [
+   "Passou anos observando a natureza ao lado de um velho caçador.",
+   "Uma avó sábia o ensinou a ler as pessoas pelo olhar.",
+   "Percebeu um incêndio antes de todos e salvou a vila.",
+   "Meditava com monges que passavam pela região.",
+   "Sonha com coisas que acontecem depois.",
+   "Cresceu cuidando de doentes e aprendeu a notar cada sinal."
+  ],
+  "CAR": [
+   "Convenceu um guarda a soltar o irmão só com uma boa conversa.",
+   "Cantava na praça, e a cidade parava para ouvir.",
+   "Liderava as crianças do bairro como um pequeno capitão.",
+   "Um bardo viajante o ensinou a contar histórias.",
+   "Tem um sorriso que já fez um nobre perdoar uma dívida.",
+   "Fez amizade com todos os mercadores do mercado."
+  ]
+ },
+ "FRAQ": {
+  "FOR": [
+   "Um braço quebrado na infância nunca sarou direito.",
+   "Cresceu doente e magro, com pouca comida.",
+   "Nunca precisou fazer trabalho pesado, e o corpo sentiu.",
+   "Uma febre longa deixou os músculos fracos.",
+   "Sempre preferiu a cabeça ao braço, e isso aparece.",
+   "Carrega uma velha lesão nas costas."
+  ],
+  "DES": [
+   "Uma perna mal curada deixou o passo desajeitado.",
+   "Tem as mãos trêmulas desde uma febre na infância.",
+   "Enxerga mal de um olho.",
+   "Cresceu grande e desengonçado, sempre esbarrando nas coisas.",
+   "Um medo de altura trava seus movimentos.",
+   "Os dedos endureceram num inverno rigoroso."
+  ],
+  "CON": [
+   "Tem os pulmões fracos desde um inverno de tosse.",
+   "Adoece com facilidade.",
+   "Nasceu antes do tempo e sempre foi frágil.",
+   "Uma velha picada de aranha deixou o fôlego curto.",
+   "Dorme mal e vive cansado.",
+   "Tem o estômago sensível a qualquer comida estranha."
+  ],
+  "INT": [
+   "Nunca teve quem o ensinasse a ler.",
+   "Uma pancada na cabeça deixou a memória falha.",
+   "Distrai-se com qualquer coisa brilhante.",
+   "Aprendeu tudo na prática e desconfia de livros.",
+   "Confunde números e nomes com frequência.",
+   "Cresceu isolado, longe de qualquer escola."
+  ],
+  "SAB": [
+   "Confia em quem não devia, sempre.",
+   "Age antes de pensar desde criança.",
+   "É distraído a ponto de se perder na própria cidade.",
+   "Um encanto sofrido na infância deixou a mente nebulosa.",
+   "Ouve mal de um ouvido.",
+   "Acredita em qualquer boato de taverna."
+  ],
+  "CAR": [
+   "Uma cicatriz no rosto faz as pessoas desviarem o olhar.",
+   "Gagueja quando fica nervoso.",
+   "Cresceu sozinho e não sabe conversar.",
+   "Tem um jeito rude que afasta as pessoas.",
+   "É tímido a ponto de sumir nas festas.",
+   "Carrega uma fama ruim que chega antes dele."
+  ]
+ },
+ "PER": {
+  "acolito": {
+   "t": [
+    "Idolatra um herói da sua fé e vive citando os feitos dele.",
+    "Encontra ponto em comum até entre os inimigos mais ferrenhos.",
+    "Vê presságios em tudo: os deuses estão sempre falando.",
+    "Nada abala o seu otimismo.",
+    "Cita (ou cita errado) textos sagrados em qualquer situação.",
+    "Respeita todas as crenças — ou não tolera nenhuma além da sua.",
+    "Acostumou-se ao conforto do alto clero; vida dura o irrita.",
+    "Passou tanto tempo no templo que não sabe lidar com gente comum."
+   ],
+   "i": [
+    "Tradição: os ritos antigos devem ser preservados. (Leal)",
+    "Caridade: ajudo quem precisa, custe o que custar. (Bom)",
+    "Mudança: os deuses querem que o mundo mude, e eu ajudo. (Caótico)",
+    "Poder: um dia vou liderar a minha fé. (Leal)",
+    "Fé: confio que meu deus guia os meus passos. (Leal)",
+    "Aspiração: quero provar que sou digno do meu deus. (Qualquer)"
+   ],
+   "b": [
+    "Daria a vida para recuperar uma relíquia perdida da minha fé.",
+    "Um dia vou me vingar da hierarquia corrupta que me chamou de herege.",
+    "Devo a vida ao sacerdote que me acolheu.",
+    "Tudo o que faço é pelo povo comum.",
+    "Faço qualquer coisa para proteger o templo onde servi.",
+    "Protejo um texto sagrado que meus inimigos chamam de herético."
+   ],
+   "f": [
+    "Julgo os outros com dureza, e a mim com mais dureza ainda.",
+    "Confio demais em quem tem poder na minha fé.",
+    "Minha devoção me deixa cego e fácil de manipular.",
+    "Não abro mão do que penso.",
+    "Desconfio de estranhos e espero o pior deles.",
+    "Quando escolho um objetivo, fico obcecado e esqueço o resto."
+   ]
+  },
+  "charlatao": {
+   "t": [
+    "Me apaixono e desapaixono com facilidade.",
+    "Tenho uma piada para cada ocasião, principalmente as erradas.",
+    "Bajulação é a minha ferramenta favorita.",
+    "Sou jogador nato; não resisto a um risco.",
+    "Minto sobre quase tudo, mesmo sem motivo.",
+    "Sarcasmo e insulto são as minhas armas preferidas.",
+    "Carrego vários símbolos sagrados e invoco o deus que for mais útil.",
+    "Embolso tudo o que parece valioso."
+   ],
+   "i": [
+    "Independência: sou um espírito livre. (Caótico)",
+    "Justiça: nunca engano quem não pode perder. (Leal)",
+    "Caridade: divido o lucro com quem precisa. (Bom)",
+    "Criatividade: nunca repito o mesmo golpe. (Caótico)",
+    "Amizade: bens vêm e vão; amigos ficam. (Bom)",
+    "Aspiração: estou decidido a me dar bem. (Qualquer)"
+   ],
+   "b": [
+    "Enganei a pessoa errada e preciso garantir que isso não me alcance.",
+    "Devo tudo ao meu mentor, um péssimo sujeito que apodrece na cadeia.",
+    "Em algum lugar há um filho meu que não me conhece; quero uma vida melhor para ele.",
+    "Venho de família nobre e um dia vou recuperar o meu nome.",
+    [
+     "Uma pessoa poderosa destruiu alguém que eu amava; um dia me vingo.",
+     "P"
+    ],
+    "Arruinei alguém que não merecia e busco reparar o erro."
+   ],
+   "f": [
+    "Não resisto a um rosto bonito.",
+    "Estou sempre endividado.",
+    "Tenho certeza de que ninguém consegue me enganar.",
+    "Sou ganancioso demais para não arriscar.",
+    "Não resisto a ridicularizar quem é mais poderoso que eu.",
+    "Fujo quando a coisa aperta."
+   ]
+  },
+  "criminoso": {
+   "t": [
+    "Sempre tenho um plano B.",
+    "Fico calmo mesmo no pior dos apertos.",
+    "Num lugar novo, a primeira coisa que faço é achar as saídas e os objetos de valor.",
+    "Prefiro fazer um amigo a fazer um inimigo.",
+    "Demoro a confiar; quem parece mais honesto esconde mais.",
+    "Não ligo para riscos: nunca me diga as chances.",
+    "O jeito mais rápido de me fazer agir é dizer que não consigo.",
+    "Explodo com o menor insulto."
+   ],
+   "i": [
+    "Honra: não roubo dos da minha laia. (Leal)",
+    "Liberdade: correntes foram feitas para quebrar. (Caótico)",
+    "Caridade: roubo dos ricos para ajudar quem precisa. (Bom)",
+    "Ganância: faço qualquer coisa por dinheiro. (Mau)",
+    "Gente: sou leal aos meus amigos, não a ideais. (Neutro)",
+    "Redenção: há um lado bom em todos, até em mim. (Bom)"
+   ],
+   "b": [
+    "Tento pagar uma dívida antiga com um benfeitor generoso.",
+    "O que ganho por fora da lei sustenta a minha família.",
+    "Algo importante foi tirado de mim, e vou roubá-lo de volta.",
+    "Vou ser o maior ladrão que já existiu.",
+    [
+     "Sou culpado de um crime terrível e espero me redimir.",
+     "P"
+    ],
+    "Alguém que eu amava sofreu por um erro meu; nunca mais vai acontecer."
+   ],
+   "f": [
+    "Quando vejo algo valioso, não penso em outra coisa.",
+    "Entre dinheiro e amigos, costumo escolher o dinheiro.",
+    "Se há um plano, esqueço dele; se não há, invento um péssimo.",
+    "Tenho um tique que me entrega quando minto.",
+    "Viro as costas e fujo quando a coisa fica feia.",
+    [
+     "Um inocente está preso por um crime meu, e isso não me incomoda.",
+     "P"
+    ]
+   ]
+  },
+  "artista": {
+   "t": [
+    "Conheço uma história para cada situação.",
+    "Aonde vou, começo a colecionar fofocas.",
+    "Sou um romântico sem remédio.",
+    "Ninguém fica bravo comigo por muito tempo; sei desfazer qualquer tensão.",
+    "Adoro um bom insulto, mesmo contra mim.",
+    "Fico amargo se não sou o centro das atenções.",
+    "Só me contento com a perfeição.",
+    "Mudo de humor tão rápido quanto de tom numa canção."
+   ],
+   "i": [
+    "Beleza: com a minha arte, deixo o mundo melhor. (Bom)",
+    "Tradição: as histórias do passado não podem ser esquecidas. (Leal)",
+    "Criatividade: o mundo precisa de ideias novas. (Caótico)",
+    "Ganância: só me apresento por dinheiro e fama. (Mau)",
+    "Gente: gosto do sorriso da plateia, e só. (Neutro)",
+    "Honestidade: a arte deve refletir a alma. (Qualquer)"
+   ],
+   "b": [
+    "Meu instrumento é o meu bem mais precioso e me lembra de alguém que amo.",
+    "Alguém roubou meu instrumento, e um dia vou recuperá-lo.",
+    "Quero ser famoso, custe o que custar.",
+    "Idolatro um herói das antigas e comparo tudo com ele.",
+    "Faço tudo para provar que sou melhor que o meu rival.",
+    "Faria qualquer coisa pelos artistas da minha antiga trupe."
+   ],
+   "f": [
+    "Faço qualquer coisa por fama e renome.",
+    "Não resisto a um rosto bonito.",
+    "Um escândalo me impede de voltar para casa.",
+    "Satirizei um nobre uma vez, e ele ainda quer a minha cabeça.",
+    "Não sei esconder o que sinto.",
+    "Por mais que eu tente, não sou confiável com os amigos."
+   ]
+  },
+  "heroi": {
+   "t": [
+    "Julgo as pessoas pelo que fazem, não pelo que dizem.",
+    "Se alguém está em apuros, estou pronto para ajudar.",
+    "Quando decido algo, vou até o fim.",
+    "Tenho um forte senso de jogo limpo.",
+    "Confio muito em mim mesmo.",
+    "Pensar demais é perda de tempo; prefiro agir.",
+    "Uso palavras difíceis para parecer mais esperto.",
+    "Me entedio com facilidade."
+   ],
+   "i": [
+    "Respeito: todos merecem ser tratados com dignidade. (Bom)",
+    "Justiça: ninguém está acima da lei. (Leal)",
+    "Liberdade: tiranos não podem oprimir o povo. (Caótico)",
+    "Poder: se eu for forte, pego o que quiser. (Mau)",
+    "Sinceridade: não finjo ser o que não sou. (Neutro)",
+    "Destino: nada me desvia do meu chamado. (Qualquer)"
+   ],
+   "b": [
+    "Tenho uma família e faria tudo por ela.",
+    "Protejo a terra onde cresci.",
+    "Um nobre orgulhoso me humilhou; vou cobrar isso de qualquer valentão.",
+    "Minhas ferramentas lembram minha vida antiga, e as carrego comigo.",
+    "Protejo quem não pode se proteger.",
+    "Queria que a pessoa que amo me acompanhasse no meu destino."
+   ],
+   "f": [
+    [
+     "O tirano que governa a minha terra quer me ver morto.",
+     "P"
+    ],
+    "Confio demais no meu destino e não vejo os meus defeitos.",
+    "Quem me conheceu na infância sabe um segredo vergonhoso meu.",
+    [
+     "Tenho fraqueza pelos vícios da cidade, principalmente a bebida.",
+     "P"
+    ],
+    "Em segredo, acho que o mundo seria melhor se eu mandasse nele.",
+    "Tenho dificuldade de confiar nos meus aliados."
+   ]
+  },
+  "artesao": {
+   "t": [
+    "Acho que tudo merece ser bem-feito.",
+    "Sou esnobe com quem não valoriza um trabalho refinado.",
+    "Sempre quero saber como as coisas funcionam.",
+    "Tenho um ditado para cada ocasião.",
+    "Sou rude com quem não trabalha tanto quanto eu.",
+    "Adoro falar da minha profissão.",
+    "Não gasto fácil e pechincho até o fim.",
+    "Sou conhecido pelo meu trabalho e quero ser reconhecido por ele."
+   ],
+   "i": [
+    "Comunidade: cabe a todos manter o bem comum. (Leal)",
+    "Generosidade: meus talentos existem para ajudar os outros. (Bom)",
+    "Liberdade: cada um deve poder escolher o próprio ofício. (Caótico)",
+    "Ganância: estou nisso pelo dinheiro. (Mau)",
+    "Gente: sou leal a quem trabalha comigo, não a ideais. (Neutro)",
+    "Aspiração: trabalho para ser o melhor do meu ofício. (Qualquer)"
+   ],
+   "b": [
+    "A oficina onde aprendi o ofício é o lugar mais importante do mundo para mim.",
+    "Fiz uma obra-prima para alguém que não a merecia; quero outra chance.",
+    "Devo à minha guilda tudo o que tenho.",
+    "Busco riqueza para conquistar o amor de alguém.",
+    "Um dia volto à guilda e provo que sou o melhor.",
+    "Quero vingança contra quem destruiu o meu negócio."
+   ],
+   "f": [
+    "Faço qualquer coisa por algo raro ou valioso.",
+    "Acho que todos querem me enganar.",
+    "Ninguém pode saber que já tirei dinheiro da guilda.",
+    "Nunca estou satisfeito com o que tenho.",
+    "Faria qualquer coisa para ter um título de nobreza.",
+    "Morro de inveja de quem faz melhor que eu."
+   ]
+  },
+  "eremita": {
+   "t": [
+    "Vivi isolado tanto tempo que falo pouco.",
+    "Fico calmo mesmo diante de um desastre.",
+    "O líder da minha antiga comunidade tinha algo sábio a dizer sobre tudo, e eu repito.",
+    "Sinto empatia por quem sofre.",
+    "Não entendo etiqueta nem regras sociais.",
+    "Ligo tudo a um grande plano cósmico.",
+    "Me perco em pensamentos, alheio ao que acontece em volta.",
+    "Trabalho numa grande teoria filosófica e adoro explicá-la."
+   ],
+   "i": [
+    "Bem maior: meus dons são para servir aos outros. (Bom)",
+    "Lógica: emoção não pode nublar o bom senso. (Leal)",
+    "Livre pensar: perguntar e duvidar é o caminho. (Caótico)",
+    "Poder: o isolamento me deu saber, e saber é poder. (Mau)",
+    "Viver e deixar viver: meter-se na vida alheia só traz problema. (Neutro)",
+    "Autoconhecimento: quem conhece a si mesmo não precisa de mais nada. (Qualquer)"
+   ],
+   "b": [
+    "Nada é mais importante que os outros do meu antigo refúgio.",
+    "Me isolei para me esconder de quem ainda me procura.",
+    "Ainda busco a iluminação que persegui no isolamento.",
+    "Me afastei para viver um amor proibido.",
+    "Se o que descobri vier à tona, pode ser a ruína do mundo.",
+    "O isolamento me mostrou um mal que só eu posso destruir."
+   ],
+   "f": [
+    [
+     "Agora que voltei ao mundo, aproveito demais os seus prazeres.",
+     "P"
+    ],
+    "Tenho pensamentos sombrios que o isolamento não curou.",
+    "Sou inflexível no que penso.",
+    "Minha vontade de vencer uma discussão fala mais alto que as amizades.",
+    "Arrisco muito para descobrir um saber perdido.",
+    "Gosto de guardar segredos e não os divido com ninguém."
+   ]
+  },
+  "nobre": {
+   "t": [
+    "Minhas boas maneiras me deixam à vontade até na corte mais formal.",
+    "O povo me adora pela bondade e pela generosidade.",
+    "Ninguém olha para mim sem perceber que sou superior.",
+    "Faço de tudo para estar sempre impecável e na moda.",
+    "Não gosto de sujar as mãos.",
+    "Apesar do berço, não me acho melhor que ninguém.",
+    "Quem perde o meu favor não o recupera.",
+    [
+     "Quem me fere, eu destruo: nome, fortuna e terras.",
+     "P"
+    ]
+   ],
+   "i": [
+    "Respeito: todos merecem respeito, qualquer que seja a posição. (Bom)",
+    "Responsabilidade: é meu dever servir e proteger quem está abaixo de mim. (Leal)",
+    "Independência: preciso provar que sou capaz sem a família. (Caótico)",
+    "Poder: com poder, ninguém vai me dizer o que fazer. (Mau)",
+    "Família: o sangue vem em primeiro lugar. (Qualquer)",
+    "Nobreza obriga: devo usar minha posição para o bem. (Bom)"
+   ],
+   "b": [
+    "Enfrento qualquer desafio para ganhar a aprovação da família.",
+    "A aliança da minha casa com outra deve ser mantida a qualquer custo.",
+    "Ninguém é mais importante para mim que a minha família.",
+    "Estou apaixonado pelo herdeiro de uma família que a minha despreza.",
+    "Minha lealdade ao soberano é inabalável.",
+    "O povo precisa me ver como o seu herói."
+   ],
+   "f": [
+    "Em segredo, acho todo mundo inferior a mim.",
+    "Guardo um segredo que arruinaria a minha família.",
+    "Vejo ameaças e insultos em toda parte.",
+    [
+     "Tenho um apetite insaciável por prazeres.",
+     "P"
+    ],
+    "O mundo gira em torno de mim.",
+    "Com palavras e atos, envergonho a minha família com frequência."
+   ]
+  },
+  "forasteiro": {
+   "t": [
+    "Sou movido pela vontade de andar; foi por isso que saí de casa.",
+    "Cuido dos meus amigos como se fossem filhotes.",
+    "Já corri léguas sem parar para avisar o meu povo de um perigo, e faria de novo.",
+    "Tenho uma lição de vida para cada situação, tirada da natureza.",
+    "Não confio em gente rica e cheia de modos.",
+    "Estou sempre catando coisas que acho interessantes.",
+    "Me sinto mais à vontade entre bichos do que entre pessoas.",
+    "Juro que fui criado por lobos."
+   ],
+   "i": [
+    "Mudança: a vida é como as estações, sempre mudando. (Caótico)",
+    "Bem maior: cada um deve buscar a felicidade de toda a tribo. (Bom)",
+    "Honra: se eu me desonro, desonro todo o meu clã. (Leal)",
+    "Força: o mais forte manda. (Mau)",
+    "Natureza: o mundo natural vale mais que as obras da civilização. (Neutro)",
+    "Glória: devo conquistar glória em batalha, para mim e para o meu povo. (Qualquer)"
+   ],
+   "b": [
+    "Meu povo é o mais importante da minha vida, mesmo longe dele.",
+    "Uma ofensa à natureza da minha terra é uma ofensa a mim.",
+    [
+     "Vou me vingar de quem destruiu a minha terra.",
+     "P"
+    ],
+    "Sou o último do meu povo e cabe a mim manter vivos os seus nomes.",
+    "Tenho visões terríveis de um desastre que virá e farei de tudo para impedi-lo.",
+    "É meu dever garantir o futuro do meu povo."
+   ],
+   "f": [
+    [
+     "Gosto demais de bebida e de outros prazeres.",
+     "P"
+    ],
+    "Não há espaço para cautela numa vida vivida por inteiro.",
+    "Lembro de cada insulto e guardo rancor em silêncio.",
+    "Demoro a confiar em gente de outros povos e costumes.",
+    [
+     "A violência é a minha resposta para quase tudo.",
+     "P"
+    ],
+    "Não espere que eu salve você; cada um cuida de si."
+   ]
+  },
+  "sabio": {
+   "t": [
+    "Uso palavras difíceis para parecer sábio.",
+    "Li todos os livros das grandes bibliotecas — ou gosto de dizer que li.",
+    "Estou acostumado a ajudar quem não é tão esperto quanto eu.",
+    "Nada me agrada tanto quanto um mistério.",
+    "Ouço os dois lados antes de decidir.",
+    "Falo devagar, como se explicasse para uma criança.",
+    "Sou péssimo em situações sociais.",
+    "Tenho certeza de que todos querem roubar os meus segredos."
+   ],
+   "i": [
+    "Conhecimento: saber é o caminho para o poder e o aperfeiçoamento. (Neutro)",
+    "Beleza: o que é belo nos leva ao que é verdadeiro. (Bom)",
+    "Lógica: emoção não pode nublar o raciocínio. (Leal)",
+    "Sem limites: nada deve limitar o que é possível. (Caótico)",
+    "Poder: saber é o caminho para dominar. (Mau)",
+    "Aperfeiçoamento: estudar é melhorar a si mesmo. (Qualquer)"
+   ],
+   "b": [
+    "Tenho o dever de proteger os meus alunos.",
+    "Guardo um texto antigo com segredos terríveis que não podem cair em mãos erradas.",
+    "Trabalho para preservar uma biblioteca, universidade ou mosteiro.",
+    "A obra da minha vida é uma série de livros sobre um único assunto.",
+    "Passei a vida buscando a resposta para uma certa pergunta.",
+    "Troquei algo precioso por conhecimento e espero grandes feitos para recuperá-lo."
+   ],
+   "f": [
+    "Me distraio fácil com a promessa de uma informação.",
+    "Quando todos correm de um monstro, eu paro para tomar notas.",
+    "Desvendar um mistério antigo vale quase qualquer preço.",
+    "Ignoro a solução óbvia em favor da complicada.",
+    "Falo sem pensar e acabo insultando os outros.",
+    "Não consigo guardar um segredo."
+   ]
+  },
+  "marinheiro": {
+   "t": [
+    "Meus amigos sabem que podem contar comigo, aconteça o que acontecer.",
+    "Trabalho duro para depois descansar muito.",
+    [
+     "Adoro chegar a portos novos e fazer amigos com uma caneca na mão.",
+     "P"
+    ],
+    "Estico a verdade para contar uma boa história.",
+    [
+     "Para mim, uma briga de taverna é um jeito ótimo de conhecer uma cidade.",
+     "P"
+    ],
+    "Não fujo de uma aposta.",
+    [
+     "Minha linguagem é tão suja quanto o porão de um navio.",
+     "P"
+    ],
+    "Gosto de trabalho bem-feito, principalmente se outro fizer por mim."
+   ],
+   "i": [
+    "Respeito: o que une um navio é o respeito entre capitão e tripulação. (Bom)",
+    "Justiça: todos fazem o trabalho, então todos dividem o prêmio. (Leal)",
+    "Liberdade: o mar é a liberdade de ir para qualquer lugar. (Caótico)",
+    [
+     "Domínio: sou predador, e os outros navios são presa. (Mau)",
+     "P"
+    ],
+    "Gente: sou leal aos companheiros, não a ideais. (Neutro)",
+    "Aspiração: um dia terei o meu próprio navio. (Qualquer)"
+   ],
+   "b": [
+    "Sou leal ao meu capitão acima de tudo.",
+    "O navio é o que importa; tripulantes e capitães vêm e vão.",
+    "Nunca esqueço o meu primeiro navio.",
+    "Num porto, tenho um amor cujos olhos quase me tiraram do mar.",
+    "Fui enganado na minha parte de um tesouro e quero o que é meu.",
+    [
+     "Piratas cruéis atacaram o meu navio; quero vê-los pagar.",
+     "P"
+    ]
+   ],
+   "f": [
+    "Sigo ordens mesmo quando acho que estão erradas.",
+    "Digo qualquer coisa para fugir do trabalho.",
+    "Quando questionam minha coragem, nunca recuo, por pior que seja o perigo.",
+    [
+     "Quando começo a beber, é difícil parar.",
+     "P"
+    ],
+    "Não resisto a embolsar moedas e coisas que acho por aí.",
+    "Meu orgulho provavelmente vai me levar à ruína."
+   ]
+  },
+  "soldado": {
+   "t": [
+    "Sou sempre educado e respeitoso.",
+    [
+     "Sou assombrado por lembranças da guerra.",
+     "P"
+    ],
+    "Perdi muitos amigos e demoro a fazer novos.",
+    "Tenho histórias de guerra, inspiradoras ou de aviso, para quase tudo.",
+    "Encaro um cão infernal sem piscar.",
+    "Gosto de ser forte e de quebrar coisas.",
+    "Tenho um humor grosseiro.",
+    "Enfrento problemas de frente: a solução simples e direta é a melhor."
+   ],
+   "i": [
+    "Bem maior: nosso dever é dar a vida em defesa dos outros. (Bom)",
+    "Responsabilidade: faço o que devo e obedeço à autoridade justa. (Leal)",
+    "Independência: quem segue ordens às cegas abraça a tirania. (Caótico)",
+    "Poder: na vida como na guerra, o mais forte vence. (Mau)",
+    "Viver e deixar viver: ideais não valem uma guerra. (Neutro)",
+    "Nação: minha cidade, nação ou povo é tudo o que importa. (Qualquer)"
+   ],
+   "b": [
+    "Ainda daria a vida por quem serviu comigo.",
+    "Alguém salvou minha vida no campo de batalha; até hoje não abandono um amigo.",
+    "Minha honra é a minha vida.",
+    "Nunca vou esquecer a derrota da minha companhia, nem o inimigo que a causou.",
+    "Quem luta ao meu lado merece que eu dê a vida por ele.",
+    "Luto por quem não pode lutar por si mesmo."
+   ],
+   "f": [
+    "O monstro que enfrentamos em batalha ainda me faz tremer de medo.",
+    "Tenho pouco respeito por quem nunca provou seu valor em combate.",
+    "Cometi um erro terrível em batalha e faria tudo para mantê-lo em segredo.",
+    "Meu ódio pelos inimigos é cego e irracional.",
+    "Obedeço à lei, mesmo quando ela causa sofrimento.",
+    "Prefiro comer a minha armadura a admitir que estou errado."
+   ]
+  },
+  "orfao": {
+   "t": [
+    "Escondo restos de comida e bugigangas nos bolsos.",
+    "Faço perguntas demais.",
+    "Gosto de me enfiar em lugares apertados onde ninguém me alcança.",
+    "Durmo de costas para a parede, agarrado a tudo o que tenho.",
+    "Como feito um bicho e tenho maus modos.",
+    "Acho que quem é gentil comigo esconde más intenções.",
+    "Não gosto de tomar banho.",
+    "Digo com todas as letras o que os outros só insinuam."
+   ],
+   "i": [
+    "Respeito: todo mundo, rico ou pobre, merece respeito. (Bom)",
+    "Comunidade: temos de cuidar uns dos outros, porque ninguém mais vai. (Leal)",
+    "Mudança: os de baixo vão subir, e os de cima vão cair. (Caótico)",
+    "Revanche: os ricos precisam aprender como é a vida na sarjeta. (Mau)",
+    "Gente: ajudo quem me ajuda; é isso que nos mantém vivos. (Neutro)",
+    "Aspiração: vou provar que mereço uma vida melhor. (Qualquer)"
+   ],
+   "b": [
+    "Minha cidade é o meu lar, e luto para defendê-la.",
+    "Ajudo um orfanato para que outras crianças não passem o que passei.",
+    "Devo a vida a outro órfão que me ensinou a sobreviver nas ruas.",
+    "Tenho uma dívida impagável com quem teve pena de mim.",
+    [
+     "Saí da miséria roubando alguém importante, e sou procurado por isso.",
+     "P"
+    ],
+    "Ninguém mais deve passar pelo que eu passei."
+   ],
+   "f": [
+    "Se eu estiver em desvantagem, fujo.",
+    "Ouro parece dinheiro demais para mim, e faço qualquer coisa por mais.",
+    "Nunca confio totalmente em ninguém além de mim.",
+    [
+     "Prefiro atacar pelas costas a lutar limpo.",
+     "P"
+    ],
+    [
+     "Não é roubo se eu preciso mais do que o dono.",
+     "P"
+    ],
+    "Quem não sabe se cuidar merece o que recebe."
+   ]
+  }
+ },
+ "PER_NOME": {
+  "acolito": "Acólito",
+  "charlatao": "Charlatão",
+  "criminoso": "Criminoso",
+  "artista": "Artista",
+  "heroi": "Herói do Povo",
+  "artesao": "Artesão de Guilda",
+  "eremita": "Eremita",
+  "nobre": "Nobre",
+  "forasteiro": "Forasteiro",
+  "sabio": "Sábio",
+  "marinheiro": "Marinheiro",
+  "soldado": "Soldado",
+  "orfao": "Órfão"
+ },
+ "ALT": {
+  "humano": [
+   56,
+   2,
+   10,
+   110,
+   2,
+   4
+  ],
+  "anao:colina": [
+   44,
+   2,
+   4,
+   115,
+   2,
+   6
+  ],
+  "anao:montanha": [
+   48,
+   2,
+   4,
+   130,
+   2,
+   6
+  ],
+  "anao:duergar": [
+   48,
+   2,
+   4,
+   130,
+   2,
+   6
+  ],
+  "elfo:alto": [
+   54,
+   2,
+   10,
+   90,
+   1,
+   4
+  ],
+  "elfo:floresta": [
+   54,
+   2,
+   10,
+   100,
+   1,
+   4
+  ],
+  "elfo:drow": [
+   53,
+   2,
+   6,
+   75,
+   1,
+   6
+  ],
+  "halfling": [
+   31,
+   2,
+   4,
+   35,
+   1,
+   0
+  ],
+  "gnomo": [
+   35,
+   2,
+   4,
+   35,
+   1,
+   0
+  ],
+  "meioelfo": [
+   57,
+   2,
+   8,
+   110,
+   2,
+   4
+  ],
+  "meioorc": [
+   58,
+   2,
+   10,
+   140,
+   2,
+   6
+  ],
+  "draconato": [
+   66,
+   2,
+   8,
+   175,
+   2,
+   6
+  ],
+  "tiefling": [
+   57,
+   2,
+   8,
+   110,
+   2,
+   4
+  ],
+  "aasimar": [
+   56,
+   2,
+   10,
+   110,
+   2,
+   4
+  ],
+  "genasi": [
+   56,
+   2,
+   10,
+   110,
+   2,
+   4
+  ],
+  "golias": [
+   74,
+   2,
+   10,
+   200,
+   2,
+   6
+  ],
+  "x_aarakocra": [
+   52,
+   1,
+   6,
+   90,
+   1,
+   6
+  ],
+  "x_bugbear": [
+   72,
+   2,
+   12,
+   200,
+   2,
+   6
+  ],
+  "x_centaur": [
+   72,
+   1,
+   10,
+   600,
+   2,
+   12
+  ],
+  "x_changeling": [
+   61,
+   2,
+   4,
+   115,
+   2,
+   4
+  ],
+  "x_eladrin": [
+   54,
+   2,
+   12,
+   90,
+   1,
+   4
+  ],
+  "x_fairy": [
+   30,
+   1,
+   6,
+   10,
+   1,
+   0
+  ],
+  "x_firbolg": [
+   74,
+   2,
+   12,
+   175,
+   2,
+   6
+  ],
+  "x_githyanki": [
+   60,
+   2,
+   12,
+   100,
+   2,
+   4
+  ],
+  "x_githzerai": [
+   59,
+   2,
+   12,
+   90,
+   1,
+   4
+  ],
+  "x_goblin": [
+   41,
+   2,
+   4,
+   35,
+   1,
+   0
+  ],
+  "x_harengon": [
+   50,
+   2,
+   8,
+   80,
+   1,
+   6
+  ],
+  "x_hobgoblin": [
+   56,
+   2,
+   10,
+   110,
+   2,
+   4
+  ],
+  "x_kenku": [
+   52,
+   2,
+   8,
+   50,
+   1,
+   6
+  ],
+  "x_kobold": [
+   25,
+   2,
+   4,
+   25,
+   1,
+   0
+  ],
+  "x_lizardfolk": [
+   57,
+   2,
+   10,
+   120,
+   2,
+   6
+  ],
+  "x_minotaur": [
+   64,
+   2,
+   8,
+   175,
+   2,
+   6
+  ],
+  "x_orc": [
+   64,
+   2,
+   8,
+   175,
+   2,
+   6
+  ],
+  "x_satyr": [
+   56,
+   2,
+   8,
+   100,
+   2,
+   4
+  ],
+  "x_seaelf": [
+   54,
+   2,
+   8,
+   90,
+   1,
+   4
+  ],
+  "x_shadarkai": [
+   56,
+   2,
+   8,
+   90,
+   1,
+   4
+  ],
+  "x_shifter": [
+   54,
+   2,
+   8,
+   90,
+   2,
+   4
+  ],
+  "x_tabaxi": [
+   56,
+   2,
+   10,
+   90,
+   2,
+   4
+  ],
+  "x_tortle": [
+   59,
+   1,
+   12,
+   415,
+   2,
+   4
+  ],
+  "x_triton": [
+   54,
+   2,
+   10,
+   90,
+   2,
+   4
+  ],
+  "x_yuanti": [
+   56,
+   2,
+   10,
+   110,
+   2,
+   4
+  ]
+ },
+ "MARCA": [
+  "Uma cicatriz fina atravessa uma sobrancelha.",
+  "Olhos de cores diferentes.",
+  "Uma tatuagem com um símbolo da terra natal.",
+  "Uma voz grave ou aguda demais para o tamanho.",
+  "Um objeto de família sempre à vista.",
+  "Uma mecha de cor estranha no cabelo, nos pelos, nas escamas ou nas penas.",
+  "Sardas ou manchas espalhadas pelo rosto.",
+  "Um dente de metal ou de pedra.",
+  "Anda sempre impecável, mesmo no meio da lama.",
+  "Mãos calejadas e cheias de pequenas marcas.",
+  "Um sorriso torto que nunca desaparece.",
+  "Sempre cheira a algo marcante: fumaça, flores ou óleo de forja."
+ ],
+ "PONTE": {
+  "1": {
+   "t": "Povo da superfície nascido no Subterrâneo",
+   "r": [
+    "Seus pais vendiam cogumelos em Mantol-Derith. Não é piada: cogumelo que brilha, cogumelo que canta, cogumelo que dá dor de barriga por três dias. Você cresceu contando moedas no escuro, pechincha com um drow sem piscar e até hoje espirra quando vê o sol.",
+    "Seu pai era emissário de uma guilda da superfície num posto de comércio subterrâneo. Você aprendeu a etiqueta drow antes de aprender a andar: não olhe nos olhos, não toque em nada, não aceite nada que ofereçam. Por isso você se dá bem com eles.",
+    [
+     "Seus pais eram escravos numa casa nobre de Menzoberranzan, e você nasceu com uma coleira esperando o pescoço. Fugiu por um túnel que só uma criança caberia. Ainda sonha com o barulho das correntes, e odeia o som de chaves.",
+     "P"
+    ],
+    "Seus pais eram mineiros de uma expedição que ficou presa num desabamento. Viveram anos numa caverna, você nasceu lá, e os svirfneblin de Blingdenstone resgataram todo mundo. Você fala gnomo melhor do que fala comum, e isso é constrangedor.",
+    [
+     "Os svirfneblin acharam você bebê num túnel, embrulhado num cobertor de lã da superfície, e o criaram como um deles. Você é alto demais para todas as portas de casa. Descobriu que era de outro povo aos dez anos, quando parou de caber na cama.",
+     "P"
+    ],
+    "Sua família contrabandeava mercadoria pelo Lago Escuro, e você nasceu num barco, no meio da travessia. Conhece cada correnteza daquela água preta e sabe quais peixes mordem de volta. Qualquer contrabandista do Subterrâneo ainda lhe deve um favor ou um soco.",
+    [
+     "Você foi entregue a uma casa drow como garantia de um acordo comercial. Passou a infância como refém de luxo: comida boa, janela nenhuma. Quando o acordo terminou, devolveram você com um sorriso que dá arrepios até hoje.",
+     "P"
+    ],
+    "Seus pais guardavam um santuário escondido de Eilistraee, a deusa drow que dança sob a lua, e ajudavam fugitivos a chegar à superfície. Você cresceu escondendo gente em barris. Ainda conhece as senhas, e muita gente importante lhe deve a vida.",
+    "Um ferreiro duergar de Gracklstugh devia um favor enorme ao seu pai e pagou do único jeito que duergar paga: com trabalho. Você cresceu aprendiz na forja mais mal-humorada do mundo. Bate um martelo como poucos e nunca aprendeu a sorrir. Gosto de você.",
+    [
+     "Uma caravana da superfície foi atacada nos túneis, e você foi o único que saiu de lá, ainda bebê, carregado por uma criatura que ninguém soube dizer o que era. Alguém ou alguma coisa quis você vivo. Um dia vai cobrar.",
+     "P"
+    ]
+   ]
+  },
+  "2": {
+   "t": "Povo do Subterrâneo nascido na superfície",
+   "r": [
+    "Seus pais desertaram da cidade escura e foram plantar nabo numa fazenda do Norte. Você cresceu de chapéu de aba larga, óculos escuros e cara de quem vai morder. Os vizinhos levaram vinte anos para parar de trancar as galinhas.",
+    "Sua mãe segue Eilistraee e dança sob a lua toda noite, e você cresceu no meio de fogueiras, canções e florestas. Os outros drow acham sua família uma vergonha, e os humanos acham suspeita. Você acha os dois chatos.",
+    "Sua família abriu uma loja duergar em Waterdeep. Ninguém compra, porque ninguém entra numa loja onde o dono cresce de tamanho quando fica bravo. Mas eles insistem há trinta anos, e você cresceu atrás do balcão aprendendo a teimosia da raça.",
+    [
+     "Um casal de humanos achou um bebê de pele cinzenta na porta de casa e decidiu que era um presente dos deuses. Você cresceu comendo torta de maçã e ouvindo que era \"especial\". Só não sabe de onde veio, nem quem o deixou ali.",
+     "P"
+    ],
+    "Uma companhia mineradora da superfície contratou seus pais por serem os melhores escavadores do mundo. Você nasceu no alojamento da mina, entre humanos que cantam mal e bebem pior. Sabe ler rocha como quem lê livro.",
+    [
+     "Sua família fugiu de Menzoberranzan depois que uma casa rival mandou assassinos atrás dela. Seus pais nunca dormiram duas noites seguidas na mesma cidade. Você sabe arrumar uma mala em trinta segundos e reconhece veneno pelo cheiro.",
+     "P"
+    ],
+    "Seus pais eram a atração principal de uma trupe itinerante: \"Os Terríveis Elfos das Trevas!\". Pagavam bem, e o público adorava. Você cresceu de palco em palco, fingindo ser assustador para plateias de fazendeiros. Hoje não precisa mais fingir.",
+    "Seu pai era o representante discreto de uma casa drow num porto da superfície. Discreto quer dizer espião. Você aprendeu a mentir antes de aprender a ler, e aprendeu também que em casa a verdade era um luxo caro.",
+    [
+     "Sua mãe foi capturada por um grupo de aventureiros, e você nasceu numa cela da superfície. Um carcereiro com mais coração do que juízo abriu a porta anos depois. Até hoje você não sabe se odeia ou agradece aos humanos.",
+     "P"
+    ],
+    "Seus pais eram estudiosos em Candlekeep, pesquisando a história do próprio povo, e você cresceu entre estantes, poeira e monges que pedem silêncio. Sabe mais sobre a sua raça do que qualquer um que nasceu lá embaixo."
+   ]
+  },
+  "3": {
+   "t": "Quem não é elfo, nascido em Evermeet",
+   "r": [
+    "Seu pai foi o único humano com permissão para cuidar dos jardins de um palácio em Evermeet, porque as árvores gostavam dele, e ninguém discute com as árvores de lá. Você cresceu conversando com carvalhos. Eles são mais educados que os elfos.",
+    "Seus pais naufragaram na costa da ilha, e os elfos os deixaram ficar \"até se recuperarem\". A recuperação durou vinte e dois anos. Você nasceu no meio e ainda é chamado de \"o hóspede\".",
+    "Sua mãe era a cozinheira halfling da corte, a única pessoa na ilha capaz de fazer um elfo repetir a sobremesa. Você nasceu entre panelas e passou a infância ouvindo fofoca real por baixo da mesa. Sabe segredos que valem reinos.",
+    "Seu pai era emissário de um reino distante, mandado para negociar um tratado que os elfos levaram trinta anos para ler. Você cresceu como a criatura mais estranha da ilha. Os elfos anotavam tudo o que você fazia, como se fosse um bicho raro.",
+    [
+     "Seus pais invadiram a ilha com piratas e acabaram presos. Você nasceu numa prisão élfica cheia de flores, música e grades invisíveis. Soltaram você na maioridade, com um barco e o pedido educado de nunca mais voltar.",
+     "P"
+    ],
+    "Sua família atravessou o portal feérico errado numa noite de lua cheia e foi parar numa clareira em Evermeet. Como ninguém sabia o caminho de volta, ficaram. Você cresceu com uma saudade de um lugar que nunca viu.",
+    "Uma sacerdotisa élfica teve uma visão com você antes de você nascer e trouxe sua mãe grávida para a ilha. Você cresceu como a criança da profecia. Ninguém nunca lhe contou qual era a profecia.",
+    "Seu pai era um bardo tão bom que os elfos o deixaram ficar para cantar nos templos, e você nasceu entre coros e harpas. Canta bem, e isso me irrita. Os elfos dizem que você tem \"voz de passarinho mal-educado\". Elogio élfico.",
+    "Sua família contrabandeava mel élfico a partir de uma ilhota escondida na costa. Tecnicamente você nasceu em Evermeet. Tecnicamente você também nasceu num porão cheio de pote ilegal. As duas coisas explicam muito.",
+    "Seu avô gnomo foi contratado para consertar um relógio mágico da rainha e levou trinta anos para terminar, porque os elfos mudavam de ideia a cada estação. A família inteira nasceu lá esperando. Você é da quarta geração de hóspedes."
+   ]
+  },
+  "4": {
+   "t": "Nobre de Waterdeep nascido fora de Waterdeep",
+   "r": [
+    "Você é do ramo esquecido da família, mandado para cuidar dos cavalos numa propriedade rural perto de Amphail. Tem o sobrenome, o anel e o cheiro de estrume. Os primos da cidade fingem que você não existe até precisarem de cavalos.",
+    "Sua mãe deu à luz durante uma viagem de negócios em Baldur's Gate. Os documentos da família dizem \"nascido em Waterdeep\". A parteira diz outra coisa, e ela ainda está viva, e lembra de tudo.",
+    "Você é filho ilegítimo de um lorde e cresceu longe, sem saber de nada, até um advogado aparecer com um testamento. Agora tem título, inimigos na família e nenhuma ideia de qual garfo usar.",
+    "Sua família fugiu da cidade por causa de um escândalo tão grande que ninguém fala dele à mesa. Você nasceu no autoexílio, numa cidade pequena. Agora voltaram, e todo mundo em Waterdeep lembra do escândalo. Menos você.",
+    [
+     "Você foi levado ainda bebê do berço de uma casa nobre e criado longe por gente simples. Só descobriu a verdade por um anel com brasão costurado na sua primeira roupa. Alguém lá dentro não quer você de volta.",
+     "P"
+    ],
+    "Sua família mantinha um posto de comércio em Calimshan, e você nasceu entre especiarias, tapetes e intrigas do sul. Fala calishita, pechincha como um mercador do deserto e acha os bailes de Waterdeep sem graça.",
+    "Você nasceu no navio da família, ancorado no porto. Pelas contas do cartório, a dez metros da fronteira da cidade. Seus primos usam isso contra você em toda discussão de herança. Dez metros!",
+    "Pela tradição da sua casa, o terceiro filho é criado longe, num mosteiro, para \"aprender humildade\". Você aprendeu. Os seus irmãos, não. Voltou para uma família que o trata como parente distante.",
+    "Você foi trocado no berço por engano com o filho de uma camponesa, e os dois cresceram na vida errada. Hoje, os dois reclamam o mesmo título, e o tribunal está se divertindo muito.",
+    "Sua casa é tão antiga quanto falida: só sobrou o título e uma mansão caindo aos pedaços em Neverwinter, onde você nasceu. Você é oficialmente nobre de Waterdeep e na prática vive de convites para jantar."
+   ]
+  },
+  "5": {
+   "t": "Membro de Tribo Uthgardt nascido fora do Norte",
+   "r": [
+    "Seu pai era um xamã que desceu para o sul numa jornada espiritual, e você nasceu no caminho, numa estalagem de Baldur's Gate. A tribo te chama \"o que nasceu longe\", e ninguém esquece disso. Você vive tentando provar que o sangue é do Norte, mesmo que o berço não seja.",
+    "Sua mãe era uma mercadora da cidade que se casou com um guerreiro Uthgardt contra a vontade das duas famílias. Você cresceu entre dois mundos: sabe negociar e sabe caçar. Os dois lados acham que você é do outro.",
+    "Você nasceu durante a peregrinação da tribo a um monte sagrado distante, sob uma tempestade que os anciãos ainda chamam de sinal. Todo inverno alguém lembra disso, e você finge que não liga.",
+    "Seus pais, forasteiros da cidade, salvaram a vida de um chefe Uthgardt numa emboscada. Em gratidão, a tribo adotou a família inteira. Você é Uthgardt de juramento, não de sangue, e treina o dobro para ninguém esquecer disso.",
+    "Seus pais foram banidos da tribo por quebrar um tabu, e você nasceu no exílio, no sul. Agora voltou para reclamar um lugar que ninguém quer lhe dar. Os anciãos observam. Alguns torcem por você. Outros, não.",
+    "Você foi exibido num circo do sul como \"O Bárbaro Selvagem do Norte\" antes mesmo de ver o Norte. Um dia fugiu, subiu o mapa e encontrou uma tribo de verdade. Eles riram muito da sua fantasia de pele falsa. Depois o aceitaram.",
+    "Um xamã sonhou com o seu nascimento, viu o animal totêmico da tribo sobre o seu berço e atravessou metade da Costa da Espada para buscar você. Seus pais nunca entenderam, mas deixaram. Você ainda recebe cartas deles, que não sabe ler.",
+    [
+     "Você foi levado numa incursão da tribo a uma vila do sul e criado como um deles. Hoje é mais Uthgardt que muito Uthgardt. Mas às vezes sonha com uma casa com janela de vidro e não sabe por quê.",
+     "P"
+    ],
+    "Você nasceu numa guarnição do Flaming Fist, onde seu pai servia como batedor e guia contratado. Cresceu entre soldados e ouvindo histórias da tribo. Quando foi apresentado a ela, você marchava errado e falava como mercenário.",
+    "Sua família de ferreiros forjava armas para a tribo e seguia os acampamentos pelo sul e pelo norte. Você nasceu numa carroça-forja, entre brasas e cantos de guerra. Ninguém fez mais machados para os Uthgardt do que vocês."
+   ]
+  },
+  "6": {
+   "t": "Artesão de Clã fora de fortaleza anã, ou que não é anão",
+   "r": [
+    "Seus pais eram servos humanos em Mithral Hall. Um mestre anão viu você, pequeno, consertar um cabo de martelo com um graveto e um barbante, e brigou com o clã inteiro para aceitá-lo como aprendiz. Ganhou. Anões sempre ganham discussões.",
+    "Você nasceu numa caravana comercial anã que nunca para: o clã vive na estrada, vendendo metal de cidade em cidade. Sua forja tem rodas, e sua bigorna já viu mais estradas que muito aventureiro.",
+    "Você ganhou o lugar de aprendiz numa queda de braço contra um anão. Ninguém ganha queda de braço contra anão. Ele nunca se recuperou da vergonha, mas cumpriu a palavra, e você cumpriu cada lição.",
+    "Você era um gnomo metido que consertou uma bigorna encantada que três gerações de anões não conseguiram consertar. O clã ficou tão ofendido que o adotou para esconder a vergonha. Você ainda não sabe se foi homenagem ou castigo.",
+    "Seu pai é um anão que se casou fora do clã e foi viver em Waterdeep. O clã nunca aprovou o casamento, mas reivindica você como deles desde que viu seu primeiro trabalho. Seu pai ainda está magoado.",
+    [
+     "Você é o último sobrevivente de uma pequena fortaleza que caiu. Outro clã o recolheu, deu um nome e uma forja, e espera que você reconstrua as obras do seu povo. Ninguém fala do que aconteceu naquela noite.",
+     "P"
+    ],
+    "O clã perdeu o último artesão que dominava uma técnica antiga e contratou você, um forasteiro, para aprendê-la com os livros. Depois de dez anos, decidiram que era mais barato adotar você do que pagar salário.",
+    "Você é um elfo que passou oitenta anos aprendendo com o mestre anão mais teimoso do Norte. Ele reclamou de cada um desses oitenta anos. Na despedida, disse que você era \"quase aceitável\". Maior elogio da vida dele.",
+    "Você é um halfling que cozinhava para uma forja e aprendeu o ofício só de olhar, entre uma panela e outra. Um dia, fez uma fechadura melhor que a do mestre. A cozinha perdeu um cozinheiro. A forja ganhou um problema.",
+    "Seu avô salvou a vida de um rei anão numa batalha, e a família ganhou o título de \"amiga do clã\" para sempre. Isso inclui uma cadeira na forja, um prato quente por dia e a obrigação de nunca envergonhar o nome do rei."
+   ]
+  },
+  "7": {
+   "t": "Viajante Distante nascido na Costa da Espada",
+   "r": [
+    "Você nasceu aqui, mas foi levado bebê para uma terra muito distante, do outro lado do mundo, e voltou adulto. Na sua própria cidade, você é o estrangeiro de sotaque estranho. Ninguém acredita que você nasceu na rua de trás.",
+    "Sua família inteira foi engolida por um portal numa noite de tempestade e passou anos num lugar que não aparece em nenhum mapa. Voltou sem saber como. Você fala uma língua que ninguém aqui conhece.",
+    "Seus pais eram estrangeiros de uma terra distante, de passagem pelo porto quando você nasceu, e o levaram de volta. Você cresceu lá, com um documento dizendo que é daqui. Agora veio conhecer a terra que diz ser sua.",
+    "Você nasceu num navio mercante que nunca ancorava por muito tempo e passou a infância entre portos de três continentes. A terra firme ainda o deixa enjoado.",
+    [
+     "Você foi levado para longe como escravo ainda criança e cresceu numa terra de costumes estranhos. Escapou e voltou para uma Costa da Espada que não reconhece. Tem marcas que prefere esconder.",
+     "P"
+    ],
+    "Você foi criado num mosteiro isolado, com costumes de um povo distante. Nunca saiu de lá até agora. O mundo lá fora parece tão estranho quanto você parece para ele.",
+    "Alguém apagou a sua memória com magia. Você lembra, com toda a certeza, de uma terra distante que talvez nunca tenha existido. Os papéis dizem outra coisa. Você não confia nos papéis.",
+    "Você passou anos no Feywild, onde o tempo corre diferente. Para você foi um verão; aqui, passaram duas décadas. Seus amigos de infância têm netos. Você ainda usa roupa de festa de antigamente.",
+    "Seus pais eram embaixadores e passaram a vida em cortes distantes. Você cresceu trocando de idioma como quem troca de roupa. Não tem sotaque de lugar nenhum, e isso incomoda todo mundo.",
+    "Sua família de cartógrafos passou vinte anos mapeando terras distantes, e você cresceu dentro de uma barraca, no meio da viagem. Voltou com um mapa do mundo na cabeça e nenhum amigo de infância."
+   ]
+  },
+  "8": {
+   "t": "Nobre ou Cortesão com infância pobre",
+   "r": [
+    "Sua família tem um título pomposo, um brasão bordado e uma casa sem telhado. Você cresceu jantando sopa rala com talheres de prata herdados, porque vender os talheres seria admitir a falência.",
+    "Seu pai perdeu tudo numa partida de cartas contra um dragão disfarçado de mercador. Sim, um dragão. Não, ele não aceita revanche. A família ficou com o título e uma dívida em ouro que ninguém sabe pagar.",
+    "Você descende de uma casa cujo título é verdadeiro, mas esquecido. A prova é um pergaminho mofado que você guarda como um tesouro. Ninguém mais lembra da sua família, mas você lembra de tudo.",
+    [
+     "Sua família caiu em desgraça depois de uma acusação de traição, e a coroa confiscou terras, casa e cavalos. Vocês ficaram com o nome e com a vergonha. Você quer descobrir quem mentiu.",
+     "P"
+    ],
+    "Você foi criado por uma ama pobre enquanto sua família nobre fingia que você não existia. Cresceu no quarto dos fundos, sabendo que era parente dos donos da casa da frente. Um dia, vão ter que olhar para você.",
+    [
+     "Sua família foi assassinada numa noite de intriga, e você sobreviveu escondido num porão. Cresceu na miséria, com um nome que não podia dizer em voz alta. Os assassinos ainda estão por aí, e têm títulos também.",
+     "P"
+    ],
+    "Sua nobreza vem de um reino que não existe mais, engolido por uma guerra antiga. Você é príncipe de um mapa rasgado. Os mendigos da esquina o chamam de \"Alteza\", e você não sabe se é deboche.",
+    "Seu avô comprou o título com o ouro de um tesouro achado, e o ouro acabou antes da primeira festa. Agora a família é nobre por papel e pobre por experiência. Os outros nobres chamam vocês de \"os recentes\". Eu chamo de gente sensata.",
+    "Seus pais abriram mão da fortuna por um ideal e foram viver como camponeses. Você cresceu com o arado na mão e o sobrenome na boca. Nunca entendeu o que era mais pesado.",
+    "Uma maldição antiga pesa sobre a sua casa: todo ouro que a família toca vira poeira no mês seguinte. Você cresceu pobre com um sobrenome rico. Aventurar é o seu jeito de ver se a maldição alcança quem vive na estrada."
+   ]
+  },
+  "9": {
+   "t": "Órfão criado por pai e mãe",
+   "r": [
+    "Seus pais existiam, eram gente boa e tinham uma casa quentinha. Você fugia para a rua toda semana mesmo assim, porque lá era mais interessante. Eles o buscavam, você fugia de novo. Uma hora cansaram. Você não.",
+    "Sua família inteira vivia na rua: pai, mãe e você debaixo da mesma ponte. Vocês eram a família mais bem-organizada de mendigos da cidade, com turnos, pontos fixos e regras. Você sabe o valor de uma moeda caída.",
+    "Seus pais trabalhavam dia e noite nas docas, e você cresceu solto, numa gangue de crianças que fazia das ruas a sua casa. Em casa você era filho. Na rua, era alguém. Escolheu a rua.",
+    [
+     "Seus pais viviam entrando e saindo da cadeia, e você viveu mais tempo na rua do que em casa. Aprendeu a se virar sozinho, a desconfiar de guardas e a esperar visitas que nunca chegavam na hora.",
+     "P"
+    ],
+    "Um incêndio levou a casa da família numa noite de inverno, e todo mundo sobreviveu, sem teto. Vocês viveram nas ruas até conseguir recomeçar. Você nunca mais dormiu perto de uma lareira.",
+    [
+     "Seus pais eram trapaceiros de rua e o treinaram para bater carteiras desde os quatro anos. Família unida é a que rouba junta. Você tem mãos mais rápidas que a sua consciência.",
+     "P"
+    ],
+    [
+     "Sua família inteira vivia de um golpe: você fingia ser órfão para ganhar esmola, e seus pais recolhiam o lucro no fim do dia. Você fez esse papel tantas vezes que já não sabe se é mentira.",
+     "P"
+    ],
+    "Você se perdeu dos seus pais numa feira aos seis anos e só os reencontrou oito anos depois, por acaso, comprando pão. Nesse tempo, a rua o criou. Eles choraram muito. Você não soube o que fazer com os braços.",
+    [
+     "Seus pais eram violentos, e a rua era mais segura do que a casa. Você fugiu cedo e nunca voltou. Criou uma família de outros fugitivos, e essa é a única que você reconhece.",
+     "P"
+    ],
+    [
+     "Seus pais eram ladrões famosos, sempre em \"viagem de negócios\", e você foi criado pelos \"tios\" da guilda de ladrões. Eles ensinaram tudo o que sabem. Seus pais aparecem uma vez por ano com presentes roubados.",
+     "P"
+    ]
+   ]
+  },
+  "10": {
+   "t": "Guarda da Cidade ou Caçador de Recompensas Urbano vivendo fora da cidade",
+   "r": [
+    "Você foi transferido para um posto de fronteira no meio do nada como castigo por prender a pessoa errada. Agora vigia uma estrada por onde passa uma carroça por semana. O capitão diz que é \"temporário\". Faz três anos.",
+    "O fugitivo que você caça se escondeu nos ermos, e você foi atrás. Já faz tanto tempo que você conhece o mato melhor que ele. Os dois envelheceram nessa caçada, e nenhum desiste.",
+    "Você se aposentou da guarda e foi viver numa casinha no campo para plantar abóbora. A aventura bateu na sua porta na primeira semana. As abóboras morreram.",
+    "Você foi expulso da guarda por prender o filho do magistrado em flagrante. Estava certo, e isso não ajudou em nada. Agora protege gente que não tem ninguém, longe dos muros da cidade.",
+    "Você trabalha como guarda contratado de caravanas, e sua casa é a estrada. Dorme mais na carroça do que em qualquer cama. Conhece todas as tavernas entre duas cidades, e todas o conhecem.",
+    "Uma vila pequena pediu socorro à cidade, e a cidade mandou você. Sozinho. Agora você é a guarda inteira: capitão, soldado, carcereiro e juiz. A cela é um celeiro. Funciona.",
+    "Você foi acusado de corrupção por um colega que era o corrupto de verdade e fugiu da cidade antes do julgamento. Vive longe, esperando reunir provas para voltar. Seu rosto ainda está nos cartazes.",
+    "Você seguiu a pista de uma quadrilha até um forte abandonado nos ermos e ficou por lá para vigiar. Isso foi há meses. A quadrilha não voltou, e o forte agora é seu, com goteira e tudo.",
+    "Você simplesmente cansou do barulho, do cheiro e da gente da cidade. Mudou para o campo e passou a caçar recompensas por lá. Ladrão de galinha também paga.",
+    "Um nobre o contratou para proteger a propriedade rural dele de \"algo\" que anda assustando os camponeses. Ninguém lhe contou o que é esse algo. Você acha que o nobre sabe."
+   ]
+  },
+  "11": {
+   "t": "Viajante Distante vivendo onde nasceu",
+   "r": [
+    "Você voltou para casa depois de muitos anos fora e agora é um estranho entre os seus. Fala com sotaque, come coisas esquisitas e reclama do tempero de todo mundo. Sua mãe diz que você \"voltou diferente\". Ela tem razão.",
+    "Você nunca saiu de casa, mas a sua casa mudou de lugar: uma magia antiga arrancou a aldeia inteira e a plantou do outro lado do mundo. Os vizinhos são os mesmos. O céu, não.",
+    "Você viajou o mundo inteiro em sonhos, com o espírito solto por planos e terras distantes enquanto o corpo dormia na cama de sempre. Conhece lugares onde nunca pisou. Isso assusta os outros e, às vezes, você também.",
+    "Seus pais eram estrangeiros e o criaram só com os costumes da terra deles. Você nasceu aqui, mas veste, fala e reza como um forasteiro. Todo mundo acha que você chegou ontem.",
+    "Você volta para casa só para guardar a mochila. Passa onze meses por ano em rotas longas e um mês ouvindo reclamações da família. Tecnicamente mora aqui. Na prática, mora na estrada.",
+    "Você é guia de estrangeiros e vive levando gente de terras distantes para conhecer a sua. De tanto conviver com eles, acabou mais parecido com os visitantes do que com os vizinhos.",
+    "Um portal quebrado joga você de um lado do mundo para o outro sem aviso. Hoje você está em casa. Amanhã, quem sabe. Você sempre dorme de botas.",
+    "Seu mestre de uma terra distante o mandou de volta à cidade natal com uma missão que você não pode contar a ninguém. Você está em casa, mas a cabeça ainda obedece ordens de longe.",
+    "Você é o último de um povo distante que se instalou aqui gerações atrás, e ainda guarda a língua, as festas e as receitas. A cidade o trata como estrangeiro, apesar de a sua família estar aqui há cem anos.",
+    [
+     "Você voltou de uma longa viagem e descobriu que sua família tinha sumido: a casa vazia, a mesa posta, ninguém. Ficou para descobrir o que aconteceu. Cada pista leva de volta às terras distantes de onde veio.",
+     "P"
+    ]
+   ]
+  },
+  "12": {
+   "t": "Divindade de outro povo",
+   "r": [
+    [
+     "Você foi criado por um sacerdote de outro povo que o encontrou abandonado na porta do templo. Aprendeu a rezar na língua dele antes de aprender a sua. Os fiéis de sangue o aceitam, mas nunca deixam de reparar.",
+     "P"
+    ],
+    "Você estava morrendo de febre quando um sacerdote estrangeiro rezou ao deus dele sobre você, e você acordou curado. Desde então, deve a vida a um deus que não era seu. Pagar dívidas é sagrado. Nisso, eu concordo.",
+    "Você entrou no templo errado para fugir da chuva, abriu um livro sagrado e não conseguiu parar de ler. Converteu-se antes de a chuva passar. Sua família ainda acha que foi a chuva.",
+    "O deus apareceu num sonho e não aceitou \"não\" como resposta. Nem o segundo \"não\", nem o terceiro. No quarto sonho, você desistiu de discutir. Deuses são piores que anões para teimosia. Quase.",
+    "Você se apaixonou por um fiel de outro povo e foi com ele aos rituais só para agradar. Um dia, rezou de verdade. O amor passou. A fé ficou.",
+    "Sua família mantém o culto a um deus de outro povo há gerações, por causa de um pacto feito por um antepassado. Ninguém lembra direito o motivo, mas todo mundo cumpre. Os vizinhos chamam vocês de \"os esquisitos do templo\".",
+    "Você era artesão e concluiu que o deus dos anões fazia as melhores ferramentas do mundo, então passou a rezar para ele. Motivo prático. Ele respondeu. Os anões ainda não sabem se ficam honrados ou ofendidos. Eu fico ofendido.",
+    "Você foi o único a ouvir o chamado num templo abandonado de outro povo, no meio da mata. Limpou o altar, acendeu a vela, e alguma coisa respondeu. Desde então, é o único sacerdote de uma fé que o povo dela esqueceu.",
+    "Seu templo de origem o enviou como missionário entre outro povo, mas quem acabou convertido foi você. Não conte isso ao seu antigo sumo-sacerdote. Ele ainda espera relatórios.",
+    [
+     "Você fugiu do templo do seu próprio povo depois de ver o que os sacerdotes faziam no altar à noite. Um deus estrangeiro o acolheu quando nenhum outro quis. Você não volta, e eles ainda procuram você.",
+     "P"
+    ]
+   ]
+  }
+ },
+ "SCAGKEYS": [
+  "guarda",
+  "artesaocla",
+  "erudito",
+  "cortesao",
+  "agente",
+  "viajante",
+  "herdeiro",
+  "cavaleiro",
+  "mercenario",
+  "cacador",
+  "uthgardt",
+  "nobrewd"
+ ]
+}

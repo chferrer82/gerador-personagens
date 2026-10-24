@@ -1,0 +1,103 @@
+{
+ "Aarakocra": [
+  3,
+  "humano"
+ ],
+ "Bugbear": [
+  16,
+  "humano"
+ ],
+ "Centaur": [
+  15,
+  "humano"
+ ],
+ "Changeling": [
+  14,
+  "humano"
+ ],
+ "Eladrin": [
+  110,
+  "elfo",
+  210
+ ],
+ "Fairy": [
+  15,
+  "humano"
+ ],
+ "Firbolg": [
+  30,
+  "anao"
+ ],
+ "Githyanki": [
+  15,
+  "meioelfo"
+ ],
+ "Githzerai": [
+  15,
+  "meioelfo"
+ ],
+ "Goblin": [
+  8,
+  "humano"
+ ],
+ "Harengon": [
+  15,
+  "humano"
+ ],
+ "Hobgoblin": [
+  15,
+  "humano"
+ ],
+ "Kenku": [
+  12,
+  "humano"
+ ],
+ "Kobold": [
+  6,
+  "humano"
+ ],
+ "Lizardfolk": [
+  14,
+  "humano"
+ ],
+ "Minotaur": [
+  15,
+  "humano"
+ ],
+ "Orc": [
+  12,
+  "humano"
+ ],
+ "Satyr": [
+  15,
+  "humano"
+ ],
+ "Sea Elf": [
+  110,
+  "elfo"
+ ],
+ "Shadar-kai": [
+  110,
+  "elfo"
+ ],
+ "Shifter": [
+  10,
+  "humano"
+ ],
+ "Tabaxi": [
+  15,
+  "humano"
+ ],
+ "Tortle": [
+  15,
+  "humano"
+ ],
+ "Triton": [
+  15,
+  "meioelfo"
+ ],
+ "Yuan-ti": [
+  15,
+  "humano"
+ ]
+}

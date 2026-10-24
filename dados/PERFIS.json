@@ -1,0 +1,62 @@
+[
+ [
+  "Especialista",
+  "Três atributos fortes, três fracos",
+  [
+   15,
+   15,
+   15,
+   8,
+   8,
+   8
+  ]
+ ],
+ [
+  "Dois focos",
+  "Dois atributos principais e um de apoio",
+  [
+   15,
+   15,
+   14,
+   10,
+   8,
+   8
+  ]
+ ],
+ [
+  "Foco e apoio",
+  "Um atributo principal e dois de apoio",
+  [
+   15,
+   14,
+   14,
+   10,
+   10,
+   8
+  ]
+ ],
+ [
+  "Padrão",
+  "Os valores padrão do Livro do Jogador",
+  [
+   15,
+   14,
+   13,
+   12,
+   10,
+   8
+  ]
+ ],
+ [
+  "Versátil",
+  "Sem nenhum ponto fraco",
+  [
+   14,
+   14,
+   14,
+   10,
+   10,
+   10
+  ]
+ ]
+]

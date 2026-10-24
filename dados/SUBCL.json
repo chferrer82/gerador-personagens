@@ -1,0 +1,39 @@
+{
+ "clerigo": [
+  "Conhecimento (Knowledge)",
+  "Vida (Life)",
+  "Luz (Light)",
+  "Natureza (Nature)",
+  "Tempestade (Tempest)",
+  "Trapaça (Trickery)",
+  "Guerra (War)",
+  "Morte (Death)",
+  "Arcano (Arcana)",
+  "Forja (Forge)",
+  "Sepultura (Grave)",
+  "Ordem (Order)",
+  "Paz (Peace)",
+  "Crepúsculo (Twilight)"
+ ],
+ "feiticeiro": [
+  "Linhagem Dracônica (Draconic Bloodline)",
+  "Magia Selvagem (Wild Magic)",
+  "Alma Divina (Divine Soul)",
+  "Magia das Sombras (Shadow Magic)",
+  "Feitiçaria da Tempestade (Storm Sorcery)",
+  "Mente Aberrante (Aberrant Mind)",
+  "Alma Mecânica (Clockwork Soul)",
+  "Feitiçaria Lunar (Lunar Sorcery)"
+ ],
+ "bruxo": [
+  "A Arquifada (The Archfey)",
+  "O Corruptor (The Fiend)",
+  "O Grande Antigo (The Great Old One)",
+  "O Imortal (The Undying)",
+  "O Celestial (The Celestial)",
+  "A Lâmina Maldita (The Hexblade)",
+  "O Insondável (The Fathomless)",
+  "O Gênio (The Genie)",
+  "O Morto-Vivo (The Undead)"
+ ]
+}
