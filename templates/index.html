@@ -38,7 +38,7 @@ header.top h1{font-family:var(--serif);font-weight:800;font-size:clamp(1.7rem,6v
 header.top p{margin:4px 0 0;color:var(--muted)}
 nav.rail{display:flex;gap:6px;overflow-x:auto;padding:12px 0 14px;scrollbar-width:thin}
 nav.rail button{flex:0 0 auto;border:1px solid var(--line);background:transparent;color:var(--muted);font:500 .9rem var(--sans);padding:6px 10px;border-radius:999px;cursor:pointer}
-nav.rail button[aria-current="step"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+nav.rail button[aria-current="step"],nav.rail button.done[aria-current="step"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 nav.rail button.done{color:var(--ink);border-color:var(--brass)}
 nav.rail button:disabled{opacity:.4;cursor:default}
 main section{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px 18px}
@@ -77,6 +77,7 @@ button.btn.danger{background:var(--madder);border-color:var(--madder);color:#fff
 .die .ctl{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
 .die .ctl button{font:600 .92rem var(--sans);padding:7px 12px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
 .die .ctl button.linkbtn{border:none;background:none;color:var(--muted);text-decoration:underline;font-weight:500;padding:7px 4px}
+#falta{max-width:680px;margin:0 auto 8px;font-size:.92rem;color:var(--madder)}
 .die .mesa{display:flex;gap:6px;align-items:center;margin-top:8px}
 .die .mesa input{width:90px}
 .err{color:var(--madder);font-size:.9rem}
@@ -133,7 +134,7 @@ footer.bar .in{max-width:680px;margin:0 auto;display:flex;justify-content:space-
   <nav class="rail" id="rail" aria-label="Etapas"></nav>
   <main id="app"></main>
 </div></div>
-<footer class="bar noprint"><div id="painel" class="ranz" aria-live="polite" hidden></div><div class="in">
+<footer class="bar noprint"><div id="painel" class="ranz" aria-live="polite" hidden></div><p id="falta" class="falta" aria-live="polite" hidden></p><div class="in">
   <button class="btn sec" id="back">Voltar</button>
   <button class="btn ghost" id="reset">Recomeçar</button>
   <button class="btn" id="next">Continuar</button>
@@ -160,7 +161,7 @@ const S={step:0,max:0,d:{},modo:null,caminho:null,ideia:'',vaga:{},
  patria:null,assent:null,regExtra:'',mora:'mesmo',patria2:null,assent2:null,regExtra2:'',antec:null,
  raca:null,sub:null,nome:'',gen:'m',estilo:'',sobrenome:'',apelido:'',
  classe:null,subcl:'',deus:'',idade:null,
- perfil:null,estiloCl:'',pb:{FOR:8,DES:8,CON:8,INT:8,SAB:8,CAR:8},fichas:[],fmtEsc:'21',sugRaca:null,sugClasse:null,cr:{},crSel:{},per:{},apar:{},_res:'',notaOrigem:'',env:{jogador:'',email:''},enviado:null,envErro:'',enviando:false};
+ perfil:null,estiloCl:'',pb:{FOR:8,DES:8,CON:8,INT:8,SAB:8,CAR:8},fichas:[],fmtEsc:'21',sugRaca:null,sugClasse:null,cr:{},crSel:{},crMan:{},per:{},apar:{},_res:'',notaOrigem:'',env:{jogador:'',email:''},enviado:null,envErro:'',enviando:false};
 
 const S0=JSON.stringify(S);
 
@@ -254,8 +255,11 @@ DIE_FX.racasug=(v,k,auto)=>{const r=faixa(RACA_SUP,v)[2];delete S.d.exsug;
  S.sugRaca=r;escolheRaca(r)};
 DIE_FX.exsug=v=>{const e=faixa(EXO,v);if(!e){S.sugRaca=null;return}const [rid,sid]=exoRef(e).split(':');S.sugRaca=rid;escolheRaca(rid,sid)};
 DIE_FX.classesug=v=>{const c=faixa(CLASSE_SUP,v)[2];S.sugClasse=c;if(S.classe!==c)applyChange(()=>trocaClasse(c),'classe')};
+const todosDeuses=()=>Object.values(DEUSES).join(', ').split(', ');
+DIE_FX.subclsug=v=>{const l=SUBCL[S.classe];if(l)S.subcl=l[v-1]};
+DIE_FX.deussug=v=>{S.deus=todosDeuses()[v-1]};
 DIE_FX.subsug=v=>{const r=raca();if(!r)return;applyChange(()=>{S.sub=r.subs[v-1][0];S.fichas=[]},'raca')};
-function trocaClasse(c){S.classe=c;S.subcl='';S.deus='';S.estiloCl='';
+function trocaClasse(c){S.classe=c;S.subcl='';S.deus='';S.estiloCl='';delete S.d.subclsug;delete S.d.deussug;
  if(typeof S.perfil==='number'){if(ordemCl())aplicaPerfil();else{S.perfil=null;pb8()}}
  if(semOrdem()&&S.perfil!=='livre'){S.perfil='livre'}
  S.fichas=[]}
@@ -297,6 +301,15 @@ function escala(k,v){const i=FAIXAS.findIndex(([a,b])=>v>=a&&v<=b);return i<0?''
 /* =========================================================
    VALIDAÇÃO DAS ETAPAS
    ========================================================= */
+function faltando(n){const f=[];const c=S.classe;
+  if(n===0){if(!S.modo)f.push('o tom da história');if(!S.caminho)f.push('como montar o personagem')}
+  if(n===1){if(!S.raca)f.push('a raça');else if(!S.sub)f.push('a sub-raça');if(!c)f.push('a classe');
+   if(c&&SUBCL[c]&&!S.subcl)f.push({clerigo:'o domínio divino',feiticeiro:'a origem da magia',bruxo:'o patrono'}[c]);
+   if(c==='clerigo'&&!S.deus)f.push('a divindade');if(!S.antec)f.push('o antecedente')}
+  if(n===2){if(!((S.patria&&S.assent)||S.regExtra))f.push(S.patria?'a cidade onde nasceu':'onde nasceu');if(S.idade==null)f.push(S.raca&&S.classe?'a idade':'a idade (escolha raça e classe antes)')}
+  if(n===3&&!valida(3)){if(!S.classe)f.push('a classe');else if(ORDEM_CLASSE[S.classe]&&ORDEM_CLASSE[S.classe].length>1&&!S.estiloCl&&S.perfil!=='livre')f.push('como seu personagem luta');else if(S.perfil==null&&!semOrdem())f.push('um perfil');else if(pbGasto()>27)f.push('gastar no máximo 27 pontos');else f.push('os bônus da raça, cada um num atributo diferente')}
+  if(n===4&&!valida(4))f.push('terminar a crônica: role ou escolha cada resultado, ou toque em “Rolar tudo que falta”');
+  return f}
 function valida(n){
   switch(n){
     case 0:return !!(S.modo&&S.caminho);
@@ -369,11 +382,13 @@ ${opt('caminho','surpresa','Me surpreenda','Os dados decidem tudo. Depois você 
  h+=`<div id="alvo-cl"></div>`;
  if(SUBCL[c]){
   const t={clerigo:'Domínio divino',feiticeiro:'Origem da magia',bruxo:'Patrono'}[c];
+  h+=die('subclsug',1,SUBCL[c].length,`Sorteio: ${t.toLowerCase()}`,v=>`${v} → <b>${esc(SUBCL[c][v-1])}</b>`);
   h+=`<label class="f" for="subcl">${t}</label><select id="subcl" data-bind="subcl"><option value="">—</option>${SUBCL[c].map(x=>`<option ${S.subcl===x?'selected':''}>${esc(x)}</option>`).join('')}</select>`;
  }
  if(c==='clerigo'||c==='paladino'){
   const pri={anao:['Panteão anão'],elfo:S.sub==='drow'?['Panteão drow','Panteão élfico']:['Panteão élfico'],meioelfo:['Panteão élfico'],gnomo:['Panteão gnomo'],halfling:['Panteão halfling'],meioorc:['Panteão orc'],x_orc:['Panteão orc'],x_eladrin:['Panteão élfico'],x_seaelf:['Panteão élfico'],x_shadarkai:['Panteão élfico']}[S.raca]||[];
   const ordem=[...pri,...Object.keys(DEUSES).filter(k=>!pri.includes(k))];
+  h+=die('deussug',1,todosDeuses().length,'Sorteio da divindade',v=>`${v} → <b>${esc(todosDeuses()[v-1])}</b>`);
   h+=`<label class="f" for="deus">Divindade${c==='paladino'?' (opcional)':''}</label><select id="deus" data-bind="deus"><option value="">—</option>${ordem.map(g=>`<optgroup label="${esc(g)}">${DEUSES[g].split(', ').map(x=>`<option ${S.deus===x?'selected':''}>${esc(x)}</option>`).join('')}</optgroup>`).join('')}</select>`;
  }
  h+=`<h3 id="alvo-antec">Antecedente</h3><p class="hint">O que você fazia antes da aventura. A crônica vai explicar como chegou até aqui.</p>`;
@@ -542,115 +557,125 @@ function meiaIdade(){const r=raca();if(!r)return 35;if(r.idx)return r.idx[2]||{h
 
 function crBuild(){
  const rows=[],H={origem:[],familia:[],infancia:[],casa:[],incomum:[],decisoes:[],eventos:[],dons:[]};
- const R=(k,n,s,label,o={})=>{const row={k,n,s,label,bonus:o.bonus||0,valid:o.valid};rows.push(row);const v=S.cr[k];if(v==null)throw STOP;row.v=v;return o.lv?o.lv(v):v};
+ const R=(k,n,s,label,o={})=>{const row={k,n,s,label,bonus:o.bonus||0,valid:o.valid,ops:o.op?o.op(n,s):null};rows.push(row);const v=S.cr[k];if(v==null)throw STOP;row.v=v;return o.lv?o.lv(v):v};
  const txt=t=>{rows[rows.length-1].t=t};
  const C=(k,html)=>{rows.push({k,choice:html});throw STOP};
  const VP=tab=>v=>!(leve()&&rowP(faixa(tab,v)));
  const VA=arr=>v=>!(leve()&&itP(arr[v-1]));
  const pontes=new Set();
+ // Opções para escolher à mão (só o texto, sem números). Cada opção = [valor do dado que produz aquele resultado, texto].
+ const OT=(tab,lbl,bonus=0,ok)=>(n,s)=>{if(!tab)return null;return tab.filter(r=>!(leve()&&rowP(r))&&(!ok||ok(r))).map(r=>{const v=Math.max(r[0]-bonus,n);return (v<=n*s&&v+bonus<=r[1])?[v,lbl?lbl(r):rowTxt(r)]:null}).filter(Boolean)};
+ const OA=(arr,lbl)=>()=>arr?arr.map((x,j)=>(leve()&&itP(x))?null:[j+1,lbl?lbl(x):itTxt(x)]).filter(Boolean):null;
+ const OL=(...ls)=>()=>ls.map((l,j)=>[j+1,l]);
+ const OR=f=>(n,s)=>{const o=[];for(let v=n;v<=n*s;v++){const l=f(v);if(l)o.push([v,l])}return o};
+ const nmCl=id=>CLASSES.find(c=>c.id===id).n;
+ const nmRaca=id=>id==='raro'?'Povo raro':RACAS.find(x=>x.id===id).n;
+ const irmLbl=fx=>{if(fx==='0')return 'Nenhum irmão';const m=fx.match(/1d(\d)(\+(\d))?/);const a=1+(+(m[3]||0)),z=+m[1]+(+(m[3]||0));return `De ${a} a ${z} irmãos`};
+ const NT={tragedia:'Tragédia',bencao:'Boa sorte',amor:'Amor',inimigo:'Um inimigo',amigo:'Um amigo',trabalho:'Trabalho',importante:'Alguém importante',aventura:'Aventura',sobrenatural:'Sobrenatural',batalha:'Batalha',crime:'Crime',arcano:'Magia',estranho:'Algo muito estranho'};
+ const SIMNAO=OL('Sim, a origem incomum fica','Não, escolher de novo');
  try{
   const r=raca(),n=nascInfo(),b=bgNome(),car=mod(final('CAR')||10);
   // ---- Origens
-  const pv=R('pais',1,100,'Seus pais');const conhece=pv<=95;txt(faixa(CR.PAIS,pv)[2]);H.origem.push(faixa(CR.PAIS,pv)[2]);
-  if(conhece&&CR['PAIS_'+r.id]){const v=R('paisr',1,8,'De que povo eram seus pais',{lv:v=>LV(CR['PAIS_'+r.id],v)});const t=faixa(CR['PAIS_'+r.id],v)[2];txt(t);H.origem.push(`Seus pais: ${t}.`)}
-  const nv=R('nasc',1,100,'Onde você nasceu',{lv:v=>LV(CR.NASC,v)});const nt=rowTxt(faixa(CR.NASC,nv));txt(nt);
-  const pr=R('press',1,100,'Houve um presságio? (só o 100 conta)');let prT='';txt(pr===100?'Sim!':'Nada de estranho.');
-  if(pr===100){const e=R('press2',1,6,'Que presságio');prT=CR.PRESSAGIO[e-1];txt(prT)}
+  const pv=R('pais',1,100,'Seus pais',{op:OT(CR.PAIS)});const conhece=pv<=95;txt(faixa(CR.PAIS,pv)[2]);H.origem.push(faixa(CR.PAIS,pv)[2]);
+  if(conhece&&CR['PAIS_'+r.id]){const v=R('paisr',1,8,'De que povo eram seus pais',{lv:v=>LV(CR['PAIS_'+r.id],v),op:OT(CR['PAIS_'+r.id],r=>r[2].charAt(0).toUpperCase()+r[2].slice(1))});const t=faixa(CR['PAIS_'+r.id],v)[2];txt(t);H.origem.push(`Seus pais: ${t}.`)}
+  const nv=R('nasc',1,100,'Onde você nasceu',{lv:v=>LV(CR.NASC,v),op:OT(CR.NASC,r=>{const x=rowTxt(r);return x.charAt(0).toUpperCase()+x.slice(1)})});const nt=rowTxt(faixa(CR.NASC,nv));txt(nt);
+  const pr=R('press',1,100,'Houve um presságio? (só o 100 conta)',{op:()=>[[1,'Nada de estranho'],[100,'Sim, houve um presságio']]});let prT='';txt(pr===100?'Sim!':'Nada de estranho.');
+  if(pr===100){const e=R('press2',1,6,'Que presságio',{op:OA(CR.PRESSAGIO,x=>{const y=itTxt(x);return y.charAt(0).toUpperCase()+y.slice(1)})});prT=CR.PRESSAGIO[e-1];txt(prT)}
   H.origem.push(`Você nasceu ${nt}, em ${n?n.nome:'sua terra natal'}.${prT?` No dia, ${prT}.`:''}`);
   // ---- Irmãos
   const menos=(r.id==='anao'||r.id==='elfo')?-2:0;
-  const iv=R('irm',1,10,'Irmãos'+(menos?' (−2 por ser '+r.n.toLowerCase()+')':''),{bonus:menos});const fx=faixa(CR.IRMAOS,iv+menos)[2];
+  const iv=R('irm',1,10,'Irmãos'+(menos?' (−2 por ser '+r.n.toLowerCase()+')':''),{bonus:menos,op:OT(CR.IRMAOS,r=>irmLbl(r[2]),menos)});const fx=faixa(CR.IRMAOS,iv+menos)[2];
   let qt=0;
   if(fx==='0'){txt('Nenhum irmão.');H.familia.push('Você não tem irmãos.')}
-  else{const m=fx.match(/1d(\d)(\+(\d))?/);const plus=+(m[3]||0);const q=R('irmq',1,+m[1],`Quantos irmãos (${fx})`,{bonus:plus});qt=q+plus;txt(`${qt} irmão${qt>1?'s':''}.`);H.familia.push(`Você tem ${qt} irmão${qt>1?'s':''}.`)}
+  else{const m=fx.match(/1d(\d)(\+(\d))?/);const plus=+(m[3]||0);const q=R('irmq',1,+m[1],`Quantos irmãos (${fx})`,{bonus:plus,op:OR(v=>`${v+plus} irmão${v+plus>1?'s':''}`)});qt=q+plus;txt(`${qt} irmão${qt>1?'s':''}.`);H.familia.push(`Você tem ${qt} irmão${qt>1?'s':''}.`)}
   for(let i=0;i<qt;i++){
-   const o=R(`i${i}o`,2,6,`Irmão ${i+1}: idade`);const ot=faixa(CR.ORDEM,o)[2];txt(ot);
-   const oc=R(`i${i}c`,1,100,`Irmão ${i+1}: ocupação`,{lv:v=>LV(CR.OCUP,v)});let oct=faixa(CR.OCUP,oc)[2];txt(oct);
-   if(oc>=6&&oc<=10){const k=R(`i${i}k`,1,100,`Irmão ${i+1}: classe`);oct+=' ('+CLASSES.find(c=>c.id===faixa(CLASSE_SUP,k)[2]).n.toLowerCase()+')';txt(oct)}
-   const st=R(`i${i}s`,3,6,`Irmão ${i+1}: situação`,{lv:v=>LV(CR.SITUACAO,v)});let stt=faixa(CR.SITUACAO,st)[2];txt(stt);
-   if(st===3){const m=R(`i${i}m`,1,12,`Irmão ${i+1}: causa da morte`);stt+=', '+faixa(CR.MORTE,m)[2];txt(stt)}
-   const rl=R(`i${i}r`,3,4,`Irmão ${i+1}: o que acha de você`);const rlt=faixa(CR.RELACAO,rl)[2];txt(rlt);
+   const o=R(`i${i}o`,2,6,`Irmão ${i+1}: idade`,{op:OT(CR.ORDEM)});const ot=faixa(CR.ORDEM,o)[2];txt(ot);
+   const oc=R(`i${i}c`,1,100,`Irmão ${i+1}: ocupação`,{lv:v=>LV(CR.OCUP,v),op:OT(CR.OCUP)});let oct=faixa(CR.OCUP,oc)[2];txt(oct);
+   if(oc>=6&&oc<=10){const k=R(`i${i}k`,1,100,`Irmão ${i+1}: classe`,{op:OT(CLASSE_SUP,r=>nmCl(r[2]))});oct+=' ('+CLASSES.find(c=>c.id===faixa(CLASSE_SUP,k)[2]).n.toLowerCase()+')';txt(oct)}
+   const st=R(`i${i}s`,3,6,`Irmão ${i+1}: situação`,{lv:v=>LV(CR.SITUACAO,v),op:OT(CR.SITUACAO)});let stt=faixa(CR.SITUACAO,st)[2];txt(stt);
+   if(st===3){const m=R(`i${i}m`,1,12,`Irmão ${i+1}: causa da morte`,{op:OT(CR.MORTE)});stt+=', '+faixa(CR.MORTE,m)[2];txt(stt)}
+   const rl=R(`i${i}r`,3,4,`Irmão ${i+1}: o que acha de você`,{op:OT(CR.RELACAO)});const rlt=faixa(CR.RELACAO,rl)[2];txt(rlt);
    H.familia.push(`Irmão ${i+1}: ${ot}, ${oct}, ${stt}; ${st===3?'era':'é'} ${rlt}.`);
   }
   // ---- Quem o criou (com coerência para Órfão)
   let fam,i=0;
-  for(;;){const k='fam'+(i?'#'+i:'');fam=R(k,1,100,'Quem o criou',{lv:v=>LV(CR.FAMILIA,v)});txt(faixa(CR.FAMILIA,fam)[2]);
-   if(!(b==='Órfão'&&fam>=76))break;const d=R('fam_inc'+i,1,6,'Órfão criado por pai e mãe: origem incomum? (1 = mantém)');txt(d===1?'Mantém: origem incomum.':'Rola de novo.');if(d===1){pontes.add(9);break}i++}
+  for(;;){const k='fam'+(i?'#'+i:'');fam=R(k,1,100,'Quem o criou',{lv:v=>LV(CR.FAMILIA,v),op:OT(CR.FAMILIA)});txt(faixa(CR.FAMILIA,fam)[2]);
+   if(!(b==='Órfão'&&fam>=76))break;const d=R('fam_inc'+i,1,6,'Órfão criado por pai e mãe: origem incomum? (1 = mantém)',{op:SIMNAO});txt(d===1?'Mantém: origem incomum.':'Rola de novo.');if(d===1){pontes.add(9);break}i++}
   const famT=faixa(CR.FAMILIA,fam)[2];
   H.familia.push(`Quem o criou: ${famT}${!conhece&&fam>=36?' (que não são seus pais de sangue)':''}.`);
   let L=fam>=76?2:fam>=36?1:fam>=26?0:fam>=8?1:fam>=3?-1:-2;
   if(conhece){const falta=fam>=76?[]:fam>=56?['pai']:fam>=36?['mãe']:['pai','mãe'];
-   for(const w of falta){const a=R('aus_'+w,1,4,`O que houve com seu ${w==='mãe'?'mãe':'pai'}`,{lv:v=>LV(CR.AUSENTE,v)});let at=rowTxt(faixa(CR.AUSENTE,a));txt(at);
-    if(a===1){const m=R('aus_'+w+'_m',1,12,'Causa da morte');at+=' '+faixa(CR.MORTE,m)[2];txt(at)}
+   for(const w of falta){const a=R('aus_'+w,1,4,`O que houve com seu ${w==='mãe'?'mãe':'pai'}`,{lv:v=>LV(CR.AUSENTE,v),op:OT(CR.AUSENTE)});let at=rowTxt(faixa(CR.AUSENTE,a));txt(at);
+    if(a===1){const m=R('aus_'+w+'_m',1,12,'Causa da morte',{op:OT(CR.MORTE)});at+=' '+faixa(CR.MORTE,m)[2];txt(at)}
     if(a===2||a===3)L-=1;H.familia.push(`${w==='mãe'?'Sua mãe':'Seu pai'} ${at}.`)}}
   // ---- Estilo de vida (com coerência para Nobre/Cortesão)
   let est;i=0;const nobreBg=['Nobre','Nobre de Waterdeep','Cortesão'].includes(b);
-  for(;;){const k='est'+(i?'#'+i:'');est=R(k,3,6,'Estilo de vida da família');const en=faixa(CR.ESTILO,est)[2];txt(en);
-   if(!(nobreBg&&(en==='Miserável'||en==='Esquálido')))break;const d=R('est_inc'+i,1,6,'Nobre com infância pobre: origem incomum? (1 = mantém)');txt(d===1?'Mantém: origem incomum.':'Rola de novo.');if(d===1){pontes.add(8);break}i++}
+  for(;;){const k='est'+(i?'#'+i:'');est=R(k,3,6,'Estilo de vida da família',{op:OT(CR.ESTILO)});const en=faixa(CR.ESTILO,est)[2];txt(en);
+   if(!(nobreBg&&(en==='Miserável'||en==='Esquálido')))break;const d=R('est_inc'+i,1,6,'Nobre com infância pobre: origem incomum? (1 = mantém)',{op:SIMNAO});txt(d===1?'Mantém: origem incomum.':'Rola de novo.');if(d===1){pontes.add(8);break}i++}
   const en=faixa(CR.ESTILO,est)[2],em=CR.ESTILO_MOD[en];
-  const lv=R('lar',1,100,`Lar na infância (${em>=0?'+':''}${em} do estilo de vida)`,{bonus:em});const lt=faixa(CR.LAR,lv+em)[2];txt(lt);
-  const mv=R('memo',3,6,`Memórias de infância (${car>=0?'+':''}${car} de Carisma)`,{bonus:car});const mt=faixa(CR.MEMO,mv+car)[2];txt(mt);
+  const lv=R('lar',1,100,`Lar na infância (${em>=0?'+':''}${em} do estilo de vida)`,{bonus:em,op:OT(CR.LAR,null,em)});const lt=faixa(CR.LAR,lv+em)[2];txt(lt);
+  const mv=R('memo',3,6,`Memórias de infância (${car>=0?'+':''}${car} de Carisma)`,{bonus:car,op:OT(CR.MEMO,null,car)});const mt=faixa(CR.MEMO,mv+car)[2];txt(mt);
   H.infancia.push(`A família vivia de forma ${en.toLowerCase()}, e você cresceu ${lt}.`);H.infancia.push(mt);
   L+=(mv+car)>=16?1:(mv+car)>=9?0:(mv+car)>=6?-1:-2;
   // ---- Onde vive hoje
   let res;
   if(S.crSel.res){res={nome:S.crSel.res,tipo:'escolha'};}
-  else{i=0;for(;;){const sx=i?'#'+i:'';const t=R('res'+sx,2,6,`Onde vive hoje (2d6 ${L>=0?'+':''}${L} de laços com a terra natal)`,{bonus:L});const tot=t+L;
+  else{i=0;for(;;){const sx=i?'#'+i:'';const t=R('res'+sx,2,6,`Onde vive hoje (2d6 ${L>=0?'+':''}${L} de laços com a terra natal)`,{bonus:L,op:OT([[10,99,'Na mesma cidade onde nasceu'],[7,9,'Em outra cidade da mesma região'],[4,6,'Em outra região da Costa da Espada'],[-99,3,'Longe, em outra região de Faerûn']],r=>r[2],L)});const tot=t+L;
     const tipo=tot>=10?'mesma':tot>=7?'regiao':tot>=4?'costa':'longe';
     txt({mesma:'Na mesma cidade onde nasceu',regiao:'Em outra cidade da mesma região',costa:'Em outra região da Costa da Espada',longe:'Longe, em outra região de Faerûn'}[tipo]);
     let nome=n?n.nome:'—';
-    if(tipo==='regiao'){if(n&&n.p){let j=0,a;for(;;){const av=R(`resA${sx}_${j}`,1,100,`Cidade em ${n.p}`);a=faixa(ASSENT[n.p],av)[2];txt(a);if(a!==n.a||j>20)break;j++}nome=a+', '+n.p}else nome='outro lugar de '+(n?n.nome:'sua região')}
-    if(tipo==='costa'||(tipo==='longe'&&n&&n.x)){let j=0,p;for(;;){const pv2=R(`resP${sx}_${j}`,1,100,'Região');p=faixa(PATRIA,pv2)[2];txt(p);if(!n||p!==n.p||j>20)break;j++}const av=R(`resA2${sx}`,1,100,`Cidade em ${p}`);const a=faixa(ASSENT[p],av)[2];txt(a);nome=a+', '+p}
-    else if(tipo==='longe'){let j=0,x;for(;;){const xv=R(`resX${sx}_${j}`,1,12,'Região distante (12 = rola de novo)');x=xv<=11?REG_EXTRA[xv-1]:null;txt(x||'Rola de novo.');if(x&&(!n||x!==n.x))break;j++}nome=x}
+    if(tipo==='regiao'){if(n&&n.p){let j=0,a;for(;;){const av=R(`resA${sx}_${j}`,1,100,`Cidade em ${n.p}`,{op:OT(ASSENT[n.p],r=>r[2],0,r=>r[2]!==n.a)});a=faixa(ASSENT[n.p],av)[2];txt(a);if(a!==n.a||j>20)break;j++}nome=a+', '+n.p}else nome='outro lugar de '+(n?n.nome:'sua região')}
+    if(tipo==='costa'||(tipo==='longe'&&n&&n.x)){let j=0,p;for(;;){const pv2=R(`resP${sx}_${j}`,1,100,'Região',{op:OT(PATRIA,r=>r[2],0,r=>!n||r[2]!==n.p)});p=faixa(PATRIA,pv2)[2];txt(p);if(!n||p!==n.p||j>20)break;j++}const av=R(`resA2${sx}`,1,100,`Cidade em ${p}`,{op:OT(ASSENT[p],r=>r[2])});const a=faixa(ASSENT[p],av)[2];txt(a);nome=a+', '+p}
+    else if(tipo==='longe'){let j=0,x;for(;;){const xv=R(`resX${sx}_${j}`,1,12,'Região distante (12 = rola de novo)',{op:()=>REG_EXTRA.map((x,q)=>[q+1,x]).filter(([,x])=>!n||x!==n.x)});x=xv<=11?REG_EXTRA[xv-1]:null;txt(x||'Rola de novo.');if(x&&(!n||x!==n.x))break;j++}nome=x}
     res={nome,tipo};
     const semCidade=NAO_CIDADE.some(z=>nome.startsWith(z)||nome===z);
     let inc=0;if(b==='Viajante Distante'&&tipo==='mesma')inc=11;else if(['Guarda da Cidade','Caçador de Recompensas Urbano'].includes(b)&&semCidade)inc=10;
-    if(!inc)break;const d=R('res_inc'+i,1,6,'Onde vive não combina com o antecedente: origem incomum? (1 = mantém)');txt(d===1?'Mantém: origem incomum.':'Rola de novo.');if(d===1){pontes.add(inc);break}i++}}
+    if(!inc)break;const d=R('res_inc'+i,1,6,'Onde vive não combina com o antecedente: origem incomum? (1 = mantém)',{op:SIMNAO});txt(d===1?'Mantém: origem incomum.':'Rola de novo.');if(d===1){pontes.add(inc);break}i++}}
   H.casa.push(res.tipo==='mesma'?`Hoje você ainda vive onde nasceu: ${res.nome}.`:`Hoje você vive em ${res.nome}.`);
   if(res.tipo!=='mesma'&&res.tipo!=='escolha')H.casa.push(L<=-1?'Os laços com a terra natal eram fracos, e você partiu cedo, sem muita saudade.':L>=2?'Você só deixou a casa da família porque a vida de aventureiro chamou.':'Você deixou a terra natal para buscar o próprio caminho.');
   S._res=res.nome;
   // ---- Origens incomuns (pontes)
   combosLugarBg(n).forEach(x=>pontes.add(x));combosRaca(n,S.raca,S.sub).forEach(x=>pontes.add(x));
   if(combo6())pontes.add(6);if(combo12())pontes.add(12);
-  [...pontes].sort((a,c)=>a-c).forEach(id=>{const P=CR.PONTE[id];const v=R('ponte'+id,1,10,'Origem incomum: '+P.t,{lv:v=>LI(P.r,v)});const t=itTxt(P.r[v-1]);txt(t);H.incomum.push(t)});
+  [...pontes].sort((a,c)=>a-c).forEach(id=>{const P=CR.PONTE[id];const v=R('ponte'+id,1,10,'Origem incomum: '+P.t,{lv:v=>LI(P.r,v),op:OA(P.r)});const t=itTxt(P.r[v-1]);txt(t);H.incomum.push(t)});
   // ---- Decisões
   const bk=(CR.BGKEY[b]||[])[0];
-  if(bk&&CR.BG[bk]){const v=R('porqueAnt',1,6,`Por que virou ${b.toLowerCase()}`,{lv:v=>LI(CR.BG[bk],v)});const t=itTxt(CR.BG[bk][v-1]);txt(t);H.decisoes.push(CR.SCAGKEYS.includes(bk)?`${b}, nas suas palavras: “${t}”`:`${b}: ${t}`)}
-  const c=classe();if(c&&CR.CL[c.id]){const v=R('porqueCl',1,6,`Por que virou ${c.n.toLowerCase()}`,{lv:v=>LI(CR.CL[c.id],v)});const t=itTxt(CR.CL[c.id][v-1]);txt(t);H.decisoes.push(`${c.n}: ${t}`)}
+  if(bk&&CR.BG[bk]){const v=R('porqueAnt',1,6,`Por que virou ${b.toLowerCase()}`,{lv:v=>LI(CR.BG[bk],v),op:OA(CR.BG[bk])});const t=itTxt(CR.BG[bk][v-1]);txt(t);H.decisoes.push(CR.SCAGKEYS.includes(bk)?`${b}, nas suas palavras: “${t}”`:`${b}: ${t}`)}
+  const c=classe();if(c&&CR.CL[c.id]){const v=R('porqueCl',1,6,`Por que virou ${c.n.toLowerCase()}`,{lv:v=>LI(CR.CL[c.id],v),op:OA(CR.CL[c.id])});const t=itTxt(CR.CL[c.id][v-1]);txt(t);H.decisoes.push(`${c.n}: ${t}`)}
   // ---- Acontecimentos
   const F=meiaIdade()/35,bon=Math.min(4,Math.max(0,Math.floor(F)-1)),eq=Math.floor((S.idade||15)/F);
   const dd=eq<=20?0:eq<=30?4:eq<=40?6:eq<=50?8:eq<=60?10:12;
   let nEv=1+bon;
-  if(dd){const x=R('nev',1,dd,`Quantos acontecimentos marcaram sua vida (1d${dd}${bon?' +'+bon+' por ser de vida longa':''})`,{bonus:bon});nEv=Math.min(12,x+bon);txt(nEv+' acontecimento'+(nEv>1?'s':''))}
+  if(dd){const x=R('nev',1,dd,`Quantos acontecimentos marcaram sua vida (1d${dd}${bon?' +'+bon+' por ser de vida longa':''})`,{bonus:bon,op:OR(v=>{const q=Math.min(12,v+bon);return `${q} acontecimento${q>1?'s':''}`})});nEv=Math.min(12,x+bon);txt(nEv+' acontecimento'+(nEv>1?'s':''))}
   let amor=0;
-  const racaNPC=(k,lbl)=>{const v=R(k,1,100,lbl);const id=faixa(RACA_SUP,v)[2];if(id!=='raro'){const t=RACAS.find(x=>x.id===id).n.toLowerCase();txt(t);return t}
-   txt('povo raro');const e=R(k+'x',1,100,lbl+': povo raro (100 = rola de novo)',{valid:v=>v<=99});const t=faixa(EXO,e)[2].toLowerCase();txt(t);return t};
-  const clNPC=(k,lbl)=>{const v=R(k,1,100,lbl);const t=CLASSES.find(x=>x.id===faixa(CLASSE_SUP,v)[2]).n.toLowerCase();txt(t);return t};
+  const racaNPC=(k,lbl)=>{const v=R(k,1,100,lbl,{op:OT(RACA_SUP,r=>nmRaca(r[2]))});const id=faixa(RACA_SUP,v)[2];if(id!=='raro'){const t=RACAS.find(x=>x.id===id).n.toLowerCase();txt(t);return t}
+   txt('povo raro');const e=R(k+'x',1,100,lbl+': povo raro (100 = rola de novo)',{valid:v=>v<=99,op:OT(EXO,r=>r[2])});const t=faixa(EXO,e)[2].toLowerCase();txt(t);return t};
+  const clNPC=(k,lbl)=>{const v=R(k,1,100,lbl,{op:OT(CLASSE_SUP,r=>nmCl(r[2]))});const t=CLASSES.find(x=>x.id===faixa(CLASSE_SUP,v)[2]).n.toLowerCase();txt(t);return t};
   for(let e=0;e<nEv;e++){
-   const ev=R(`e${e}`,1,100,`Acontecimento ${e+1}`,{lv:v=>LV(CR.EVENTOS,v)});const tipo=faixa(CR.EVENTOS,ev)[2];let T='';
+   const ev=R(`e${e}`,1,100,`Acontecimento ${e+1}`,{lv:v=>LV(CR.EVENTOS,v),op:OT(CR.EVENTOS,r=>NT[r[2]])});const tipo=faixa(CR.EVENTOS,ev)[2];let T='';
    const nomeTipo={tragedia:'Tragédia',bencao:'Boa sorte',amor:'Amor',inimigo:'Um inimigo',amigo:'Um amigo',trabalho:'Trabalho',importante:'Alguém importante',aventura:'Aventura',sobrenatural:'Sobrenatural',batalha:'Batalha',crime:'Crime',arcano:'Magia',estranho:'Algo muito estranho'}[tipo];txt(nomeTipo);
-   if(tipo==='tragedia'){const t=R(`e${e}t`,1,12,'Tragédia',{lv:v=>LV(CR.TRAG,v)});T=faixa(CR.TRAG,t)[2];txt(T);
-    if(t<=2||t===12){const m=R(`e${e}m`,1,12,'Causa da morte');T+=', '+faixa(CR.MORTE,m)[2];if(t===12&&m===2){const q=R(`e${e}q`,1,12,'Você foi o responsável? (1 = sim)');if(q===1)T+=', e você teve culpa nisso, direta ou indireta'}T+='.';txt(T)}
-    if(t===11){const d=R(`e${e}d`,1,6,'Como terminou (ímpar: mal; par: bem)');T+=d%2?', e terminou mal.':', mas terminou em paz.';txt(T)}}
-   else if(tipo==='bencao'){const x=R(`e${e}b`,1,10,'Boa sorte');T=CR.BENC[x-1];txt(T)}
+   if(tipo==='tragedia'){const t=R(`e${e}t`,1,12,'Tragédia',{lv:v=>LV(CR.TRAG,v),op:OT(CR.TRAG)});T=faixa(CR.TRAG,t)[2];txt(T);
+    if(t<=2||t===12){const m=R(`e${e}m`,1,12,'Causa da morte',{op:OT(CR.MORTE)});T+=', '+faixa(CR.MORTE,m)[2];if(t===12&&m===2){const q=R(`e${e}q`,1,12,'Você foi o responsável? (1 = sim)',{op:OL('Sim, você teve culpa','Não, você não teve culpa')});if(q===1)T+=', e você teve culpa nisso, direta ou indireta'}T+='.';txt(T)}
+    if(t===11){const d=R(`e${e}d`,1,6,'Como terminou (ímpar: mal; par: bem)',{op:OL('Terminou mal','Terminou em paz')});T+=d%2?', e terminou mal.':', mas terminou em paz.';txt(T)}}
+   else if(tipo==='bencao'){const x=R(`e${e}b`,1,10,'Boa sorte',{op:OA(CR.BENC)});T=CR.BENC[x-1];txt(T)}
    else if(tipo==='amor'){amor++;T=amor>1?'Você teve um filho.':'Você se apaixonou ou se casou.'}
-   else if(tipo==='inimigo'){const d=R(`e${e}c`,1,6,'De quem foi a culpa (ímpar: sua; par: não)');txt(d%2?'Sua':'Não foi sua');const ra=racaNPC(`e${e}ra`,'Raça do inimigo');const cl=clNPC(`e${e}k`,'Classe do inimigo');T=`Você fez um inimigo: um aventureiro ${ra} ${cl}. ${d%2?'A briga foi culpa sua.':'Você não teve culpa na briga.'}`}
+   else if(tipo==='inimigo'){const d=R(`e${e}c`,1,6,'De quem foi a culpa (ímpar: sua; par: não)',{op:OL('A culpa foi sua','A culpa não foi sua')});txt(d%2?'Sua':'Não foi sua');const ra=racaNPC(`e${e}ra`,'Raça do inimigo');const cl=clNPC(`e${e}k`,'Classe do inimigo');T=`Você fez um inimigo: um aventureiro ${ra} ${cl}. ${d%2?'A briga foi culpa sua.':'Você não teve culpa na briga.'}`}
    else if(tipo==='amigo'){const ra=racaNPC(`e${e}ra`,'Raça do amigo');const cl=clNPC(`e${e}k`,'Classe do amigo');T=`Você fez amizade com um aventureiro ${ra} ${cl}.`}
    else if(tipo==='trabalho'){T='Você passou um tempo trabalhando num ofício ligado ao seu antecedente e juntou algumas moedas.'}
-   else if(tipo==='importante'){const ra=racaNPC(`e${e}ra`,'Raça da pessoa');const o=R(`e${e}o`,1,100,'Ocupação da pessoa',{lv:v=>LV(CR.OCUP,v)});const ot=faixa(CR.OCUP,o)[2];txt(ot);const rl=R(`e${e}rl`,3,4,'O que ela acha de você');const rt=faixa(CR.RELACAO,rl)[2];txt(rt);T=`Você conheceu alguém importante: ${ra}, ${ot}, que é ${rt}.`}
-   else if(tipo==='aventura'){const a=R(`e${e}a`,1,100,'Aventura',{lv:v=>LV(CR.AVENT,v)});T='Você viveu uma aventura. '+faixa(CR.AVENT,a)[2];txt(T)}
-   else if(tipo==='sobrenatural'){const s=R(`e${e}s`,1,100,'Evento sobrenatural',{lv:v=>LV(CR.SOBR,v)});T=faixa(CR.SOBR,s)[2];txt(T);if(s>=71&&s<=75){const p=R(`e${e}p`,1,6,'Possuído por');T+=` por ${CR.POSSE[p-1]}.`;txt(T)}}
-   else if(tipo==='batalha'){const g=R(`e${e}g`,1,12,'Batalha',{lv:v=>LV(CR.GUERRA,v)});T='Você lutou numa batalha. '+faixa(CR.GUERRA,g)[2];txt(T)}
-   else if(tipo==='crime'){const c2=R(`e${e}cr`,1,8,'Crime',{lv:v=>LV(CR.CRIME,v)});const ct=faixa(CR.CRIME,c2)[2];txt(ct);const p=R(`e${e}pu`,1,12,'O que aconteceu depois',{lv:v=>LV(CR.PUNI,v)});const pt=faixa(CR.PUNI,p)[2];txt(pt);T=`Você cometeu um crime, ou foi acusado injustamente: ${ct}. ${pt}`}
-   else if(tipo==='arcano'){const a=R(`e${e}ar`,1,10,'Magia');T=CR.ARC[a-1];txt(T);
-    if(a===10){const p1=R(`e${e}p1`,1,100,'Previsão 1',{lv:v=>LV(CR.EVENTOS,v)});const p2=R(`e${e}p2`,1,100,'Previsão 2',{lv:v=>LV(CR.EVENTOS,v)});const pk=R(`e${e}pk`,1,2,'Qual das duas é o presságio');const ty=faixa(CR.EVENTOS,pk===1?p1:p2)[2];
+   else if(tipo==='importante'){const ra=racaNPC(`e${e}ra`,'Raça da pessoa');const o=R(`e${e}o`,1,100,'Ocupação da pessoa',{lv:v=>LV(CR.OCUP,v),op:OT(CR.OCUP)});const ot=faixa(CR.OCUP,o)[2];txt(ot);const rl=R(`e${e}rl`,3,4,'O que ela acha de você',{op:OT(CR.RELACAO)});const rt=faixa(CR.RELACAO,rl)[2];txt(rt);T=`Você conheceu alguém importante: ${ra}, ${ot}, que é ${rt}.`}
+   else if(tipo==='aventura'){const a=R(`e${e}a`,1,100,'Aventura',{lv:v=>LV(CR.AVENT,v),op:OT(CR.AVENT)});T='Você viveu uma aventura. '+faixa(CR.AVENT,a)[2];txt(T)}
+   else if(tipo==='sobrenatural'){const s=R(`e${e}s`,1,100,'Evento sobrenatural',{lv:v=>LV(CR.SOBR,v),op:OT(CR.SOBR)});T=faixa(CR.SOBR,s)[2];txt(T);if(s>=71&&s<=75){const p=R(`e${e}p`,1,6,'Possuído por',{op:OA(CR.POSSE,x=>{const y=itTxt(x);return y.charAt(0).toUpperCase()+y.slice(1)})});T+=` por ${CR.POSSE[p-1]}.`;txt(T)}}
+   else if(tipo==='batalha'){const g=R(`e${e}g`,1,12,'Batalha',{lv:v=>LV(CR.GUERRA,v),op:OT(CR.GUERRA)});T='Você lutou numa batalha. '+faixa(CR.GUERRA,g)[2];txt(T)}
+   else if(tipo==='crime'){const c2=R(`e${e}cr`,1,8,'Crime',{lv:v=>LV(CR.CRIME,v),op:OT(CR.CRIME)});const ct=faixa(CR.CRIME,c2)[2];txt(ct);const p=R(`e${e}pu`,1,12,'O que aconteceu depois',{lv:v=>LV(CR.PUNI,v),op:OT(CR.PUNI)});const pt=faixa(CR.PUNI,p)[2];txt(pt);T=`Você cometeu um crime, ou foi acusado injustamente: ${ct}. ${pt}`}
+   else if(tipo==='arcano'){const a=R(`e${e}ar`,1,10,'Magia',{op:OA(CR.ARC)});T=CR.ARC[a-1];txt(T);
+    if(a===10){const p1=R(`e${e}p1`,1,100,'Previsão 1',{lv:v=>LV(CR.EVENTOS,v),op:OT(CR.EVENTOS,r=>NT[r[2]])});const p2=R(`e${e}p2`,1,100,'Previsão 2',{lv:v=>LV(CR.EVENTOS,v),op:OT(CR.EVENTOS,r=>NT[r[2]])});const pk=R(`e${e}pk`,1,2,'Qual das duas é o presságio',{op:OL('A primeira previsão','A segunda previsão')});const ty=faixa(CR.EVENTOS,pk===1?p1:p2)[2];
      const nt2={tragedia:'uma tragédia',bencao:'um golpe de sorte',amor:'um grande amor',inimigo:'um inimigo',amigo:'um amigo leal',trabalho:'trabalho honesto',importante:'um encontro importante',aventura:'uma aventura',sobrenatural:'algo sobrenatural',batalha:'uma batalha',crime:'um crime',arcano:'magia poderosa',estranho:'algo muito estranho'}[ty];T+=` e previu ${nt2} no seu futuro. Pode ou não se cumprir.`;txt(T)}}
-   else if(tipo==='estranho'){const w=R(`e${e}w`,1,12,'Algo muito estranho',{lv:v=>LV(CR.ESTR,v)});T=faixa(CR.ESTR,w)[2];txt(T);if(w===6){const ra=racaNPC(`e${e}ra`,'Raça do antigo patrão');const cl=clNPC(`e${e}k`,'Classe do antigo patrão');T+=`: um ${ra} ${cl}.`;txt(T)}}
+   else if(tipo==='estranho'){const w=R(`e${e}w`,1,12,'Algo muito estranho',{lv:v=>LV(CR.ESTR,v),op:OT(CR.ESTR)});T=faixa(CR.ESTR,w)[2];txt(T);if(w===6){const ra=racaNPC(`e${e}ra`,'Raça do antigo patrão');const cl=clNPC(`e${e}k`,'Classe do antigo patrão');T+=`: um ${ra} ${cl}.`;txt(T)}}
    H.eventos.push(T);
   }
   // ---- Dons e fraquezas
   for(const [k,nm] of ATR){const v=final(k);if(v==null)continue;
-   if(v>=17){const d=R('dom'+k,1,6,`De onde vem seu dom de ${nm} (${v})`);const t=CR.DOM[k][d-1];txt(t);H.dons.push(`${nm} ${v}: ${t}`)}
+   if(v>=17){const d=R('dom'+k,1,6,`De onde vem seu dom de ${nm} (${v})`,{op:OA(CR.DOM[k])});const t=CR.DOM[k][d-1];txt(t);H.dons.push(`${nm} ${v}: ${t}`)}
    if(v<=7){const md=S.crSel['fm'+k];
     if(!md)C('fm'+k,`<div class="what">${nm} ${v}: fraqueza</div><p class="hint">Você pode escolher uma fraqueza ou deixar os dados decidirem (1–3 no d6 gera uma).</p><div class="row">${opt('crsel','fm'+k+':escolher','Escolher','',false)}${opt('crsel','fm'+k+':rolar','Rolar','',false)}</div>`);
     if(md==='rolar'){const g=R('fq'+k,1,6,`${nm} ${v}: gera fraqueza? (1–3 sim)`);txt(g<=3?'Sim.':'Não.');if(g<=3){const f=R('fqt'+k,1,6,`Fraqueza de ${nm}`);const t=CR.FRAQ[k][f-1];txt(t);H.dons.push(`${nm} ${v}: ${t}`)}}
@@ -659,17 +684,20 @@ function crBuild(){
  return {rows,H,done:rows.length>0&&!rows[rows.length-1].choice&&rows[rows.length-1].v!=null};
 }
 function crRollOne(){const {rows}=crBuild();const last=rows[rows.length-1];if(!last||last.choice||last.v!=null)return false;
- let v,g=0;do{v=rollN(last.n,last.s);g++}while(last.valid&&!last.valid(v)&&g<500);S.cr[last.k]=v;return true}
+ let v,g=0;do{v=rollN(last.n,last.s);g++}while(last.valid&&!last.valid(v)&&g<500);S.cr[last.k]=v;delete S.crMan[last.k];return true}
 function crRollAll(){let g=0;while(g<600&&crRollOne())g++}
+function crOpcoes(row){const o=row.ops;if(!o||!o.length)return '';
+ if(o.length<=6)return `<div class="hint" style="margin-top:10px">Ou escolha:</div><div class="grid" style="grid-template-columns:1fr;margin-top:4px">${o.map(([v,l])=>`<button class="opt" data-act="crpick" data-v="${v}">${esc(l)}</button>`).join('')}</div>`;
+ return `<label class="f" for="crpick" style="margin-top:10px">Ou escolha</label><select id="crpick" data-bind="crpick"><option value="">—</option>${o.map(([v,l])=>`<option value="${v}">${esc(l)}</option>`).join('')}</select>`}
 function crDie(row){const lab=(row.n>1?row.n:'')+'d'+row.s+(row.bonus?(row.bonus>0?' +'+row.bonus:' '+row.bonus):'');const st=S.d['cr:'+row.k]||{};
  return `<div class="die" data-die="cr"><div>${dieSVG(null,lab)}</div><div><div class="what">${esc(row.label)}</div>
- <div class="ctl noprint"><button data-act="crroll">Rolar aqui</button><button data-act="crall">Rolar tudo que falta</button><button class="linkbtn" data-act="crmesa">rolei na mesa</button></div>
+ <div class="ctl noprint"><button data-act="crroll">Rolar aqui</button><button data-act="crall">Rolar tudo que falta</button><button class="linkbtn" data-act="crmesa">rolei na mesa</button></div>${crOpcoes(row)}
  ${st.mesa?`<div class="mesa noprint"><input type="number" inputmode="numeric" min="${row.n}" max="${row.n*row.s}" placeholder="${row.n}–${row.n*row.s}" id="crmesa"><button class="btn sec" data-act="crmesaok">Usar</button></div>${st.err?`<div class="err">${esc(st.err)}</div>`:''}`:''}</div></div>`}
 function telaCronica(){
  const {rows,H,done}=crBuild();const last=rows[rows.length-1];
  let h=`<h2>Crônica de origem</h2><p class="lead">Família, infância, o caminho até o antecedente e a classe, e o que marcou sua vida. Role um dado por vez ou tudo de uma vez.</p>`;
  const ult=rows.filter(r=>r.v!=null).pop();
- if(!done&&last){h+=last.choice?`<div class="die" style="display:block">${last.choice}</div>`:crDie(last);if(ult)h+=`<p class="hint">Última rolagem: ${esc(ult.label)} → <b>${ult.v+(ult.bonus||0)}</b>${ult.t?' ('+esc(ult.t)+')':''}</p>`}
+ if(!done&&last){h+=last.choice?`<div class="die" style="display:block">${last.choice}</div>`:crDie(last);if(ult)h+=`<p class="hint">Último resultado: ${esc(ult.label)} → ${S.crMan[ult.k]?'':`<b>${ult.v+(ult.bonus||0)}</b> `}${ult.t?(S.crMan[ult.k]?'<b>'+esc(ult.t)+'</b>':'('+esc(ult.t)+')'):''}</p>`}
  else h+=`<p class="wip">Sua crônica está completa.</p>`;
  const sec=[['origem','Origem'],['familia','Família'],['infancia','Infância'],['casa','Onde vive hoje'],['incomum','Uma origem incomum'],['decisoes','Escolhas'],['eventos','O que marcou sua vida'],['dons','Dons']];
  h+=`<h3>Sua história</h3>`;
@@ -677,7 +705,7 @@ function telaCronica(){
  const n=nascInfo();
  h+=`<label class="f" for="resman">Prefere escolher onde vive hoje?</label><select id="resman" data-bind="resman"><option value="">Deixar os dados decidirem</option>${n?`<option ${S.crSel.res===n.nome?'selected':''} value="${esc(n.nome)}">No mesmo lugar onde nasceu (${esc(n.nome)})</option>`:''}${Object.entries(ASSENT).map(([p,l])=>`<optgroup label="${esc(p)}">${l.map(x=>{const v=x[2]+', '+p;return `<option ${S.crSel.res===v?'selected':''} value="${esc(v)}">${esc(x[2])}</option>`}).join('')}</optgroup>`).join('')}<optgroup label="Outras regiões de Faerûn">${REG_EXTRA.map(x=>`<option ${S.crSel.res===x?'selected':''}>${esc(x)}</option>`).join('')}</optgroup></select>`;
  const feitas=rows.filter(r=>r.v!=null);
- if(feitas.length)h+=`<details style="margin-top:14px"><summary>Ver todas as rolagens (${feitas.length})</summary><table class="at"><tbody>${feitas.map(r=>`<tr><td>${esc(r.label)}</td><td class="n">${r.v+(r.bonus||0)}</td><td>${esc(r.t||'')}</td></tr>`).join('')}</tbody></table></details>`;
+ if(feitas.length)h+=`<details style="margin-top:14px"><summary>Ver todos os resultados (${feitas.length})</summary><table class="at"><tbody>${feitas.map(r=>`<tr><td>${esc(r.label)}</td><td class="n">${S.crMan[r.k]?'—':r.v+(r.bonus||0)}</td><td>${esc(r.t||'')}</td></tr>`).join('')}</tbody></table></details>`;
  h+=`<div class="row noprint" style="margin-top:14px"><button class="btn sec" data-act="crreset">Refazer a crônica</button></div>`;
  return h;
 }
@@ -760,6 +788,7 @@ function render(keepScroll){
  const pn=$('#painel');pn.innerHTML=txt.map(x=>`<p>${esc(x)}</p>`).join('');pn.hidden=!txt.length;pn.scrollTop=0;
  $('#back').disabled=S.step===0;
  $('#next').disabled=!valida(S.step);
+ {const f=S.step<ETAPAS.length-1&&!valida(S.step)?faltando(S.step):[];const fe=$('#falta');fe.textContent=f.length?'Para continuar, falta: '+f.join(', ')+'.':'';fe.hidden=!f.length}
  $('#next').textContent=S.step===ETAPAS.length-1?'Pronto':'Continuar';
  $('#next').style.visibility=S.step===ETAPAS.length-1?'hidden':'visible';
  if(keepScroll)sc.scrollTop=y;
@@ -794,8 +823,9 @@ document.addEventListener('click',e=>{
  else if(a==='crmesaok'){const {rows}=crBuild();const l=rows[rows.length-1];const x=Number($('#crmesa').value);
    if(!Number.isInteger(x)||x<l.n||x>l.n*l.s){S.d['cr:'+l.k]={mesa:true,err:`Digite um número inteiro de ${l.n} a ${l.n*l.s}.`}}
    else if(l.valid&&!l.valid(x)){S.d['cr:'+l.k]={mesa:true,err:'Esse número manda rolar de novo.'}}
-   else{S.cr[l.k]=x;delete S.d['cr:'+l.k]}render(true)}
- else if(a==='crreset'){modal('Refazer a crônica inteira? Todas as rolagens desta etapa serão apagadas.',()=>{S.cr={};S.crSel={};Object.keys(S.d).filter(k=>k.startsWith('cr:')).forEach(k=>delete S.d[k]);render()},'Refazer','danger')}
+   else{S.cr[l.k]=x;delete S.crMan[l.k];delete S.d['cr:'+l.k]}render(true)}
+ else if(a==='crreset'){modal('Refazer a crônica inteira? Todas as rolagens desta etapa serão apagadas.',()=>{S.cr={};S.crSel={};S.crMan={};Object.keys(S.d).filter(k=>k.startsWith('cr:')).forEach(k=>delete S.d[k]);render()},'Refazer','danger')}
+ else if(a==='crpick'){const {rows}=crBuild();const l=rows[rows.length-1];if(l&&!l.choice&&l.v==null){S.cr[l.k]=+v;S.crMan[l.k]=1;delete S.d['cr:'+l.k]}render(true)}
  else if(a==='crsel'){const [k,val]=v.split(':');S.crSel[k]=k.startsWith('fs')?+val:val;render(true)}
  else if(a==='copiar'){const t=fichaTexto();const done=()=>{$('#copied').textContent='Texto copiado.'};
    try{navigator.clipboard.writeText(t).then(done,()=>fallbackCopy(t,done))}catch(_){fallbackCopy(t,done)}}
@@ -817,10 +847,11 @@ document.addEventListener('change',e=>{
  else if(t.dataset.bind==='regExtra2'){S.regExtra2=t.value;render(true)}
  else if(t.dataset.bind==='estilo'){S.estilo=t.value;delete S.d.nome;delete S.d.sobre;render(true)}
  else if(t.dataset.bind==='antec'){S.antec=t.value||null;S.cr={};S.crSel={};S.per={};render(true)}
+ else if(t.dataset.bind==='crpick'){if(t.value){const {rows}=crBuild();const l=rows[rows.length-1];if(l&&!l.choice&&l.v==null){S.cr[l.k]=+t.value;S.crMan[l.k]=1;delete S.d['cr:'+l.k]}}render(true)}
  else if(t.dataset.bind==='resman'){if(t.value)S.crSel.res=t.value;else delete S.crSel.res;render(true)}
  else if(t.dataset.bind==='per'){const c=t.dataset.campo;if(t.value)S.per[c]=+t.value;else delete S.per[c];delete S.d[t.dataset.key];render(true)}
- else if(t.dataset.bind==='subcl'){S.subcl=t.value;render(true)}
- else if(t.dataset.bind==='deus'){S.deus=t.value;render(true)}
+ else if(t.dataset.bind==='subcl'){S.subcl=t.value;delete S.d.subclsug;render(true)}
+ else if(t.dataset.bind==='deus'){S.deus=t.value;delete S.d.deussug;render(true)}
  else if(t.dataset.bind==='idade'){const d=idadeDados(),x=Number(t.value);const ok=d?(Number.isInteger(x)&&x>=d.min&&x<=d.max):(raca()&&raca().rara&&Number.isInteger(x)&&x>=1&&x<=2000);if(ok){S.idade=x;delete S.d.idade}else{S.idade=null}render(true)}
  else if(t.dataset.ficha){S.fichas[+t.dataset.ficha].a=t.value;S.cr={};S.crSel={};render(true)}
 });
