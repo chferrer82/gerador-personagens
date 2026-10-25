@@ -41,8 +41,8 @@ No Windows (PowerShell): `$env:MESTRE_SENHA="escolha-uma-senha"; python app.py`.
 ## Rotas
 
 - `/` — o gerador
-- `POST /api/fichas` — o jogador envia a ficha (nome, e-mail, personagem). O mesmo e-mail pode enviar várias fichas.
-- `/mestre` — lista das fichas com busca por jogador, e-mail, personagem, raça ou classe (pede usuário e senha)
+- `POST /api/fichas` — o jogador envia a ficha (nome do jogador e personagem). O mesmo jogador pode enviar várias fichas.
+- `/mestre` — lista das fichas com busca por jogador, personagem, raça ou classe (pede usuário e senha)
 - `/mestre/ficha/<id>` — ficha completa, com botão de copiar
 - `/api/tabelas`, `/api/tabelas/<CHAVE>`, `/api/dados` — tabelas do gerador, só leitura
 - `/saude` — checagem para a hospedagem
@@ -87,4 +87,4 @@ Para mudar a senha depois, edite `MESTRE_SENHA` nas variáveis de ambiente do se
 
 - Tabelas servidas idênticas às do HTML original de 30/09 (migração).
 - Versão simplificada: 60 personagens no "Me surpreenda", todos com exatamente 27 pontos e todas as etapas válidas; fluxo "Eu escolho" completo no navegador em tamanho de celular.
-- Envio: validação de nome e e-mail, 3 fichas enviadas (duas do mesmo e-mail), área do mestre recusa sem senha e com senha errada, busca funciona, nomes com HTML aparecem como texto. Roteiro rodado nos dois modos: Postgres 16 e SQLite.
+- Envio: validação do nome, 3 fichas enviadas (duas do mesmo jogador), área do mestre recusa sem senha e com senha errada, busca funciona, nomes com HTML aparecem como texto. Roteiro rodado nos dois modos: Postgres 16 e SQLite.

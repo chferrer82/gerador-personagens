@@ -101,15 +101,13 @@ def validar(dados):
     if not isinstance(dados, dict):
         raise Invalida("Envio inválido.")
     jogador = str(dados.get("jogador", "")).strip()
-    email = str(dados.get("email", "")).strip().lower()
+    email = ""  # o e-mail deixou de ser pedido (P27); a coluna fica vazia
     personagem = str(dados.get("personagem", "")).strip() or "Sem nome"
     resumo = str(dados.get("resumo", "")).strip()
     texto = str(dados.get("texto", "")).strip()
     estado = dados.get("estado", {})
     if not jogador:
         raise Invalida("Escreva seu nome.")
-    if not EMAIL_RE.match(email):
-        raise Invalida("Confira o e-mail: ele precisa ter o formato nome@exemplo.com.")
     if not texto:
         raise Invalida("A ficha está vazia.")
     estado = json.dumps(estado, ensure_ascii=False)
@@ -137,8 +135,8 @@ def buscar(db, q="", limite=500):
     args = []
     if q:
         like = "ILIKE" if db.pg else "LIKE"  # sem diferenciar maiúsculas nos dois bancos
-        sql += f" WHERE jogador {like} ? OR email {like} ? OR personagem {like} ? OR resumo {like} ?"
-        args = [f"%{q}%"] * 4
+        sql += f" WHERE jogador {like} ? OR personagem {like} ? OR resumo {like} ?"
+        args = [f"%{q}%"] * 3
     sql += " ORDER BY criada_em DESC, id DESC LIMIT ?"
     args.append(limite)
     return db.todos(sql, args)

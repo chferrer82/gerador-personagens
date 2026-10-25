@@ -166,7 +166,7 @@ const S={step:0,max:0,d:{},modo:null,caminho:null,ideia:'',vaga:{},
  patria:null,assent:null,regExtra:'',mora:'mesmo',patria2:null,assent2:null,regExtra2:'',antec:null,
  raca:null,sub:null,nome:'',gen:'m',estilo:'',sobrenome:'',apelido:'',
  classe:null,subcl:'',deus:'',idade:null,
- perfil:null,estiloCl:'',pb:{FOR:8,DES:8,CON:8,INT:8,SAB:8,CAR:8},fichas:[],fmtEsc:'21',sugRaca:null,sugClasse:null,cr:{},crSel:{},crMan:{},crEdit:null,per:{},perTxt:{},histEdit:null,histBase:'',extra:'',apar:{},_res:'',notaOrigem:'',env:{jogador:'',email:''},enviado:null,envErro:'',enviando:false};
+ perfil:null,estiloCl:'',pb:{FOR:8,DES:8,CON:8,INT:8,SAB:8,CAR:8},fichas:[],fmtEsc:'21',sugRaca:null,sugClasse:null,cr:{},crSel:{},crMan:{},crEdit:null,per:{},perTxt:{},histEdit:null,histBase:'',extra:'',apar:{},_res:'',notaOrigem:'',env:{jogador:''},enviado:null,envErro:'',enviando:false};
 
 const S0=JSON.stringify(S);
 
@@ -484,9 +484,8 @@ function blocoHistoria(){
  return h;
 }
 function blocoEnvio(){
- let h=`<h3 id="alvo-envio">Enviar ao mestre</h3><p class="hint">Seu nome e seu e-mail ficam guardados com a ficha, só para o mestre consultar.</p>
+ let h=`<h3 id="alvo-envio">Enviar ao mestre</h3><p class="hint">Seu nome fica guardado com a ficha, para o mestre saber de quem é.</p>
  <label class="f" for="env-jogador">Seu nome</label><input type="text" id="env-jogador" data-env="jogador" autocomplete="name" value="${esc(S.env.jogador)}">
- <label class="f" for="env-email">Seu e-mail</label><input type="email" id="env-email" data-env="email" autocomplete="email" inputmode="email" value="${esc(S.env.email)}" placeholder="nome@exemplo.com">
  <div class="row noprint" style="margin-top:12px"><button class="btn" data-act="enviar" ${S.enviando?'disabled':''}>${S.enviando?'Enviando…':S.enviado?'Enviar de novo':'Enviar ao mestre'}</button></div>`;
  if(S.envErro)h+=`<p class="err" role="alert">${esc(S.envErro)}</p>`;
  if(S.enviado)h+=`<p class="wip" role="status">Ficha enviada em ${esc(S.enviado)}. O mestre já pode consultar.</p>`;
@@ -494,11 +493,10 @@ function blocoEnvio(){
 }
 function resumoFicha(){const r=raca(),s=sub(),c=classe();return [r?r.n+(s&&s[1]!=='—'?' '+s[1]:''):'',c?c.n+(S.subcl?' ('+S.subcl+')':''):'',S.idade!=null?S.idade+' anos':'',S.antec||''].filter(Boolean).join(' · ')}
 async function enviarFicha(){
- const j=S.env.jogador.trim(),e=S.env.email.trim();
+ const j=S.env.jogador.trim();
  if(!j){S.envErro='Escreva seu nome.';render(true);return}
- if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e)){S.envErro='Confira o e-mail: ele precisa ter o formato nome@exemplo.com.';render(true);return}
  S.envErro='';S.enviando=true;render(true);
- const corpo={jogador:j,email:e,personagem:nomeCompleto()||'Sem nome',resumo:resumoFicha(),texto:fichaTexto(),estado:{...S,enviando:false}};
+ const corpo={jogador:j,personagem:nomeCompleto()||'Sem nome',resumo:resumoFicha(),texto:fichaTexto(),estado:{...S,enviando:false}};
  try{
   const r=await fetch('/api/fichas',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(corpo)});
   const x=await r.json().catch(()=>({}));

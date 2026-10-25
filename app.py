@@ -2,7 +2,7 @@
 
 Rotas públicas
   /                      a página do gerador, com as tabelas do banco embutidas
-  POST /api/fichas       o jogador envia a ficha (nome, e-mail, personagem)
+  POST /api/fichas       o jogador envia a ficha (nome do jogador e personagem)
   /api/tabelas           lista das tabelas (chave, tipo, descrição, fonte, observação)
   /api/tabelas/<chave>   conteúdo de uma tabela
   /api/dados             todas as tabelas, no formato usado pela página

@@ -1,6 +1,6 @@
 # PROJETO — Gerador de Personagens (Jogadores)
 
-Versão 1.4 · 24/10/2026 · Status: no ar em gerador-personagens.onrender.com; história editável e escolhas alteráveis (P26); revisões pendentes (seção 13)
+Versão 1.5 · 24/10/2026 · Status: no ar em gerador-personagens.onrender.com; envio só com o nome do jogador (P27); revisões pendentes (seção 13)
 
 ---
 
@@ -91,7 +91,7 @@ Nomes exatamente como o mestre definiu. Descrições com palavras próprias.
 - **Classes (14):** as 13 dos livros oficiais de 2014 (Artífice, Bárbaro, Bardo, Bruxo, Clérigo, Druida, Feiticeiro, Guerreiro, Ladino, Mago, Monge, Paladino, Patrulheiro) + **Pugilista (Pugilist)**, classe de terceiros incluída por decisão do mestre. O Pugilista não escolhe subclasse no nível 1. Fonte dos dados do Pugilista: arquivo com a descrição, a ser enviado pelo mestre aos arquivos do projeto (P18).
 - **Raças (12), com sub-raças dentro da raça:** Humano, Anão (inclui Duergar), Elfo, Halfling, Gnomo (inclui Svirfneblin), Meio-elfo, Meio-orc, Draconato, Tiefling, Aasimar, Genasi, Golias. Lista completa de sub-raças e versão dos livros: P7b.
 - **Nomes:** português oficial com o inglês entre parênteses, ex.: Patrulheiro (Ranger).
-- Sem IA e sem login para o jogador. O jogador envia a ficha ao mestre com nome e e-mail (P24); o mestre consulta numa área com senha.
+- Sem IA e sem login para o jogador. O jogador envia a ficha ao mestre informando só o nome (P24, P27); o mestre consulta numa área com senha.
 
 ## 6. Fluxo
 
@@ -102,7 +102,7 @@ Seis etapas (P23):
 3. **De onde vem** — onde nasceu, idade (faixa típica: escolher ou rolar) e nome.
 4. **Atributos** — perfis prontos por classe (7.1), bônus raciais sugeridos, escala humana.
 5. **Crônica de origem** no estilo "This Is Your Life", com os eventos de dom (7.4).
-6. **Personalidade e ficha** — resumo das escolhas com botão **Alterar** para cada etapa; traços, ideal, vínculo e defeito (sorteados, escolhidos ou escritos com as próprias palavras); outros traços livres; aparência; **história final editável** (parte da crônica gerada e pode ser reescrita; botão para voltar ao texto gerado); a ficha final para copiar ou imprimir; e o formulário **Enviar ao mestre**, que envia a versão editada (P24, P26).
+6. **Personalidade e ficha** — resumo das escolhas com botão **Alterar** para cada etapa; traços, ideal, vínculo e defeito (sorteados, escolhidos ou escritos com as próprias palavras); outros traços livres; aparência; **história final editável** (parte da crônica gerada e pode ser reescrita; botão para voltar ao texto gerado); a ficha final para copiar ou imprimir; e o formulário **Enviar ao mestre** (só o nome do jogador; P27), que envia a versão editada (P24, P26).
 
 Na etapa **Quem é você**, subclasse (Clérigo, Feiticeiro, Bruxo) e divindade (Clérigo) também têm dado de sorteio. Em toda etapa, enquanto o **Continuar** está bloqueado, o rodapé diz o que falta (P25).
 
@@ -252,8 +252,8 @@ Nota: na imagem, a primeira coluna da I-12 está rotulada "Maturidade", mas os v
 - Conteúdo: nome, raça/sub-raça, classe, nível 1, idade, região, atributos + modificadores, traços raciais resumidos, antecedente, idiomas, história (crônica), personalidade, aparência.
 - A ficha mostra a classe sem o nível (P26).
 - Fora: CA, PV, perícias, equipamento, magias.
-- **Envio ao mestre (P24):** o jogador informa nome e e-mail e envia. Cada envio é uma ficha nova (o mesmo e-mail pode ter várias). A página avisa que nome e e-mail ficam guardados só para o mestre consultar.
-- **Área do mestre:** `/mestre`, com usuário e senha; lista com busca (jogador, e-mail, personagem, raça, classe), ficha completa com botão de copiar.
+- **Envio ao mestre (P24, P27):** o jogador informa o nome e envia. Cada envio é uma ficha nova (o mesmo jogador pode enviar várias). A página avisa que o nome fica guardado com a ficha, para o mestre saber de quem é.
+- **Área do mestre:** `/mestre`, com usuário e senha; lista com busca (jogador, personagem, raça, classe), ficha completa com botão de copiar.
 
 ## 10. Fora do escopo da Fase 1
 
@@ -313,6 +313,7 @@ IA, login de jogador, PDF, CA.
 | ID | Decisão | Versão |
 |---|---|---|
 | P20a | Hospedagem gratuita: Render (site) + Neon (Postgres das fichas); SQLite fica só para uso local | 1.2 |
+| P27 | Envio ao mestre pede só o nome do jogador; o e-mail saiu do formulário, da lista e da ficha do mestre | 1.5 |
 | P26 | Ficha sem nível; história final editável e traços próprios; resumo das escolhas com Alterar; mudar resultados da crônica depois de pronta | 1.4 |
 | P25 | Crônica: escolha manual por lista de textos, sem números; dado para subclasse e divindade; aviso do que falta para continuar | 1.3 |
 | P24 | Salvar fichas no servidor Flask com nome do jogador e e-mail; várias fichas por e-mail; consulta do mestre com senha, lista com busca (substitui "sem salvar" e antecipa a Fase 5) | 1.1 |
@@ -374,3 +375,4 @@ IA, login de jogador, PDF, CA.
 | 24/10/2026 | 1.2 | P20a: Render grátis + Neon grátis; fichas passam a usar Postgres em produção (`DATABASE_URL`), SQLite só local; `render.yaml` sem disco |
 | 24/10/2026 | 1.3 | P25: escolha manual na crônica (opções só em texto, respeitando o modo leve); dados de subclasse e divindade (o Continuar travava com Clérigo, Feiticeiro e Bruxo sorteados); aviso do que falta; corrigido o nome da etapa atual invisível na barra |
 | 24/10/2026 | 1.4 | P26: ficha sem nível; história final editável (a ficha enviada usa a versão editada); traços de personalidade escritos pelo jogador e campo de outros traços; resumo das escolhas com Alterar; resultados da crônica podem ser mudados depois de prontos |
+| 24/10/2026 | 1.5 | P27: e-mail removido do envio e da área do mestre; o jogador informa só o nome (a coluna antiga fica vazia no banco) |
