@@ -77,5 +77,33 @@
   "paladino": "Fez um juramento sagrado e leva isso a sério. A sério mesmo. Não minta perto dele.",
   "patrulheiro": "Rastreador dos ermos: segue pegada e caça monstro. Some por semanas e volta cheirando a folha.",
   "pugilista": "Briga de taverna como estilo de vida. Apanha, levanta e continua sorrindo com o dente que sobrou."
+ },
+ "antec": {
+  "Acólito (Acolyte)": "Viveu a serviço de um templo. Pode ter cuidado dos ritos e do altar, copiado textos sagrados, atendido fiéis e doentes ou servido de ponte entre o povo e os deuses.",
+  "Charlatão (Charlatan)": "Vivia de enganar os outros. Vendia elixires de água suja, trapaceava nas cartas, fingia ser vidente ou nobre, falsificava papéis. Conte as moedas depois de falar com ele.",
+  "Guarda da Cidade (City Watch)": "Mantinha a ordem numa cidade. Patrulhava ruas e muralhas, vigiava portões, prendia baderneiros e ladrões, ou investigava crimes atrás de pistas.",
+  "Artesão de Clã (Clan Crafter)": "Aprendeu um ofício com um clã anão: forja, cantaria, joalheria, cervejaria, armaria. Respeita a pedra e o trabalho bem feito. Finalmente alguém de valor.",
+  "Erudito Enclausurado (Cloistered Scholar)": "Passou anos trancado numa biblioteca ou escola, como a de Candlekeep. Copiava livros, pesquisava, catalogava saberes antigos e discutia teorias com outros sábios.",
+  "Cortesão (Courtier)": "Viveu nos corredores do poder: numa corte, num governo ou numa grande guilda. Foi secretário, conselheiro, escrivão ou funcionário. Sabe lidar com papelada e intriga.",
+  "Criminoso (Criminal)": "Viveu do outro lado da lei. Pode ter batido carteiras, arrombado casas, contrabandeado mercadoria, vendido objetos roubados, cobrado dívidas à força ou chantageado gente rica.",
+  "Artista (Entertainer)": "Vivia de divertir o público. Músico, ator, dançarino, acrobata, poeta, contador de histórias ou bobo da corte. Tabernas, praças e palácios eram seu palco.",
+  "Agente de Facção (Faction Agent)": "Trabalhou para uma organização com objetivos próprios, como os Harpistas, a Aliança dos Lordes ou o Zhentarim. Levava mensagens, colhia informações, recrutava gente ou cumpria missões.",
+  "Viajante Distante (Far Traveler)": "Veio de uma terra muito longe da Costa da Espada. Pode ter chegado como mercador, peregrino, diplomata, exilado ou simples curioso. Aqui, tudo e todos lhe parecem estranhos.",
+  "Herói do Povo (Folk Hero)": "Gente simples, de aldeia: lavrador, pastor, ferreiro, lenhador. Um dia enfrentou um tirano, um monstro ou uma desgraça, e o povo passou a ver você como herói.",
+  "Artesão de Guilda (Guild Artisan)": "Membro de uma guilda de ofício ou de comércio. Ferreiro, carpinteiro, alfaiate, cervejeiro, joalheiro, pintor ou mercador. Sabe fazer, vender e negociar.",
+  "Eremita (Hermit)": "Viveu isolado: numa caverna, numa cabana, num mosteiro distante. Buscava paz, penitência, sabedoria ou fugia de algo. Na solidão, descobriu alguma coisa importante.",
+  "Herdeiro (Inheritor)": "Herdou algo que mudou sua vida: um objeto, um título, terras, um mapa, uma dívida ou um segredo de família. Agora precisa reclamar, proteger ou entender essa herança.",
+  "Cavaleiro da Ordem (Knight of the Order)": "Jurou servir a uma ordem de cavaleiros, religiosa ou não. Foi escudeiro, guardião, cruzado ou mensageiro da ordem, e segue o código dela. Ou tenta.",
+  "Veterano Mercenário (Mercenary Veteran)": "Lutou por dinheiro numa companhia de mercenários. Guardou caravanas, escoltou mercadores, defendeu muralhas, atacou quem mandaram. Sabe o preço de cada golpe.",
+  "Nobre (Noble)": "Nasceu numa família rica e com título. Aprendeu etiqueta, política e o peso do nome. Pode ter cuidado de terras, servido à corte ou só frequentado festas.",
+  "Forasteiro (Outlander)": "Cresceu longe das cidades, nos ermos. Foi caçador, guia, coletor, pastor nômade, guardião de fronteira ou membro de uma tribo. Conhece a terra melhor que a gente.",
+  "Sábio (Sage)": "Passou a vida estudando. Alquimista, astrônomo, bibliotecário, escriba, professor ou pesquisador do arcano. Responde qualquer pergunta, mesmo quando ninguém perguntou.",
+  "Marinheiro (Sailor)": "Viveu no mar. Marujo de navio mercante, pescador, contramestre, navegador ou até pirata. Conhece cordas, tempestades e portos. Água, para anão, só no banho. Às vezes.",
+  "Soldado (Soldier)": "Serviu num exército ou numa milícia. Infante, arqueiro, cavaleiro, batedor, intendente ou médico de campo. Conhece a disciplina, a marcha e a guerra.",
+  "Espião (Spy)": "Trabalhava em segredo para alguém: um reino, um nobre, uma guilda. Infiltrava-se, colhia segredos, levava mensagens e fingia ser quem não era.",
+  "Caçador de Recompensas Urbano (Urban Bounty Hunter)": "Caçava gente nas ruas da cidade por recompensa: fugitivos, devedores, criminosos procurados. Sabe onde se esconder e onde procurar quem se esconde.",
+  "Órfão (Urchin)": "Cresceu sozinho nas ruas de uma cidade. Pedia esmola, roubava comida, dormia em telhados e becos, fazia pequenos serviços. Conhece cada atalho do bairro.",
+  "Membro de Tribo Uthgardt (Uthgardt Tribe Member)": "Membro de uma das tribos bárbaras Uthgardt do Norte, cada uma ligada a um animal totem. Caçava, guerreava, honrava os ancestrais e os lugares sagrados da tribo.",
+  "Nobre de Waterdeep (Waterdhavian Noble)": "Filho de uma família nobre de Waterdeep, a Cidade do Esplendor. Festas, intrigas, negócios da casa e um sobrenome que abre portas. Às vezes, só o sobrenome."
  }
 }

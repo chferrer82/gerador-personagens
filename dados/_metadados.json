@@ -145,7 +145,7 @@
   "observacao": "Modo leve no artifact troca o resultado pesado pela entrada leve vizinha; o PROJETO 7.6 diz re-rolar. Divergência a decidir."
  },
  "CURTA": {
-  "descricao": "Descrições curtas, na voz do anão, de raças, sub-raças, povos raros e classes (aparecem ao tocar na opção)",
+  "descricao": "Descrições curtas, na voz do anão, de raças, sub-raças, povos raros, classes e antecedentes (aparecem ao tocar na opção)",
   "fonte": "Texto próprio do projeto (P28)",
   "observacao": "Texto livre de ambientação, sem valores de regra."
  }

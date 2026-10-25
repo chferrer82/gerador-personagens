@@ -1,6 +1,6 @@
 # PROJETO — Gerador de Personagens (Jogadores)
 
-Versão 1.6 · 25/10/2026 · Status: no ar em gerador-personagens.onrender.com; interface em conversa "Salão da Forja" (P28); revisões pendentes (seção 13)
+Versão 1.7 · 25/10/2026 · Status: no ar em gerador-personagens.onrender.com; interface em conversa "Salão da Forja" (P28); rascunho salvo no aparelho (P29); revisões pendentes (seção 13)
 
 ---
 
@@ -113,9 +113,10 @@ Na etapa **Quem é você**, subclasse (Clérigo, Feiticeiro, Bruxo) e divindade 
 - **Visual:** fundo escuro de pedra, brasa (fogo), ouro (honra) e azul-aço (justiça); brasas subindo ao fundo, faíscas ao clicar e um "golpe" de martelo ao confirmar. Com "reduzir movimento" ligado no aparelho, as animações são desligadas.
 - **Cada etapa mostra só:** a fala do narrador, com uma frase curta do que está acontecendo (ex.: "Muito bem: anão da montanha. Agora me diga…"), e as opções da pergunta atual. As perguntas já respondidas ficam esmaecidas acima, com a resposta num botão para **mudar**; na crônica aparecem só os três últimos resultados, e a lista completa fica em "Ver todos os resultados".
 - **Navegação:** abas do topo clicáveis (voltar a qualquer etapa já vista; avançar quando as anteriores estão completas) e rodapé com Voltar, Recomeçar e Avançar.
-- **Raças e classes:** ao tocar numa opção aparece uma descrição curta na voz do anão e o botão "Seguir com …"; o dado também só sugere, o jogador confirma. Todas as raças da versão original continuam (12 principais e 33 povos raros). As descrições são texto próprio, na tabela `CURTA` do banco, sem nenhum valor de regra.
+- **Raças, classes e antecedentes:** ao tocar numa opção aparece uma descrição curta na voz do anão (no antecedente, as várias coisas que o personagem pode ter feito antes de virar aventureiro) e o botão "Seguir com …"; o dado também só sugere, o jogador confirma. Todas as raças da versão original continuam (12 principais e 33 povos raros). As descrições são texto próprio, na tabela `CURTA` do banco, sem nenhum valor de regra.
 - **Textos livres** (nome, sobrenome ou clã, apelido, traços escritos, aparência, história) têm um botão de confirmar, para a conversa não pular enquanto o jogador digita.
 - Some o aviso "falta…" do rodapé (P25): a pergunta atual já mostra o que falta.
+- **Rascunho (P29):** o progresso fica salvo no próprio aparelho (navegador) a cada resposta. Ao voltar à página, o anão oferece "Continuar de onde parei" ou "Começar do zero". Recomeçar apaga o rascunho. Nada vai para o servidor antes do envio.
 
 Saíram (P23): os caminhos "ideia pronta", "ideia vaga" e "preciso de ajuda"; o questionário guiado; a lista de talentos do humano variante (a ficha mostra "Talento: a escolher"); os d6 de coerência nas rolagens de origem e raça (P34b).
 
@@ -324,6 +325,7 @@ IA, login de jogador, PDF, CA.
 | ID | Decisão | Versão |
 |---|---|---|
 | P20a | Hospedagem gratuita: Render (site) + Neon (Postgres das fichas); SQLite fica só para uso local | 1.2 |
+| P29 | Rascunho salvo no aparelho do jogador (navegador), com opção de continuar ou começar do zero; não passa pelo servidor | 1.7 |
 | P28 | Interface em conversa "Salão da Forja": narrador anão, abertura em fade-in, uma pergunta por vez com respostas anteriores esmaecidas e editáveis, abas clicáveis, gênero junto da raça, descrições curtas de raças e classes (tabela `CURTA`, texto próprio) | 1.6 |
 | P27 | Envio ao mestre pede só o nome do jogador; o e-mail saiu do formulário, da lista e da ficha do mestre | 1.5 |
 | P26 | Ficha sem nível; história final editável e traços próprios; resumo das escolhas com Alterar; mudar resultados da crônica depois de pronta | 1.4 |
@@ -388,4 +390,5 @@ IA, login de jogador, PDF, CA.
 | 24/10/2026 | 1.3 | P25: escolha manual na crônica (opções só em texto, respeitando o modo leve); dados de subclasse e divindade (o Continuar travava com Clérigo, Feiticeiro e Bruxo sorteados); aviso do que falta; corrigido o nome da etapa atual invisível na barra |
 | 24/10/2026 | 1.4 | P26: ficha sem nível; história final editável (a ficha enviada usa a versão editada); traços de personalidade escritos pelo jogador e campo de outros traços; resumo das escolhas com Alterar; resultados da crônica podem ser mudados depois de prontos |
 | 24/10/2026 | 1.5 | P27: e-mail removido do envio e da área do mestre; o jogador informa só o nome (a coluna antiga fica vazia no banco) |
+| 25/10/2026 | 1.7 | P29: rascunho salvo no aparelho; P28 ampliada: antecedente escolhido por cartões com descrição curta (26 textos próprios na tabela `CURTA`); sub-raça "Padrão" aparece como "Humano padrão" |
 | 25/10/2026 | 1.6 | P28: nova interface em conversa (Salão da Forja) aplicada às 6 etapas; gênero passa para a etapa Quem é você; tabela nova `CURTA` com descrições curtas (texto próprio); "Personalidade e ficha" passa a se chamar "Ficha"; frase da infância reescrita ("O estilo de vida da família era…") para concordar com qualquer resultado; mesmas regras, tabelas e motor da crônica |

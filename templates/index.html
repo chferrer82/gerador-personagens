@@ -176,6 +176,7 @@ pre.ficha{white-space:pre-wrap;word-break:break-word;font:15px/1.5 var(--texto);
     <div class="pilha" id="pilha"></div>
     <div class="acoes">
       <button class="pular" id="pular" type="button">Pular apresentação</button>
+      <button class="pular oculto" id="novo" type="button">Começar do zero</button>
       <button class="btn oculto" id="comecar" type="button">Acender a forja</button>
     </div>
   </section>
@@ -632,7 +633,8 @@ DIE_FX.racasug=v=>{const r=faixa(RACA_SUP,v)[2];delete S.d.exsug;
  if(r==='raro'){let ve,e;do{ve=rnd(100);e=faixa(EXO,ve)}while(!e);S.d.exsug={v:ve};const [id,sb]=exoRef(e).split(':');S.pend={q:'raca',id,sub:sb,en:e[3]}}
  else S.pend={q:'raca',id:r};S.sugRaca=S.pend.id};
 DIE_FX.classesug=v=>{const c=faixa(CLASSE_SUP,v)[2];S.sugClasse=c;S.pend={q:'classe',id:c}};
-const DADO_NAO_RESPONDE=['racasug','classesug','exsug','nome','sobre','apel','alt','peso'];
+DIE_FX.antecsug=v=>{S.pend={q:'antec',id:faixa(ANTEC,v)[2]}};
+const DADO_NAO_RESPONDE=['racasug','classesug','antecsug','exsug','nome','sobre','apel','alt','peso'];
 
 function nomeSub(r,s){if(!s||s[1]==='—')return r.n;const x=s[1].replace(/ \(.*\)/,'');if(x==='Padrão')return r.n;
  if(/^[a-zà-ú]/.test(x))return r.n+' '+x;if(x.includes(r.n)||['Duergar','Drow','Svirfneblin'].includes(x))return x;return r.n+' '+x}
@@ -652,6 +654,7 @@ const btnOk=(k,txt,dis,forBind)=>`<div class="linha"><button class="btn" type="b
 
 function descPend(){const p=S.pend;if(!p)return '';let nome,txt;
  if(p.q==='classe'){const c=CLASSES.find(x=>x.id===p.id);nome=c.n;txt=CURTA.classes[c.id]||''}
+ else if(p.q==='antec'){nome=p.id.split(' (')[0];txt=(CURTA.antec||{})[p.id]||''}
  else if(p.en){const e=EXO.find(x=>x[3]===p.en);nome=e[2];if(e[4]){const [id,sb]=e[4].split(':');txt=(CURTA.racas[id]||'')+(sb&&CURTA.subs[id+':'+sb]?' '+CURTA.subs[id+':'+sb]:'')}else txt=CURTA.raros[p.en]||''}
  else{const r=RACAS.find(x=>x.id===p.id);nome=r.n;txt=CURTA.racas[r.id]||''}
  return `<div class="desc nova" id="desc"><h4 class="nome">${esc(nome)}</h4><p>${esc(txt)}</p><button class="btn" type="button" data-act="confirma">Seguir com ${esc(nome)}</button></div>`}
@@ -670,6 +673,8 @@ function corpoDeus(){const c=S.classe;
  h+=dado('deussug',1,todosDeuses().length);
  if(c==='paladino')h+=`<div class="linha"><button class="btn sec" type="button" data-act="semdeus">Nenhuma: jurei pela minha palavra</button></div>`;
  return h}
+function corpoAntec(){const p=S.pend&&S.pend.q==='antec'?S.pend:{id:S.antec};
+ return `<div class="grade">${ANTEC.map(a=>{const [pt,en]=a[2].split(' (');return `<button class="opt" type="button" data-act="pendantec" data-v="${esc(a[2])}" aria-pressed="${p.id===a[2]}">${esc(pt)}<small>${esc((en||'').replace(/\)$/,''))}</small></button>`}).join('')}</div>`+descPend()+dado('antecsug',1,100)}
 function selLugar(){return `<select id="regExtra" data-bind="regExtra"><option value="">Escolha</option>
  ${Object.entries(ASSENT).map(([p,l])=>`<optgroup label="${esc(p)}">${l.map(x=>`<option ${S.regExtra===p+' — '+x[2]?'selected':''}>${esc(p+' — '+x[2])}</option>`).join('')}</optgroup>`).join('')}
  <optgroup label="Outras regiões de Faerûn">${REG_EXTRA.map(x=>`<option ${S.regExtra===x?'selected':''}>${esc(x)}</option>`).join('')}</optgroup></select>`}
@@ -692,7 +697,7 @@ const Q={
  caminho:{fala:()=>(S.modo==='leve'?'Leve, então. Vou poupar você das partes feias.':'Livre. A vida não é feita só de cerveja.')+' E quem decide as coisas: você ou os dados?',feito:()=>!!S.caminho,rot:()=>S.caminho==='surpresa'?'Me surpreenda':'Eu escolho',
   corpo:()=>`<div class="grade um">${opt('caminho','escolho','Eu escolho','Você decide cada parte, com os dados por perto se quiser.',S.caminho==='escolho')}${opt('caminho','surpresa','Me surpreenda','Os dados decidem tudo. Depois você muda o que quiser.',S.caminho==='surpresa')}</div>`},
  raca:{fala:()=>'De que povo você vem? E pense bem antes de dizer <b>elfo</b>.',feito:()=>!!S.raca,rot:()=>ativa('sub')?raca().n:nomeRaca(),corpo:corpoRaca},
- sub:{quando:()=>{const r=raca();return !!r&&r.subs.length>1},feito:()=>!!S.sub,rot:()=>nomeRaca(),
+ sub:{quando:()=>{const r=raca();return !!r&&r.subs.length>1},feito:()=>!!S.sub,rot:()=>nomeRaca()===raca().n?raca().n+' '+lower(semPar(sub()[1])):nomeRaca(),
   fala:()=>{const r=raca();const f=(CURTA.racas[r.id]||'').split('. ')[0].replace(/\.$/,'');return `${esc(r.n)}, é? ${esc(f)}. Mas de que tipo?`},
   corpo:()=>{const r=raca();return `<div class="grade um">${r.subs.map(s=>opt('sub',s[0],semPar(s[1]),CURTA.subs[r.id+':'+s[0]]||'',S.sub===s[0])).join('')}</div>`+dado('subsug',1,r.subs.length)}},
  gen:{fala:()=>`Muito bem: ${esc(lower(nomeRaca()))}. Agora me diga: masculino ou feminino?`,feito:()=>okd('gen'),rot:()=>S.gen==='f'?'Feminino':'Masculino',
@@ -704,7 +709,7 @@ const Q={
  deus:{quando:()=>S.classe==='clerigo'||S.classe==='paladino',feito:()=>!!S.deus||(S.classe==='paladino'&&okd('deus')),rot:()=>S.deus||'Sem divindade',
   fala:()=>S.classe==='clerigo'?'E a que divindade você reza?':'Paladino jura por alguma coisa. Por um deus, ou só pela própria palavra?',corpo:corpoDeus},
  antec:{fala:()=>'Por último: o que você fazia antes de virar aventureiro?',feito:()=>!!S.antec,rot:()=>S.antec,
-  corpo:()=>`<select data-bind="antec" aria-label="Antecedente"><option value="">Escolha</option>${ANTEC.map(a=>`<option ${S.antec===a[2]?'selected':''} value="${esc(a[2])}">${esc(a[2])}</option>`).join('')}</select>`+dado('antec',1,100)},
+  corpo:corpoAntec},
 
  patria:{fala:()=>'Agora me conte de onde você vem. Em que terra você nasceu?',feito:()=>!!(S.patria||S.regExtra),rot:()=>S.regExtra||S.patria,
   corpo:()=>dado('patria',1,100)+`<label class="f" for="regExtra">Ou escolha o lugar</label>`+selLugar()},
@@ -836,6 +841,15 @@ function telaCr(){
  if(feitas.length&&!ed)at+=`<div class="linha"><button class="linkbtn" type="button" data-act="crreset">Refazer a crônica inteira</button></div>`;
  return [hist,at,ed?'ed:'+ed.k:done?'fim':'cr:'+(last?last.k:'')]}
 
+/* ---------- rascunho no aparelho (P29) ---------- */
+const CHAVE_RASC='forja_rascunho_v1';let appAberto=false,tRasc=null;
+function salvaRasc(){if(!appAberto)return;try{localStorage.setItem(CHAVE_RASC,JSON.stringify({...S,enviando:false,pend:null,edit:null,crEdit:null,_salvo:Date.now()}))}catch(_){}}
+function salvaLogo(){clearTimeout(tRasc);tRasc=setTimeout(salvaRasc,400)}
+function leRasc(){try{const x=JSON.parse(localStorage.getItem(CHAVE_RASC)||'null');return x&&x.modo?x:null}catch(_){return null}}
+function apagaRasc(){try{localStorage.removeItem(CHAVE_RASC)}catch(_){}}
+addEventListener('pagehide',salvaRasc);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')salvaRasc()});
+
 /* ---------- desenho ---------- */
 let ultimaChave='',primeira=true;
 function render(){
@@ -861,6 +875,7 @@ function render(){
  const dsc=$('#desc');if(dsc)requestAnimationFrame(()=>requestAnimationFrame(()=>dsc.classList.remove('nova')));
  $('#voltar').disabled=E===0;
  const av=$('#avancar');av.disabled=!completa(E);av.style.visibility=E===ETAPAS.length-1?'hidden':'visible';
+ salvaLogo();
 }
 function go(n){if(!podeIr(n))return;S.step=n;S.max=Math.max(S.max,n);S.edit=null;S.pend=null;S.crEdit=null;ultimaChave='';primeira=true;render();scrollTo({top:0,behavior:reduz?'auto':'smooth'});const c=$('#trilha [aria-current]');if(c)c.scrollIntoView({inline:'center',block:'nearest'})}
 
@@ -882,15 +897,19 @@ if(!reduz)requestAnimationFrame(quadro);
 function golpe(){if(reduz)return;const c=$('.cena');c.classList.remove('golpe');void c.offsetWidth;c.classList.add('golpe');setTimeout(()=>c.classList.remove('golpe'),340)}
 
 /* ---------- abertura ---------- */
-const FRASES=['Ah. Mais um aventureiro batendo na porta da minha forja.','Sente-se. Não, aí não. Isso é a <b>bigorna</b>.','Antes de pegar num machado, quero saber quem você é: de onde veio, quem o criou, o que fez da vida.','Os dados contam o resto. E dado não mente. Ao contrário de elfo.','Vamos forjar a sua história. Com <b>honra</b>, de preferência.'];
+const RASC=leRasc();
+const FRASES=RASC?['Ah, você de novo.','A forja ainda está quente. Sua história ficou do jeito que você deixou.']:['Ah. Mais um aventureiro batendo na porta da minha forja.','Sente-se. Não, aí não. Isso é a <b>bigorna</b>.','Antes de pegar num machado, quero saber quem você é: de onde veio, quem o criou, o que fez da vida.','Os dados contam o resto. E dado não mente. Ao contrário de elfo.','Vamos forjar a sua história. Com <b>honra</b>, de preferência.'];
 const pilha=$('#pilha'),comecar=$('#comecar'),pular=$('#pular');let timers=[];
 function mostrarFrase(i){[...pilha.children].forEach((el,j,all)=>{el.classList.add('passada');if(all.length-j>2)el.classList.add('longe')});
  const p=document.createElement('p');p.className='frase nova';p.innerHTML=FRASES[i];pilha.appendChild(p);
  requestAnimationFrame(()=>requestAnimationFrame(()=>p.classList.remove('nova')));
- if(i===FRASES.length-1){comecar.classList.remove('oculto');pular.classList.add('oculto');comecar.focus({preventScroll:true})}}
+ if(i===FRASES.length-1){comecar.classList.remove('oculto');pular.classList.add('oculto');if(RASC)$('#novo').classList.remove('oculto');comecar.focus({preventScroll:true})}}
+if(RASC)comecar.textContent='Continuar de onde parei';
 function abertura(){let t=900;FRASES.forEach((f,i)=>{timers.push(setTimeout(()=>mostrarFrase(i),reduz?0:t));t+=3500+65*f.replace(/<[^>]+>/g,'').length})}
 pular.onclick=()=>{timers.forEach(clearTimeout);pilha.innerHTML='';FRASES.forEach((_,i)=>mostrarFrase(i))};
-comecar.onclick=()=>{faiscaEm(comecar,40);golpe();setTimeout(()=>{$('#abertura').classList.add('oculto');$('#app').classList.remove('oculto');$('#rodape').classList.remove('oculto');scrollTo(0,0);primeira=true;ultimaChave='';render()},reduz?0:380)};
+function restaura(){if(!RASC)return;try{Object.assign(S,JSON.parse(S0),RASC);delete S._salvo;S.pend=null;S.edit=null;S.crEdit=null;S.enviando=false;crBuild();completa(S.step)}catch(_){Object.keys(S).forEach(k=>delete S[k]);Object.assign(S,JSON.parse(S0));apagaRasc()}}
+$('#novo').onclick=()=>{apagaRasc();location.reload()};
+comecar.onclick=()=>{faiscaEm(comecar,40);golpe();restaura();appAberto=true;setTimeout(()=>{$('#abertura').classList.add('oculto');$('#app').classList.remove('oculto');$('#rodape').classList.remove('oculto');scrollTo(0,0);primeira=true;ultimaChave='';render()},reduz?0:380)};
 
 /* ---------- eventos ---------- */
 let rolando=false;
@@ -907,9 +926,11 @@ document.addEventListener('click',e=>{
  else if(a==='modo'){S.modo=v;S.edit=null;render()}
  else if(a==='caminho'){S.caminho=v;S.edit=null;if(v==='surpresa'&&!S.raca)surpreenda();render()}
  else if(a==='pendraca'){const [id,sb]=v.split(':');S.pend={q:'raca',id,sub:sb,en:b.dataset.en};render();const d=$('#desc');if(d)d.scrollIntoView({block:'nearest',behavior:reduz?'auto':'smooth'})}
+ else if(a==='pendantec'){S.pend={q:'antec',id:v};render();const d=$('#desc');if(d)d.scrollIntoView({block:'nearest',behavior:reduz?'auto':'smooth'})}
  else if(a==='pendclasse'){S.pend={q:'classe',id:v};render();const d=$('#desc');if(d)d.scrollIntoView({block:'nearest',behavior:reduz?'auto':'smooth'})}
  else if(a==='confirma'){const p=S.pend;if(!p)return;S.pend=null;S.edit=null;golpe();
    if(p.q==='raca'){S.sugRaca=S.sugRaca===p.id?p.id:S.sugRaca;escolheRaca(p.id,p.sub)}
+   else if(p.q==='antec'){if(S.antec!==p.id){S.antec=p.id;delete S.d.antec;S.cr={};S.crSel={};S.per={};['pt1','pt2','pid','pvi','pdf'].forEach(k=>delete S.d[k])}}
    else if(S.classe!==p.id)applyChange(()=>trocaClasse(p.id),'classe');
    render()}
  else if(a==='sub'){S.edit=null;if(S.sub===v){render();return}applyChange(()=>{S.sub=v;S.fichas=[]},'raca')}
@@ -960,7 +981,7 @@ document.addEventListener('click',e=>{
 function fallbackCopy(t,done){const ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done()}catch(_){}ta.remove()}
 
 document.addEventListener('input',e=>{
- const t=e.target;
+ const t=e.target;salvaLogo();
  if(t.dataset.ap){S.apar[t.dataset.ap]=t.value;return}
  if(t.dataset.pertxt){S.perTxt[t.dataset.pertxt]=t.value;delete S.ok['p'+t.dataset.pertxt];return}
  if(t.dataset.livre==='extra'){S.extra=t.value;atualizaFicha();return}
@@ -988,7 +1009,7 @@ document.addEventListener('change',e=>{
 
 $('#voltar').onclick=()=>{if(S.step>0)go(S.step-1)};
 $('#reset').onclick=()=>modal('Apagar tudo o que foi feito e voltar ao início?',()=>{
- Object.keys(S).forEach(k=>delete S[k]);Object.assign(S,JSON.parse(S0));go(0);
+ apagaRasc();Object.keys(S).forEach(k=>delete S[k]);Object.assign(S,JSON.parse(S0));go(0);
 },'Apagar tudo','perigo');
 $('#avancar').onclick=e=>{if(!completa(S.step)||S.step>=ETAPAS.length-1)return;faiscaEm(e.currentTarget,18);golpe();go(S.step+1)};
 render();
