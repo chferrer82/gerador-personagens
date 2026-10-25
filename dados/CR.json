@@ -951,6 +951,179 @@
    "Cansei dos bailes e intrigas e quis viver algo real.",
    "Um escândalo me afastou da cidade até que tudo seja esquecido.",
    "Quero provar que um nobre também pode fazer o bem com as próprias mãos."
+  ],
+  "antropologo": [
+   "Cresci num porto onde chegava gente de todo canto, e eu queria entender cada um.",
+   "Um sábio me levou como assistente numa viagem e eu nunca mais quis voltar para casa.",
+   [
+    "Fui o único sobrevivente de uma caravana e uma tribo estranha me acolheu; quis entender quem eles eram.",
+    "P"
+   ],
+   "Achei que só conhecendo outros povos eu entenderia o meu.",
+   "Meus pais eram diplomatas, e eu cresci entre línguas e costumes diferentes.",
+   "Li um diário de viagem quando criança e decidi viver aquelas páginas."
+  ],
+  "arqueologo": [
+   "Achei uma moeda antiga no quintal e precisei saber de onde ela vinha.",
+   "Um mestre escavador me aceitou como aprendiz quando eu não tinha onde morar.",
+   "Minha família guarda um mapa de ruínas que ninguém nunca conseguiu explorar.",
+   "O passado parecia mais interessante que o presente da minha aldeia.",
+   [
+    "Meu mentor desapareceu numa tumba, e eu jurei terminar o trabalho dele.",
+    "P"
+   ],
+   "Um museu pagava bem por relíquias, e eu precisava de dinheiro."
+  ],
+  "atleta": [
+   "Eu era o mais rápido da aldeia e não aguentava ficar parado.",
+   "Um treinador me viu brigando na rua e disse que eu desperdiçava talento.",
+   "Vencer os jogos do festival era a única forma de sair da pobreza.",
+   "Minha família tem campeões há gerações, e esperavam o mesmo de mim.",
+   [
+    "Perdi um irmão numa competição e prometi vencer por ele.",
+    "P"
+   ],
+   "Gosto do grito da multidão. Não tenho vergonha disso."
+  ],
+  "semrosto": [
+   "Meu nome verdadeiro carrega uma dívida que não quero pagar.",
+   "Com a máscara, posso fazer o bem sem que cobrem minha família por isso.",
+   "Ninguém ouvia o que eu dizia; ouviram quando passei a falar como outra pessoa.",
+   [
+    "Fiz algo terrível com meu rosto verdadeiro; a persona é minha segunda chance.",
+    "P"
+   ],
+   "Gosto de ser alguém maior do que realmente sou.",
+   "Um mentor mascarado me ensinou que a ideia vale mais que a pessoa."
+  ],
+  "feylost": [
+   "Segui uma luz na floresta quando era criança e só voltei anos depois.",
+   "Uma fada me levou em troca de um favor que meus pais deviam.",
+   "Dormi num círculo de cogumelos e acordei em outro mundo.",
+   "Atravessei um espelho d'água por curiosidade e me perdi do outro lado.",
+   [
+    "Fugi de casa por causa de maus-tratos e encontrei abrigo entre as fadas.",
+    "P"
+   ],
+   "Ganhei um jogo de adivinhas de um ser encantado; o prêmio foi ficar lá."
+  ],
+  "witchlight": [
+   "O carnaval passou pela minha cidade e eu fui embora com ele.",
+   "Nasci numa carroça do carnaval; nunca conheci outra vida.",
+   "Perdi uma aposta com um dos donos e paguei com anos de trabalho.",
+   "Queria aprender magia de verdade, e lá ela estava em toda parte.",
+   "Fugia de alguém, e ninguém procura um fugitivo entre palhaços.",
+   "Um artista do carnaval me ensinou um truque e eu quis aprender todos."
+  ],
+  "pescador": [
+   "Minha família pesca no mesmo trecho de mar há gerações.",
+   "Era o único trabalho na vila quando fiquei órfão de pai.",
+   "Gosto do silêncio do mar antes do amanhecer.",
+   "Um velho pescador me ensinou tudo em troca de companhia.",
+   [
+    "O mar levou meu pai; continuar pescando foi minha forma de não ter medo dele.",
+    "P"
+   ],
+   "Pescava para comer; depois, para vender; depois, porque era o que eu sabia fazer."
+  ],
+  "fuzileiro": [
+   "Me alistei porque queria ver o mundo, e a marinha pagava a viagem.",
+   "Fui recrutado à força num porto e acabei gostando da vida.",
+   "Meu pai foi fuzileiro e me ensinou a nadar de armadura. Quase.",
+   [
+    "Piratas atacaram minha vila; entrei para a marinha para caçá-los.",
+    "P"
+   ],
+   "Era isso ou a prisão por uma briga de taverna.",
+   "Queria lutar ao lado de gente que confia a vida a quem está do lado."
+  ],
+  "construtor": [
+   "Cresci no estaleiro, brincando entre cascos e serragem.",
+   "Um mestre construtor me acolheu como aprendiz por falta de filhos.",
+   "Sonhava com navegar, mas descobri que gostava mais de construir o barco.",
+   "Meu avô construiu o navio mais famoso do porto, e eu quis fazer melhor.",
+   [
+    "Um barco mal feito afundou com meu irmão a bordo; nunca mais aceitei trabalho malfeito.",
+    "P"
+   ],
+   "Consertei um bote velho sozinho e vendi; foi o começo de tudo."
+  ],
+  "contrabandista": [
+   "Minha família sempre contrabandeou; para nós, alfândega é só um obstáculo.",
+   "Os impostos do senhor local eram injustos, e alguém precisava contorná-los.",
+   "Comecei levando recados e terminei levando caixas que não podia abrir.",
+   "O dinheiro era bom demais para recusar.",
+   [
+    "Devia a gente perigosa e paguei transportando o que eles mandavam.",
+    "P"
+   ],
+   "Conheço cada caverna desta costa; seria desperdício não usar isso."
+  ],
+  "enjeitado": [
+   "Fui abandonado na floresta e uma família de gigantes me encontrou.",
+   "Meus pais trabalhavam para um gigante e eu cresci na casa dele.",
+   "Um gigante me salvou de uma avalanche e me criou como se eu fosse dele.",
+   [
+    "Minha aldeia foi destruída numa guerra, e os gigantes que a venceram me levaram.",
+    "P"
+   ],
+   "Me perdi nas montanhas ainda pequeno e vivi anos entre gigantes da colina.",
+   "Fui trocado como garantia de um acordo de paz e cresci entre gigantes."
+  ],
+  "runas": [
+   "Achei uma pedra com runas que brilhavam quando eu a tocava.",
+   "Um gigante idoso viu talento em mim e me ensinou antes de morrer.",
+   "Minha família guarda há gerações o segredo de uma runa só.",
+   "Copiava runas de ruínas antigas até que uma delas respondeu.",
+   "Queria proteger minha aldeia com algo mais forte que muralhas.",
+   [
+    "Uma runa entalhada por acidente feriu alguém; desde então estudo para controlá-las.",
+    "P"
+   ]
+  ],
+  "recompensado": [
+   "Ajudei um viajante na estrada; era um gênio disfarçado, e ele me recompensou.",
+   "Salvei o filho de um gigante de uma armadilha e ganhei um presente valioso.",
+   "Resolvi um enigma de um dragão e ele me deixou partir com um tesouro.",
+   "Uma divindade gostou de uma oração minha e me deu um sinal de favor.",
+   "Devolvi um objeto perdido a um ser poderoso, e ele pagou com sorte.",
+   "Venci uma disputa organizada por um nobre de outro plano."
+  ],
+  "arruinado": [
+   "Meu negócio faliu e levou junto o nome da minha família.",
+   [
+    "Um incêndio levou minha casa e tudo o que eu tinha.",
+    "P"
+   ],
+   "Confiei no sócio errado; ele fugiu com tudo.",
+   "Perdi tudo numa única aposta, e não tenho orgulho disso.",
+   "Fui acusado de um crime que não cometi e perdi a reputação.",
+   "Uma guerra varreu minha terra e eu recomecei com a roupa do corpo."
+  ],
+  "assombrado": [
+   "Desde criança vejo uma figura que ninguém mais vê.",
+   [
+    "Testemunhei um ritual sombrio e ele ainda me persegue nos sonhos.",
+    "P"
+   ],
+   "Herdei uma maldição de família que acorda a cada geração.",
+   "Entrei numa casa abandonada por desafio e saí com algo grudado em mim.",
+   [
+    "Sobrevivi a um ataque de criatura que matou meus amigos.",
+    "P"
+   ],
+   "Um espírito me pede ajuda toda noite, e não sei como ajudá-lo."
+  ],
+  "oculto": [
+   "Um desaparecimento na minha vila nunca foi resolvido, e eu não consegui deixar para lá.",
+   "Um caçador de monstros me tomou como aprendiz.",
+   "Li tudo o que encontrei sobre assombrações depois de ver uma.",
+   [
+    "Minha irmã foi levada por algo que ninguém acreditou existir.",
+    "P"
+   ],
+   "Os sábios riam das lendas; eu quis provar que estavam errados.",
+   "Encontrei o diário de um investigador e continuei as anotações dele."
   ]
  },
  "BGKEY": {
@@ -1057,6 +1230,90 @@
   "Nobre de Waterdeep": [
    "nobrewd",
    "nobre"
+  ],
+  "Gladiador": [
+   "artista",
+   "artista"
+  ],
+  "Mercador de Guilda": [
+   "artesao",
+   "artesao"
+  ],
+  "Cavaleiro": [
+   "nobre",
+   "nobre"
+  ],
+  "Pirata": [
+   "marinheiro",
+   "marinheiro"
+  ],
+  "Investigador": [
+   "guarda",
+   "soldado"
+  ],
+  "Antropólogo": [
+   "antropologo",
+   "sabio"
+  ],
+  "Arqueólogo": [
+   "arqueologo",
+   "sabio"
+  ],
+  "Atleta": [
+   "atleta",
+   "artista"
+  ],
+  "Sem Rosto": [
+   "semrosto",
+   "charlatao"
+  ],
+  "Perdido das Fadas": [
+   "feylost",
+   "forasteiro"
+  ],
+  "Mão de Witchlight": [
+   "witchlight",
+   "artista"
+  ],
+  "Pescador": [
+   "pescador",
+   "marinheiro"
+  ],
+  "Fuzileiro Naval": [
+   "fuzileiro",
+   "soldado"
+  ],
+  "Construtor Naval": [
+   "construtor",
+   "artesao"
+  ],
+  "Contrabandista": [
+   "contrabandista",
+   "criminoso"
+  ],
+  "Enjeitado dos Gigantes": [
+   "enjeitado",
+   "forasteiro"
+  ],
+  "Entalhador de Runas": [
+   "runas",
+   "artesao"
+  ],
+  "Recompensado": [
+   "recompensado",
+   "heroi"
+  ],
+  "Arruinado": [
+   "arruinado",
+   "orfao"
+  ],
+  "Assombrado": [
+   "assombrado",
+   "eremita"
+  ],
+  "Investigador do Oculto": [
+   "oculto",
+   "sabio"
   ]
  },
  "CL": {
@@ -2922,6 +3179,22 @@
   "mercenario",
   "cacador",
   "uthgardt",
-  "nobrewd"
+  "nobrewd",
+  "antropologo",
+  "arqueologo",
+  "atleta",
+  "semrosto",
+  "feylost",
+  "witchlight",
+  "pescador",
+  "fuzileiro",
+  "construtor",
+  "contrabandista",
+  "enjeitado",
+  "runas",
+  "recompensado",
+  "arruinado",
+  "assombrado",
+  "oculto"
  ]
 }

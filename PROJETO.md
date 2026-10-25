@@ -1,6 +1,6 @@
 # PROJETO — Gerador de Personagens (Jogadores)
 
-Versão 1.7 · 25/10/2026 · Status: no ar em gerador-personagens.onrender.com; interface em conversa "Salão da Forja" (P28); rascunho salvo no aparelho (P29); revisões pendentes (seção 13)
+Versão 1.8 · 25/10/2026 · Status: no ar em gerador-personagens.onrender.com; interface em conversa "Salão da Forja" (P28); rascunho salvo no aparelho (P29); 21 antecedentes adicionais (P30); revisões pendentes (seção 13)
 
 ---
 
@@ -140,6 +140,32 @@ Saíram (P23): os caminhos "ideia pronta", "ideia vaga" e "preciso de ajuda"; o 
 | 49–52 | Hermit (PH) | 100 | Waterdhavian Noble (SCAG) |
 
 - Nomes em português oficial com o inglês entre parênteses na página (tradução a conferir).
+
+**Antecedentes adicionais (P30).** Escolhidos pelo mestre a partir da lista de dnd5e.wikidot.com (conferida em 25/10/2026). Ficam num bloco recolhido "Outros antecedentes", **só por escolha**: o d100 oficial acima continua igual, no dado e no "Me surpreenda". Livro de origem [NÃO VERIFICADO]; nomes em português são tradução própria [NÃO VERIFICADO]. Tabela `ANTEC_EXTRA` no banco; descrição curta na `CURTA`.
+
+| Antecedente | Livro | Variante de | Personalidade (traços, ideais, vínculos, defeitos) | "Por que virou" |
+|---|---|---|---|---|
+| Gladiador (Gladiator) | PHB | Artista | base: Artista | tabela do base |
+| Mercador de Guilda (Guild Merchant) | PHB | Artesão de Guilda | base: Artesão de Guilda | tabela do base |
+| Cavaleiro (Knight) | PHB | Nobre | base: Nobre | tabela do base |
+| Pirata (Pirate) | PHB | Marinheiro | base: Marinheiro | tabela do base |
+| Investigador (Investigator, SCAG) | SCAG | Guarda da Cidade | base: Soldado | tabela do base |
+| Antropólogo (Anthropologist) | Tomb of Annihilation | — | Sábio | própria (P30a) |
+| Arqueólogo (Archaeologist) | Tomb of Annihilation | — | Sábio | própria (P30a) |
+| Atleta (Athlete) | Mythic Odysseys of Theros | — | Artista | própria (P30a) |
+| Sem Rosto (Faceless) | Baldur's Gate: Descent into Avernus | — | Charlatão | própria (P30a) |
+| Perdido das Fadas (Feylost) | The Wild Beyond the Witchlight | — | Forasteiro | própria (P30a) |
+| Mão de Witchlight (Witchlight Hand) | The Wild Beyond the Witchlight | — | Artista | própria (P30a) |
+| Pescador (Fisher) | Ghosts of Saltmarsh | — | Marinheiro | própria (P30a) |
+| Fuzileiro Naval (Marine) | Ghosts of Saltmarsh | — | Soldado | própria (P30a) |
+| Construtor Naval (Shipwright) | Ghosts of Saltmarsh | — | Artesão de Guilda | própria (P30a) |
+| Contrabandista (Smuggler) | Ghosts of Saltmarsh | — | Criminoso | própria (P30a) |
+| Enjeitado dos Gigantes (Giant Foundling) | Bigby Presents: Glory of the Giants | — | Forasteiro | própria (P30a) |
+| Entalhador de Runas (Rune Carver) | Bigby Presents: Glory of the Giants | — | Artesão de Guilda | própria (P30a) |
+| Recompensado (Rewarded) | Bigby Presents: Glory of the Giants | — | Herói do Povo | própria (P30a) |
+| Arruinado (Ruined) | Bigby Presents: Glory of the Giants | — | Órfão | própria (P30a) |
+| Assombrado (Haunted One) | Van Richten's Guide to Ravenloft | — | Eremita | própria (P30a) |
+| Investigador do Oculto (Investigator, VRGR) | Van Richten's Guide to Ravenloft | — | Sábio | própria (P30a) |
 
 **Navegação:** o jogador pode voltar a qualquer etapa. As etapas que dependem da alteração são refeitas, com aviso antes.
 
@@ -284,7 +310,7 @@ IA, login de jogador, PDF, CA.
 ## 12. Requisitos técnicos (Fase 1)
 
 - **Servidor:** Python + Flask (`app.py`). A página é o HTML da versão de 30/09, sem dados embutidos (`templates/index.html`); o servidor injeta as tabelas do banco a cada acesso.
-- **Bancos:** `dados.db` (30 tabelas do gerador, só leitura, vai no repositório). Fichas dos jogadores: **Postgres no Neon** em produção (`DATABASE_URL`); SQLite (`fichas.db`) só para rodar no computador (P20, P24, P20a).
+- **Bancos:** `dados.db` (31 tabelas do gerador, só leitura, vai no repositório). Fichas dos jogadores: **Postgres no Neon** em produção (`DATABASE_URL`); SQLite (`fichas.db`) só para rodar no computador (P20, P24, P20a).
 - **Área do mestre:** autenticação HTTP Basic; senha em `MESTRE_SENHA` (sem ela, a área fica fechada).
 - **Edição de tabelas:** pelo `gerenciar.py` (exportar → editar `dados/<CHAVE>.json` → importar). Não há rota de escrita na web.
 - **API de leitura:** `/api/tabelas`, `/api/tabelas/<chave>`, `/api/dados`; checagem em `/saude`.
@@ -301,6 +327,8 @@ IA, login de jogador, PDF, CA.
 
 | ID | Pergunta | Sugestão |
 |---|---|---|
+| P30a | Antecedentes adicionais (6.1): aprovar (1) as tabelas próprias de "por que virou" dos 16 não variantes (6 entradas cada, primeira pessoa; as pesadas marcadas para o modo leve) e (2) o uso da personalidade do antecedente mais próximo, já que as tabelas originais desses livros não foram transcritas. | Testar e aprovar; trocar a associação de algum, se preferir |
+| P30b | Nomes em português dos antecedentes adicionais: conferir com tradução oficial, quando houver. | Sem tradução oficial, manter os nomes próprios |
 | P23a | Aprovar as tabelas próprias `PERFIS` e `ORDEM_CLASSE` (7.1) depois de testar o artifact. | — |
 | P21 | Modo leve: a versão de 30/09 troca o resultado pesado pela entrada leve vizinha da tabela; o 7.6 e o texto da tela dizem que a página rola de novo. Qual vale? | Seguir o 7.6 (re-rolar) e manter o texto da tela |
 | P22 | A versão de 30/09 tem decisões que não estão neste documento: raças exóticas jogáveis (ligado a P17f), idade das raças exóticas (tabela IDADE_EXO), nomes humanos por estilo regional, sobrenomes e clãs. (A coerência P34b saiu na 1.0.) Registrar aqui? | Mestre confirma; Claude registra |
@@ -325,6 +353,7 @@ IA, login de jogador, PDF, CA.
 | ID | Decisão | Versão |
 |---|---|---|
 | P20a | Hospedagem gratuita: Render (site) + Neon (Postgres das fichas); SQLite fica só para uso local | 1.2 |
+| P30 | 21 antecedentes adicionais (5 variantes do PHB/SCAG e 16 de outros livros), só por escolha; o d100 oficial não muda; variantes usam as tabelas do antecedente base | 1.8 |
 | P29 | Rascunho salvo no aparelho do jogador (navegador), com opção de continuar ou começar do zero; não passa pelo servidor | 1.7 |
 | P28 | Interface em conversa "Salão da Forja": narrador anão, abertura em fade-in, uma pergunta por vez com respostas anteriores esmaecidas e editáveis, abas clicáveis, gênero junto da raça, descrições curtas de raças e classes (tabela `CURTA`, texto próprio) | 1.6 |
 | P27 | Envio ao mestre pede só o nome do jogador; o e-mail saiu do formulário, da lista e da ficha do mestre | 1.5 |
@@ -390,5 +419,6 @@ IA, login de jogador, PDF, CA.
 | 24/10/2026 | 1.3 | P25: escolha manual na crônica (opções só em texto, respeitando o modo leve); dados de subclasse e divindade (o Continuar travava com Clérigo, Feiticeiro e Bruxo sorteados); aviso do que falta; corrigido o nome da etapa atual invisível na barra |
 | 24/10/2026 | 1.4 | P26: ficha sem nível; história final editável (a ficha enviada usa a versão editada); traços de personalidade escritos pelo jogador e campo de outros traços; resumo das escolhas com Alterar; resultados da crônica podem ser mudados depois de prontos |
 | 24/10/2026 | 1.5 | P27: e-mail removido do envio e da área do mestre; o jogador informa só o nome (a coluna antiga fica vazia no banco) |
+| 25/10/2026 | 1.8 | P30: 21 antecedentes adicionais (tabela `ANTEC_EXTRA`), descrições curtas, 16 tabelas próprias de "por que virou"; novas pendências P30a e P30b |
 | 25/10/2026 | 1.7 | P29: rascunho salvo no aparelho; P28 ampliada: antecedente escolhido por cartões com descrição curta (26 textos próprios na tabela `CURTA`); sub-raça "Padrão" aparece como "Humano padrão" |
 | 25/10/2026 | 1.6 | P28: nova interface em conversa (Salão da Forja) aplicada às 6 etapas; gênero passa para a etapa Quem é você; tabela nova `CURTA` com descrições curtas (texto próprio); "Personalidade e ficha" passa a se chamar "Ficha"; frase da infância reescrita ("O estilo de vida da família era…") para concordar com qualquer resultado; mesmas regras, tabelas e motor da crônica |

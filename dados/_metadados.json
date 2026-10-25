@@ -148,5 +148,10 @@
   "descricao": "Descrições curtas, na voz do anão, de raças, sub-raças, povos raros, classes e antecedentes (aparecem ao tocar na opção)",
   "fonte": "Texto próprio do projeto (P28)",
   "observacao": "Texto livre de ambientação, sem valores de regra."
+ },
+ "ANTEC_EXTRA": {
+  "descricao": "Antecedentes adicionais (só por escolha; fora do d100 do Heroic Chronicle): nome, livro de origem, antecedente base quando é variante",
+  "fonte": "Lista de dnd5e.wikidot.com conferida em 25/10/2026; livros de origem [NÃO VERIFICADO]; nomes em português são tradução própria [NÃO VERIFICADO] (P30)",
+  "observacao": "Personalidade usa a tabela do antecedente mais próximo; 'por que virou' dos 16 não variantes é texto próprio e aguarda aprovação (P30a)."
  }
 }

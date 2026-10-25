@@ -622,6 +622,7 @@ function surpreenda(){
    as já respondidas ficam esmaecidas acima, com um botão para mudar.
    ========================================================= */
 const CURTA=__D.CURTA||{racas:{},subs:{},raros:{},classes:{}};
+const ANTEC_EXTRA=__D.ANTEC_EXTRA||[];
 const reduz=matchMedia('(prefers-reduced-motion: reduce)').matches;
 function revelar(){}
 const okd=k=>!!S.ok[k];
@@ -674,7 +675,10 @@ function corpoDeus(){const c=S.classe;
  if(c==='paladino')h+=`<div class="linha"><button class="btn sec" type="button" data-act="semdeus">Nenhuma: jurei pela minha palavra</button></div>`;
  return h}
 function corpoAntec(){const p=S.pend&&S.pend.q==='antec'?S.pend:{id:S.antec};
- return `<div class="grade">${ANTEC.map(a=>{const [pt,en]=a[2].split(' (');return `<button class="opt" type="button" data-act="pendantec" data-v="${esc(a[2])}" aria-pressed="${p.id===a[2]}">${esc(pt)}<small>${esc((en||'').replace(/\)$/,''))}</small></button>`}).join('')}</div>`+descPend()+dado('antecsug',1,100)}
+ const bt=n=>{const [pt,en]=n.split(' (');return `<button class="opt" type="button" data-act="pendantec" data-v="${esc(n)}" aria-pressed="${p.id===n}">${esc(pt)}<small>${esc((en||'').replace(/\)$/,''))}</small></button>`};
+ const ex=ANTEC_EXTRA.some(a=>a[0]===p.id);
+ return `<div class="grade">${ANTEC.map(a=>bt(a[2])).join('')}</div>`+descPend()+
+  (ANTEC_EXTRA.length?`<details class="raros" ${ex?'open':''}><summary>Outros antecedentes (${ANTEC_EXTRA.length})</summary><p class="hint" style="margin-top:6px">Só por escolha: o dado sorteia entre os de cima.</p><div class="grade">${ANTEC_EXTRA.map(a=>bt(a[0])).join('')}</div></details>`:'')+dado('antecsug',1,100)}
 function selLugar(){return `<select id="regExtra" data-bind="regExtra"><option value="">Escolha</option>
  ${Object.entries(ASSENT).map(([p,l])=>`<optgroup label="${esc(p)}">${l.map(x=>`<option ${S.regExtra===p+' — '+x[2]?'selected':''}>${esc(p+' — '+x[2])}</option>`).join('')}</optgroup>`).join('')}
  <optgroup label="Outras regiões de Faerûn">${REG_EXTRA.map(x=>`<option ${S.regExtra===x?'selected':''}>${esc(x)}</option>`).join('')}</optgroup></select>`}
