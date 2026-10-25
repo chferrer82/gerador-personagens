@@ -1,6 +1,6 @@
 # PROJETO — Gerador de Personagens (Jogadores)
 
-Versão 1.3 · 24/10/2026 · Status: no ar em gerador-personagens.onrender.com; crônica com escolha manual (P25); revisões pendentes (seção 13)
+Versão 1.4 · 24/10/2026 · Status: no ar em gerador-personagens.onrender.com; história editável e escolhas alteráveis (P26); revisões pendentes (seção 13)
 
 ---
 
@@ -102,7 +102,7 @@ Seis etapas (P23):
 3. **De onde vem** — onde nasceu, idade (faixa típica: escolher ou rolar) e nome.
 4. **Atributos** — perfis prontos por classe (7.1), bônus raciais sugeridos, escala humana.
 5. **Crônica de origem** no estilo "This Is Your Life", com os eventos de dom (7.4).
-6. **Personalidade e ficha** — traços, ideal, vínculo, defeito, aparência, a ficha final para copiar ou imprimir e o formulário **Enviar ao mestre** (nome do jogador e e-mail; P24).
+6. **Personalidade e ficha** — resumo das escolhas com botão **Alterar** para cada etapa; traços, ideal, vínculo e defeito (sorteados, escolhidos ou escritos com as próprias palavras); outros traços livres; aparência; **história final editável** (parte da crônica gerada e pode ser reescrita; botão para voltar ao texto gerado); a ficha final para copiar ou imprimir; e o formulário **Enviar ao mestre**, que envia a versão editada (P24, P26).
 
 Na etapa **Quem é você**, subclasse (Clérigo, Feiticeiro, Bruxo) e divindade (Clérigo) também têm dado de sorteio. Em toda etapa, enquanto o **Continuar** está bloqueado, o rodapé diz o que falta (P25).
 
@@ -196,6 +196,7 @@ Só a **compra de pontos oficial** (verificada: Regras Básicas 2014, D&D Beyond
 - **Livre:** relação extensa e completa de eventos, incluindo eventos pesados. Eventos leves também podem sair aleatoriamente.
 - **Leve:** lista limitada. **Nunca** gera evento pesado ou sensível (mortes, tragédias graves e similares).
 - Cada entrada das tabelas recebe a marcação leve/pesado: arquivo `CRONICA_MARCACAO.md` (aguarda revisão: P14d).
+- **Mudar depois (P26):** com a crônica pronta, cada resultado tem **mudar**: o jogador escolhe outra opção ou rola de novo. O que depende dele é refeito ou pede nova rolagem; o resto fica.
 - **Escolha manual (P25):** em cada passo da crônica o jogador pode rolar ou escolher a opção numa lista só com os textos, sem números. No modo leve, as opções pesadas não aparecem. Os resultados escolhidos aparecem na lista de resultados sem número.
 - No modo leve, se a rolagem cair num evento pesado, a página re-rola até sair um evento leve. As faixas originais são mantidas. (A versão de 30/09 faz diferente: P21.)
 - Texto de explicação na tela: escrever na implementação.
@@ -249,6 +250,7 @@ Nota: na imagem, a primeira coluna da I-12 está rotulada "Maturidade", mas os v
 
 - Versão para copiar (texto) e versão para imprimir.
 - Conteúdo: nome, raça/sub-raça, classe, nível 1, idade, região, atributos + modificadores, traços raciais resumidos, antecedente, idiomas, história (crônica), personalidade, aparência.
+- A ficha mostra a classe sem o nível (P26).
 - Fora: CA, PV, perícias, equipamento, magias.
 - **Envio ao mestre (P24):** o jogador informa nome e e-mail e envia. Cada envio é uma ficha nova (o mesmo e-mail pode ter várias). A página avisa que nome e e-mail ficam guardados só para o mestre consultar.
 - **Área do mestre:** `/mestre`, com usuário e senha; lista com busca (jogador, e-mail, personagem, raça, classe), ficha completa com botão de copiar.
@@ -311,6 +313,7 @@ IA, login de jogador, PDF, CA.
 | ID | Decisão | Versão |
 |---|---|---|
 | P20a | Hospedagem gratuita: Render (site) + Neon (Postgres das fichas); SQLite fica só para uso local | 1.2 |
+| P26 | Ficha sem nível; história final editável e traços próprios; resumo das escolhas com Alterar; mudar resultados da crônica depois de pronta | 1.4 |
 | P25 | Crônica: escolha manual por lista de textos, sem números; dado para subclasse e divindade; aviso do que falta para continuar | 1.3 |
 | P24 | Salvar fichas no servidor Flask com nome do jogador e e-mail; várias fichas por e-mail; consulta do mestre com senha, lista com busca (substitui "sem salvar" e antecipa a Fase 5) | 1.1 |
 | P23 | Foco no background: 6 etapas, 2 caminhos, só compra de pontos com perfis por classe, fichas sugeridas; saem questionário, talentos, coerência P34b e fraqueza ≤ 7 | 1.0 |
@@ -370,3 +373,4 @@ IA, login de jogador, PDF, CA.
 | 24/10/2026 | 1.1 | P24: envio da ficha ao mestre (nome, e-mail, várias fichas por e-mail), banco `fichas.db`, área `/mestre` com senha e busca; hospedagem passa a exigir disco permanente (P20a atualizada) |
 | 24/10/2026 | 1.2 | P20a: Render grátis + Neon grátis; fichas passam a usar Postgres em produção (`DATABASE_URL`), SQLite só local; `render.yaml` sem disco |
 | 24/10/2026 | 1.3 | P25: escolha manual na crônica (opções só em texto, respeitando o modo leve); dados de subclasse e divindade (o Continuar travava com Clérigo, Feiticeiro e Bruxo sorteados); aviso do que falta; corrigido o nome da etapa atual invisível na barra |
+| 24/10/2026 | 1.4 | P26: ficha sem nível; história final editável (a ficha enviada usa a versão editada); traços de personalidade escritos pelo jogador e campo de outros traços; resumo das escolhas com Alterar; resultados da crônica podem ser mudados depois de prontos |

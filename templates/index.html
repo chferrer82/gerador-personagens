@@ -78,6 +78,11 @@ button.btn.danger{background:var(--madder);border-color:var(--madder);color:#fff
 .die .ctl button{font:600 .92rem var(--sans);padding:7px 12px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
 .die .ctl button.linkbtn{border:none;background:none;color:var(--muted);text-decoration:underline;font-weight:500;padding:7px 4px}
 #falta{max-width:680px;margin:0 auto 8px;font-size:.92rem;color:var(--madder)}
+.resumo summary{cursor:pointer;font-weight:700;padding:8px 0}
+.resumo-l{display:grid;gap:8px;margin-top:6px}
+.resumo-i{display:flex;gap:10px;align-items:center;justify-content:space-between;border:1px solid var(--line);border-radius:10px;padding:8px 10px;background:var(--bg)}
+.resumo-i>div{min-width:0}
+button.linkbtn{border:none;background:none;color:var(--muted);text-decoration:underline;font:500 .9rem var(--sans);cursor:pointer;padding:4px}
 .die .mesa{display:flex;gap:6px;align-items:center;margin-top:8px}
 .die .mesa input{width:90px}
 .err{color:var(--madder);font-size:.9rem}
@@ -161,7 +166,7 @@ const S={step:0,max:0,d:{},modo:null,caminho:null,ideia:'',vaga:{},
  patria:null,assent:null,regExtra:'',mora:'mesmo',patria2:null,assent2:null,regExtra2:'',antec:null,
  raca:null,sub:null,nome:'',gen:'m',estilo:'',sobrenome:'',apelido:'',
  classe:null,subcl:'',deus:'',idade:null,
- perfil:null,estiloCl:'',pb:{FOR:8,DES:8,CON:8,INT:8,SAB:8,CAR:8},fichas:[],fmtEsc:'21',sugRaca:null,sugClasse:null,cr:{},crSel:{},crMan:{},per:{},apar:{},_res:'',notaOrigem:'',env:{jogador:'',email:''},enviado:null,envErro:'',enviando:false};
+ perfil:null,estiloCl:'',pb:{FOR:8,DES:8,CON:8,INT:8,SAB:8,CAR:8},fichas:[],fmtEsc:'21',sugRaca:null,sugClasse:null,cr:{},crSel:{},crMan:{},crEdit:null,per:{},perTxt:{},histEdit:null,histBase:'',extra:'',apar:{},_res:'',notaOrigem:'',env:{jogador:'',email:''},enviado:null,envErro:'',enviando:false};
 
 const S0=JSON.stringify(S);
 
@@ -456,9 +461,28 @@ ${opt('caminho','surpresa','Me surpreenda','Os dados decidem tudo. Depois você 
 ()=>telaCronica(),
 
 // 5 — Personalidade e ficha
-()=>telaPersona()+`<h3>Ficha do personagem</h3><pre class="ficha" id="ficha">${esc(fichaTexto())}</pre>
+()=>resumoEscolhas()+telaPersona()+blocoHistoria()+`<h3>Ficha do personagem</h3><p class="hint">É este texto que vai para o mestre. Ele muda conforme você edita acima.</p><pre class="ficha" id="ficha">${esc(fichaTexto())}</pre>
 <div class="row noprint"><button class="btn sec" data-act="copiar">Copiar texto</button><button class="btn sec" data-act="imprimir">Imprimir</button><span class="hint" id="copied"></span></div>`+blocoEnvio()
 ];
+function resumoEscolhas(){
+ const r=raca(),s=sub(),c=classe(),n=nascInfo();
+ const L=[
+  [0,'Tom',[S.modo==='leve'?'Crônica leve':'Crônica livre',S.caminho==='surpresa'?'Me surpreenda':'Eu escolho'].join(' · ')],
+  [1,'Quem é você',[r?r.n+(s&&s[1]!=='—'?' '+s[1]:''):'',c?c.n+(S.subcl?' ('+S.subcl+')':''):'',S.deus,S.antec].filter(Boolean).join(' · ')],
+  [2,'De onde vem',[n?'Nasceu em '+n.nome:'',S.idade!=null?S.idade+' anos':'',nomeCompleto()].filter(Boolean).join(' · ')],
+  [3,'Atributos',ATR.map(([k])=>k+' '+(final(k)??'—')).join(' · ')],
+  [4,'Crônica',(()=>{const f=crBuild().rows.filter(x=>x.v!=null).length;return f?f+' resultado'+(f>1?'s':''):'—'})()]];
+ return `<h2>Personalidade e ficha</h2><details class="resumo" style="margin:4px 0 8px"><summary>Ver e alterar suas escolhas</summary><div class="resumo-l">${L.map(([i,t,v])=>`<div class="resumo-i"><div><b>${t}</b><div class="hint">${esc(v||'—')}</div></div><button class="btn sec" data-go="${i}">Alterar</button></div>`).join('')}</div></details>`;
+}
+function blocoHistoria(){
+ const g=histGerada();const edit=S.histEdit!=null;
+ let h=`<h3 id="alvo-hist">Outros traços</h3><label class="f" for="extra">Manias, medos, segredos, detalhes que você quer acrescentar (opcional)</label><textarea id="extra" data-livre="extra" placeholder="Ex.: coleciona dentes de dragão; tem medo de água funda.">${esc(S.extra)}</textarea>`;
+ h+=`<h3>História final</h3><p class="hint">Este é o texto da sua crônica. Ajuste o que quiser antes de enviar: mude palavras, acrescente detalhes, corte o que não gostou.</p>`;
+ if(edit&&S.histBase!==g)h+=`<p class="err">A crônica mudou depois da sua edição. Seu texto foi mantido; use “Voltar ao texto gerado” para pegar a versão nova.</p>`;
+ h+=`<textarea id="historia" data-livre="historia" style="min-height:260px">${esc(edit?S.histEdit:g)}</textarea>`;
+ if(edit)h+=`<div class="row noprint" style="margin-top:8px"><button class="btn ghost" data-act="histreset">Voltar ao texto gerado</button></div>`;
+ return h;
+}
 function blocoEnvio(){
  let h=`<h3 id="alvo-envio">Enviar ao mestre</h3><p class="hint">Seu nome e seu e-mail ficam guardados com a ficha, só para o mestre consultar.</p>
  <label class="f" for="env-jogador">Seu nome</label><input type="text" id="env-jogador" data-env="jogador" autocomplete="name" value="${esc(S.env.jogador)}">
@@ -484,13 +508,17 @@ async function enviarFicha(){
  S.enviando=false;render(true);
 }
 
+const PER_LISTA={t1:'t',t2:'t',i:'i',b:'b',f:'f'};
+function perVal(c){const x=(S.perTxt[c]||'').trim();if(x)return x;const P=perTab();if(!P||!S.per[c])return '';return itTxt(P.t[PER_LISTA[c]][S.per[c]-1])}
+function histGerada(){return cronicaTexto().join('\n\n')}
+function atualizaFicha(){const f=$('#ficha');if(f)f.textContent=fichaTexto()}
 function fichaTexto(){
  const r=raca(),s=sub(),c=classe();
  const hist=cronicaTexto();
  const L=[];
  L.push(`Nome: ${nomeCompleto()||'—'}`);
  L.push(`Raça: ${r?r.n+' ('+r.en+')'+(s&&s[1]!=='—'?', '+s[1]:''):'—'}`);
- L.push(`Classe: ${c?c.n+' ('+c.en+')':'—'}, nível 1${S.subcl?' — '+S.subcl:''}`);
+ L.push(`Classe: ${c?c.n+' ('+c.en+')':'—'}${S.subcl?' — '+S.subcl:''}`);
  if(S.deus)L.push(`Divindade: ${S.deus}`);
  if(S.sub==='variante')L.push('Talento: a escolher');
  L.push(`Idade: ${S.idade??'—'}`);
@@ -500,16 +528,16 @@ function fichaTexto(){
  L.push(`Antecedente: ${S.antec||'—'}`);
  L.push('');L.push('Atributos');
  ATR.forEach(([k,nm])=>{const v=final(k);L.push(`  ${nm}: ${v??'—'}${v!=null?' ('+fmtMod(mod(v))+')':''}`)});
- const P=perTab();
- if(P&&(S.per.t1||S.per.i)){L.push('');L.push('Personalidade');
-  if(S.per.t1)L.push('  Traço: '+itTxt(P.t.t[S.per.t1-1]));if(S.per.t2)L.push('  Traço: '+itTxt(P.t.t[S.per.t2-1]));
-  if(S.per.i)L.push('  Ideal: '+itTxt(P.t.i[S.per.i-1]));if(S.per.b)L.push('  Vínculo: '+itTxt(P.t.b[S.per.b-1]));if(S.per.f)L.push('  Defeito: '+itTxt(P.t.f[S.per.f-1]))}
+ const pv=[['t1','Traço'],['t2','Traço'],['i','Ideal'],['b','Vínculo'],['f','Defeito']].map(([c,l])=>[l,perVal(c)]).filter(x=>x[1]);
+ if(pv.length){L.push('');L.push('Personalidade');pv.forEach(([l,v])=>L.push('  '+l+': '+v))}
+ if(S.extra.trim()){L.push('');L.push('Outros traços: '+S.extra.trim())}
  const m=medidas();const ap=[];
  if(m)ap.push(`${m.cm} cm`+(m.kg!=null?`, ${m.kg} kg`:''));
  if(S.apar.c)ap.push('cabelo/pelos: '+S.apar.c);if(S.apar.o)ap.push('olhos: '+S.apar.o);if(S.apar.p)ap.push('pele: '+S.apar.p);
  if(S.apar.m)ap.push(CR.MARCA[S.apar.m-1]);
  if(ap.length){L.push('');L.push('Aparência: '+ap.join('; '))}
- if(hist.length){L.push('');L.push('História');hist.forEach(x=>L.push('  '+x))}
+ if(S.histEdit!=null&&S.histEdit.trim()){L.push('');L.push('História');S.histEdit.trim().split('\n').forEach(x=>L.push(x?'  '+x:''))}
+ else if(hist.length){L.push('');L.push('História');hist.forEach(x=>L.push('  '+x))}
  return L.join('\n');
 }
 
@@ -557,7 +585,7 @@ function meiaIdade(){const r=raca();if(!r)return 35;if(r.idx)return r.idx[2]||{h
 
 function crBuild(){
  const rows=[],H={origem:[],familia:[],infancia:[],casa:[],incomum:[],decisoes:[],eventos:[],dons:[]};
- const R=(k,n,s,label,o={})=>{const row={k,n,s,label,bonus:o.bonus||0,valid:o.valid,ops:o.op?o.op(n,s):null};rows.push(row);const v=S.cr[k];if(v==null)throw STOP;row.v=v;return o.lv?o.lv(v):v};
+ const R=(k,n,s,label,o={})=>{const row={k,n,s,label,bonus:o.bonus||0,valid:o.valid,ops:o.op?o.op(n,s):null};rows.push(row);let v=S.cr[k];if(v!=null&&(v<n||v>n*s||(o.valid&&!o.valid(v)))){delete S.cr[k];delete S.crMan[k];v=null}if(v==null)throw STOP;row.v=v;return o.lv?o.lv(v):v};
  const txt=t=>{rows[rows.length-1].t=t};
  const C=(k,html)=>{rows.push({k,choice:html});throw STOP};
  const VP=tab=>v=>!(leve()&&rowP(faixa(tab,v)));
@@ -584,7 +612,7 @@ function crBuild(){
   H.origem.push(`Você nasceu ${nt}, em ${n?n.nome:'sua terra natal'}.${prT?` No dia, ${prT}.`:''}`);
   // ---- Irmãos
   const menos=(r.id==='anao'||r.id==='elfo')?-2:0;
-  const iv=R('irm',1,10,'Irmãos'+(menos?' (−2 por ser '+r.n.toLowerCase()+')':''),{bonus:menos,op:OT(CR.IRMAOS,r=>irmLbl(r[2]),menos)});const fx=faixa(CR.IRMAOS,iv+menos)[2];
+  const iv=R('irm',1,10,'Irmãos'+(menos?' (−2 por ser '+r.n.toLowerCase()+')':''),{bonus:menos,op:OT(CR.IRMAOS,r=>irmLbl(r[2]),menos)});const fx=faixa(CR.IRMAOS,iv+menos)[2];txt(irmLbl(fx));
   let qt=0;
   if(fx==='0'){txt('Nenhum irmão.');H.familia.push('Você não tem irmãos.')}
   else{const m=fx.match(/1d(\d)(\+(\d))?/);const plus=+(m[3]||0);const q=R('irmq',1,+m[1],`Quantos irmãos (${fx})`,{bonus:plus,op:OR(v=>`${v+plus} irmão${v+plus>1?'s':''}`)});qt=q+plus;txt(`${qt} irmão${qt>1?'s':''}.`);H.familia.push(`Você tem ${qt} irmão${qt>1?'s':''}.`)}
@@ -689,6 +717,12 @@ function crRollAll(){let g=0;while(g<600&&crRollOne())g++}
 function crOpcoes(row){const o=row.ops;if(!o||!o.length)return '';
  if(o.length<=6)return `<div class="hint" style="margin-top:10px">Ou escolha:</div><div class="grid" style="grid-template-columns:1fr;margin-top:4px">${o.map(([v,l])=>`<button class="opt" data-act="crpick" data-v="${v}">${esc(l)}</button>`).join('')}</div>`;
  return `<label class="f" for="crpick" style="margin-top:10px">Ou escolha</label><select id="crpick" data-bind="crpick"><option value="">—</option>${o.map(([v,l])=>`<option value="${v}">${esc(l)}</option>`).join('')}</select>`}
+function crEditor(row){const o=row.ops||[];
+ let h=`<div class="die" id="credit" style="display:block"><div class="what">Mudar: ${esc(row.label)}</div><p class="hint">Agora: <b>${esc(row.t||'')}</b>. O que depende deste resultado pode mudar ou pedir uma nova rolagem.</p>`;
+ if(o.length&&o.length<=6)h+=`<div class="grid" style="grid-template-columns:1fr">${o.map(([v,l])=>`<button class="opt" data-act="crset" data-v="${v}" aria-pressed="${row.v===v}">${esc(l)}</button>`).join('')}</div>`;
+ else if(o.length)h+=`<label class="f" for="credit-sel">Escolha</label><select id="credit-sel" data-bind="credit"><option value="">—</option>${o.map(([v,l])=>`<option value="${v}">${esc(l)}</option>`).join('')}</select>`;
+ return h+`<div class="row noprint" style="margin-top:10px"><button class="btn sec" data-act="crreroll">Rolar de novo</button><button class="btn ghost" data-act="crcancel">Cancelar</button></div></div>`}
+function crAplica(v,manual){const k=S.crEdit;if(!k)return;S.cr[k]=v;if(manual)S.crMan[k]=1;else delete S.crMan[k];S.crEdit=null;render(true)}
 function crDie(row){const lab=(row.n>1?row.n:'')+'d'+row.s+(row.bonus?(row.bonus>0?' +'+row.bonus:' '+row.bonus):'');const st=S.d['cr:'+row.k]||{};
  return `<div class="die" data-die="cr"><div>${dieSVG(null,lab)}</div><div><div class="what">${esc(row.label)}</div>
  <div class="ctl noprint"><button data-act="crroll">Rolar aqui</button><button data-act="crall">Rolar tudo que falta</button><button class="linkbtn" data-act="crmesa">rolei na mesa</button></div>${crOpcoes(row)}
@@ -705,7 +739,9 @@ function telaCronica(){
  const n=nascInfo();
  h+=`<label class="f" for="resman">Prefere escolher onde vive hoje?</label><select id="resman" data-bind="resman"><option value="">Deixar os dados decidirem</option>${n?`<option ${S.crSel.res===n.nome?'selected':''} value="${esc(n.nome)}">No mesmo lugar onde nasceu (${esc(n.nome)})</option>`:''}${Object.entries(ASSENT).map(([p,l])=>`<optgroup label="${esc(p)}">${l.map(x=>{const v=x[2]+', '+p;return `<option ${S.crSel.res===v?'selected':''} value="${esc(v)}">${esc(x[2])}</option>`}).join('')}</optgroup>`).join('')}<optgroup label="Outras regiões de Faerûn">${REG_EXTRA.map(x=>`<option ${S.crSel.res===x?'selected':''}>${esc(x)}</option>`).join('')}</optgroup></select>`;
  const feitas=rows.filter(r=>r.v!=null);
- if(feitas.length)h+=`<details style="margin-top:14px"><summary>Ver todos os resultados (${feitas.length})</summary><table class="at"><tbody>${feitas.map(r=>`<tr><td>${esc(r.label)}</td><td class="n">${S.crMan[r.k]?'—':r.v+(r.bonus||0)}</td><td>${esc(r.t||'')}</td></tr>`).join('')}</tbody></table></details>`;
+ const ed=S.crEdit&&rows.find(r=>r.k===S.crEdit&&r.v!=null);
+ if(ed)h+=crEditor(ed);
+ if(feitas.length)h+=`<details style="margin-top:14px" ${done||ed?'open':''}><summary>Seus resultados (${feitas.length}) — toque em “mudar” para trocar</summary><div class="scroll"><table class="at"><tbody>${feitas.map(r=>`<tr><td>${esc(r.label)}</td><td>${esc(r.t||'')}</td><td class="noprint"><button class="linkbtn" data-act="crmudar" data-v="${esc(r.k)}">mudar</button></td></tr>`).join('')}</tbody></table></div></details>`;
  h+=`<div class="row noprint" style="margin-top:14px"><button class="btn sec" data-act="crreset">Refazer a crônica</button></div>`;
  return h;
 }
@@ -718,12 +754,13 @@ function perTab(){const k=(CR.BGKEY[bgNome()]||[])[1];return k?{k,t:CR.PER[k]}:n
 function altTab(){return CR.ALT[S.raca+':'+S.sub]||CR.ALT[S.raca]}
 function medidas(){const A=altTab();if(!A||S.apar.h==null)return null;const hIn=A[0]+S.apar.h;const mult=A[5]===0?A[4]:S.apar.w;if(mult==null)return {cm:Math.round(hIn*2.54)};return {cm:Math.round(hIn*2.54),kg:Math.round((A[3]+S.apar.h*mult)*0.4536)}}
 function telaPersona(){
- const P=perTab();let h=`<h2>Personalidade e aparência</h2>`;
+ const P=perTab();let h=`<h3>Personalidade e aparência</h3>`;
  if(!P)return h+`<p class="hint">Escolha o antecedente na etapa Quem é você.</p>`;
  const T=P.t;const nomeTab=CR.PER_NOME[P.k];
  h+=`<p class="lead">Dois traços, um ideal, um vínculo e um defeito. ${bgNome()!==nomeTab?`Seu antecedente usa as tabelas de ${esc(nomeTab.toLowerCase())}.`:''}</p>`;
  const bloco=(key,n,lista,titulo,campo)=>{let x=die(key,1,n,titulo,v=>`${v} → <b>${esc(itTxt(lista[LI(lista,v)-1]))}</b>`);
-  x+=`<select data-bind="per" data-campo="${campo}" data-key="${key}" aria-label="${esc(titulo)}"><option value="">Ou escolha</option>${lista.map((t,j)=>(leve()&&itP(t))?'':`<option value="${j+1}" ${S.per[campo]===j+1?'selected':''}>${esc(itTxt(t))}</option>`).join('')}</select>`;return x};
+  x+=`<select data-bind="per" data-campo="${campo}" data-key="${key}" aria-label="${esc(titulo)}"><option value="">Ou escolha</option>${lista.map((t,j)=>(leve()&&itP(t))?'':`<option value="${j+1}" ${S.per[campo]===j+1?'selected':''}>${esc(itTxt(t))}</option>`).join('')}</select>`;
+  x+=`<input type="text" id="pt-${campo}" data-pertxt="${campo}" value="${esc(S.perTxt[campo]||'')}" placeholder="Ou escreva com suas palavras" aria-label="${esc(titulo)} com suas palavras" style="margin-top:6px">`;return x};
  h+=`<div class="row noprint"><button class="btn sec" data-act="perall">Rolar tudo o que falta</button></div>`;
  h+=`<h3>Traços de personalidade</h3>`+bloco('pt1',8,T.t,'Traço 1','t1')+bloco('pt2',8,T.t,'Traço 2','t2');
  if(S.per.t1&&S.per.t1===S.per.t2)h+=`<p class="err">Os dois traços são iguais. Escolha ou role outro.</p>`;
@@ -824,12 +861,17 @@ document.addEventListener('click',e=>{
    if(!Number.isInteger(x)||x<l.n||x>l.n*l.s){S.d['cr:'+l.k]={mesa:true,err:`Digite um número inteiro de ${l.n} a ${l.n*l.s}.`}}
    else if(l.valid&&!l.valid(x)){S.d['cr:'+l.k]={mesa:true,err:'Esse número manda rolar de novo.'}}
    else{S.cr[l.k]=x;delete S.crMan[l.k];delete S.d['cr:'+l.k]}render(true)}
- else if(a==='crreset'){modal('Refazer a crônica inteira? Todas as rolagens desta etapa serão apagadas.',()=>{S.cr={};S.crSel={};S.crMan={};Object.keys(S.d).filter(k=>k.startsWith('cr:')).forEach(k=>delete S.d[k]);render()},'Refazer','danger')}
+ else if(a==='crreset'){modal('Refazer a crônica inteira? Todas as rolagens desta etapa serão apagadas.',()=>{S.cr={};S.crSel={};S.crMan={};S.crEdit=null;Object.keys(S.d).filter(k=>k.startsWith('cr:')).forEach(k=>delete S.d[k]);render()},'Refazer','danger')}
+ else if(a==='crmudar'){S.crEdit=v;render(true);revelar('#credit')}
+ else if(a==='crcancel'){S.crEdit=null;render(true)}
+ else if(a==='crset'){crAplica(+v,true)}
+ else if(a==='crreroll'){const row=crBuild().rows.find(r=>r.k===S.crEdit);if(row){let x,g=0;do{x=rollN(row.n,row.s);g++}while(row.valid&&!row.valid(x)&&g<500);crAplica(x,false)}}
  else if(a==='crpick'){const {rows}=crBuild();const l=rows[rows.length-1];if(l&&!l.choice&&l.v==null){S.cr[l.k]=+v;S.crMan[l.k]=1;delete S.d['cr:'+l.k]}render(true)}
  else if(a==='crsel'){const [k,val]=v.split(':');S.crSel[k]=k.startsWith('fs')?+val:val;render(true)}
  else if(a==='copiar'){const t=fichaTexto();const done=()=>{$('#copied').textContent='Texto copiado.'};
    try{navigator.clipboard.writeText(t).then(done,()=>fallbackCopy(t,done))}catch(_){fallbackCopy(t,done)}}
  else if(a==='imprimir'){try{window.print()}catch(_){}}
+ else if(a==='histreset'){S.histEdit=null;S.histBase='';render(true)}
  else if(a==='enviar'){if(!S.enviando)enviarFicha()}
 });
 function fallbackCopy(t,done){const ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done()}catch(_){}ta.remove()}
@@ -837,6 +879,9 @@ function fallbackCopy(t,done){const ta=document.createElement('textarea');ta.val
 document.addEventListener('input',e=>{
  const t=e.target;
  if(t.dataset.ap){S.apar[t.dataset.ap]=t.value;return}
+ if(t.dataset.pertxt){S.perTxt[t.dataset.pertxt]=t.value;atualizaFicha();return}
+ if(t.dataset.livre==='extra'){S.extra=t.value;atualizaFicha();return}
+ if(t.dataset.livre==='historia'){if(S.histEdit==null)S.histBase=histGerada();S.histEdit=t.value;atualizaFicha();return}
  if(t.dataset.env){S.env[t.dataset.env]=t.value;S.envErro='';return}
  if(['nome','sobrenome','apelido'].includes(t.dataset.bind)){S[t.dataset.bind]=t.value;$('#next').disabled=!valida(S.step);const nc=$('#nc');if(nc)nc.textContent=nomeCompleto()}
 });
@@ -847,6 +892,7 @@ document.addEventListener('change',e=>{
  else if(t.dataset.bind==='regExtra2'){S.regExtra2=t.value;render(true)}
  else if(t.dataset.bind==='estilo'){S.estilo=t.value;delete S.d.nome;delete S.d.sobre;render(true)}
  else if(t.dataset.bind==='antec'){S.antec=t.value||null;S.cr={};S.crSel={};S.per={};render(true)}
+ else if(t.dataset.bind==='credit'){if(t.value)crAplica(+t.value,true)}
  else if(t.dataset.bind==='crpick'){if(t.value){const {rows}=crBuild();const l=rows[rows.length-1];if(l&&!l.choice&&l.v==null){S.cr[l.k]=+t.value;S.crMan[l.k]=1;delete S.d['cr:'+l.k]}}render(true)}
  else if(t.dataset.bind==='resman'){if(t.value)S.crSel.res=t.value;else delete S.crSel.res;render(true)}
  else if(t.dataset.bind==='per'){const c=t.dataset.campo;if(t.value)S.per[c]=+t.value;else delete S.per[c];delete S.d[t.dataset.key];render(true)}
