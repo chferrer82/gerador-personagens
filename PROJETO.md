@@ -1,6 +1,6 @@
 # PROJETO — Gerador de Personagens (Jogadores)
 
-Versão 1.5 · 24/10/2026 · Status: no ar em gerador-personagens.onrender.com; envio só com o nome do jogador (P27); revisões pendentes (seção 13)
+Versão 1.6 · 25/10/2026 · Status: no ar em gerador-personagens.onrender.com; interface em conversa "Salão da Forja" (P28); revisões pendentes (seção 13)
 
 ---
 
@@ -102,9 +102,20 @@ Seis etapas (P23):
 3. **De onde vem** — onde nasceu, idade (faixa típica: escolher ou rolar) e nome.
 4. **Atributos** — perfis prontos por classe (7.1), bônus raciais sugeridos, escala humana.
 5. **Crônica de origem** no estilo "This Is Your Life", com os eventos de dom (7.4).
-6. **Personalidade e ficha** — resumo das escolhas com botão **Alterar** para cada etapa; traços, ideal, vínculo e defeito (sorteados, escolhidos ou escritos com as próprias palavras); outros traços livres; aparência; **história final editável** (parte da crônica gerada e pode ser reescrita; botão para voltar ao texto gerado); a ficha final para copiar ou imprimir; e o formulário **Enviar ao mestre** (só o nome do jogador; P27), que envia a versão editada (P24, P26).
+6. **Ficha** — traços, ideal, vínculo e defeito (sorteados, escolhidos ou escritos com as próprias palavras); outros traços livres; aparência; **história final editável** (parte da crônica gerada e pode ser reescrita; botão para voltar ao texto gerado); a ficha final para copiar ou imprimir; e o formulário **Enviar ao mestre** (só o nome do jogador; P27), que envia a versão editada (P24, P26).
 
-Na etapa **Quem é você**, subclasse (Clérigo, Feiticeiro, Bruxo) e divindade (Clérigo) também têm dado de sorteio. Em toda etapa, enquanto o **Continuar** está bloqueado, o rodapé diz o que falta (P25).
+Na etapa **Quem é você**, subclasse (Clérigo, Feiticeiro, Bruxo) e divindade (Clérigo; opcional para Paladino) também têm dado de sorteio. O gênero (Masculino ou Feminino) é perguntado logo depois da raça (P28).
+
+### 6.2 Interface em conversa — "Salão da Forja" (P28)
+
+- **Narrador:** um anão ferreiro ranzinza conduz tudo, uma pergunta por vez.
+- **Abertura:** cinco frases que aparecem devagar (fade-in; a anterior fica ao fundo, esmaecida), botão "Acender a forja" e link "Pular apresentação".
+- **Visual:** fundo escuro de pedra, brasa (fogo), ouro (honra) e azul-aço (justiça); brasas subindo ao fundo, faíscas ao clicar e um "golpe" de martelo ao confirmar. Com "reduzir movimento" ligado no aparelho, as animações são desligadas.
+- **Cada etapa mostra só:** a fala do narrador, com uma frase curta do que está acontecendo (ex.: "Muito bem: anão da montanha. Agora me diga…"), e as opções da pergunta atual. As perguntas já respondidas ficam esmaecidas acima, com a resposta num botão para **mudar**; na crônica aparecem só os três últimos resultados, e a lista completa fica em "Ver todos os resultados".
+- **Navegação:** abas do topo clicáveis (voltar a qualquer etapa já vista; avançar quando as anteriores estão completas) e rodapé com Voltar, Recomeçar e Avançar.
+- **Raças e classes:** ao tocar numa opção aparece uma descrição curta na voz do anão e o botão "Seguir com …"; o dado também só sugere, o jogador confirma. Todas as raças da versão original continuam (12 principais e 33 povos raros). As descrições são texto próprio, na tabela `CURTA` do banco, sem nenhum valor de regra.
+- **Textos livres** (nome, sobrenome ou clã, apelido, traços escritos, aparência, história) têm um botão de confirmar, para a conversa não pular enquanto o jogador digita.
+- Some o aviso "falta…" do rodapé (P25): a pergunta atual já mostra o que falta.
 
 Saíram (P23): os caminhos "ideia pronta", "ideia vaga" e "preciso de ajuda"; o questionário guiado; a lista de talentos do humano variante (a ficha mostra "Talento: a escolher"); os d6 de coerência nas rolagens de origem e raça (P34b).
 
@@ -272,7 +283,7 @@ IA, login de jogador, PDF, CA.
 ## 12. Requisitos técnicos (Fase 1)
 
 - **Servidor:** Python + Flask (`app.py`). A página é o HTML da versão de 30/09, sem dados embutidos (`templates/index.html`); o servidor injeta as tabelas do banco a cada acesso.
-- **Bancos:** `dados.db` (29 tabelas do gerador, só leitura, vai no repositório). Fichas dos jogadores: **Postgres no Neon** em produção (`DATABASE_URL`); SQLite (`fichas.db`) só para rodar no computador (P20, P24, P20a).
+- **Bancos:** `dados.db` (30 tabelas do gerador, só leitura, vai no repositório). Fichas dos jogadores: **Postgres no Neon** em produção (`DATABASE_URL`); SQLite (`fichas.db`) só para rodar no computador (P20, P24, P20a).
 - **Área do mestre:** autenticação HTTP Basic; senha em `MESTRE_SENHA` (sem ela, a área fica fechada).
 - **Edição de tabelas:** pelo `gerenciar.py` (exportar → editar `dados/<CHAVE>.json` → importar). Não há rota de escrita na web.
 - **API de leitura:** `/api/tabelas`, `/api/tabelas/<chave>`, `/api/dados`; checagem em `/saude`.
@@ -313,6 +324,7 @@ IA, login de jogador, PDF, CA.
 | ID | Decisão | Versão |
 |---|---|---|
 | P20a | Hospedagem gratuita: Render (site) + Neon (Postgres das fichas); SQLite fica só para uso local | 1.2 |
+| P28 | Interface em conversa "Salão da Forja": narrador anão, abertura em fade-in, uma pergunta por vez com respostas anteriores esmaecidas e editáveis, abas clicáveis, gênero junto da raça, descrições curtas de raças e classes (tabela `CURTA`, texto próprio) | 1.6 |
 | P27 | Envio ao mestre pede só o nome do jogador; o e-mail saiu do formulário, da lista e da ficha do mestre | 1.5 |
 | P26 | Ficha sem nível; história final editável e traços próprios; resumo das escolhas com Alterar; mudar resultados da crônica depois de pronta | 1.4 |
 | P25 | Crônica: escolha manual por lista de textos, sem números; dado para subclasse e divindade; aviso do que falta para continuar | 1.3 |
@@ -376,3 +388,4 @@ IA, login de jogador, PDF, CA.
 | 24/10/2026 | 1.3 | P25: escolha manual na crônica (opções só em texto, respeitando o modo leve); dados de subclasse e divindade (o Continuar travava com Clérigo, Feiticeiro e Bruxo sorteados); aviso do que falta; corrigido o nome da etapa atual invisível na barra |
 | 24/10/2026 | 1.4 | P26: ficha sem nível; história final editável (a ficha enviada usa a versão editada); traços de personalidade escritos pelo jogador e campo de outros traços; resumo das escolhas com Alterar; resultados da crônica podem ser mudados depois de prontos |
 | 24/10/2026 | 1.5 | P27: e-mail removido do envio e da área do mestre; o jogador informa só o nome (a coluna antiga fica vazia no banco) |
+| 25/10/2026 | 1.6 | P28: nova interface em conversa (Salão da Forja) aplicada às 6 etapas; gênero passa para a etapa Quem é você; tabela nova `CURTA` com descrições curtas (texto próprio); "Personalidade e ficha" passa a se chamar "Ficha"; frase da infância reescrita ("O estilo de vida da família era…") para concordar com qualquer resultado; mesmas regras, tabelas e motor da crônica |

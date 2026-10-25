@@ -143,5 +143,10 @@
   "descricao": "Tabelas da crônica (estrutura do This Is Your Life + tabelas próprias), com marca L/P",
   "fonte": "This_is_your_life, CRONICA_MARCACAO.md, ANTECEDENTES_SCAG.md",
   "observacao": "Modo leve no artifact troca o resultado pesado pela entrada leve vizinha; o PROJETO 7.6 diz re-rolar. Divergência a decidir."
+ },
+ "CURTA": {
+  "descricao": "Descrições curtas, na voz do anão, de raças, sub-raças, povos raros e classes (aparecem ao tocar na opção)",
+  "fonte": "Texto próprio do projeto (P28)",
+  "observacao": "Texto livre de ambientação, sem valores de regra."
  }
 }

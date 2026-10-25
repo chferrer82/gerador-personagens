@@ -11,7 +11,7 @@ O jogador monta o personagem em 6 etapas, gera a crônica e envia a ficha ao mes
 | `banco.py` | Esquema e leitura/gravação das tabelas do gerador (`dados.db`) |
 | `fichas.py` | Esquema, validação e busca das fichas enviadas: Postgres (Neon) em produção, SQLite no computador |
 | `gerenciar.py` | Linha de comando para criar, exportar, importar e conferir tabelas |
-| `dados.db` | Tabelas do gerador (29). Só leitura; vai no repositório |
+| `dados.db` | Tabelas do gerador (30). Só leitura; vai no repositório |
 | `fichas.db` | Fichas no modo local (SQLite). Criado sozinho; **não** vai no repositório (`.gitignore`) |
 | `dados/*.json` | Cópia legível de cada tabela, para editar e ver diferenças no Git |
 | `templates/index.html` | A página do gerador (os dados entram pelo servidor) |
