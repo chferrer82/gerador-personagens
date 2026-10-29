@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Descobridor de Campanha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@600;800&family=Alegreya:ital,wght@1,500&family=Alegreya+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Mesmo salão da forja do gerador: pedra escura, brasa e ouro. Uma pergunta por bloco, enviar no fim. */
+:root{
+  --pedra:#17120e; --pedra2:#211a14; --pedra3:#2d241c; --veio:#4a3b2e;
+  --tinta:#f1e7d6; --cinza:#b9a993; --brasa:#ff7b2e; --ouro:#e3b34c; --erro:#ff9b8a; --ok:#9fd39a;
+  --display:"Grenze Gotisch","Palatino Linotype",Georgia,serif;
+  --voz:"Alegreya",Georgia,serif;
+  --texto:"Alegreya Sans","Segoe UI",system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--pedra);color:var(--tinta);font:17px/1.55 var(--texto);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  background-image:radial-gradient(ellipse 120% 60% at 50% 115%,rgba(196,68,26,.3),transparent 60%);background-attachment:fixed}
+.cena{max-width:640px;margin:0 auto;padding-block:28px 64px;display:flex;flex-direction:column;gap:18px}
+:focus-visible{outline:3px solid var(--ouro);outline-offset:3px}
+.runa{font:800 .78rem/1 var(--texto);letter-spacing:.3em;text-transform:uppercase;color:var(--ouro);margin:0}
+h1{font:800 clamp(2rem,8vw,2.8rem)/1.05 var(--display);margin:4px 0 6px;color:var(--ouro);text-wrap:balance}
+.voz{font:500 italic 1.1rem/1.45 var(--voz);color:var(--cinza);margin:0;max-width:60ch}
+.bloco{background:var(--pedra2);border:1px solid var(--veio);border-radius:14px;padding:16px;margin:0;min-width:0}
+label.lbl{display:block;font:700 .78rem var(--texto);letter-spacing:.12em;text-transform:uppercase;color:var(--cinza);margin-bottom:8px}
+input[type=text]{width:100%;font:1.05rem var(--texto);color:var(--tinta);background:var(--pedra);border:1px solid var(--veio);border-radius:10px;padding:11px 12px}
+legend{float:left;width:100%;padding:0;margin-bottom:10px;display:flex;gap:10px;align-items:baseline;font-weight:700;font-size:1.05rem;line-height:1.35}
+legend .n{font:800 1.4rem/1 var(--display);color:var(--brasa);min-width:1.4em}
+.peso{font:700 .7rem var(--texto);letter-spacing:.08em;text-transform:uppercase;color:var(--pedra);background:var(--ouro);border-radius:99px;padding:2px 8px;white-space:nowrap}
+.opcoes{clear:both;display:grid;gap:8px}
+.op{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--veio);border-radius:10px;padding:10px 12px;cursor:pointer;background:var(--pedra)}
+.op input{margin-top:5px;accent-color:var(--brasa)}
+.op:has(input:checked){border-color:var(--brasa);background:var(--pedra3)}
+.op b{color:var(--ouro)}
+.btn{font:700 1.05rem var(--texto);border-radius:12px;padding:12px 22px;cursor:pointer;border:1px solid transparent;color:#1b120b;
+  background:linear-gradient(180deg,#f0c463,var(--ouro) 55%,#b9852b);box-shadow:0 0 0 1px #6b4b16 inset}
+.btn:disabled{opacity:.4;cursor:default}
+.fim{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.prog{color:var(--cinza);font-variant-numeric:tabular-nums}
+.msg{margin:0}
+.msg.erro{color:var(--erro)} .msg.ok{color:var(--ok)}
+.feito{text-align:left}
+.feito h2{font:800 2rem/1.1 var(--display);color:var(--ouro);margin:0 0 6px}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<main class="cena" id="form">
+  <header>
+    <p class="runa">Sessão zero</p>
+    <h1>Descobridor de Campanha</h1>
+    <p class="voz">Dez perguntas para o mestre saber que aventura combina com a mesa. Não há resposta certa. Responda pensando no que você quer jogar.</p>
+  </header>
+  <div class="bloco">
+    <label class="lbl" for="nome">Seu nome (como aparece no grupo)</label>
+    <input type="text" id="nome" maxlength="40" autocomplete="nickname" placeholder="Ex.: Ana">
+  </div>
+  <div id="perguntas" style="display:flex;flex-direction:column;gap:14px"></div>
+  <div class="fim">
+    <button class="btn" id="enviar" type="button">Enviar ao mestre</button>
+    <span class="prog" id="prog"></span>
+  </div>
+  <p class="msg erro" id="erro" hidden></p>
+</main>
+<main class="cena feito" id="feito" hidden>
+  <p class="runa">Enviado</p>
+  <h2>O mestre recebeu suas respostas</h2>
+  <p class="voz" id="feito-txt"></p>
+  <div class="fim"><button class="btn" id="refazer" type="button">Mudar minhas respostas</button></div>
+</main>
+<script>
+const PERGUNTAS = /*__PERGUNTAS__*/{{ perguntas_json|safe }};
+const L = "ABCD";
+const resp = Array(PERGUNTAS.length).fill(null);
+const $ = id => document.getElementById(id);
+const guardar = {ler(){try{return JSON.parse(localStorage.getItem("campanha-rascunho")||"null")}catch(e){return null}},
+                 gravar(v){try{localStorage.setItem("campanha-rascunho",JSON.stringify(v))}catch(e){}}};
+
+PERGUNTAS.forEach((q, i) => {
+  const fs = document.createElement("fieldset"); fs.className = "bloco";
+  const lg = document.createElement("legend");
+  const n = document.createElement("span"); n.className = "n"; n.textContent = i + 1;
+  const t = document.createElement("span"); t.textContent = q.t;
+  lg.append(n, t);
+  if (q.w > 1) { const p = document.createElement("span"); p.className = "peso"; p.textContent = "pesa mais"; lg.appendChild(p); }
+  fs.appendChild(lg);
+  const ops = document.createElement("div"); ops.className = "opcoes";
+  q.o.forEach((txt, j) => {
+    const lab = document.createElement("label"); lab.className = "op";
+    const inp = document.createElement("input"); inp.type = "radio"; inp.name = "q" + i; inp.id = "q" + i + L[j];
+    inp.addEventListener("change", () => { resp[i] = L[j]; salvar(); progresso(); });
+    const s = document.createElement("span"); const b = document.createElement("b"); b.textContent = L[j] + ") ";
+    s.append(b, document.createTextNode(txt));
+    lab.append(inp, s); ops.appendChild(lab);
+  });
+  fs.appendChild(ops); $("perguntas").appendChild(fs);
+});
+
+function salvar(){ guardar.gravar({nome: $("nome").value, r: resp}); }
+function progresso(){ $("prog").textContent = `${resp.filter(Boolean).length} de ${PERGUNTAS.length} respondidas`; }
+const r0 = guardar.ler();
+if (r0) {
+  $("nome").value = r0.nome || "";
+  (r0.r || []).forEach((v, i) => { if (v && L.includes(v) && $("q" + i + v)) { resp[i] = v; $("q" + i + v).checked = true; } });
+}
+progresso();
+$("nome").addEventListener("input", salvar);
+
+function erro(t){ $("erro").textContent = t; $("erro").hidden = !t; }
+$("enviar").addEventListener("click", async () => {
+  const nome = $("nome").value.trim();
+  const faltam = resp.map((v, i) => v ? null : i + 1).filter(Boolean);
+  if (!nome) { erro("Escreva seu nome antes de enviar."); $("nome").focus(); return; }
+  if (faltam.length) { erro(`Faltam as perguntas ${faltam.join(", ")}.`); return; }
+  erro(""); $("enviar").disabled = true; $("enviar").textContent = "Enviando…";
+  try {
+    const r = await fetch("/api/campanha", {method: "POST", headers: {"Content-Type": "application/json"},
+                          body: JSON.stringify({nome, respostas: resp.join("")})});
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok || !j.ok) throw new Error(j.erro || "O servidor não aceitou o envio.");
+    $("feito-txt").textContent = `Obrigado, ${nome}. Pode fechar esta página. Se mudar de ideia, envie de novo: vale a última resposta.`;
+    $("form").hidden = true; $("feito").hidden = false; window.scrollTo(0, 0);
+  } catch (e) {
+    erro((e && e.message && !/fetch/i.test(e.message)) ? e.message
+         : "Não consegui enviar. O site pode estar acordando: espere um minuto e toque em Enviar de novo.");
+  } finally { $("enviar").disabled = false; $("enviar").textContent = "Enviar ao mestre"; }
+});
+$("refazer").addEventListener("click", () => { $("feito").hidden = true; $("form").hidden = false; });
+</script>
+</body>
+</html>

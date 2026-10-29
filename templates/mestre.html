@@ -1,5 +1,6 @@
 {% extends "_mestre_base.html" %}
 {% block corpo %}
+<nav class="sub" style="margin-bottom:8px"><strong>Fichas</strong> · <a href="/mestre/campanha">Descobridor de Campanha</a></nav>
 <h1>Fichas dos jogadores</h1>
 <p class="sub">{{ total }} ficha{{ '' if total == 1 else 's' }} enviada{{ '' if total == 1 else 's' }}{% if q %} · {{ linhas|length }} com “{{ q }}”{% endif %}</p>
 <form class="busca" method="get" action="/mestre" role="search">
