@@ -1,6 +1,6 @@
 # PROJETO — Gerador de Personagens (Jogadores)
 
-Versão 1.8 · 25/10/2026 · Status: no ar em gerador-personagens.onrender.com; interface em conversa "Salão da Forja" (P28); rascunho salvo no aparelho (P29); 21 antecedentes adicionais (P30); revisões pendentes (seção 13)
+Versão 1.9 · 29/10/2026 · Status: no ar em gerador-personagens.onrender.com; interface em conversa "Salão da Forja" (P28); rascunho salvo no aparelho (P29); 21 antecedentes adicionais (P30); Descobridor de Campanha em /campanha (P31); revisões pendentes (seção 13)
 
 ---
 
@@ -419,6 +419,7 @@ IA, login de jogador, PDF, CA.
 | 24/10/2026 | 1.3 | P25: escolha manual na crônica (opções só em texto, respeitando o modo leve); dados de subclasse e divindade (o Continuar travava com Clérigo, Feiticeiro e Bruxo sorteados); aviso do que falta; corrigido o nome da etapa atual invisível na barra |
 | 24/10/2026 | 1.4 | P26: ficha sem nível; história final editável (a ficha enviada usa a versão editada); traços de personalidade escritos pelo jogador e campo de outros traços; resumo das escolhas com Alterar; resultados da crônica podem ser mudados depois de prontos |
 | 24/10/2026 | 1.5 | P27: e-mail removido do envio e da área do mestre; o jogador informa só o nome (a coluna antiga fica vazia no banco) |
+| 29/10/2026 | 1.9 | P31: Descobridor de Campanha no mesmo site: questionário de 10 perguntas em `/campanha` com envio direto ao mestre (nome + respostas, sem código); área `/mestre/campanha` com lista geral de envios, grupos nomeados pelo mestre e ranking de aderência por grupo (pesos 2 nas perguntas de duração e letalidade, vetos por maioria, filtro de nível 1); novas tabelas `campanha_grupo` e `campanha_envio` no banco das fichas; módulo `campanha.py` |
 | 25/10/2026 | 1.8 | P30: 21 antecedentes adicionais (tabela `ANTEC_EXTRA`), descrições curtas, 16 tabelas próprias de "por que virou"; novas pendências P30a e P30b |
 | 25/10/2026 | 1.7 | P29: rascunho salvo no aparelho; P28 ampliada: antecedente escolhido por cartões com descrição curta (26 textos próprios na tabela `CURTA`); sub-raça "Padrão" aparece como "Humano padrão" |
 | 25/10/2026 | 1.6 | P28: nova interface em conversa (Salão da Forja) aplicada às 6 etapas; gênero passa para a etapa Quem é você; tabela nova `CURTA` com descrições curtas (texto próprio); "Personalidade e ficha" passa a se chamar "Ficha"; frase da infância reescrita ("O estilo de vida da família era…") para concordar com qualquer resultado; mesmas regras, tabelas e motor da crônica |

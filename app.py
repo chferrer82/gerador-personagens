@@ -8,9 +8,14 @@ Rotas públicas
   /api/dados             todas as tabelas, no formato usado pela página
   /saude                 verificação simples para o serviço de hospedagem
 
+  /campanha              Descobridor de Campanha: questionário de 10 perguntas
+  POST /api/campanha     o jogador envia as respostas (nome e 10 letras)
+
 Rotas do mestre (usuário e senha nas variáveis MESTRE_USUARIO e MESTRE_SENHA)
   /mestre                lista das fichas, com busca
   /mestre/ficha/<id>     uma ficha completa
+  /mestre/campanha       envios do questionário e grupos
+  /mestre/campanha/grupo/<id>   ranking de aderência de um grupo
 
 Bancos
   dados.db   tabelas do gerador, só leitura (edite com gerenciar.py)
@@ -23,9 +28,10 @@ import secrets
 import sqlite3
 from pathlib import Path
 
-from flask import Flask, Response, abort, g, jsonify, render_template, request
+from flask import Flask, Response, abort, g, jsonify, redirect, render_template, request, url_for
 
 import banco
+import campanha
 import fichas
 
 RAIZ = Path(__file__).resolve().parent
@@ -146,6 +152,100 @@ def mestre_ficha(fid):
     if f is None:
         abort(404, description="Ficha não encontrada.")
     return render_template("mestre_ficha.html", f=f)
+
+
+# ---------- descobridor de campanha ----------
+
+@app.get("/campanha")
+def campanha_pagina():
+    dados = _json_para_script(campanha.perguntas_publicas())
+    return render_template("campanha.html", perguntas_json=dados)
+
+
+@app.post("/api/campanha")
+def api_campanha_enviar():
+    try:
+        nome, resp = campanha.validar(request.get_json(silent=True))
+    except campanha.Invalido as e:
+        return jsonify(ok=False, erro=str(e)), 400
+    eid = campanha.salvar_envio(con_fichas(), nome, resp)
+    return jsonify(ok=True, id=eid), 201
+
+
+def _mesma_origem():
+    """Recusa POST do mestre vindo de outro site (o navegador reenvia a senha sozinho)."""
+    from urllib.parse import urlparse
+    origem = request.headers.get("Origin") or request.headers.get("Referer") or ""
+    if origem and urlparse(origem).netloc != request.host:
+        abort(403, description="Pedido de outra origem recusado.")
+
+
+def _ids_form():
+    return request.form.getlist("envio")
+
+
+@app.get("/mestre/campanha")
+def mestre_campanha():
+    _exige_mestre()
+    db = con_fichas()
+    return render_template("mestre_campanha.html", envios=campanha.envios_soltos(db),
+                           grupos=campanha.grupos(db), aviso=request.args.get("aviso", ""),
+                           erro=request.args.get("erro", ""))
+
+
+@app.post("/mestre/campanha/agrupar")
+def mestre_campanha_agrupar():
+    _exige_mestre(); _mesma_origem()
+    db = con_fichas()
+    destino = request.form.get("destino", "novo")
+    acao = request.form.get("acao", "agrupar")
+    try:
+        if acao == "excluir":
+            campanha.excluir_envios(db, _ids_form())
+            return redirect(url_for("mestre_campanha", aviso="Envios excluídos."))
+        if destino == "novo":
+            gid = campanha.criar_grupo(db, request.form.get("nome", ""), _ids_form())
+        else:
+            gid = int(destino)
+            campanha.adicionar_ao_grupo(db, gid, _ids_form())
+    except (campanha.Invalido, ValueError) as e:
+        return redirect(url_for("mestre_campanha", erro=str(e)))
+    return redirect(url_for("mestre_campanha_grupo", gid=gid))
+
+
+@app.get("/mestre/campanha/grupo/<int:gid>")
+def mestre_campanha_grupo(gid):
+    _exige_mestre()
+    db = con_fichas()
+    g_ = campanha.obter_grupo(db, gid)
+    if g_ is None:
+        abort(404, description="Grupo não encontrado.")
+    membros = campanha.membros_do_grupo(db, gid)
+    nivel1 = request.args.get("nivel1") == "1"
+    res = campanha.calcular([m["respostas"] for m in membros], nivel1=nivel1)
+    return render_template("mestre_grupo.html", g=g_, membros=membros, res=res, nivel1=nivel1,
+                           descrever=campanha.descrever, aviso=request.args.get("aviso", ""))
+
+
+@app.post("/mestre/campanha/grupo/<int:gid>/<acao>")
+def mestre_campanha_grupo_acao(gid, acao):
+    _exige_mestre(); _mesma_origem()
+    db = con_fichas()
+    if campanha.obter_grupo(db, gid) is None:
+        abort(404, description="Grupo não encontrado.")
+    if acao == "devolver":
+        eid = request.form.get("envio", "")
+        if not eid.isdigit():
+            abort(400)
+        campanha.devolver(db, gid, int(eid))
+        return redirect(url_for("mestre_campanha_grupo", gid=gid, aviso="Pessoa devolvida aos envios."))
+    if acao == "desfazer":
+        campanha.desfazer_grupo(db, gid)
+        return redirect(url_for("mestre_campanha", aviso="Grupo desfeito. As pessoas voltaram para os envios."))
+    if acao == "excluir":
+        campanha.excluir_grupo(db, gid)
+        return redirect(url_for("mestre_campanha", aviso="Grupo e respostas excluídos."))
+    abort(404)
 
 
 # ---------- tabelas ----------
