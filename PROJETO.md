@@ -1,6 +1,6 @@
 # PROJETO — Gerador de Personagens (Jogadores)
 
-Versão 1.11 · 29/10/2026 · Status: no ar em gerador-personagens.onrender.com; interface em conversa "Salão da Forja" (P28); rascunho salvo no aparelho (P29); 21 antecedentes adicionais (P30); Descobridor de Campanha em /campanha com o anão da forja (P31, P32); revisões pendentes (seção 13)
+Versão 1.12 · 29/10/2026 · Status: no ar em gerador-personagens.onrender.com; interface em conversa "Salão da Forja" (P28); rascunho salvo no aparelho (P29); 21 antecedentes adicionais (P30); Descobridor de Campanha em /campanha com o anão da forja (P31, P32); revisões pendentes (seção 13)
 
 ---
 
@@ -419,6 +419,7 @@ IA, login de jogador, PDF, CA.
 | 24/10/2026 | 1.3 | P25: escolha manual na crônica (opções só em texto, respeitando o modo leve); dados de subclasse e divindade (o Continuar travava com Clérigo, Feiticeiro e Bruxo sorteados); aviso do que falta; corrigido o nome da etapa atual invisível na barra |
 | 24/10/2026 | 1.4 | P26: ficha sem nível; história final editável (a ficha enviada usa a versão editada); traços de personalidade escritos pelo jogador e campo de outros traços; resumo das escolhas com Alterar; resultados da crônica podem ser mudados depois de prontos |
 | 24/10/2026 | 1.5 | P27: e-mail removido do envio e da área do mestre; o jogador informa só o nome (a coluna antiga fica vazia no banco) |
+| 29/10/2026 | 1.12 | P34: Descobridor com Recomeçar no rodapé de todas as perguntas e da conferência (dois toques para confirmar, apaga o rascunho e volta ao nome) e botão Responder de novo na fala final, para outra pessoa usar o mesmo aparelho |
 | 29/10/2026 | 1.11 | P33: fala final ganha um conselho de preparo do anão para a aventura que mais combina com o jogador (tabela `DICAS` em `campanha.py`, 26 textos próprios, sem nome de aventura); ex.: selva com fome, sede, doença e morte sem volta |
 | 29/10/2026 | 1.10 | P32: Descobridor no estilo Salão da Forja: nome e uma pergunta por página (10 páginas), fala do anão escrita letra a letra, perguntas e opções reescritas na voz do anão (bruto, impaciente, implica com elfo), comentário dele ao confirmar cada escolha, página de conferência e fala final com o que o jogador gosta e o que deve temer, sem nome de aventura (texto próprio, `SABOR` em `campanha.py`); o mestre vê as 3 aventuras que mais combinam com cada pessoa; mesmos pesos e mesma pontuação |
 | 29/10/2026 | 1.9 | P31: Descobridor de Campanha no mesmo site: questionário de 10 perguntas em `/campanha` com envio direto ao mestre (nome + respostas, sem código); área `/mestre/campanha` com lista geral de envios, grupos nomeados pelo mestre e ranking de aderência por grupo (pesos 2 nas perguntas de duração e letalidade, vetos por maioria, filtro de nível 1); novas tabelas `campanha_grupo` e `campanha_envio` no banco das fichas; módulo `campanha.py` |

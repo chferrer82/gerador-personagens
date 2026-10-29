@@ -94,6 +94,7 @@ input[type=text]:focus{border-color:var(--ouro);outline:none;box-shadow:0 0 0 2p
 </main>
 <div class="rodape" id="rodape" hidden><div class="in">
   <button class="btn sec" id="voltar" type="button">Voltar</button>
+  <button class="linkbtn" id="recomecar" type="button">Recomeçar</button>
   <button class="btn" id="avancar" type="button">Avançar</button>
 </div></div>
 <script>
@@ -135,6 +136,23 @@ function escrever(alvo, texto, vel = 26){
 $("fala").addEventListener("click", () => escrevendo && escrevendo.acabar());
 document.addEventListener("keydown", e => { if ((e.key === " " || e.key === "Enter") && escrevendo && document.activeElement === document.body) { e.preventDefault(); escrevendo.acabar(); } });
 
+/* ---------- recomeçar ---------- */
+// Primeiro toque arma, o segundo confirma (some sozinho em 4 segundos).
+let recTimer = null;
+function armarRecomecar(armado){
+  clearTimeout(recTimer);
+  const b = $("recomecar"); b.dataset.armado = armado ? "1" : "";
+  b.textContent = armado ? "Apagar tudo? Toque de novo" : "Recomeçar";
+  b.style.color = armado ? "var(--erro)" : "";
+  if (armado) recTimer = setTimeout(() => armarRecomecar(false), 4000);
+}
+function recomecar(){
+  apagar();
+  Object.assign(S, {nome: "", resp: Array(N).fill(null), enviado: false, resumo: "", _novo: true});
+  ir(0);
+}
+$("recomecar").addEventListener("click", () => $("recomecar").dataset.armado ? recomecar() : armarRecomecar(true));
+
 /* ---------- navegação ---------- */
 const corpo = $("corpo"), fala = $("fala");
 let gen = 0; // cada troca de página invalida o que a página anterior ainda ia mostrar
@@ -152,7 +170,9 @@ function pedras(){
   $("contagem").textContent = S.pag >= 1 && S.pag <= N ? `${S.pag} de ${N}` : `${S.resp.filter(Boolean).length} de ${N}`;
 }
 function rodape(voltar, avancar, rotulo = "Avançar"){
-  $("rodape").hidden = !(voltar || avancar);
+  const meio = S.pag >= 1 && S.pag <= N + 1; // perguntas e conferência: sempre com Recomeçar
+  $("rodape").hidden = !(voltar || avancar || meio);
+  $("recomecar").hidden = !meio; armarRecomecar(false);
   $("voltar").hidden = !voltar; $("voltar").onclick = voltar || null;
   $("avancar").hidden = !avancar; $("avancar").textContent = rotulo;
   $("avancar").onclick = avancar ? avancar.fn : null;
@@ -288,9 +308,14 @@ async function paginaEnviado(){
   await escrever(fala, S.resumo || "Entregue. O mestre já tem suas respostas.");
   if (g !== gen) return;
   const ok = el("p", "pergunta surge", "O mestre já recebeu suas respostas. Pode fechar esta página.");
+  const novo = el("button", "btn surge", "Responder de novo"); novo.type = "button";
+  novo.onclick = recomecar;
   const mudar = el("button", "linkbtn surge", "Mudar minhas respostas"); mudar.type = "button";
   mudar.onclick = () => ir(N + 1);
-  corpo.append(ok, mudar);
+  const r = el("div", "row"); r.append(novo, mudar);
+  const dica = el("p", "pergunta surge", "Vai passar o celular para outra pessoa? Toque em Responder de novo: começa do zero, com outro nome.");
+  dica.style.cssText = "font-weight:500;color:var(--cinza);font-size:.95rem";
+  corpo.append(ok, r, dica);
 }
 
 ir(0);
