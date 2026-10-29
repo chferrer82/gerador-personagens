@@ -386,6 +386,11 @@ def excluir_grupo(db, gid):
     _exec(db, "DELETE FROM campanha_grupo WHERE id = ?", (gid,))
 
 
+def excluir_envio(db, eid):
+    """Apaga uma resposta, esteja ela nos envios ou dentro de um grupo."""
+    _exec(db, "DELETE FROM campanha_envio WHERE id = ?", (eid,))
+
+
 def excluir_envios(db, ids):
     ids = _ids(ids)
     marcas = ",".join("?" * len(ids))

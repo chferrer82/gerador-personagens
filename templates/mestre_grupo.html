@@ -10,6 +10,8 @@ h2{font:800 1.35rem/1.2 var(--serif);margin:0 0 8px}
 .membro:last-child{border-bottom:none}
 .membro summary{display:flex;gap:10px;align-items:center;cursor:pointer;list-style:none}
 .membro summary{flex-wrap:wrap}
+.membro form{display:flex;gap:6px}
+.voltar.apagar{color:#b5482a}
 .membro .perfil{flex-basis:100%;font-size:.93rem;line-height:1.4}
 .membro .mais{color:var(--brass);font-weight:700;font-size:.85rem;white-space:nowrap}
 .membro[open] .mais{display:none}
@@ -82,6 +84,8 @@ h2{font:800 1.35rem/1.2 var(--serif);margin:0 0 8px}
       <form method="post" action="/mestre/campanha/grupo/{{ g['id'] }}/devolver">
         <input type="hidden" name="envio" value="{{ m['id'] }}">
         <button class="voltar" type="submit" title="Devolver aos envios" aria-label="Devolver {{ m['nome'] }} aos envios">↩ envios</button>
+        <input type="hidden" name="volta" value="{{ g['id'] }}">
+        <button class="voltar apagar" type="submit" formaction="/mestre/campanha/envio/{{ m['id'] }}/apagar" onclick="return confirm('Apagar esta resposta? Não dá para desfazer.')" aria-label="Apagar a resposta de {{ m['nome'] }}">Apagar</button>
       </form>
       <span class="perfil">{{ perfil(m['respostas']) }} <span class="mais">Ver respostas</span></span>
     </summary>

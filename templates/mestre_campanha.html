@@ -10,6 +10,8 @@ h2{font:800 1.35rem/1.2 var(--serif);margin:0 0 4px}
 .envio .nm{font-weight:700;overflow-wrap:anywhere}
 .envio .qd{color:var(--muted);font-size:.85rem;font-variant-numeric:tabular-nums;white-space:nowrap}
 .envio code{grid-column:2/4;color:var(--muted);font-size:.8rem;letter-spacing:.1em}
+.apagar{font:700 .8rem var(--sans);border:1px solid var(--line);background:transparent;color:#b5482a;border-radius:8px;padding:2px 8px;margin-left:6px;cursor:pointer}
+.apagar:hover{border-color:#b5482a}
 .envio .perfil{grid-column:2/4;font-size:.92rem;line-height:1.4}
 .envio .top{grid-column:2/4;font-size:.85rem;color:var(--muted)}
 .envio:has(input:checked){background:var(--brass-soft)}
@@ -50,7 +52,8 @@ h2{font:800 1.35rem/1.2 var(--serif);margin:0 0 4px}
     <label class="envio">
       <input type="checkbox" name="envio" value="{{ e['id'] }}" id="e{{ e['id'] }}">
       <span class="nm">{{ e['nome'] }}</span>
-      <span class="qd">{{ e['criado_em']|data }}</span>
+      <span class="qd">{{ e['criado_em']|data }}
+        <button class="apagar" type="submit" formaction="/mestre/campanha/envio/{{ e['id'] }}/apagar" formnovalidate aria-label="Apagar a resposta de {{ e['nome'] }}">Apagar</button></span>
       <code>{{ e['respostas'] }}</code>
       <span class="perfil">{{ perfil(e['respostas']) }}</span>
       <span class="top">Combina com: {% for a in melhores(e['respostas']) %}{{ AV[a].n }}{{ '' if loop.last else ' · ' }}{% endfor %}</span>
@@ -97,8 +100,14 @@ if ($("todos")) {
   const dest = $("destino"), nome = $("nomegrupo");
   const ajustar = () => { const novo = dest.value === "novo"; nome.hidden = !novo; $("agrupar").textContent = novo ? "Gerar cálculo" : "Adicionar ao grupo"; };
   dest.addEventListener("change", ajustar); ajustar();
+  // Enter no nome do grupo gera o cálculo (sem isso, o navegador usaria o primeiro botão Apagar do formulário).
+  nome.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); $("agrupar").click(); } });
   $("fenv").addEventListener("submit", ev => {
     const n = caixas().filter(c => c.checked).length;
+    if (ev.submitter && ev.submitter.classList.contains("apagar")) {
+      if (!confirm("Apagar esta resposta? Não dá para desfazer.")) ev.preventDefault();
+      return;
+    }
     const acao = ev.submitter ? ev.submitter.value : "agrupar";
     if (!n) { ev.preventDefault(); alert("Marque pelo menos uma pessoa."); return; }
     if (acao === "excluir" && !confirm(`Excluir ${n} envio(s)? Isso não pode ser desfeito.`)) { ev.preventDefault(); return; }

@@ -154,6 +154,13 @@ def mestre_ficha(fid):
     return render_template("mestre_ficha.html", f=f)
 
 
+@app.post("/mestre/ficha/<int:fid>/apagar")
+def mestre_ficha_apagar(fid):
+    _exige_mestre(); _mesma_origem()
+    fichas.apagar(con_fichas(), fid)
+    return redirect(url_for("mestre_lista"))
+
+
 # ---------- descobridor de campanha ----------
 
 @app.get("/campanha")
@@ -212,6 +219,16 @@ def mestre_campanha_agrupar():
     except (campanha.Invalido, ValueError) as e:
         return redirect(url_for("mestre_campanha", erro=str(e)))
     return redirect(url_for("mestre_campanha_grupo", gid=gid))
+
+
+@app.post("/mestre/campanha/envio/<int:eid>/apagar")
+def mestre_campanha_apagar_envio(eid):
+    _exige_mestre(); _mesma_origem()
+    campanha.excluir_envio(con_fichas(), eid)
+    volta = request.form.get("volta", "")
+    if volta.isdigit():
+        return redirect(url_for("mestre_campanha_grupo", gid=int(volta), aviso="Resposta apagada."))
+    return redirect(url_for("mestre_campanha", aviso="Resposta apagada."))
 
 
 @app.get("/mestre/campanha/grupo/<int:gid>")
