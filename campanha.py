@@ -189,6 +189,36 @@ SABOR = {
     "DF": ("espionagem contra magos poderosos", "o lich que governa uma nação inteira"),
 }
 
+# ---------- conselho do anão para a aventura que mais combina (sem nome de aventura) ----------
+DICAS = {
+    "SWI": "Aprenda a nadar e a escalar pedra molhada. E trate dragão com respeito: nem todo dragão quer briga.",
+    "LMoP": "Goblin ataca em bando e de tocaia. Ande com tocha, olho na beira da estrada e alguém no grupo que saiba curar.",
+    "WDH": "Faça amigos, guarde segredos e arrume um teto. Na cidade, lábia, investigação e passo leve valem mais que machado.",
+    "DoIP": "Vila pequena, muito serviço e muita estrada. Leve roupa de frio. E se o dragão aparecer cedo, corra. Correr não é vergonha.",
+    "WBtW": "Cabeça fresca e boca esperta. Lá quase tudo se resolve conversando, enganando ou dando presente. E nunca prometa o que não pode cumprir.",
+    "CoS": "Leve prata, água benta e fé no que tiver. Desconfie de todo mundo. E nunca convide estranho para entrar na sua casa.",
+    "PS": "Abra a cabeça, que lá as regras mudam. Quem fala bem dura mais. E segure firme no que você acredita: lá isso pesa mais que armadura.",
+    "SKT": "Perna forte e uma boa montaria, que o caminho é comprido. Gigante bate como avalanche: tenha quem acerte de longe e não fique parado na frente.",
+    "ToA": "Encha os cantis e leve comida sobrando, que lá fome e sede matam antes do monstro. Tenha no grupo quem ache trilha e quem trate doença, porque na selva tudo pica, apodrece e contamina. Corpo resistente salva a vida. A morte está em todo canto, e quem cair lá não volta: nada de ressurreição. Fique forte antes de pisar no desconhecido.",
+    "SotDQ": "É guerra. Aprenda a lutar do lado de soldado, a decidir rápido e a não se apegar demais: nem todo mundo volta para casa.",
+    "KftGV": "Planeje antes de agir. Passo leve, mão boa para fechadura e lábia valem ouro. Plano bem feito evita briga.",
+    "GoS": "Aprenda a nadar e a lidar com barco. E investigue antes de puxar a arma: lá, quase nada é o que parece.",
+    "RotF": "Roupa de frio, fogueira e comida sobrando. O frio cansa e mata devagar. Tenha quem saiba sobreviver no gelo e nunca ande sozinho no escuro.",
+    "PaBTSO": "Proteja a cabeça. Vai ter coisa querendo entrar na sua mente, e lá embaixo força de vontade e juízo são a melhor armadura.",
+    "CotN": "Muito chão, muita viagem. Faça aliados pelo caminho e olhe bem para os rivais: nem todo concorrente é inimigo.",
+    "DiA": "No inferno tudo é negócio. Leia o contrato antes de assinar, não venda a alma e leve arma de prata ou encantada: diabo ri de aço comum.",
+    "QftIS": "Cada porta, um mundo e uma masmorra. Leve corda, vara comprida e paciência: armadilha mata mais herói que monstro.",
+    "JttRC": "Respeite o costume de cada povo. Quem escuta aprende o caminho; quem chega gritando volta sozinho.",
+    "ToD": "Culto de dragão não brinca. Vai ter luta atrás de luta desde o primeiro dia, sem tempo de descansar. Fogo, ácido, gelo, raio e veneno: proteja-se de tudo.",
+    "PotA": "Quatro cultos, quatro elementos. Fogo queima, água afoga, vento derruba, terra soterra. Tenha proteção para cada um e não entre no buraco errado cedo demais.",
+    "OotA": "Você vai começar preso e sem nada. Aprenda a brigar sem arma e a fugir no escuro. Enxergar no escuro lá vale mais que ouro.",
+    "CM": "Leia com cuidado e pense antes de virar a página. Mistério se resolve com a cabeça, não com o martelo.",
+    "LoX": "Vai sair da terra firme. Hmpf. Aprenda a lutar no convés e a respirar onde não tem ar.",
+    "WDMM": "Masmorra sem fim. Leve comida para semanas, corda, luz e coragem. Descanse quando puder, que lá embaixo ninguém espera você.",
+    "VEoR": "Lá só chega quem já é forte. Leve tudo que conquistou e esteja pronto para pular de mundo em mundo.",
+    "DF": "Disfarce, mentira e segredo. Aprenda a parecer outra pessoa e a nunca falar demais. Mago vermelho não perdoa.",
+}
+
 LETRAS = "ABCD"
 LONGAS = set(PERGUNTAS[0]["o"][2][1]) | set(PERGUNTAS[0]["o"][3][1])  # vetadas se a maioria quer sessões soltas
 LETAIS = {"ToA", "WDMM", "VEoR"}                                      # vetadas se a maioria quer risco baixo
@@ -421,6 +451,7 @@ def resumo_jogador(nome, respostas):
     perigos = _juntar([SABOR[a][1] for a in top])
     return (f"Então é isso, {nome}. Você gosta de {gostos}. "
             f"Tome cuidado com {perigos}. "
+            f"Conselho de anão, de graça, que é raro: {DICAS[top[0]][0].lower() + DICAS[top[0]][1:]} "
             "O resto é com o mestre. Agora saia da minha forja, que o fogo está apagando.")
 
 
