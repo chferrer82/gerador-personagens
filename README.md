@@ -9,7 +9,6 @@ O jogador monta o personagem em 6 etapas, gera a crônica e envia a ficha ao mes
 |---|---|
 | `app.py` | Servidor Flask: página do gerador, envio de fichas, área do mestre, API de tabelas |
 | `banco.py` | Esquema e leitura/gravação das tabelas do gerador (`dados.db`) |
-| `campanha.py` | Descobridor de Campanha: aventuras, perguntas, pontuação, envios e grupos (mesmo banco das fichas) |
 | `fichas.py` | Esquema, validação e busca das fichas enviadas: Postgres (Neon) em produção, SQLite no computador |
 | `gerenciar.py` | Linha de comando para criar, exportar, importar e conferir tabelas |
 | `dados.db` | Tabelas do gerador (31). Só leitura; vai no repositório |
@@ -45,10 +44,6 @@ No Windows (PowerShell): `$env:MESTRE_SENHA="escolha-uma-senha"; python app.py`.
 - `POST /api/fichas` — o jogador envia a ficha (nome do jogador e personagem). O mesmo jogador pode enviar várias fichas.
 - `/mestre` — lista das fichas com busca por jogador, personagem, raça ou classe (pede usuário e senha)
 - `/mestre/ficha/<id>` — ficha completa, com botão de copiar
-- `/campanha` — Descobridor de Campanha: o jogador escreve o nome, responde 10 perguntas e envia ao mestre
-- `POST /api/campanha` — grava as respostas (nome e 10 letras A–D). Se a pessoa enviar de novo antes de entrar num grupo, vale o último envio
-- `/mestre/campanha` — envios sem grupo e grupos. Marque pessoas e gere o cálculo: elas saem dos envios e entram no grupo nomeado
-- `/mestre/campanha/grupo/<id>` — ranking de aderência do grupo, respostas de cada pessoa, devolver aos envios, desfazer ou excluir o grupo
 - `/api/tabelas`, `/api/tabelas/<CHAVE>`, `/api/dados` — tabelas do gerador, só leitura
 - `/saude` — checagem para a hospedagem
 
