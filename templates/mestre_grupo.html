@@ -9,6 +9,10 @@ h2{font:800 1.35rem/1.2 var(--serif);margin:0 0 8px}
 .membro{border-bottom:1px solid var(--line);padding:8px 0}
 .membro:last-child{border-bottom:none}
 .membro summary{display:flex;gap:10px;align-items:center;cursor:pointer;list-style:none}
+.membro summary{flex-wrap:wrap}
+.membro .perfil{flex-basis:100%;font-size:.93rem;line-height:1.4}
+.membro .mais{color:var(--brass);font-weight:700;font-size:.85rem;white-space:nowrap}
+.membro[open] .mais{display:none}
 .membro summary::-webkit-details-marker{display:none}
 .membro .nm{font-weight:700;flex:1;min-width:0;overflow-wrap:anywhere}
 .membro code{color:var(--muted);font-size:.8rem;letter-spacing:.1em}
@@ -79,6 +83,7 @@ h2{font:800 1.35rem/1.2 var(--serif);margin:0 0 8px}
         <input type="hidden" name="envio" value="{{ m['id'] }}">
         <button class="voltar" type="submit" title="Devolver aos envios" aria-label="Devolver {{ m['nome'] }} aos envios">↩ envios</button>
       </form>
+      <span class="perfil">{{ perfil(m['respostas']) }} <span class="mais">Ver respostas</span></span>
     </summary>
     <p class="escolhas" style="list-style:none;padding:0">Sozinho, combina com: <b>{% for a in melhores(m['respostas']) %}{{ AV[a].n }}{{ '' if loop.last else ' · ' }}{% endfor %}</b></p>
     <ol class="escolhas">
