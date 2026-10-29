@@ -13,6 +13,9 @@
   <button class="btn" type="button" id="copiar">Copiar ficha</button>
   <span class="ok" id="copiado" aria-live="polite"></span>
 </div>
+<form method="post" action="/mestre/ficha/{{ f['id'] }}/apagar" onsubmit="return confirm('Apagar esta ficha? Não dá para desfazer.')" style="margin-top:24px">
+  <button class="btn sec" type="submit" style="color:#b5482a;border-color:#b5482a">Apagar ficha</button>
+</form>
 <script>
 document.getElementById('copiar').onclick=function(){
   var t=document.getElementById('ficha').textContent, msg=document.getElementById('copiado');

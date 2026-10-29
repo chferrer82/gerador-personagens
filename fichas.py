@@ -147,5 +147,10 @@ def total(db):
     return row["n"]
 
 
+def apagar(db, fid):
+    db.con.execute(db._sql("DELETE FROM ficha WHERE id = ?"), (fid,))
+    db.con.commit()
+
+
 def obter(db, fid):
     return db.um("SELECT * FROM ficha WHERE id = ?", (fid,))

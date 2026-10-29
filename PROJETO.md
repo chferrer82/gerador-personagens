@@ -1,6 +1,6 @@
 # PROJETO — Gerador de Personagens (Jogadores)
 
-Versão 1.13 · 29/10/2026 · Status: no ar em gerador-personagens.onrender.com; interface em conversa "Salão da Forja" (P28); rascunho salvo no aparelho (P29); 21 antecedentes adicionais (P30); Descobridor de Campanha em /campanha com o anão da forja (P31, P32); revisões pendentes (seção 13)
+Versão 1.14 · 29/10/2026 · Status: no ar em gerador-personagens.onrender.com; interface em conversa "Salão da Forja" (P28); rascunho salvo no aparelho (P29); 21 antecedentes adicionais (P30); Descobridor de Campanha em /campanha com o anão da forja (P31, P32); revisões pendentes (seção 13)
 
 ---
 
@@ -419,6 +419,7 @@ IA, login de jogador, PDF, CA.
 | 24/10/2026 | 1.3 | P25: escolha manual na crônica (opções só em texto, respeitando o modo leve); dados de subclasse e divindade (o Continuar travava com Clérigo, Feiticeiro e Bruxo sorteados); aviso do que falta; corrigido o nome da etapa atual invisível na barra |
 | 24/10/2026 | 1.4 | P26: ficha sem nível; história final editável (a ficha enviada usa a versão editada); traços de personalidade escritos pelo jogador e campo de outros traços; resumo das escolhas com Alterar; resultados da crônica podem ser mudados depois de prontos |
 | 24/10/2026 | 1.5 | P27: e-mail removido do envio e da área do mestre; o jogador informa só o nome (a coluna antiga fica vazia no banco) |
+| 29/10/2026 | 1.14 | P36: o mestre pode apagar uma resposta do Descobridor (botão Apagar em cada envio e em cada pessoa do grupo) e uma ficha (botão Apagar ficha na página da ficha), sempre com confirmação |
 | 29/10/2026 | 1.13 | P35: área do mestre mostra um perfil curto de cada jogador montado das 10 respostas (experiência, preferência de jogo, relação com a morte, duração, clima, estrutura, ambiente, vilões, moral, cenário), nos Envios e em cada pessoa do grupo |
 | 29/10/2026 | 1.12 | P34: Descobridor com Recomeçar no rodapé de todas as perguntas e da conferência (dois toques para confirmar, apaga o rascunho e volta ao nome) e botão Responder de novo na fala final, para outra pessoa usar o mesmo aparelho |
 | 29/10/2026 | 1.11 | P33: fala final ganha um conselho de preparo do anão para a aventura que mais combina com o jogador (tabela `DICAS` em `campanha.py`, 26 textos próprios, sem nome de aventura); ex.: selva com fome, sede, doença e morte sem volta |
