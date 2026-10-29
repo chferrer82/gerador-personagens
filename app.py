@@ -190,7 +190,7 @@ def mestre_campanha():
     db = con_fichas()
     return render_template("mestre_campanha.html", envios=campanha.envios_soltos(db),
                            grupos=campanha.grupos(db), aviso=request.args.get("aviso", ""),
-                           melhores=campanha.melhores, AV=campanha.AVENTURAS,
+                           melhores=campanha.melhores, AV=campanha.AVENTURAS, perfil=campanha.perfil,
                            erro=request.args.get("erro", ""))
 
 
@@ -226,7 +226,7 @@ def mestre_campanha_grupo(gid):
     res = campanha.calcular([m["respostas"] for m in membros], nivel1=nivel1)
     return render_template("mestre_grupo.html", g=g_, membros=membros, res=res, nivel1=nivel1,
                            descrever=campanha.descrever, aviso=request.args.get("aviso", ""),
-                           melhores=campanha.melhores, AV=campanha.AVENTURAS)
+                           melhores=campanha.melhores, AV=campanha.AVENTURAS, perfil=campanha.perfil)
 
 
 @app.post("/mestre/campanha/grupo/<int:gid>/<acao>")

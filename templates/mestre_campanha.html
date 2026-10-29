@@ -10,6 +10,7 @@ h2{font:800 1.35rem/1.2 var(--serif);margin:0 0 4px}
 .envio .nm{font-weight:700;overflow-wrap:anywhere}
 .envio .qd{color:var(--muted);font-size:.85rem;font-variant-numeric:tabular-nums;white-space:nowrap}
 .envio code{grid-column:2/4;color:var(--muted);font-size:.8rem;letter-spacing:.1em}
+.envio .perfil{grid-column:2/4;font-size:.92rem;line-height:1.4}
 .envio .top{grid-column:2/4;font-size:.85rem;color:var(--muted)}
 .envio:has(input:checked){background:var(--brass-soft)}
 .campos{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px}
@@ -51,6 +52,7 @@ h2{font:800 1.35rem/1.2 var(--serif);margin:0 0 4px}
       <span class="nm">{{ e['nome'] }}</span>
       <span class="qd">{{ e['criado_em']|data }}</span>
       <code>{{ e['respostas'] }}</code>
+      <span class="perfil">{{ perfil(e['respostas']) }}</span>
       <span class="top">Combina com: {% for a in melhores(e['respostas']) %}{{ AV[a].n }}{{ '' if loop.last else ' · ' }}{% endfor %}</span>
     </label>
     {% endfor %}

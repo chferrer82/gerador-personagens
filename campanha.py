@@ -458,3 +458,28 @@ def resumo_jogador(nome, respostas):
 def descrever(respostas):
     """Lista legível das escolhas de uma pessoa: [(pergunta, letra, opção)]."""
     return [(PERGUNTAS[i]["t"], c, PERGUNTAS[i]["o"][LETRAS.index(c)][0]) for i, c in enumerate(respostas)]
+
+
+# ---------- perfil do jogador para o mestre ----------
+# Um trecho por resposta (índice da pergunta → trecho para A, B, C, D).
+_PERFIL = {
+    8: ["Primeira vez no D&D", "Já jogou um pouco", "Veterano, quer desafio", "Muito experiente, gosta de alto nível"],
+    2: ["Prefere combate", "Prefere exploração", "Prefere interação social e intriga", "Prefere investigação"],
+    4: ["quer o personagem vivo até o fim", "aceita risco moderado", "não tem medo da morte", "quer letalidade brutal"],
+    0: ["sessões soltas", "campanha curta (3 a 4 meses)", "campanha de cerca de um ano", "campanha de anos"],
+    1: ["clima heroico", "clima sombrio e de terror", "clima leve e cômico", "clima exótico e de mistério"],
+    3: ["com história linear", "em mundo aberto", "com uma cidade-base", "numa grande masmorra"],
+    5: ["cidades", "selva, mar e ilhas", "gelo e montanhas", "subterrâneo e outros planos"],
+    6: ["dragões", "demônios e diabos", "mortos-vivos e necromantes", "cultos e aberrações"],
+    7: ["bem contra mal, sem ambiguidade", "dilemas pesados", "resolver sem violência", "crime e espionagem"],
+    9: ["Forgotten Realms", "terror gótico ou guerra épica fora dos Reinos", "viagem entre planos", "tanto faz"],
+}
+
+
+def perfil(respostas):
+    """Resumo curto do jogador para o mestre, montado das 10 respostas."""
+    t = {i: _PERFIL[i][LETRAS.index(c)] for i, c in enumerate(respostas)}
+    return (f"{t[8]}. {t[2]} e {t[4]}. "
+            f"Quer {t[0]}, {t[1]}, {t[3]}. "
+            f"Ambiente: {t[5]}. Vilões: {t[6]}. Moral: {t[7]}. Cenário: {t[9]}.")
+
