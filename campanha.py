@@ -43,59 +43,151 @@ AVENTURAS = {
 }
 
 # ---------- perguntas ----------
-# Cada opção: (texto, aventuras que ganham pontos). w = peso da pergunta.
+# Cada pergunta: t = texto neutro (área do mestre), f = fala do anão, p = a pergunta curta, w = peso.
+# Cada opção: (texto, aventuras que ganham pontos, comentário do anão ao confirmar).
 PERGUNTAS = [
-    {"t": "Quanto tempo vocês querem jogar esta campanha?", "w": 2, "o": [
-        ("Algumas sessões soltas, sem compromisso", ["KftGV", "CM", "JttRC", "QftIS", "SWI"]),
-        ("Uns 3 a 4 meses", ["LMoP", "WDH", "DoIP", "LoX"]),
-        ("Cerca de um ano", ["ToA", "CoS", "WBtW", "SotDQ", "RotF", "SKT", "PaBTSO", "GoS", "PS", "CotN"]),
-        ("Uma epopeia de anos", ["DiA", "ToD", "PotA", "OotA", "WDMM", "VEoR", "DF"])]},
-    {"t": "Que clima vocês querem na mesa?", "w": 1, "o": [
-        ("Heroico clássico: salvar a vila, derrotar o vilão", ["LMoP", "DoIP", "SWI", "ToD", "SKT", "SotDQ"]),
-        ("Sombrio, terror, desespero", ["CoS", "RotF", "PaBTSO", "OotA", "DiA"]),
-        ("Leve, cômico, caprichoso", ["WBtW", "LoX", "WDH", "PS"]),
-        ("Pulp, aventura exótica, mistério de outros mundos", ["ToA", "GoS", "CotN", "JttRC", "QftIS"])]},
-    {"t": "Qual parte do jogo você mais curte?", "w": 1, "o": [
-        ("Combate tático", ["WDMM", "ToD", "DiA", "SotDQ", "VEoR"]),
-        ("Exploração de territórios e descobertas", ["ToA", "SKT", "RotF", "OotA", "PotA"]),
-        ("Interação social, intriga e política", ["WDH", "CoS", "WBtW", "DF", "PS"]),
-        ("Investigação e resolução de mistérios", ["CM", "GoS", "RotF", "PaBTSO", "KftGV"])]},
-    {"t": "Como você prefere que a história ande?", "w": 1, "o": [
-        ("Linear, com objetivo claro a cada capítulo", ["ToD", "SotDQ", "LoX", "VEoR", "DiA"]),
-        ("Mundo aberto: vamos para onde quisermos", ["ToA", "SKT", "PotA", "RotF", "DoIP"]),
-        ("Uma cidade-base para a qual sempre voltamos", ["WDH", "LMoP", "GoS", "DoIP", "PS"]),
-        ("Masmorra gigante, andar por andar", ["WDMM", "ToA", "PotA", "OotA"])]},
-    {"t": "Quanto risco de morte você aceita?", "w": 2, "o": [
-        ("Baixo: quero meu personagem até o fim", ["WBtW", "SWI", "WDH", "LoX", "CM"]),
-        ("Moderado: lutas difíceis, mas justas", ["LMoP", "DoIP", "SKT", "GoS", "KftGV", "SotDQ"]),
-        ("Alto: mortes acontecem e fazem parte", ["CoS", "OotA", "RotF", "DiA", "PaBTSO"]),
-        ("Brutal: sobreviver já é a vitória", ["ToA", "WDMM", "ToD", "VEoR"])]},
-    {"t": "Onde você quer passar a maior parte do tempo?", "w": 1, "o": [
-        ("Cidades grandes, ruas e tavernas", ["WDH", "DiA", "DF", "PS"]),
-        ("Selvas, mares, costas e ilhas", ["ToA", "GoS", "SWI", "CotN"]),
-        ("Gelo, montanhas e ermos", ["RotF", "SKT", "DoIP", "LMoP"]),
-        ("Subterrâneo ou outros planos", ["OotA", "WDMM", "LoX", "VEoR", "QftIS", "JttRC", "WBtW"])]},
-    {"t": "Que tipo de vilão você quer enfrentar?", "w": 1, "o": [
-        ("Dragões", ["ToD", "DoIP", "SotDQ", "SWI"]),
-        ("Demônios e diabos", ["DiA", "OotA", "PS"]),
-        ("Mortos-vivos, liches e necromantes", ["ToA", "CoS", "DF", "VEoR"]),
-        ("Cultos, aberrações e coisas incompreensíveis", ["PotA", "PaBTSO", "RotF", "CotN"])]},
-    {"t": "Que tipo de dilema moral você quer?", "w": 1, "o": [
-        ("Bem contra mal, sem ambiguidade", ["LMoP", "ToD", "SotDQ", "SKT"]),
-        ("Escolhas cinzentas e consequências pesadas", ["DiA", "CoS", "RotF", "CotN"]),
-        ("Conto de fadas: dá para resolver sem matar ninguém", ["WBtW", "SWI", "CM"]),
-        ("Crime e espionagem: os fins justificam os meios", ["KftGV", "WDH", "DF", "GoS"])]},
-    {"t": "Qual a sua experiência com D&D?", "w": 1, "o": [
-        ("Primeira vez jogando", ["SWI", "LMoP", "DoIP", "WDH"]),
-        ("Já joguei um pouco", ["SKT", "GoS", "WBtW", "RotF", "KftGV", "CM"]),
-        ("Veterano querendo desafio", ["ToA", "CoS", "OotA", "DiA", "PaBTSO"]),
-        ("Muito experiente, gosto de alto nível", ["WDMM", "VEoR", "DF", "QftIS"])]},
-    {"t": "Que mundo você quer?", "w": 1, "o": [
-        ("Forgotten Realms clássico", ["LMoP", "SKT", "ToA", "PotA", "RotF", "DiA", "WDH"]),
-        ("Horror gótico ou guerra épica em mundo próprio", ["CoS", "SotDQ", "GoS"]),
-        ("Viagens entre mundos e planos", ["PS", "LoX", "JttRC", "QftIS", "VEoR", "CotN"]),
-        ("Tanto faz, o importante é a aventura", ["KftGV", "CM", "WBtW", "ToD", "OotA"])]},
+    {"t": "Quanto tempo quer jogar esta campanha?", "w": 2,
+     "f": "Primeiro: quanto tempo você aguenta na estrada? Tem gente que cansa antes da primeira curva. Elfo nem sai de casa, fica admirando a curva.",
+     "p": "Quanto tempo vocês querem jogar?", "o": [
+        ("Umas sessões soltas, sem compromisso", ["KftGV", "CM", "JttRC", "QftIS", "SWI"],
+         "Rápido e sem compromisso. Igual promessa de elfo. Tá, anotado."),
+        ("Uns 3 a 4 meses", ["LMoP", "WDH", "DoIP", "LoX"],
+         "Três ou quatro meses. O tempo de forjar uma boa lâmina. Gostei."),
+        ("Mais ou menos um ano", ["ToA", "CoS", "WBtW", "SotDQ", "RotF", "SKT", "PaBTSO", "GoS", "PS", "CotN"],
+         "Um ano inteiro. Agora sim estamos falando de trabalho de verdade."),
+        ("Anos, até a barba arrastar no chão", ["DiA", "ToD", "PotA", "OotA", "WDMM", "VEoR", "DF"],
+         "Anos! Isso é teimosia de anão. Respeito. Muito respeito.")]},
+    {"t": "Que clima quer na mesa?", "w": 1,
+     "f": "E o clima da coisa? Quer sair cantando vitória na taverna ou sair da masmorra tremendo igual vara verde?",
+     "p": "Que clima você quer na mesa?", "o": [
+        ("Heroico: salvar a vila e derrubar o vilão", ["LMoP", "DoIP", "SWI", "ToD", "SKT", "SotDQ"],
+         "Heroico. Machado na mão, vilão no chão, cerveja depois. Do jeito certo."),
+        ("Sombrio, terror e desespero", ["CoS", "RotF", "PaBTSO", "OotA", "DiA"],
+         "Escuridão e medo, é? Tem estômago. Ou não tem juízo. Veremos."),
+        ("Leve, cômico, meio bobo", ["WBtW", "LoX", "WDH", "PS"],
+         "Bobagem e risada. Hmpf. Pelo menos não é poesia élfica."),
+        ("Exótico, cheio de mistério", ["ToA", "GoS", "CotN", "JttRC", "QftIS"],
+         "Terra estranha e mistério. Leve corda. Sempre leve corda.")]},
+    {"t": "Que parte do jogo mais curte?", "w": 1,
+     "f": "O que você mais gosta de fazer numa aventura? E não me venha com cantar. Isso é coisa de bardo élfico.",
+     "p": "Qual parte do jogo você mais curte?", "o": [
+        ("Briga: combate pensado, golpe a golpe", ["WDMM", "ToD", "DiA", "SotDQ", "VEoR"],
+         "Briga! Finalmente alguém com bom senso nesta forja."),
+        ("Explorar terras e achar coisas", ["ToA", "SKT", "RotF", "OotA", "PotA"],
+         "Explorador. Pés firmes e olhos abertos. Serve."),
+        ("Conversar, negociar e tramar", ["WDH", "CoS", "WBtW", "DF", "PS"],
+         "Lábia. Hmpf. Fala bonito igual elfo. Só não me engane."),
+        ("Investigar e resolver mistérios", ["CM", "GoS", "RotF", "PaBTSO", "KftGV"],
+         "Cabeça pensante. Bom. Alguém precisa ler as runas enquanto eu bato.")]},
+    {"t": "Como quer que a história ande?", "w": 1,
+     "f": "E como você quer que a história ande? Tem gente que gosta de trilha marcada. Tem gente que se perde no mato. Adivinha quem.",
+     "p": "Como a história deve andar?", "o": [
+        ("Em linha reta: cada capítulo, um objetivo", ["ToD", "SotDQ", "LoX", "VEoR", "DiA"],
+         "Linha reta. Sem rodeio. Como um bom túnel de mina."),
+        ("Mundo aberto: vou para onde eu quiser", ["ToA", "SKT", "PotA", "RotF", "DoIP"],
+         "Pra onde quiser, é? Só não venha chorar quando se perder."),
+        ("Uma cidade-base para voltar sempre", ["WDH", "LMoP", "GoS", "DoIP", "PS"],
+         "Uma casa pra voltar. Todo anão entende isso. Lar é lar."),
+        ("Uma masmorra enorme, andar por andar", ["WDMM", "ToA", "PotA", "OotA"],
+         "Descer, descer e descer. Agora você está falando a minha língua.")]},
+    {"t": "Quanto risco de morte aceita?", "w": 2,
+     "f": "Agora a pergunta séria. Larga essa caneca. Quanto você aceita morrer?",
+     "p": "Quanto risco de morte você aceita?", "o": [
+        ("Pouco: quero meu personagem até o fim", ["WBtW", "SWI", "WDH", "LoX", "CM"],
+         "Quer viver bastante. Esperto. Não é covardia, é bom senso. Quase sempre."),
+        ("Lutas duras, mas justas", ["LMoP", "DoIP", "SKT", "GoS", "KftGV", "SotDQ"],
+         "Duro mas justo. Igual martelo bem calibrado. Anotado."),
+        ("Morte acontece e faz parte", ["CoS", "OotA", "RotF", "DiA", "PaBTSO"],
+         "Morte faz parte. Fala como anão velho. Gostei de você."),
+        ("Brutal: sobreviver já é vitória", ["ToA", "WDMM", "ToD", "VEoR"],
+         "Brutal! Já vou deixando a pá separada. Pra cova, não pra mina.")]},
+    {"t": "Onde quer passar a maior parte do tempo?", "w": 1,
+     "f": "Onde você quer gastar a sola das botas? E não diga floresta. Floresta é cheia de elfo.",
+     "p": "Onde você quer passar a maior parte do tempo?", "o": [
+        ("Cidade grande: ruas, becos e tavernas", ["WDH", "DiA", "DF", "PS"],
+         "Cidade grande. Barulho, ladrão e cerveja cara. Fique de olho na bolsa."),
+        ("Selva, mar, costa e ilhas", ["ToA", "GoS", "SWI", "CotN"],
+         "Mar e selva. Anão afunda e sua dentro da armadura. Mas o problema é seu."),
+        ("Gelo, montanha e ermo", ["RotF", "SKT", "DoIP", "LMoP"],
+         "Montanha! Pedra boa e vento frio na cara. Isso sim é lugar decente."),
+        ("Debaixo da terra ou em outros planos", ["OotA", "WDMM", "LoX", "VEoR", "QftIS", "JttRC", "WBtW"],
+         "Debaixo da terra me agrada. Outros planos, nem tanto. Vá com cuidado.")]},
+    {"t": "Que tipo de vilão quer enfrentar?", "w": 1,
+     "f": "Quem você quer ver estendido no chão no fim da história? Além de elfo, claro. Isso é sonho de todo anão.",
+     "p": "Que tipo de vilão você quer enfrentar?", "o": [
+        ("Dragões", ["ToD", "DoIP", "SotDQ", "SWI"],
+         "Dragão. Ladrão de ouro com asas. Tenho contas a acertar com essa raça."),
+        ("Demônios e diabos", ["DiA", "OotA", "PS"],
+         "Demônio e diabo. Fedem a enxofre e mentem mais que elfo. Quase."),
+        ("Mortos-vivos, liches e necromantes", ["ToA", "CoS", "DF", "VEoR"],
+         "Morto que não fica morto. Martelo resolve. Martelo sempre resolve."),
+        ("Cultos e coisas que não têm nome", ["PotA", "PaBTSO", "RotF", "CotN"],
+         "Coisa sem nome. Essas são as piores. Durma com o machado do lado.")]},
+    {"t": "Que tipo de dilema moral quer?", "w": 1,
+     "f": "E a consciência, como fica? Quer saber logo quem é o vilão, ou prefere quebrar a cabeça sem saber quem merece o machado?",
+     "p": "Que tipo de dilema você quer?", "o": [
+        ("Bem contra mal, sem enrolação", ["LMoP", "ToD", "SotDQ", "SKT"],
+         "Bem contra mal. Simples. Honesto. Do jeito que o mundo devia ser."),
+        ("Escolhas difíceis com consequência pesada", ["DiA", "CoS", "RotF", "CotN"],
+         "Escolha difícil. Vai pesar mais que bigorna nas costas. Avisado."),
+        ("Conto de fadas: dá para resolver sem matar", ["WBtW", "SWI", "CM"],
+         "Sem matar ninguém? Hmpf. Coisa de fada. Ou de elfo. Mesma laia."),
+        ("Crime e espionagem: o fim justifica os meios", ["KftGV", "WDH", "DF", "GoS"],
+         "Crime e trapaça. Não conte pra mim o que você roubou. Não quero saber.")]},
+    {"t": "Qual a sua experiência com D&D?", "w": 1,
+     "f": "Diga a verdade. Quantas vezes você já sentou numa mesa dessas? Eu sei quando estão mentindo. Já negociei com elfo.",
+     "p": "Qual a sua experiência com D&D?", "o": [
+        ("É a minha primeira vez", ["SWI", "LMoP", "DoIP", "WDH"],
+         "Primeira vez. Bom. Ninguém nasce sabendo bater ferro."),
+        ("Já joguei um pouco", ["SKT", "GoS", "WBtW", "RotF", "KftGV", "CM"],
+         "Já tem calo na mão. Pouco, mas tem. Serve."),
+        ("Sou veterano e quero desafio", ["ToA", "CoS", "OotA", "DiA", "PaBTSO"],
+         "Veterano querendo apanhar. Vou lembrar disso quando você chorar."),
+        ("Muito experiente, gosto de alto nível", ["WDMM", "VEoR", "DF", "QftIS"],
+         "Experiente de verdade. Tá bom, tá bom. Mostre o que sabe.")]},
+    {"t": "Que mundo quer?", "w": 1,
+     "f": "Última, e aí eu largo do seu pé. Em que mundo você quer pisar?",
+     "p": "Em que mundo você quer jogar?", "o": [
+        ("Os Reinos Esquecidos de sempre", ["LMoP", "SKT", "ToA", "PotA", "RotF", "DiA", "WDH"],
+         "Os Reinos. Terra conhecida, com montanha boa e anão de verdade. Ótimo."),
+        ("Terror gótico ou guerra épica em outro mundo", ["CoS", "SotDQ", "GoS"],
+         "Outro mundo, é? Só não traga de lá nada que morda."),
+        ("Viajar entre mundos e planos", ["PS", "LoX", "JttRC", "QftIS", "VEoR", "CotN"],
+         "Pular de mundo em mundo. Hmpf. Anão gosta de chão firme. Vá você."),
+        ("Tanto faz, me dê a aventura", ["KftGV", "CM", "WBtW", "ToD", "OotA"],
+         "Tanto faz! Desse jeito que se fala. Pegue o machado e vamos.")]},
 ]
+
+# ---------- resumo para o jogador (sem nome de aventura) ----------
+# g = do que a pessoa gosta; p = um perigo que ela vai encontrar. Texto próprio, sem nomes da aventura.
+SABOR = {
+    "SWI": ("explorar uma ilha cheia de naufrágios", "o que dorme debaixo das pedras da ilha"),
+    "LMoP": ("caçar uma mina perdida", "a emboscada que espera na estrada"),
+    "WDH": ("caça ao tesouro numa cidade grande", "as facções que sorriem na frente e apunhalam pelas costas"),
+    "DoIP": ("defender uma vila de fronteira", "o dragão branco que caça nas montanhas"),
+    "WBtW": ("um carnaval mágico e terras de fadas", "os acordos doces que cobram caro"),
+    "CoS": ("terror gótico numa terra presa na névoa", "o senhor do castelo que nunca envelhece"),
+    "PS": ("viagens entre os planos", "as portas que levam para onde você não quer ir"),
+    "SKT": ("uma jornada pelo norte atrás de gigantes", "gigantes brigando entre si e pisando em quem estiver no meio"),
+    "ToA": ("selva, ruínas e tumbas cheias de armadilhas", "a maldição que não deixa morto voltar"),
+    "SotDQ": ("guerra e cavalaria", "o exército de dragões marchando sobre as cidades"),
+    "KftGV": ("assaltos planejados nos mínimos detalhes", "cofres que mordem e guardas que não dormem"),
+    "GoS": ("aventura marítima numa vila de pescadores", "a casa assombrada na colina e o que sobe do mar"),
+    "RotF": ("sobreviver no frio eterno", "a noite que não acaba"),
+    "PaBTSO": ("uma mina perdida que leva a horrores debaixo da terra", "os sussurros que entram na sua cabeça"),
+    "CotN": ("uma corrida por ruínas antigas", "o que dorme no fundo do abismo e chama em sonho"),
+    "DiA": ("uma descida aos infernos", "os pactos com diabos e a cidade que foi engolida"),
+    "QftIS": ("masmorras clássicas de outros tempos", "as armadilhas que já mataram muito herói"),
+    "JttRC": ("viagens a terras distantes, cada uma com sua história", "os segredos de povos que você não conhece"),
+    "ToD": ("uma guerra contra um culto de dragões", "a rainha de cinco cabeças tentando voltar"),
+    "PotA": ("cultos escondidos em vales e cavernas", "terra, fogo, água e ar querendo engolir o mundo"),
+    "OotA": ("fugir pela escuridão debaixo da terra", "os demônios soltos no escuro e as correntes dos elfos negros"),
+    "CM": ("mistérios escondidos em livros antigos", "os livros que mordem quem lê"),
+    "LoX": ("aventura entre as estrelas num navio que voa", "a luz que quer apagar um mundo inteiro"),
+    "WDMM": ("uma masmorra sem fim, andar por andar", "o mago louco que manda em tudo lá embaixo"),
+    "VEoR": ("salvar o multiverso inteiro", "o senhor dos segredos querendo reescrever a realidade"),
+    "DF": ("espionagem contra magos poderosos", "o lich que governa uma nação inteira"),
+}
 
 LETRAS = "ABCD"
 LONGAS = set(PERGUNTAS[0]["o"][2][1]) | set(PERGUNTAS[0]["o"][3][1])  # vetadas se a maioria quer sessões soltas
@@ -302,8 +394,34 @@ def calcular(respostas, nivel1=False):
 
 
 def perguntas_publicas():
-    """Só o texto das perguntas e opções, para a página do jogador."""
-    return [{"t": q["t"], "w": q["w"], "o": [o[0] for o in q["o"]]} for q in PERGUNTAS]
+    """Falas, perguntas, opções e comentários, para a página do jogador (sem as aventuras)."""
+    return [{"f": q["f"], "p": q["p"], "w": q["w"], "o": [{"t": o[0], "c": o[2]} for o in q["o"]]}
+            for q in PERGUNTAS]
+
+
+def _juntar(itens):
+    return itens[0] if len(itens) == 1 else ", ".join(itens[:-1]) + " ou " + itens[-1]
+
+
+def melhores(respostas, n=3):
+    """As n aventuras com mais pontos para uma pessoa (sem vetos, que valem só para grupos)."""
+    pts = {k: 0 for k in AVENTURAS}
+    for qi, letra in enumerate(respostas):
+        q = PERGUNTAS[qi]
+        for aid in q["o"][LETRAS.index(letra)][1]:
+            pts[aid] += q["w"]
+    ordem = sorted(AVENTURAS, key=lambda k: (-pts[k], AVENTURAS[k]["n"]))
+    return ordem[:n]
+
+
+def resumo_jogador(nome, respostas):
+    """Fala final do anão: do que a pessoa gosta e o que deve temer, sem nomear aventura."""
+    top = melhores(respostas)
+    gostos = _juntar([SABOR[a][0] for a in top])
+    perigos = _juntar([SABOR[a][1] for a in top])
+    return (f"Então é isso, {nome}. Você gosta de {gostos}. "
+            f"Tome cuidado com {perigos}. "
+            "O resto é com o mestre. Agora saia da minha forja, que o fogo está apagando.")
 
 
 def descrever(respostas):
