@@ -8,10 +8,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@600;800&family=Alegreya:ital,wght@1,500&family=Alegreya+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-/* Mesmo salão da forja do gerador: pedra escura, brasa e ouro. Uma pergunta por bloco, enviar no fim. */
+/* Salão da Forja, como o gerador: uma pergunta por página, a fala do anão escrita na hora. */
 :root{
   --pedra:#17120e; --pedra2:#211a14; --pedra3:#2d241c; --veio:#4a3b2e;
-  --tinta:#f1e7d6; --cinza:#b9a993; --brasa:#ff7b2e; --ouro:#e3b34c; --erro:#ff9b8a; --ok:#9fd39a;
+  --tinta:#f1e7d6; --cinza:#b9a993; --brasa:#ff7b2e; --forja:#c4441a;
+  --ouro:#e3b34c; --aco:#86aecb; --erro:#ff9b8a;
   --display:"Grenze Gotisch","Palatino Linotype",Georgia,serif;
   --voz:"Alegreya",Georgia,serif;
   --texto:"Alegreya Sans","Segoe UI",system-ui,sans-serif;
@@ -19,119 +20,280 @@
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--pedra);color:var(--tinta);font:17px/1.55 var(--texto);
+body{margin:0;min-height:100vh;background:var(--pedra);color:var(--tinta);font:17px/1.55 var(--texto);
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
-  background-image:radial-gradient(ellipse 120% 60% at 50% 115%,rgba(196,68,26,.3),transparent 60%);background-attachment:fixed}
-.cena{max-width:640px;margin:0 auto;padding-block:28px 64px;display:flex;flex-direction:column;gap:18px}
+  background-image:
+    radial-gradient(ellipse 120% 60% at 50% 115%,rgba(196,68,26,.35),transparent 60%),
+    radial-gradient(ellipse 80% 50% at 15% 0%,rgba(134,174,203,.07),transparent 60%),
+    repeating-linear-gradient(115deg,rgba(255,255,255,.012) 0 2px,transparent 2px 9px);
+  background-attachment:fixed}
+.cena{max-width:640px;margin:0 auto;padding-block:20px 130px;display:flex;flex-direction:column;gap:18px}
 :focus-visible{outline:3px solid var(--ouro);outline-offset:3px}
-.runa{font:800 .78rem/1 var(--texto);letter-spacing:.3em;text-transform:uppercase;color:var(--ouro);margin:0}
-h1{font:800 clamp(2rem,8vw,2.8rem)/1.05 var(--display);margin:4px 0 6px;color:var(--ouro);text-wrap:balance}
-.voz{font:500 italic 1.1rem/1.45 var(--voz);color:var(--cinza);margin:0;max-width:60ch}
-.bloco{background:var(--pedra2);border:1px solid var(--veio);border-radius:14px;padding:16px;margin:0;min-width:0}
-label.lbl{display:block;font:700 .78rem var(--texto);letter-spacing:.12em;text-transform:uppercase;color:var(--cinza);margin-bottom:8px}
-input[type=text]{width:100%;font:1.05rem var(--texto);color:var(--tinta);background:var(--pedra);border:1px solid var(--veio);border-radius:10px;padding:11px 12px}
-legend{float:left;width:100%;padding:0;margin-bottom:10px;display:flex;gap:10px;align-items:baseline;font-weight:700;font-size:1.05rem;line-height:1.35}
-legend .n{font:800 1.4rem/1 var(--display);color:var(--brasa);min-width:1.4em}
-.peso{font:700 .7rem var(--texto);letter-spacing:.08em;text-transform:uppercase;color:var(--pedra);background:var(--ouro);border-radius:99px;padding:2px 8px;white-space:nowrap}
-.opcoes{clear:both;display:grid;gap:8px}
-.op{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--veio);border-radius:10px;padding:10px 12px;cursor:pointer;background:var(--pedra)}
-.op input{margin-top:5px;accent-color:var(--brasa)}
-.op:has(input:checked){border-color:var(--brasa);background:var(--pedra3)}
-.op b{color:var(--ouro)}
-.btn{font:700 1.05rem var(--texto);border-radius:12px;padding:12px 22px;cursor:pointer;border:1px solid transparent;color:#1b120b;
-  background:linear-gradient(180deg,#f0c463,var(--ouro) 55%,#b9852b);box-shadow:0 0 0 1px #6b4b16 inset}
-.btn:disabled{opacity:.4;cursor:default}
-.fim{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
-.prog{color:var(--cinza);font-variant-numeric:tabular-nums}
-.msg{margin:0}
-.msg.erro{color:var(--erro)} .msg.ok{color:var(--ok)}
-.feito{text-align:left}
-.feito h2{font:800 2rem/1.1 var(--display);color:var(--ouro);margin:0 0 6px}
 [hidden]{display:none!important}
+.runa{font:800 .78rem/1 var(--texto);letter-spacing:.32em;text-transform:uppercase;color:var(--ouro);opacity:.85;text-align:center;margin:0}
+
+/* Marcador de páginas: dez pedras */
+.trilha{display:flex;align-items:center;gap:10px;justify-content:space-between}
+.pedras{display:flex;gap:6px;flex-wrap:wrap}
+.pedras button{width:22px;height:22px;border-radius:6px;border:1px solid var(--veio);background:rgba(0,0,0,.3);color:var(--cinza);font:700 .7rem var(--texto);cursor:pointer;padding:0}
+.pedras button:disabled{opacity:.35;cursor:default}
+.pedras button.feita{border-color:var(--ouro);color:var(--ouro)}
+.pedras button[aria-current="step"]{background:var(--forja);border-color:var(--brasa);color:#fff2e6;box-shadow:0 0 12px rgba(255,123,46,.45)}
+.contagem{font:700 .85rem var(--texto);color:var(--cinza);font-variant-numeric:tabular-nums;white-space:nowrap}
+
+.quem{display:block;font:700 .76rem var(--texto);letter-spacing:.18em;text-transform:uppercase;color:var(--ouro)}
+.fala{font:500 italic clamp(1.3rem,5.4vw,1.65rem)/1.4 var(--voz);margin:0;min-height:2.8em;cursor:default}
+.fala .cursor{display:inline-block;width:.5ch;color:var(--brasa);animation:pisca .8s steps(1) infinite}
+@keyframes pisca{50%{opacity:0}}
+.pergunta{margin:0;font:700 1.05rem var(--texto);color:var(--aco)}
+.surge{animation:surge .6s ease both}
+@keyframes surge{from{opacity:0;transform:translateY(8px);filter:blur(3px)}to{opacity:1;transform:none;filter:none}}
+
+.grade{display:grid;gap:8px}
+.opt{text-align:left;border:1px solid var(--veio);background:rgba(0,0,0,.28);color:var(--tinta);border-radius:12px;padding:12px 14px;font:600 1.02rem var(--texto);cursor:pointer;transition:border-color .2s,box-shadow .2s}
+.opt b{color:var(--ouro);margin-right:4px}
+.opt:hover{border-color:var(--brasa)}
+.opt[aria-pressed="true"]{border-color:var(--ouro);background:linear-gradient(180deg,rgba(227,179,76,.18),rgba(227,179,76,.06));box-shadow:0 0 0 1px var(--ouro) inset,0 0 18px rgba(227,179,76,.25)}
+
+.comentario{margin:0;padding:12px 14px;border-left:3px solid var(--forja);font:500 italic 1.15rem/1.45 var(--voz);color:var(--ouro);min-height:2.6em}
+input[type=text]{width:100%;font:1.05rem var(--texto);color:var(--tinta);background:rgba(0,0,0,.35);border:1px solid var(--veio);border-radius:12px;padding:12px}
+input[type=text]:focus{border-color:var(--ouro);outline:none;box-shadow:0 0 0 2px rgba(227,179,76,.35)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+
+.btn{font:700 1.02rem var(--texto);border-radius:12px;padding:12px 20px;cursor:pointer;border:1px solid transparent;color:#1b120b;
+  background:linear-gradient(180deg,#f0c463,var(--ouro) 55%,#b9852b);box-shadow:0 0 0 1px #6b4b16 inset,0 6px 18px rgba(227,179,76,.25)}
+.btn:disabled{opacity:.35;cursor:default;box-shadow:none}
+.btn.sec{background:rgba(0,0,0,.25);color:var(--tinta);border-color:var(--veio);box-shadow:none}
+.linkbtn{background:none;border:none;color:var(--cinza);font:500 .95rem var(--texto);text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:8px 4px}
+.golpe{animation:golpe .32s ease-out}
+@keyframes golpe{0%{transform:none}25%{transform:translate(-3px,2px)}50%{transform:translate(3px,-1px)}75%{transform:translate(-1px,1px)}100%{transform:none}}
+
+.recap{display:flex;flex-direction:column;gap:6px;margin:0;padding:0;list-style:none}
+.recap button{width:100%;text-align:left;display:grid;grid-template-columns:1.6em minmax(0,1fr);gap:2px 8px;border:1px solid var(--veio);background:rgba(0,0,0,.25);color:var(--tinta);border-radius:10px;padding:8px 12px;cursor:pointer;font:500 .95rem var(--texto)}
+.recap button:hover{border-color:var(--brasa)}
+.recap .n{font:800 1.1rem var(--display);color:var(--brasa)}
+.recap small{color:var(--cinza);display:block}
+.err{color:var(--erro);font-weight:600;margin:0}
+
+.rodape{position:fixed;left:0;right:0;bottom:0;z-index:2;background:linear-gradient(180deg,rgba(23,18,14,0),rgba(23,18,14,.94) 32%);
+  padding:18px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.rodape .in{max-width:640px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:10px}
+@media (prefers-reduced-motion:reduce){.surge,.golpe,.fala .cursor{animation:none}}
 </style>
 </head>
 <body>
-<main class="cena" id="form">
-  <header>
-    <p class="runa">Sessão zero</p>
-    <h1>Descobridor de Campanha</h1>
-    <p class="voz">Dez perguntas para o mestre saber que aventura combina com a mesa. Não há resposta certa. Responda pensando no que você quer jogar.</p>
-  </header>
-  <div class="bloco">
-    <label class="lbl" for="nome">Seu nome (como aparece no grupo)</label>
-    <input type="text" id="nome" maxlength="40" autocomplete="nickname" placeholder="Ex.: Ana">
-  </div>
-  <div id="perguntas" style="display:flex;flex-direction:column;gap:14px"></div>
-  <div class="fim">
-    <button class="btn" id="enviar" type="button">Enviar ao mestre</button>
-    <span class="prog" id="prog"></span>
-  </div>
-  <p class="msg erro" id="erro" hidden></p>
+<main class="cena" id="cena">
+  <p class="runa">ᚦ · Salão da Forja · ᚦ</p>
+  <nav class="trilha" id="trilha" hidden aria-label="Perguntas">
+    <div class="pedras" id="pedras"></div>
+    <span class="contagem" id="contagem"></span>
+  </nav>
+  <span class="quem">O anão da forja</span>
+  <p class="fala" id="fala" aria-live="polite"></p>
+  <div id="corpo" style="display:flex;flex-direction:column;gap:14px"></div>
 </main>
-<main class="cena feito" id="feito" hidden>
-  <p class="runa">Enviado</p>
-  <h2>O mestre recebeu suas respostas</h2>
-  <p class="voz" id="feito-txt"></p>
-  <div class="fim"><button class="btn" id="refazer" type="button">Mudar minhas respostas</button></div>
-</main>
+<div class="rodape" id="rodape" hidden><div class="in">
+  <button class="btn sec" id="voltar" type="button">Voltar</button>
+  <button class="btn" id="avancar" type="button">Avançar</button>
+</div></div>
 <script>
-const PERGUNTAS = /*__PERGUNTAS__*/{{ perguntas_json|safe }};
-const L = "ABCD";
-const resp = Array(PERGUNTAS.length).fill(null);
+const PERGUNTAS = {{ perguntas_json|safe }};
+const L = "ABCD", N = PERGUNTAS.length;
+const REDUZ = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const $ = id => document.getElementById(id);
-const guardar = {ler(){try{return JSON.parse(localStorage.getItem("campanha-rascunho")||"null")}catch(e){return null}},
-                 gravar(v){try{localStorage.setItem("campanha-rascunho",JSON.stringify(v))}catch(e){}}};
+const el = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
 
-PERGUNTAS.forEach((q, i) => {
-  const fs = document.createElement("fieldset"); fs.className = "bloco";
-  const lg = document.createElement("legend");
-  const n = document.createElement("span"); n.className = "n"; n.textContent = i + 1;
-  const t = document.createElement("span"); t.textContent = q.t;
-  lg.append(n, t);
-  if (q.w > 1) { const p = document.createElement("span"); p.className = "peso"; p.textContent = "pesa mais"; lg.appendChild(p); }
-  fs.appendChild(lg);
-  const ops = document.createElement("div"); ops.className = "opcoes";
-  q.o.forEach((txt, j) => {
-    const lab = document.createElement("label"); lab.className = "op";
-    const inp = document.createElement("input"); inp.type = "radio"; inp.name = "q" + i; inp.id = "q" + i + L[j];
-    inp.addEventListener("change", () => { resp[i] = L[j]; salvar(); progresso(); });
-    const s = document.createElement("span"); const b = document.createElement("b"); b.textContent = L[j] + ") ";
-    s.append(b, document.createTextNode(txt));
-    lab.append(inp, s); ops.appendChild(lab);
+/* ---------- estado e rascunho ---------- */
+const S = {nome: "", resp: Array(N).fill(null), pag: 0, enviado: false};
+const RASC = (() => { try { return JSON.parse(localStorage.getItem("campanha-rascunho2") || "null"); } catch (e) { return null; } })();
+function salvar(){ try { localStorage.setItem("campanha-rascunho2", JSON.stringify(S)); } catch (e) {} }
+function apagar(){ try { localStorage.removeItem("campanha-rascunho2"); } catch (e) {} }
+
+/* ---------- escrita letra a letra ---------- */
+let escrevendo = null;
+function escrever(alvo, texto, vel = 26){
+  if (escrevendo) escrevendo.acabar();
+  alvo.textContent = "";
+  if (REDUZ) { alvo.textContent = texto; return Promise.resolve(); }
+  return new Promise(res => {
+    const txt = document.createTextNode(""), cur = el("span", "cursor", "▍");
+    alvo.append(txt, cur);
+    let i = 0, t = null, fim = false;
+    const acabar = () => { if (fim) return; fim = true; clearTimeout(t); txt.data = texto; cur.remove(); escrevendo = null; res(); };
+    const passo = () => {
+      if (fim) return;
+      txt.data = texto.slice(0, ++i);
+      if (i >= texto.length) return acabar();
+      const c = texto[i - 1];
+      t = setTimeout(passo, ".!?".includes(c) ? vel * 12 : c === "," ? vel * 5 : vel);
+    };
+    escrevendo = {acabar};
+    t = setTimeout(passo, 250);
   });
-  fs.appendChild(ops); $("perguntas").appendChild(fs);
-});
-
-function salvar(){ guardar.gravar({nome: $("nome").value, r: resp}); }
-function progresso(){ $("prog").textContent = `${resp.filter(Boolean).length} de ${PERGUNTAS.length} respondidas`; }
-const r0 = guardar.ler();
-if (r0) {
-  $("nome").value = r0.nome || "";
-  (r0.r || []).forEach((v, i) => { if (v && L.includes(v) && $("q" + i + v)) { resp[i] = v; $("q" + i + v).checked = true; } });
 }
-progresso();
-$("nome").addEventListener("input", salvar);
+// Tocar na fala termina a escrita na hora.
+$("fala").addEventListener("click", () => escrevendo && escrevendo.acabar());
+document.addEventListener("keydown", e => { if ((e.key === " " || e.key === "Enter") && escrevendo && document.activeElement === document.body) { e.preventDefault(); escrevendo.acabar(); } });
 
-function erro(t){ $("erro").textContent = t; $("erro").hidden = !t; }
-$("enviar").addEventListener("click", async () => {
-  const nome = $("nome").value.trim();
-  const faltam = resp.map((v, i) => v ? null : i + 1).filter(Boolean);
-  if (!nome) { erro("Escreva seu nome antes de enviar."); $("nome").focus(); return; }
-  if (faltam.length) { erro(`Faltam as perguntas ${faltam.join(", ")}.`); return; }
-  erro(""); $("enviar").disabled = true; $("enviar").textContent = "Enviando…";
-  try {
-    const r = await fetch("/api/campanha", {method: "POST", headers: {"Content-Type": "application/json"},
-                          body: JSON.stringify({nome, respostas: resp.join("")})});
-    const j = await r.json().catch(() => ({}));
-    if (!r.ok || !j.ok) throw new Error(j.erro || "O servidor não aceitou o envio.");
-    $("feito-txt").textContent = `Obrigado, ${nome}. Pode fechar esta página. Se mudar de ideia, envie de novo: vale a última resposta.`;
-    $("form").hidden = true; $("feito").hidden = false; window.scrollTo(0, 0);
-  } catch (e) {
-    erro((e && e.message && !/fetch/i.test(e.message)) ? e.message
-         : "Não consegui enviar. O site pode estar acordando: espere um minuto e toque em Enviar de novo.");
-  } finally { $("enviar").disabled = false; $("enviar").textContent = "Enviar ao mestre"; }
-});
-$("refazer").addEventListener("click", () => { $("feito").hidden = true; $("form").hidden = false; });
+/* ---------- navegação ---------- */
+const corpo = $("corpo"), fala = $("fala");
+let gen = 0; // cada troca de página invalida o que a página anterior ainda ia mostrar
+function pedras(){
+  const host = $("pedras"); host.innerHTML = "";
+  for (let i = 1; i <= N; i++) {
+    const b = el("button", S.resp[i - 1] ? "feita" : "", String(i));
+    b.type = "button"; b.setAttribute("aria-label", `Pergunta ${i}`);
+    const podeIr = i === 1 || S.resp.slice(0, i - 1).every(Boolean);
+    b.disabled = !podeIr || !S.nome;
+    if (S.pag === i) b.setAttribute("aria-current", "step");
+    b.addEventListener("click", () => ir(i));
+    host.appendChild(b);
+  }
+  $("contagem").textContent = S.pag >= 1 && S.pag <= N ? `${S.pag} de ${N}` : `${S.resp.filter(Boolean).length} de ${N}`;
+}
+function rodape(voltar, avancar, rotulo = "Avançar"){
+  $("rodape").hidden = !(voltar || avancar);
+  $("voltar").hidden = !voltar; $("voltar").onclick = voltar || null;
+  $("avancar").hidden = !avancar; $("avancar").textContent = rotulo;
+  $("avancar").onclick = avancar ? avancar.fn : null;
+  $("avancar").disabled = avancar ? !avancar.ok : true;
+}
+function ir(p){
+  S.pag = p; salvar(); gen++;
+  corpo.innerHTML = ""; window.scrollTo({top: 0, behavior: REDUZ ? "auto" : "smooth"});
+  $("trilha").hidden = p === 0;
+  pedras();
+  if (p === 0) return paginaNome();
+  if (p <= N) return paginaPergunta(p - 1);
+  if (p === N + 1) return paginaFinal();
+  return paginaEnviado();
+}
+
+/* ---------- página 0: abertura e nome ---------- */
+async function paginaNome(){
+  rodape(null, null);
+  const volta = RASC && RASC.nome && !S._novo;
+  const frases = volta
+    ? `Ah, você de novo, ${RASC.nome}. A forja ainda está quente. Quer continuar de onde parou?`
+    : "Ah. Mais um batendo na porta da minha forja. Sente aí. Não, aí não, isso é a bigorna. Antes de qualquer aventura, eu preciso saber o que você quer da vida. São dez perguntas. Responda direito.";
+  const g = gen;
+  await escrever(fala, frases);
+  if (g !== gen) return;
+  if (volta) {
+    const r = el("div", "row surge");
+    const c = el("button", "btn", "Continuar"); c.type = "button";
+    c.onclick = () => { Object.assign(S, RASC, {_novo: true}); ir(S.resp.every(Boolean) ? N + 1 : (S.pag >= 1 && S.pag <= N ? S.pag : 1)); };
+    const z = el("button", "linkbtn", "Começar do zero"); z.type = "button";
+    z.onclick = () => { apagar(); S._novo = true; S.nome = ""; S.resp = Array(N).fill(null); S.enviado = false; ir(0); };
+    r.append(c, z); corpo.appendChild(r); c.focus({preventScroll: true});
+    return;
+  }
+  const q = el("p", "pergunta surge", "Primeiro, seu nome. Como aparece no grupo.");
+  const inp = el("input", "surge"); inp.type = "text"; inp.id = "nome"; inp.maxLength = 40; inp.autocomplete = "nickname"; inp.placeholder = "Ex.: Ana"; inp.value = S.nome;
+  const ok = el("button", "btn surge", "Pode entrar"); ok.type = "button";
+  const r = el("div", "row"); r.appendChild(ok);
+  const valida = () => ok.disabled = !inp.value.trim();
+  const entrar = () => { if (!inp.value.trim()) return; S.nome = inp.value.trim().replace(/\s+/g, " "); salvar(); ir(1); };
+  inp.addEventListener("input", valida); inp.addEventListener("keydown", e => { if (e.key === "Enter") entrar(); });
+  ok.onclick = entrar; valida();
+  corpo.append(q, inp, r); inp.focus({preventScroll: true});
+}
+
+/* ---------- páginas 1 a 10: perguntas ---------- */
+async function paginaPergunta(i){
+  const q = PERGUNTAS[i];
+  const ja = S.resp[i];
+  let escolha = ja;
+  const avancar = {ok: !!ja, fn: () => ir(i + 2)};
+  rodape(() => ir(i), avancar, i === N - 1 ? "Ver resumo" : "Avançar");
+  const g = gen;
+  if (ja) { if (escrevendo) escrevendo.acabar(); fala.textContent = q.f; } else await escrever(fala, q.f);
+  if (g !== gen) return;
+  const perg = el("p", "pergunta surge", q.p);
+  const grade = el("div", "grade surge");
+  const confirmar = el("button", "btn", "Confirmar"); confirmar.type = "button";
+  const com = el("p", "comentario"); com.hidden = !ja;
+  if (ja) com.textContent = q.o[L.indexOf(ja)].c;
+  const botoes = q.o.map((o, j) => {
+    const b = el("button", "opt"); b.type = "button";
+    b.append(el("b", null, L[j] + ")"), document.createTextNode(o.t));
+    b.setAttribute("aria-pressed", String(ja === L[j]));
+    b.onclick = () => {
+      escolha = L[j];
+      botoes.forEach((x, k) => x.setAttribute("aria-pressed", String(k === j)));
+      const mudou = escolha !== S.resp[i];
+      confirmar.disabled = !mudou; confirmar.hidden = !mudou;
+      if (mudou) { com.hidden = true; avancar.ok = false; $("avancar").disabled = true; }
+      else { com.hidden = false; com.textContent = q.o[j].c; avancar.ok = true; $("avancar").disabled = false; }
+    };
+    grade.appendChild(b); return b;
+  });
+  confirmar.hidden = true;
+  confirmar.onclick = async () => {
+    if (!escolha) return;
+    S.resp[i] = escolha; S.enviado = false; salvar(); pedras();
+    confirmar.hidden = true;
+    $("cena").classList.remove("golpe"); void $("cena").offsetWidth; if (!REDUZ) $("cena").classList.add("golpe");
+    com.hidden = false;
+    await escrever(com, q.o[L.indexOf(escolha)].c, 24);
+    if (g !== gen) return;
+    avancar.ok = true; $("avancar").disabled = false; $("avancar").focus({preventScroll: true});
+  };
+  const r = el("div", "row"); r.appendChild(confirmar);
+  corpo.append(perg, grade, r, com);
+}
+
+/* ---------- página 11: conferir e enviar ---------- */
+async function paginaFinal(){
+  rodape(() => ir(N), null);
+  const g = gen;
+  await escrever(fala, `Pronto, ${S.nome}. Dez respostas na bigorna. Confira aí. Se quiser mudar alguma, toque nela. Senão, eu entrego ao mestre.`);
+  if (g !== gen) return;
+  const lista = el("ol", "recap surge");
+  PERGUNTAS.forEach((q, i) => {
+    const li = el("li"); const b = el("button"); b.type = "button";
+    const c = S.resp[i];
+    b.append(el("span", "n", String(i + 1)));
+    const t = el("span"); t.append(el("small", null, q.p), document.createTextNode(c ? q.o[L.indexOf(c)].t : "Sem resposta"));
+    b.appendChild(t); b.onclick = () => ir(i + 1);
+    li.appendChild(b); lista.appendChild(li);
+  });
+  const env = el("button", "btn surge", "Entregar ao mestre"); env.type = "button";
+  const err = el("p", "err"); err.hidden = true;
+  env.onclick = async () => {
+    const falta = S.resp.map((v, i) => v ? null : i + 1).filter(Boolean);
+    if (falta.length) { err.textContent = `Faltam as perguntas ${falta.join(", ")}.`; err.hidden = false; return; }
+    env.disabled = true; env.textContent = "Entregando…"; err.hidden = true;
+    try {
+      const r = await fetch("/api/campanha", {method: "POST", headers: {"Content-Type": "application/json"},
+                            body: JSON.stringify({nome: S.nome, respostas: S.resp.join("")})});
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok || !j.ok) throw new Error(j.erro || "O servidor não aceitou o envio.");
+      S.enviado = true; S.resumo = j.resumo || ""; salvar(); ir(N + 2);
+    } catch (e) {
+      err.textContent = (e && e.message && !/fetch|network/i.test(e.message)) ? e.message
+        : "Não consegui entregar. O site pode estar acordando: espere um minuto e toque de novo.";
+      err.hidden = false; env.disabled = false; env.textContent = "Entregar ao mestre";
+    }
+  };
+  const r = el("div", "row"); r.appendChild(env);
+  corpo.append(lista, r, err);
+}
+
+/* ---------- página 12: resumo do anão ---------- */
+async function paginaEnviado(){
+  rodape(null, null);
+  $("trilha").hidden = true;
+  const g = gen;
+  await escrever(fala, S.resumo || "Entregue. O mestre já tem suas respostas.");
+  if (g !== gen) return;
+  const ok = el("p", "pergunta surge", "O mestre já recebeu suas respostas. Pode fechar esta página.");
+  const mudar = el("button", "linkbtn surge", "Mudar minhas respostas"); mudar.type = "button";
+  mudar.onclick = () => ir(N + 1);
+  corpo.append(ok, mudar);
+}
+
+ir(0);
 </script>
 </body>
 </html>

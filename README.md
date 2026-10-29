@@ -45,8 +45,8 @@ No Windows (PowerShell): `$env:MESTRE_SENHA="escolha-uma-senha"; python app.py`.
 - `POST /api/fichas` — o jogador envia a ficha (nome do jogador e personagem). O mesmo jogador pode enviar várias fichas.
 - `/mestre` — lista das fichas com busca por jogador, personagem, raça ou classe (pede usuário e senha)
 - `/mestre/ficha/<id>` — ficha completa, com botão de copiar
-- `/campanha` — Descobridor de Campanha: o jogador escreve o nome, responde 10 perguntas e envia ao mestre
-- `POST /api/campanha` — grava as respostas (nome e 10 letras A–D). Se a pessoa enviar de novo antes de entrar num grupo, vale o último envio
+- `/campanha` — Descobridor de Campanha: o anão da forja faz 10 perguntas, uma por página, comenta cada escolha e no fim diz do que o jogador gosta e o que deve temer, sem revelar a aventura. As respostas vão para o mestre
+- `POST /api/campanha` — grava as respostas (nome e 10 letras A–D) e devolve a fala final do anão. Se a pessoa enviar de novo antes de entrar num grupo, vale o último envio
 - `/mestre/campanha` — envios sem grupo e grupos. Marque pessoas e gere o cálculo: elas saem dos envios e entram no grupo nomeado
 - `/mestre/campanha/grupo/<id>` — ranking de aderência do grupo, respostas de cada pessoa, devolver aos envios, desfazer ou excluir o grupo
 - `/api/tabelas`, `/api/tabelas/<CHAVE>`, `/api/dados` — tabelas do gerador, só leitura
